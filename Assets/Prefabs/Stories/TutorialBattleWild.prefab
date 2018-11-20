@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1119355601886002}
+  m_IsPrefabAsset: 1
+--- !u!1 &1119355601886002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4614605442555886}
+  - component: {fileID: 114750267924481196}
+  m_Layer: 0
+  m_Name: TutorialBattleWild
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4614605442555886
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119355601886002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 589.37756, y: 280.7265, z: 8.296513}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114750267924481196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119355601886002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3981b9c2bf648f193915d80ac22125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyName: TutorialBattleWild
+  textHolder:
+  - 'Mohe can be encountered by walking through tall grass. When a monster is seen,
+    you will be taken to the battle screen. '
+  - 'Battles are fought by matching gems of 3 or more to build up skills and deal
+    damage to the opposing monster. When a monster loses all health they are elminated. '
+  - 'There are 2 ways to deal damage. The first is to match fight gems together. Each
+    gem will deal 1 damage without bonuses. '
+  - 'The second way is with skills. In order to use the skill "Gnaw" and deal 2 damage
+    to the enemy, you need to destroy 1 silver and 2 fight gems. To use a skill, click
+    on the skill youd like to use, then click on the board. '
+  - 'Since this is a wild monster, you are also given a chance to catch it! Lower
+    a monster''s health enough and match the correct gems to keep it as your own. '
+  - 'Be careful though. Give the monster enough time and it will escape! '
+  - 'Once caught, monsters can be swapped out by selecting the back button then selecting
+    swap. The battle order of your Mohe can be edited from the adventure menu. '
+  nextScene: MainScene
+  spriteHolder:
+  - {fileID: 21300000, guid: 6a0a54a659b4a4a6bb1bcbe0366b74e2, type: 3}
+  - {fileID: 21300000, guid: ffab441c11bd74036944d5990b19fb69, type: 3}
+  - {fileID: 21300000, guid: 7eabf3e91ccbe4c9aad8e4baeffe90ab, type: 3}
+  - {fileID: 21300000, guid: de86eebdb2d5746ca8dbd49073f05756, type: 3}
+  - {fileID: 21300000, guid: fe0ddc7ee63eb4fa7982a9350eac5c95, type: 3}
+  - {fileID: 21300000, guid: 1fd4596e1600c4d66ba5d928f0288b49, type: 3}
+  - {fileID: 21300000, guid: eb11c42b27bb64f308dc85b88553f40d, type: 3}
+  scene: 1

@@ -1,0 +1,5 @@
+Temp/
+.env
+**/.env
+**/env.py
+**/.tar.gz

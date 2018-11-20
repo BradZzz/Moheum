@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1119355601886002}
+  m_IsPrefabAsset: 1
+--- !u!1 &1119355601886002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4614605442555886}
+  - component: {fileID: 114750267924481196}
+  m_Layer: 0
+  m_Name: TutorialWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4614605442555886
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119355601886002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 589.37756, y: 280.7265, z: 8.296513}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114750267924481196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119355601886002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3981b9c2bf648f193915d80ac22125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyName: TutorialWorld
+  textHolder:
+  - 'Welcome to the world of the future! This tutorial is here to help acclimate you
+    to the basics. '
+  - 'First, movement. You can navigate through the world by using the arrow keys or
+    clicking/tapping on the spot where youd like to move. '
+  - 'Your menu is located on the top left of your screen. Use it to look at your current
+    roster and rearrange the battle order of your Mohe. '
+  - 'It can also be used for looking at your game stats and current pack items. '
+  - 'Walk into people to talk to them. Most people will give you advice about the
+    world around you. Some will battle you instead, so be careful before you interact
+    with anyone. '
+  - 'Mages will heal your Mohe. Find them if you see your team running low on health. '
+  - 'Mohe love to hide in tall grass. Walk through it to have a chance at encountering
+    one. '
+  nextScene: MainScene
+  spriteHolder:
+  - {fileID: 21300000, guid: 14aee872826c54d86a014a446791fa6d, type: 3}
+  - {fileID: 21300000, guid: 887208e0dbdac480b88374acad46682a, type: 3}
+  - {fileID: 21300000, guid: e2504fe94ba004c919e5a012471f03a4, type: 3}
+  - {fileID: 21300000, guid: 86e5db85813684f51a72a82ec11b6dd6, type: 3}
+  - {fileID: 21300000, guid: de17a8477ce48401cad3726759f54f55, type: 3}
+  - {fileID: 21300000, guid: 4c19d48768ac443039230e15f83789c4, type: 3}
+  - {fileID: 21300000, guid: 6a0a54a659b4a4a6bb1bcbe0366b74e2, type: 3}
+  scene: 1

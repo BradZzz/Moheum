@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1119355601886002}
+  m_IsPrefabAsset: 1
+--- !u!1 &1119355601886002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4614605442555886}
+  - component: {fileID: 114750267924481196}
+  m_Layer: 0
+  m_Name: Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4614605442555886
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119355601886002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 589.37756, y: 280.7265, z: 8.296513}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114750267924481196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119355601886002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3981b9c2bf648f193915d80ac22125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyName: Intro
+  textHolder:
+  - 'In the beginning, god created the heavens and the earth. In the end he destroyed
+    them, and in doing so, ended up destroying himself. '
+  - 'From the rubble of armageddon, the Mohe were born. Rising from the remains of
+    billions of shattered demon souls, the Mohe personified the sins from which they
+    were created. '
+  - 'Without a leader to guide them, the Mohe wandered the earth aimlessly for thousands
+    of years. Through their wandering, they started to interact with the world. '
+  - 'Meanwhile, the remaining shreds of humanity began to rebuild civilization. As
+    they did, the Mohe were adopted into more and more of a symbiotic relationship. '
+  - 'While some human masters use their Mohe for good, countless others use their
+    Mohe for darker puposes. And so, with the old gods dead, new gods grew out of
+    their ashes, challenging and fighting each other for superiority. '
+  - 'It is 4762 AG. You are embarking on a pilgrimage to the site of the "Great Battle"
+    with your trusty Mohe "Six". Good luck on your journey! '
+  nextScene: MainScene
+  spriteHolder: []
+  scene: 0
