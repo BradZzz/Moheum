@@ -178,11 +178,14 @@ public class PauseManager : MonoBehaviour {
   }
 
   public void VaultClick(int pos){
-    vaultPos = pos;
-    vaultSwap = true;
-    vaultPnl.SetActive(false);
-    rosterPnl.SetActive(true);
-    loadRoster();
+    AdventureMeta adventure = BaseSaver.getAdventure();
+    if (adventure.vault.Length > pos) {
+      vaultPos = pos;
+      vaultSwap = true;
+      vaultPnl.SetActive(false);
+      rosterPnl.SetActive(true);
+      loadRoster();
+    }
   }
 
   public void PageDir(bool left){

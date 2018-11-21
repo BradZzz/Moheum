@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Adventure/DialogManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Savers/DialogMeta.cs">
     <Files>
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="170" Column="1" />
+      <File FileName="Assets/Scripts/PauseManager.cs" Line="179" Column="3" />
       <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="72" Column="1" />
       <File FileName="Assets/Scripts/Move.cs" Line="64" Column="72" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="178" Column="51" />
@@ -13,7 +13,10 @@
       <File FileName="Assets/Scripts/Savers/AdventureMeta.cs" Line="32" Column="28" />
       <File FileName="Assets/Scripts/Items/TreasureMain.cs" Line="33" Column="87" />
       <File FileName="Assets/Scripts/Items/TreasureMeta.cs" Line="12" Column="40" />
-      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="145" Column="38" />
+      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="143" Column="29" />
+      <File FileName="Assets/Scripts/ColliderListener.cs" Line="121" Column="51" />
+      <File FileName="Assets/Scripts/Puzzle/Skills/SkillEffect.cs" Line="175" Column="126" />
+      <File FileName="Assets/Scripts/Savers/DialogMeta.cs" Line="21" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

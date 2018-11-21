@@ -138,6 +138,7 @@ MonoBehaviour:
   - {fileID: 1641342610378868, guid: fb03b765a7ed645b192a51651519ca88, type: 2}
   - {fileID: 1641342610378868, guid: d1dcf01c6ff9f4192aaedbc0659f926f, type: 2}
   - {fileID: 1641342610378868, guid: a047897dde4804ae280c556f3270eb4b, type: 2}
+  - {fileID: 1641342610378868, guid: ebe8683da86ca432ea4c12b790af56ba, type: 2}
   scenes:
   - {fileID: 1165300141751418, guid: b96632385398741969124018654bb524, type: 2}
   - {fileID: 1165300141751418, guid: 7ab0da7a7e2fb47b2812e34ee8408c7d, type: 2}
@@ -147,6 +148,8 @@ MonoBehaviour:
   - {fileID: 1165300141751418, guid: c8ff33621eb82433bb56105b31c6af4e, type: 2}
   - {fileID: 1165300141751418, guid: a68a80a0d860c4449a769cc851cab9b2, type: 2}
   - {fileID: 1165300141751418, guid: ee1f71300298d490ab1146bd73c42d04, type: 2}
+  - {fileID: 1165300141751418, guid: ba751777772c3446aaa85412a33e6bdf, type: 2}
+  - {fileID: 1165300141751418, guid: 456a54a145cde4be2a7c9880e1d0d7ec, type: 2}
   stories:
   - {fileID: 1119355601886002, guid: 6e104435e88104051b07a00037ff1732, type: 2}
   - {fileID: 1119355601886002, guid: 0784e2963ed684c26830ab95b9f0385b, type: 2}

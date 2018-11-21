@@ -60,4 +60,4 @@ MonoBehaviour:
     - Beanlock
     - Cave Thorn
     monsterLvls: 0200000005000000
-  map: {fileID: 1860842803504046, guid: 049fc1668e1454c03afb996e45983fc6, type: 2}
+  map: {fileID: 1573744382969356, guid: dafc9c55a056f4fd18d226ac0cec4c03, type: 2}

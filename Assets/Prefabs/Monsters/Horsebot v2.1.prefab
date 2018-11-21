@@ -82,7 +82,7 @@ MonoBehaviour:
     - lvl: 28
       skill: Quiet Storm
     - lvl: 11
-      skill: Windmill
+      skill: Fuzz Rub
     - lvl: 20
       skill: Boil
     lvlSpeed: 2

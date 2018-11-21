@@ -304,6 +304,7 @@ public class PanelManager : MonoBehaviour
       isUsingItem = false;
       GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[currentMonster].curHealth);
       loadLocation();
+      updateUI(adventure.trainer);
     }
   }
 

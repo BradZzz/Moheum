@@ -172,7 +172,7 @@ public class SkillEffect {
     }
     public override string effectString()
     {
-      return abbreviationEffect(effect) + " " + abbreviationGem(toRemove) + " to " + abbreviationEffect(Effect.Destroy) + " in " + amount.ToString();
+      return abbreviationEffect(effect) + " " + abbreviationGem(toRemove) + ". " + abbreviationEffect(Effect.Destroy) + " in " + amount.ToString();
     }
   }
 

@@ -86,6 +86,8 @@ MonoBehaviour:
       skill: Uber Spark
     - lvl: 45
       skill: Mega X
+    - lvl: 8
+      skill: Fuzz Rub
     lvlSpeed: 1
     maxCatchTurns: 0
     currCatchTurns: 0
