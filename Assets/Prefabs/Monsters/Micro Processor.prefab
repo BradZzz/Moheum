@@ -65,7 +65,7 @@ MonoBehaviour:
     gluttony: 0
     sloth: 0.25
     envy: 0
-    strengths: 0400000006000000
+    strengths: 0400000005000000
     weaknesses: 00000000
     skills:
     - Spark
@@ -79,13 +79,15 @@ MonoBehaviour:
     - lvl: 13
       skill: Ignite
     - lvl: 22
-      skill: Tremor
+      skill: Breaking Wind
     - lvl: 30
       skill: Uber Spark
     - lvl: 18
       skill: Singe
     - lvl: 40
       skill: Molten
+    - lvl: 35
+      skill: Tremor
     lvlSpeed: 2
     maxCatchTurns: 0
     currCatchTurns: 0

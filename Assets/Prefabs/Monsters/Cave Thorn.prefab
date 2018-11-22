@@ -77,14 +77,24 @@ MonoBehaviour:
       skill: Leech
     - lvl: 17
       skill: Grave Jab
-    - lvl: 6
+    - lvl: 9
       skill: Prick
     - lvl: 22
+      skill: Misdirect
+    - lvl: 30
       skill: Mega Tremor
+    - lvl: 42
+      skill: Enfeeble
     lvlSpeed: 3
-    maxCatchTurns: 0
-    currCatchTurns: 0
-    catchReq: []
+    maxCatchTurns: 8
+    currCatchTurns: 3
+    catchReq:
+    - gem: 4
+      req: 2
+      has: 2
+    - gem: 3
+      req: 2
+      has: 2
 --- !u!212 &212525639340765704
 SpriteRenderer:
   m_ObjectHideFlags: 1

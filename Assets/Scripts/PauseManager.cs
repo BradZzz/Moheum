@@ -64,7 +64,7 @@ public class PauseManager : MonoBehaviour {
     glossy = glossaryObj.GetComponent<Glossary>();
     SceneMain scene = glossy.GetScene(BaseSaver.getMap());
     GameObject.Find("MenuTitle").SetActive(true);
-    GameObject.Find("MenuTitle").GetComponent<Text>().text = scene.name;
+    GameObject.Find("MenuTitle").GetComponent<Text>().text = scene.meta.name;
     StartCoroutine(WaitForAction(3f));
 
     GameObject map = Instantiate(scene.map, new Vector3(0, 0, 0), Quaternion.identity);

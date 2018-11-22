@@ -44,6 +44,7 @@ public class DialogManager : MonoBehaviour {
 
   public void CloseShop(){
     ShopCanvas.SetActive(false);
+    GameObject.FindWithTag("Player").GetComponent<Move>().disableMoveTimed();
   }
 
   public void PurchaseShop(int click){

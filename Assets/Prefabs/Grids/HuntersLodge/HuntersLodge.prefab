@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meta:
-    name: CobblesTown
+    name: Hunters Lodge
     monsters:
     - Gran Dux
     - Octam

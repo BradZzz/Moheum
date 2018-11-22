@@ -480,8 +480,9 @@ public class PanelManager : MonoBehaviour
   {
     if (meta != null)
     {
-      GameObject.Find("MTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(meta.roster);
-      GameObject.Find("HTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(adventure.roster);
+      GameObject.Find("MTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(meta.roster, 
+        adventure.isTrainerEncounter ? TrainerUpdateController.TrainerType.Trainer : TrainerUpdateController.TrainerType.Wild);
+      GameObject.Find("HTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(adventure.roster, TrainerUpdateController.TrainerType.Player);
     }
   }
 

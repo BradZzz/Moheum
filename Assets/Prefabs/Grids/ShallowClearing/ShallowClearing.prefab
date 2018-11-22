@@ -59,4 +59,4 @@ MonoBehaviour:
     - Beanlock
     - Wind Pixie
     monsterLvls: 0100000002000000
-  map: {fileID: 1179556205808222, guid: bca0ac622a9244d4b882b1e84152496d, type: 2}
+  map: {fileID: 1220523015430728, guid: 2f4195277c925438786852b6783274fc, type: 2}

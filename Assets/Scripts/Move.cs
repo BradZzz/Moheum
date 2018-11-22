@@ -43,6 +43,19 @@ public class Move : MonoBehaviour {
     canMove = false;
   }
 
+  public void disableMoveTimed()
+  {
+    canMove = false;
+    destination = Vector3.zero;
+    StartCoroutine(WaitEnable());
+  }
+
+  IEnumerator WaitEnable(){
+    yield return new WaitForSeconds(.25f);
+    destination = Vector3.zero;
+    enableMove();
+  }
+
   public void enableMove()
   {
     canMove = true;

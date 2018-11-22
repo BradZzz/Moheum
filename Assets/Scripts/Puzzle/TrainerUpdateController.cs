@@ -15,23 +15,39 @@ public class TrainerUpdateController : MonoBehaviour {
     }
   }
 
-  public void updateMonsterUI(PlayerRosterMeta[] roster){
-    for (int i = 0; i < 6; i++)
+  public void updateMonsterUI(PlayerRosterMeta[] roster, TrainerType tType){
+    if (tType == TrainerType.Wild) {
+      GameObject.Find("WildTxt").GetComponent<Text>().enabled = true;
+    } else if (tType == TrainerType.Trainer)
     {
-      if (i < roster.Length)
+      GameObject.Find("WildTxt").GetComponent<Text>().enabled = false;
+    }
+    if (tType == TrainerType.Trainer || tType == TrainerType.Player) {
+      for (int i = 0; i < 6; i++)
       {
-        monsterUI[i].SetActive(true);
-        Color thisColor = monsterUI[i].transform.GetChild(0).gameObject.GetComponent<Image>().color;
-        if (roster[i].curHealth > 0)
+        if (i < roster.Length)
         {
-          thisColor.a = 0;
-        } else {
-          thisColor.a = 1;
+          monsterUI[i].SetActive(true);
+          Color thisColor = monsterUI[i].transform.GetChild(0).gameObject.GetComponent<Image>().color;
+          if (roster[i].curHealth > 0)
+          {
+            thisColor.a = 0;
+          }
+          else
+          {
+            thisColor.a = 1;
+          }
+          monsterUI[i].transform.GetChild(0).gameObject.GetComponent<Image>().color = thisColor;
         }
-        monsterUI[i].transform.GetChild(0).gameObject.GetComponent<Image>().color = thisColor;
-      } else {
-        monsterUI[i].SetActive(false);
+        else
+        {
+          monsterUI[i].SetActive(false);
+        }
       }
     }
+  }
+
+  public enum TrainerType {
+    Player, Trainer, Wild, None
   }
 }

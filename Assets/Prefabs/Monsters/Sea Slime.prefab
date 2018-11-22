@@ -75,15 +75,19 @@ MonoBehaviour:
     - lvl: 1
       skill: Gnaw
     - lvl: 3
-      skill: Icicle
+      skill: Bubble
     - lvl: 8
       skill: Douse
     - lvl: 14
-      skill: Rustle
+      skill: Icicle
     - lvl: 24
       skill: Steam Bolt
     - lvl: 35
       skill: Blizzard
+    - lvl: 18
+      skill: Growth
+    - lvl: 45
+      skill: Mega Bubble
     lvlSpeed: 4
     maxCatchTurns: 0
     currCatchTurns: 0

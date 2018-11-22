@@ -80,7 +80,9 @@ MonoBehaviour:
     - lvl: 22
       skill: Poison Jab
     - lvl: 30
-      skill: Gaias Fall
+      skill: Amnesia
+    - lvl: 45
+      skill: Enfeeble
     lvlSpeed: 3
     maxCatchTurns: 8
     currCatchTurns: 0

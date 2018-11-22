@@ -59,5 +59,6 @@ MonoBehaviour:
     - Hushwort
     - Albix
     - Sea Slime
+    - Guatarion
     monsterLvls: 0300000005000000
   map: {fileID: 1570886507235556, guid: 0e4b092398af94df8a812cf4643bbd82, type: 2}

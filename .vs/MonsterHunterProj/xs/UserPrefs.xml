@@ -1,14 +1,25 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Adventure/SceneMeta.cs">
     <Files>
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="101" Column="42" />
-      <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="35" Column="19" />
-      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="324" Column="22" />
+      <File FileName="Assets/Scripts/PauseManager.cs" Line="91" Column="41" />
+      <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="180" Column="38" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="92" Column="1" />
       <File FileName="Assets/Scripts/Savers/PosMeta.cs" Line="22" Column="31" />
-      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="188" Column="31" />
+      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="45" Column="27" />
       <File FileName="Assets/Scripts/Savers/DialogMeta.cs" Line="31" Column="26" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="178" Column="51" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="130" Column="4" />
+      <File FileName="Assets/Scripts/Puzzle/Skills/SkillEffect.cs" Line="175" Column="126" />
+      <File FileName="Assets/Scripts/PlayerTile.cs" Line="30" Column="4" />
+      <File FileName="Assets/Scripts/Savers/AdventureMeta.cs" Line="78" Column="18" />
+      <File FileName="Assets/Scripts/Puzzle/MonsterMeta.cs" Line="121" Column="23" />
+      <File FileName="Assets/Scripts/ColliderListener.cs" Line="59" Column="10" />
+      <File FileName="Assets/Scripts/Move.cs" Line="54" Column="39" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="485" Column="88" />
+      <File FileName="Assets/Scripts/Puzzle/TrainerUpdateController.cs" Line="33" Column="12" />
+      <File FileName="Assets/Scripts/Adventure/ExitTile.cs" Line="11" Column="15" />
+      <File FileName="Assets/Scripts/Adventure/SceneMain.cs" Line="6" Column="17" />
+      <File FileName="Assets/Scripts/Adventure/SceneMeta.cs" Line="9" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

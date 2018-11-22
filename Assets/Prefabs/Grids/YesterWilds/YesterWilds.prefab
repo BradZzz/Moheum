@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meta:
-    name: CobblesTown
+    name: Yester Wilds
     monsters:
     - Desire Mimic
     - Jojoi

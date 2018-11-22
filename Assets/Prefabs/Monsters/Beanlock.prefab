@@ -74,22 +74,30 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Boil
-    - lvl: 3
+    - lvl: 5
       skill: Cure
-    - lvl: 8
+    - lvl: 30
       skill: Enfeeble
-    - lvl: 16
+    - lvl: 18
       skill: Submerge
     - lvl: 26
       skill: Purify
-    - lvl: 5
+    - lvl: 9
       skill: Gnaw
     - lvl: 45
       skill: Armageddon
+    - lvl: 12
+      skill: Harvest
     lvlSpeed: 1
-    maxCatchTurns: 0
-    currCatchTurns: 0
-    catchReq: []
+    maxCatchTurns: 8
+    currCatchTurns: 2
+    catchReq:
+    - gem: 5
+      req: 2
+      has: 2
+    - gem: 4
+      req: 2
+      has: 0
 --- !u!212 &212525639340765704
 SpriteRenderer:
   m_ObjectHideFlags: 1

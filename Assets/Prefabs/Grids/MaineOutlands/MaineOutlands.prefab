@@ -58,5 +58,6 @@ MonoBehaviour:
     - Gran Dux
     - Beanlock
     - Horsebot v2.1
+    - Guatarion
     monsterLvls: 0200000003000000
-  map: {fileID: 1911693386072016, guid: ff618a04083c24c3baa4c14092ffec93, type: 2}
+  map: {fileID: 1932215599885836, guid: 1c89d9f21f1ff4f0c954d82d02d02cb3, type: 2}
