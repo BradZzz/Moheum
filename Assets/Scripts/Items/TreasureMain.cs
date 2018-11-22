@@ -45,8 +45,8 @@ public class TreasureMain : MonoBehaviour
   IEnumerator checkItemPickedUp()
   {
     bool pickedUp = GameUtilities.getPickedUp(BaseSaver.getMap(), transform.position);
-    Debug.Log("Item: " + name);
-    Debug.Log("Picked Up: " + pickedUp.ToString());
+    //Debug.Log("Item: " + name);
+    //Debug.Log("Picked Up: " + pickedUp.ToString());
     if (pickedUp)
     {
       //Destroy(this.gameObject);

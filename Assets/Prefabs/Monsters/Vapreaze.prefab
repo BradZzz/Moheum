@@ -56,8 +56,8 @@ MonoBehaviour:
     name: Vapreaze
     lvl: 1
     exp: 0
-    mxHealth: 5
-    currHealth: 5
+    mxHealth: 6
+    currHealth: 6
     lust: 0
     greed: -0.25
     wrath: -0.25

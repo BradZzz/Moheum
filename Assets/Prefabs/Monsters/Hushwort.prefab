@@ -56,8 +56,8 @@ MonoBehaviour:
     name: Hushwort
     lvl: 1
     exp: 0
-    mxHealth: 3
-    currHealth: 3
+    mxHealth: 4
+    currHealth: 4
     lust: 0.1
     greed: 0.1
     wrath: 0
@@ -82,9 +82,15 @@ MonoBehaviour:
     - lvl: 30
       skill: Gaias Fall
     lvlSpeed: 3
-    maxCatchTurns: 0
+    maxCatchTurns: 8
     currCatchTurns: 0
-    catchReq: []
+    catchReq:
+    - gem: 4
+      req: 2
+      has: 0
+    - gem: 3
+      req: 2
+      has: 0
 --- !u!212 &212525639340765704
 SpriteRenderer:
   m_ObjectHideFlags: 1

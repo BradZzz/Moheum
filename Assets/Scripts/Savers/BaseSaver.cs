@@ -32,9 +32,14 @@ public class BaseSaver {
   {
     Debug.Log("restoreState!");
 
+    //BoardMeta board = BaseSaver.getBoard(BaseSaver.getMap());
+    //board.playerPos = new PosMeta(-99999, -99999, -99999);
+    //BaseSaver.putBoard(board);
+
     PlayerPrefs.SetString(ADVENTURE, PlayerPrefs.GetString(SAVE_ADVENTURE));
     PlayerPrefs.SetString(BOARD + "_" + PlayerPrefs.GetString(SAVE_MAP_NAME), PlayerPrefs.GetString(SAVE_BOARD));
     PlayerPrefs.SetString(MAP_NAME, PlayerPrefs.GetString(SAVE_MAP_NAME));
+    PlayerPrefs.SetString(MAP_NAME_PREV,"");
 
     Debug.Log("ADVENTURE: " + PlayerPrefs.GetString(ADVENTURE));
     Debug.Log("BOARD: " + PlayerPrefs.GetString(BOARD));
@@ -99,7 +104,7 @@ public class BaseSaver {
   {
     //Debug.Log("Getting board at: " + BOARD + "_" + name);
     string json = PlayerPrefs.GetString(BOARD + "_" + name);
-    Debug.Log("BOARD got: " + json);
+    //Debug.Log("BOARD got: " + json);
     if (json.Length == 0)
     {
       return null;

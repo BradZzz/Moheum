@@ -56,8 +56,8 @@ MonoBehaviour:
     name: Ligeia
     lvl: 1
     exp: 0
-    mxHealth: 4
-    currHealth: 4
+    mxHealth: 5
+    currHealth: 5
     lust: 0.1
     greed: 0.1
     wrath: 0

@@ -112,7 +112,7 @@ public static class GameUtilities {
   }
 
   public static BoardMeta getBoardState(string mapName, PosMeta playerPos){
-    Debug.Log("getBoardState: " + mapName);
+    //Debug.Log("getBoardState: " + mapName);
     List<NPCMeta> npcs = new List<NPCMeta>();
     foreach(GameObject npc in GameObject.FindGameObjectsWithTag("NPC")){
       NPCMeta thisMeta = npc.GetComponent<NPCMain>().meta;
@@ -125,8 +125,8 @@ public static class GameUtilities {
     List<MonTreasMeta> items = new List<MonTreasMeta>();
     foreach (GameObject item in GameObject.FindGameObjectsWithTag("Item"))
     {
-      Debug.Log("Found Item: " + item.name);
-      Debug.Log("Active: " + item.activeInHierarchy.ToString());
+      //Debug.Log("Found Item: " + item.name);
+      //Debug.Log("Active: " + item.activeInHierarchy.ToString());
       if (item.activeInHierarchy)
       {
         MonTreasMeta thisMeta = item.GetComponent<TreasureMain>().monTreas;

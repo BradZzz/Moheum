@@ -98,7 +98,7 @@ public class InteractableMain : MonoBehaviour {
         }
       }
 
-      Debug.Log("Interactable Visible: " + meta.visible.ToString());
+      //Debug.Log("Interactable Visible: " + meta.visible.ToString());
 
       if (meta.visible)
       {

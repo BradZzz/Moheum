@@ -56,8 +56,8 @@ MonoBehaviour:
     name: Wind Pixie
     lvl: 1
     exp: 0
-    mxHealth: 3
-    currHealth: 3
+    mxHealth: 4
+    currHealth: 4
     lust: 0.3
     greed: -0.25
     wrath: 0
@@ -88,14 +88,14 @@ MonoBehaviour:
       skill: Mega Bubble
     lvlSpeed: 4
     maxCatchTurns: 8
-    currCatchTurns: 3
+    currCatchTurns: 0
     catchReq:
     - gem: 1
       req: 2
-      has: 2
+      has: 0
     - gem: 5
       req: 2
-      has: 2
+      has: 0
 --- !u!212 &212525639340765704
 SpriteRenderer:
   m_ObjectHideFlags: 1

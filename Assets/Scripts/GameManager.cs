@@ -305,6 +305,7 @@ public class GameManager : MonoBehaviour {
   }
 
   public void ResetAll(){
+    Debug.Log("ResetAll");
     Glossary glossy = GameObject.Find("Glossary").GetComponent<Glossary>();
     PlayerPrefs.DeleteAll();
 

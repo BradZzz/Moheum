@@ -18,6 +18,9 @@ public class PosMeta {
     this.y = pos.y;
     this.z = pos.z;
   }
+  public Vector3 ToVector3(){
+    return new Vector3(x,y,z);
+  }
   public bool Equals(PosMeta pos){
     return (int)(this.x * 1000) == (int)(pos.x * 1000) 
       && (int)(this.y * 1000) == (int)(pos.y * 1000) 
