@@ -65,10 +65,10 @@ MonoBehaviour:
     - effect: 10
       val: 3
       val2: 0
-      gem1: 7
+      gem1: 3
       gem2: 7
-    - effect: 2
-      val: 2
-      val2: 0
-      gem1: 7
+    - effect: 4
+      val: 0
+      val2: 4
+      gem1: 6
       gem2: 7

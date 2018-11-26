@@ -74,20 +74,22 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Boil
-    - lvl: 5
+    - lvl: 3
       skill: Cure
-    - lvl: 30
+    - lvl: 38
       skill: Enfeeble
     - lvl: 18
       skill: Submerge
     - lvl: 26
       skill: Purify
-    - lvl: 9
+    - lvl: 12
       skill: Gnaw
     - lvl: 45
       skill: Armageddon
-    - lvl: 12
+    - lvl: 6
       skill: Harvest
+    - lvl: 30
+      skill: Chain Disease
     lvlSpeed: 1
     maxCatchTurns: 8
     currCatchTurns: 2

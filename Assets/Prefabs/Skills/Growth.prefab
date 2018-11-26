@@ -55,11 +55,11 @@ MonoBehaviour:
     name: Growth
     req1:
       gem: 0
-      req: 3
+      req: 4
       has: 0
     req2:
       gem: 4
-      req: 2
+      req: 1
       has: 0
     effects:
     - effect: 1

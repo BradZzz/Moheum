@@ -68,7 +68,7 @@ MonoBehaviour:
       gem1: 5
       gem2: 7
     - effect: 2
-      val: 2
+      val: 1
       val2: 0
       gem1: 5
       gem2: 7

@@ -63,12 +63,12 @@ MonoBehaviour:
       has: 1
     effects:
     - effect: 1
-      val: 2
-      val2: 3
+      val: 1
+      val2: 4
       gem1: 4
       gem2: 0
     - effect: 1
-      val: 2
-      val2: 3
+      val: 1
+      val2: 4
       gem1: 1
       gem2: 2
