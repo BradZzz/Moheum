@@ -58,8 +58,8 @@ MonoBehaviour:
       req: 4
       has: 0
     req2:
-      gem: 6
-      req: 3
+      gem: 5
+      req: 4
       has: 0
     effects:
     - effect: 1

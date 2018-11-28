@@ -55,11 +55,11 @@ MonoBehaviour:
     name: Bide
     req1:
       gem: 2
-      req: 6
+      req: 2
       has: 0
     req2:
-      gem: 6
-      req: 10
+      gem: 4
+      req: 14
       has: 0
     effects:
     - effect: 0

@@ -54,7 +54,7 @@ MonoBehaviour:
   meta:
     name: Open Flame
     req1:
-      gem: 6
+      gem: 1
       req: 4
       has: 4
     req2:

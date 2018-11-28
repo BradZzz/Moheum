@@ -62,13 +62,13 @@ MonoBehaviour:
       req: 5
       has: 5
     effects:
-    - effect: 2
+    - effect: 5
       val: 1
       val2: 0
       gem1: 7
       gem2: 7
     - effect: 4
-      val: 0
+      val: 1
       val2: 5
       gem1: 6
       gem2: 7

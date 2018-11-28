@@ -62,5 +62,5 @@ MonoBehaviour:
     - Octam
     - Sea Slime
     - Hushwort
-    monsterLvls: 0200000005000000
+    monsterLvls: 0c00000014000000
   map: {fileID: 1232727661818876, guid: 6cd22268befd445f597a69a8508e2657, type: 2}
