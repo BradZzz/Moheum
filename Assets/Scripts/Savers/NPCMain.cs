@@ -59,7 +59,7 @@ public class NPCMain : MonoBehaviour {
     foreach (PlayerRosterMeta mohe in advMeta.roster){
       averageLevel += mohe.lvl;
     }
-    averageLevel = (float)Math.Ceiling((averageLevel / advMeta.roster.Length)) + meta.infititeTrainerDiff;
+    averageLevel = (float)Math.Ceiling((averageLevel / advMeta.roster.Length)) + meta.infiniteTrainerDiff;
 
     List<PlayerRosterMeta> newRoster = new List<PlayerRosterMeta>();
     for (int i = 0; i < advMeta.roster.Length; i++)

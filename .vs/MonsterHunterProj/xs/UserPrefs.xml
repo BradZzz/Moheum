@@ -1,31 +1,21 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameUtilities.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="68" Column="39" />
-      <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="180" Column="38" />
-      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="64" Column="26" />
-      <File FileName="Assets/Scripts/Savers/PosMeta.cs" Line="22" Column="31" />
-      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="45" Column="27" />
-      <File FileName="Assets/Scripts/Savers/DialogMeta.cs" Line="31" Column="26" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="130" Column="4" />
-      <File FileName="Assets/Scripts/Puzzle/Skills/SkillEffect.cs" Line="175" Column="126" />
-      <File FileName="Assets/Scripts/PlayerTile.cs" Line="30" Column="4" />
-      <File FileName="Assets/Scripts/Savers/AdventureMeta.cs" Line="78" Column="18" />
-      <File FileName="Assets/Scripts/Puzzle/MonsterMeta.cs" Line="66" Column="53" />
-      <File FileName="Assets/Scripts/ColliderListener.cs" Line="59" Column="10" />
-      <File FileName="Assets/Scripts/Move.cs" Line="54" Column="39" />
-      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="222" Column="42" />
-      <File FileName="Assets/Scripts/Puzzle/TrainerUpdateController.cs" Line="33" Column="12" />
-      <File FileName="Assets/Scripts/Adventure/ExitTile.cs" Line="11" Column="15" />
-      <File FileName="Assets/Scripts/Adventure/SceneMain.cs" Line="6" Column="17" />
-      <File FileName="Assets/Scripts/Adventure/SceneMeta.cs" Line="8" Column="22" />
-      <File FileName="Assets/Scripts/GameUtilities.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="108" Column="11" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="107" Column="50" />
+      <File FileName="Assets/Scripts/Puzzle/Tile.cs" Line="475" Column="56" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/Progress.cs" Line="47" Column="27" />
+      <File FileName="Assets/Scripts/Puzzle/FadeMaterials.cs" Line="8" Column="5" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="138" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/brad/Documents/new_git/MonsterHunterProj/Assets/Scripts/Savers/NPCMain.cs" relfile="Assets/Scripts/Savers/NPCMain.cs" line="59" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

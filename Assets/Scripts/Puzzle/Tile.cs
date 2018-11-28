@@ -182,7 +182,7 @@ public class Tile : MonoBehaviour {
     } else {
       Debug.Log("Cant swap!");
       Deselect();
-      StartCoroutine(BoardManager.instance.MoveAI());
+      StartCoroutine(BoardManager.instance.loopAIMovement());
     }
   }
 
@@ -471,7 +471,8 @@ public class Tile : MonoBehaviour {
     Debug.Log ("Health After: " + health.ToString ());
     GameObject.Find (hBar).GetComponent<Progress> ().UpdateProgress (health);
     if (health == 0) {
-      PanelManager.instance.updateFromTile(!usePlayer);
+      Debug.Log("PanelManager.instance.WaitUntilTileUpdate(!usePlayer);");
+      PanelManager.instance.DelayedUpdateFromTile(!usePlayer);
     }
   }
 

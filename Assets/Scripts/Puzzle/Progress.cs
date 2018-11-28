@@ -7,6 +7,8 @@ public class Progress : MonoBehaviour {
   Image foregroundImage;
   public int progress;
 
+  private bool updating;
+
   void Start () {
     foregroundImage = gameObject.GetComponent<Image>();   
   } 
@@ -30,7 +32,8 @@ public class Progress : MonoBehaviour {
     param.Add("onupdate", "TweenedSomeValue");         
     param.Add("onComplete", "OnFullProgress");
     param.Add("onCompleteTarget", gameObject);
-    iTween.ValueTo(gameObject, param);    
+    iTween.ValueTo(gameObject, param);
+    updating = true;
   }
 
   public void TweenedSomeValue (int val)
@@ -38,13 +41,19 @@ public class Progress : MonoBehaviour {
     progress = val;
     gameObject.GetComponent<Image>().fillAmount = progress / (float) MAX_HEALTH;
     updateHealth ();
+    updating = true;
   }
 
   public void OnFullProgress()
   {
     //Debug.Log ("OnFullProgress: Done");
+    updating = false;
     StartCoroutine(lowHealthFlash());
     PanelManager.instance.playerActed();
+  }
+
+  public bool Updating(){
+    return updating;
   }
 
   private IEnumerator lowHealthFlash(){

@@ -40,6 +40,8 @@ public class PanelManager : MonoBehaviour
   GameObject[] itemTxt;
   GameObject[] rMonsters;
   GameObject[] rMonstersDead;
+  GameObject[] rMonstersLvl;
+  GameObject[] rMonstersHealth;
 
   int activeSkill;
 
@@ -102,45 +104,25 @@ public class PanelManager : MonoBehaviour
   IEnumerator KillMonster()
   {
     Debug.Log("Monster Killed!");
-    Image image = GameObject.Find("MMonsterImg").GetComponent<Image>();
-    Color fadeTransparency = new Color(0, 0, 0, .04f);
 
-    //yield return new WaitForSeconds(.5f);
-
-    while (image.color.a > 0)
-    {
-      image.color -= fadeTransparency;
-      yield return new WaitForSeconds(.02f);
-    }
+    iTween.ValueTo(GameObject.Find("MMonsterImg"), iTween.Hash(
+      "from", 1,
+      "to", 0,
+      "time", 1f,
+      "onupdatetarget", gameObject,
+      "onupdate", "FadeOverlayEnemy"));
+    yield return new WaitForSeconds(1f);
 
     loadEnemyMonster();
     loadLocation();
 
-    while (image.color.a < 1)
-    {
-      image.color += fadeTransparency;
-      yield return new WaitForSeconds(.02f);
-    }
-
-    int counter = 0;
-    int checksPassed = 0;
-    while (checksPassed < 3 && counter < 30)
-    {
-      yield return new WaitForSeconds(.25f);
-      counter++;
-      if (!BoardManager.instance.IsProcessing)
-      {
-        checksPassed++;
-      }
-      else
-      {
-        checksPassed = 0;
-      }
-    }
-
-    //Don't fuck with this wait time, will sometimes cause an enemy monster 
-    //to attack twice due to a weird race condition I cant find
-    //yield return new WaitForSeconds(2f);
+    iTween.ValueTo(GameObject.Find("MMonsterImg"), iTween.Hash(
+      "from", 0,
+      "to", 1,
+      "time", 1f,
+      "onupdatetarget", gameObject,
+      "onupdate", "FadeOverlayEnemy"));
+    yield return new WaitForSeconds(1f);
 
     if (!BoardManager.instance.getPlayerTurn())
     {
@@ -149,15 +131,48 @@ public class PanelManager : MonoBehaviour
       StartCoroutine(BoardManager.instance.loopAIMovement());
     }
 
-    //yield return new WaitForSeconds(.5f);
-    //iTween.
-
-    //loadEnemyMonster();
-    //loadLocation();
-    //GameManager.instance.FightFlash();
-    //yield return new WaitForSeconds(1f);
-    //GameManager.instance.LoadScene("BejeweledScene");
     yield return null;
+  }
+
+  //Iterate the fader transparency to 100%
+  //The new monster is getting double turns when it comes out...
+  IEnumerator KillPlayerMonster()
+  {
+    Debug.Log("Player Monster Killed!");
+
+    iTween.ValueTo(GameObject.Find("HMonsterImg"), iTween.Hash(
+      "from", 1,
+      "to", 0,
+      "time", 1f,
+      "onupdatetarget", gameObject,
+      "onupdate", "FadeOverlayPlayer"));
+    yield return new WaitForSeconds(1f);
+
+    loadHeroMonster();
+    loadLocation();
+
+    iTween.ValueTo(GameObject.Find("HMonsterImg"), iTween.Hash(
+      "from", 0,
+      "to", 1,
+      "time", 1f,
+      "onupdatetarget", gameObject,
+      "onupdate", "FadeOverlayPlayer"));
+  }
+
+  public void FadeOverlayEnemy(float alpha)
+  {
+    //Debug.Log("FadeOverlay: " + alpha.ToString());
+    Color fadeCol = GameObject.Find("MMonsterImg").GetComponent<Image>().color;
+    fadeCol.a = alpha;
+    GameObject.Find("MMonsterImg").GetComponent<Image>().color = fadeCol;
+  }
+
+  public void FadeOverlayPlayer(float alpha)
+  {
+    //Debug.Log("FadeOverlay: " + alpha.ToString());
+    Color fadeCol = GameObject.Find("HMonsterImg").GetComponent<Image>().color;
+    fadeCol.a = alpha;
+    GameObject.Find("HMonsterImg").GetComponent<Image>().color = fadeCol;
   }
 
   IEnumerator MoveOn(AdventureMeta meta)
@@ -207,7 +222,35 @@ public class PanelManager : MonoBehaviour
     loadSkills();
   }
 
-  public void updateFromTile(bool playerDead){
+  public void DelayedUpdateFromTile(bool playerDead){
+    Debug.Log("UpdateTile");
+    StartCoroutine(WaitUntilTileUpdate(playerDead));
+  }
+
+  public IEnumerator WaitUntilTileUpdate(bool playerDead)
+  {
+    Debug.Log("WaitUntilTileUpdate");
+    int counter = 0;
+    int checksPassed = 0;
+    while (checksPassed < 6 && counter < 30)
+    {
+      yield return new WaitForSeconds(.25f);
+      counter++;
+      if (!BoardManager.instance.IsProcessing)
+      {
+        checksPassed++;
+      }
+      else
+      {
+        checksPassed = 0;
+      }
+    }
+    Debug.Log("Done WaitUntilTileUpdate");
+    yield return new WaitForSeconds(1f);
+    UpdateFromTile(playerDead);
+  }
+
+  public void UpdateFromTile(bool playerDead){
     Debug.Log("Update From Tile");
 
     PlayerRosterMeta enemyMonster;
@@ -216,18 +259,24 @@ public class PanelManager : MonoBehaviour
     } else {
       enemyMonster = adventure.wild;
     }
+    while(GameObject.Find("MOverlay").GetComponent<Progress>().Updating() || GameObject.Find("HOverlay").GetComponent<Progress>().Updating())
+    {
+
+    }
+    adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
+    enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
     if (!playerDead) {
-      enemyMonster.curHealth = 0;
+      //enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
 
       int addedExp = MonsterMeta.getExperience(enemyMonster, !adventure.isTrainerEncounter);
       //int[] lvlData = MonsterMeta.CalcLvl(adventure.roster[currentMonster],glossary.GetMonsterMain(adventure.roster[currentMonster].name).meta.lvlSpeed);
       //Debug.Log("Level Up Data: " + lvlData[0].ToString() + ":" + lvlData[1].ToString() + ":" + lvlData[2].ToString());
       GameObject.Find("HExpOverlay").GetComponent<ProgressExp>().UpdateProgress(addedExp);
-      BoardManager.instance.emitStars();
+      BoardManager.instance.emitStars(true);
 
       // You won!
       //Debug.Log("You won!");
-      adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
+      //adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
       //adventure.roster[currentMonster].exp += addedExp;
       int[] lvlData = MonsterMeta.CalcLvl(adventure.roster[currentMonster], glossary.GetMonsterMain(adventure.roster[currentMonster].name).meta.lvlSpeed);
       if (lvlData[1] + addedExp >= lvlData[2]) {
@@ -239,29 +288,23 @@ public class PanelManager : MonoBehaviour
     } else {
       Debug.Log("Player Lost Monster");
 
-      enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
-      GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(0);
-      adventure.roster[currentMonster].curHealth = 0;
+      //enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
+      //GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(0);
+      //adventure.roster[currentMonster].curHealth = 0;
       bool monstersLeft = false;
       for (int i = 0; i < adventure.roster.Length; i++) {
         if (adventure.roster[i].curHealth > 0) {
           monstersLeft = true;
           currentMonster = i;
-          loadHeroMonster();
-          loadLocation();
+          StartCoroutine(KillPlayerMonster());
+//          loadHeroMonster();
+//          loadLocation();
           break;
         }
       }
       if (!monstersLeft){
-        // You lost
         BaseSaver.putAdventure(adventure);
         GUIManager.instance.EndGame(false, false, false, adventure);
-        //if (adventure.isTrainerEncounter)
-        //{
-        //  GUIManager.instance.EndGame(false, false, false, adventure);
-        //} else {
-        //  GUIManager.instance.EndGame(false, false, false, adventure);
-        //}
       }
     }
 
@@ -388,6 +431,22 @@ public class PanelManager : MonoBehaviour
     rMonstersDead[3] = GameObject.Find("MDead4");
     rMonstersDead[4] = GameObject.Find("MDead5");
     rMonstersDead[5] = GameObject.Find("MDead6");
+
+    rMonstersHealth = new GameObject[6];
+    rMonstersHealth[0] = GameObject.Find("HealthTxt1");
+    rMonstersHealth[1] = GameObject.Find("HealthTxt2");
+    rMonstersHealth[2] = GameObject.Find("HealthTxt3");
+    rMonstersHealth[3] = GameObject.Find("HealthTxt4");
+    rMonstersHealth[4] = GameObject.Find("HealthTxt5");
+    rMonstersHealth[5] = GameObject.Find("HealthTxt6");
+
+    rMonstersLvl = new GameObject[6];
+    rMonstersLvl[0] = GameObject.Find("LvlTxt1");
+    rMonstersLvl[1] = GameObject.Find("LvlTxt2");
+    rMonstersLvl[2] = GameObject.Find("LvlTxt3");
+    rMonstersLvl[3] = GameObject.Find("LvlTxt4");
+    rMonstersLvl[4] = GameObject.Find("LvlTxt5");
+    rMonstersLvl[5] = GameObject.Find("LvlTxt6");
 
     txt = new Text[4];
     txt [0] = GameObject.Find ("HClick1Txt").GetComponent<Text> ();
@@ -1130,13 +1189,26 @@ public class PanelManager : MonoBehaviour
       if (i <= adventure.roster.Length) {
         rMonsters[i - 1].SetActive(true);
         rMonstersDead[i - 1].SetActive(false);
+        rMonstersLvl[i - 1].SetActive(true);
+        rMonstersHealth[i - 1].SetActive(true);
+
         rMonsters[i - 1].GetComponent<Image>().sprite = glossary.GetMonsterImage(adventure.roster[i -1].name);
+        rMonstersLvl[i - 1].GetComponent<Text>().text = adventure.roster[i - 1].lvl.ToString();
+        if (i - 1 == currentMonster) {
+          rMonstersHealth[i - 1].GetComponent<Text>().text = ((int)(((float)GameObject.Find("HOverlay").GetComponent<Progress>().progress / (float)adventure.roster[i - 1].maxHealth) * 100)).ToString() + "%";
+        } else {
+          rMonstersHealth[i - 1].GetComponent<Text>().text = ((int)(((float)adventure.roster[i - 1].curHealth / (float)adventure.roster[i - 1].maxHealth) * 100)).ToString() + "%";
+
+        }
+        //Debug.Log("Health: " + adventure.roster[i - 1].curHealth.ToString() + ":" + adventure.roster[i - 1].maxHealth.ToString());
         if (adventure.roster[i - 1].curHealth <= 0) {
           rMonstersDead[i - 1].SetActive(true);
         }
       } else {
         rMonsters[i - 1].SetActive(false);
         rMonstersDead[i - 1].SetActive(false);
+        rMonstersLvl[i - 1].SetActive(false);
+        rMonstersHealth[i - 1].SetActive(false);
       }
     }
   }

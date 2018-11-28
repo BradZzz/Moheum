@@ -102,6 +102,9 @@ public class ColliderListener : MonoBehaviour {
             meta.wild = null;
             meta.isTrainerEncounter = true;
 
+            Debug.Log(meta.ToString());
+            Debug.Log(meta.trainer.ToString());
+
             BaseSaver.putAdventure(meta);
             BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
             //BaseSaver.saveState();

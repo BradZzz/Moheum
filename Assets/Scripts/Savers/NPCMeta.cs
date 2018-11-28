@@ -19,7 +19,7 @@ public class NPCMeta {
   public bool canFight;
 
   public bool infiniteTrainer;
-  public int infititeTrainerDiff;
+  public int infiniteTrainerDiff;
 
   public QuestMeta[] questsToAppear;
   public QuestMeta[] questsToDisappear;
@@ -55,6 +55,9 @@ public class NPCMeta {
 
     dialogs = copy.dialogs;
     defeatedDialogs = copy.defeatedDialogs;
+
+    infiniteTrainer = copy.infiniteTrainer;
+    infiniteTrainerDiff = copy.infiniteTrainerDiff;
 
     roster = copy.roster;
   }

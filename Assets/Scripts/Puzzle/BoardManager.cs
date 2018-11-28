@@ -101,10 +101,10 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(sendProjectile(glossy.GetParticleSystem("HeartParticleSystem"), true, dest, dest, SkillEffect.Effect.None, TileMeta.GemType.None, Vector3.one));
   }
 
-  public void emitStars()
+  public void emitStars(bool player)
   {
     Glossary glossy = PanelManager.instance.glossaryObj.GetComponent<Glossary>();
-    Transform dest = playerTurn ? GameObject.Find("HMonsterImg").transform : GameObject.Find("MMonsterImg").transform;
+    Transform dest = player ? GameObject.Find("HMonsterImg").transform : GameObject.Find("MMonsterImg").transform;
     StartCoroutine(sendProjectile(glossy.GetParticleSystem("StarParticleSystem"), true, dest, dest, SkillEffect.Effect.None, TileMeta.GemType.None, Vector3.one));
   }
 
@@ -575,6 +575,11 @@ public class BoardManager : MonoBehaviour {
     }
   }
 
+  //public void StartAI()
+  //{
+  //   StartCoroutine(loopAIMovement());
+  //}
+
   public void stopAI(){
     if (aiMove != null)
     {
@@ -589,7 +594,7 @@ public class BoardManager : MonoBehaviour {
       aiMove = MoveAI();
       int counter = 0;
       int checksPassed = 0;
-      while (checksPassed < 3 && counter < 30)
+      while (checksPassed < 4 && counter < 30)
       {
         yield return new WaitForSeconds(.25f);
         counter++;
