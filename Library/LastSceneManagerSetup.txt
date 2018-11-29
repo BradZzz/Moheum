@@ -3,11 +3,11 @@ sceneSetups:
   isLoaded: 0
   isActive: 0
 - path: Assets/Scenes/BejeweledScene.unity
-  isLoaded: 0
-  isActive: 0
-- path: Assets/TitleScene.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/TitleScene.unity
+  isLoaded: 0
+  isActive: 0
 - path: Assets/Scenes/PracticeScene.unity
   isLoaded: 0
   isActive: 0

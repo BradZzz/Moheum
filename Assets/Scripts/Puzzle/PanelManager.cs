@@ -734,7 +734,8 @@ public class PanelManager : MonoBehaviour
     MonsterMeta playerMonster = glossary.GetMonsterMain(adventure.roster[myMonster].name).meta;
     GameObject.Find("HMonsterImg").GetComponent<Image>().sprite = glossary.GetMonsterImage(adventure.roster[myMonster].name);
     GameObject.Find("HMonsterImg").GetComponent<CharacterActionController>().RemoveBuff();
-    GameObject.Find("HMonsterName").GetComponent<Text>().text = playerMonster.name;
+    GameObject.Find("HMonsterName").GetComponent<Text>().text = adventure.roster[myMonster].nickname.Length > 0 ? 
+      adventure.roster[myMonster].nickname : adventure.roster[myMonster].name;
     GameObject.Find("HOverlay").GetComponent<Progress>().updateHealth(adventure.roster[myMonster].maxHealth);
     GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[myMonster].curHealth);
 
@@ -942,6 +943,8 @@ public class PanelManager : MonoBehaviour
 
     wildMeta.catchReq = new SkillReq[wildMeta.weaknesses.Length];
 
+    int strengthMult = wildMeta.lvl / 10;
+
     for (int i = 0; i < wildMeta.weaknesses.Length; i++){
       int gemIdx = (int) wildMeta.weaknesses[i];
       GameObject.Find("MCatchOverlay"+(i + 1).ToString()).GetComponent<Image>().sprite = loaders[gemIdx];
@@ -950,7 +953,7 @@ public class PanelManager : MonoBehaviour
       SkillReq catchReq = new SkillReq();
       catchReq.gem = (TileMeta.GemType) gemIdx;
       catchReq.has = 0;
-      catchReq.req = 2;
+      catchReq.req = 2 + (4 * strengthMult);
       wildMeta.catchReq[i] = catchReq;
     }
   }
@@ -1016,7 +1019,7 @@ public class PanelManager : MonoBehaviour
     if (!adventure.isTrainerEncounter) {
       //PlayerRosterMeta wildMonsterMeta = new PlayerRosterMeta();
 
-      PlayerRosterMeta wildMonsterMeta = MonsterMeta.returnMonster(glossary.GetMonsterMain(adventure.wild.name).meta, adventure.wild.lvl);
+      PlayerRosterMeta wildMonsterMeta = MonsterMeta.returnMonster(glossary.GetMonsterMain(adventure.wild.name).meta, adventure.wild.lvl, true);
       wildMonsterMeta.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
       wildMonsterMeta.maxHealth = GameObject.Find("MOverlay").GetComponent<Progress>().MAX_HEALTH;
       wildMonsterMeta.skills = adventure.wild.skills;
@@ -1063,6 +1066,36 @@ public class PanelManager : MonoBehaviour
 
   }
 
+  void TryToRun(){
+    StartCoroutine(Run());
+  }
+
+  IEnumerator Run(){
+    float roll = UnityEngine.Random.Range(0, 2);
+    Debug.Log("Roll: " + roll.ToString());
+    GameObject player = GameObject.Find("HMonsterImg");
+    Vector3 pos = player.transform.position;
+
+    Vector3 left = pos;
+    left.x -= 2;
+    iTween.MoveTo(player, left, 1f);
+    yield return new WaitForSeconds(1f);
+
+    if (roll > 0)
+    {
+      Debug.Log("Run Success");
+      GUIManager.instance.EndGame(true, false, false, adventure);
+    }
+    else
+    {
+      Debug.Log("Run Failure");
+      iTween.MoveTo(player, pos, 1f);
+      yield return new WaitForSeconds(1f);
+      BoardManager.instance.setClicked(true);
+      StartCoroutine(BoardManager.instance.CheckForEnd());
+    }
+  }
+
   void moveLocation(int click){
     if (click == -1) {
       //If the player decides not to use an item, 
@@ -1090,7 +1123,9 @@ public class PanelManager : MonoBehaviour
             currentLocation = Location.Item;
             break;
           case 3:
-            currentLocation = Location.Run;
+            if (!adventure.isTrainerEncounter) {
+              TryToRun();
+            }
             break;
         default:
           currentLocation = Location.Main;

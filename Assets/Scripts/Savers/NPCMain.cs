@@ -46,7 +46,7 @@ public class NPCMain : MonoBehaviour {
   public NPCMeta getRefinedMeta(){
     List<PlayerRosterMeta> newRoster = new List<PlayerRosterMeta>();
     foreach (PlayerRosterMeta mohe in meta.roster){
-      newRoster.Add(MonsterMeta.returnMonster(glossy.GetMonsterMain(mohe.name).meta, mohe.lvl));
+      newRoster.Add(MonsterMeta.returnMonster(glossy.GetMonsterMain(mohe.name).meta, mohe.lvl, false));
     }
     NPCMeta returnMeta = new NPCMeta(meta);
     returnMeta.roster = newRoster.ToArray();
@@ -65,7 +65,7 @@ public class NPCMain : MonoBehaviour {
     for (int i = 0; i < advMeta.roster.Length; i++)
     {
       String monsterName = glossy.monsters[UnityEngine.Random.Range(0,glossy.monsters.Length-1)].name;
-      newRoster.Add(MonsterMeta.returnMonster(glossy.GetMonsterMain(monsterName).meta, (int)averageLevel));
+      newRoster.Add(MonsterMeta.returnMonster(glossy.GetMonsterMain(monsterName).meta, (int)averageLevel, false));
     }
     NPCMeta returnMeta = new NPCMeta(meta);
     returnMeta.roster = newRoster.ToArray();
@@ -213,7 +213,8 @@ public class NPCMain : MonoBehaviour {
       {
         for (int i = 1; i < hits.Length; i++)
         {
-          if (hits[i].collider.gameObject.tag.Equals("Player"))
+          if (hits[i].collider.gameObject.tag.Equals("Player") && hits[i].collider.gameObject.GetComponent<Move>().Moving() 
+              && !hits[i].collider.gameObject.GetComponent<ColliderListener>().WaitingForRoll())
           {
             hits[i].collider.gameObject.GetComponent<Move>().disableMove();
             moveToPos(hits[i].collider.gameObject.transform.position);

@@ -20,6 +20,10 @@ public class ColliderListener : MonoBehaviour {
     StartCoroutine(WaitForConversation(convo_wait));
   }
 
+  public bool WaitingForRoll(){
+    return waitingForRoll;
+  }
+
   IEnumerator DestWait(Collider2D other)
   {
     Destroy(other.gameObject);
@@ -205,7 +209,7 @@ public class ColliderListener : MonoBehaviour {
         {
           MonsterMeta met = glossy.GetMonsterMain(mons).meta;
           int lvl = Random.Range(thisScene.monsterLvls[0], thisScene.monsterLvls[1]);
-          monsters.Add(MonsterMeta.returnMonster(met, lvl));
+          monsters.Add(MonsterMeta.returnMonster(met, lvl, true));
         }
       }
 

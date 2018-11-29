@@ -72,18 +72,18 @@ public class MonsterMeta {
    * Add a function that returns a float[] with the level updates for the monster
    */
 
-  public static PlayerRosterMeta returnMonster(MonsterMeta meta, int lvl){
+  public static PlayerRosterMeta returnMonster(MonsterMeta meta, int lvl, bool wild){
     PlayerRosterMeta newMonster = meta.toAbbrev();
     List<String> skills = new List<string>();
     for (int i = 1; i <= lvl; i++){
       float[] updates = returnLvlUpdates(meta, newMonster);
-      newMonster.lust += updates[0];
-      newMonster.greed += updates[1];
-      newMonster.wrath += updates[2];
-      newMonster.pride += updates[3];
-      newMonster.gluttony += updates[4];
-      newMonster.sloth += updates[5];
-      newMonster.envy += updates[6];
+      newMonster.lust += updates[0] * (wild ? .85f : 1f);
+      newMonster.greed += updates[1] * (wild ? .85f : 1f);
+      newMonster.wrath += updates[2] * (wild ? .85f : 1f);
+      newMonster.pride += updates[3] * (wild ? .85f : 1f);
+      newMonster.gluttony += updates[4] * (wild ? .85f : 1f);
+      newMonster.sloth += updates[5] * (wild ? .85f : 1f);
+      newMonster.envy += updates[6] * (wild ? .85f : 1f);
 
       newMonster.gluttony_bonus += newMonster.gluttony + .55f;
       if (newMonster.gluttony_bonus >= 1) {

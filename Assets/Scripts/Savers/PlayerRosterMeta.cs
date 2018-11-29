@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [Serializable]
 public class PlayerRosterMeta {
   public string name;
+  public string nickname;
   public int lvl;
   public int exp;
   public int curHealth;
@@ -27,10 +28,12 @@ public class PlayerRosterMeta {
 
   public PlayerRosterMeta(PlayerRosterMeta meta){
     this.name = meta.name;
+    this.nickname = meta.nickname;
     this.lvl = meta.lvl;
     this.curHealth = meta.curHealth;
     this.maxHealth = meta.maxHealth;
     this.exp = meta.exp;
+
     List<string> compSkills = new List<string>();
     foreach(string skill in meta.skills){
       compSkills.Add(skill);
@@ -43,6 +46,8 @@ public class PlayerRosterMeta {
     this.gluttony = meta.gluttony;
     this.sloth = meta.sloth;
     this.envy = meta.envy;
+
+    this.gluttony_bonus = meta.gluttony_bonus;
 
     this.skills = compSkills.ToArray();
   }

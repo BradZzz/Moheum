@@ -25,6 +25,10 @@ public class PauseManager : MonoBehaviour {
   public GameObject[] rosterSubPnls;
   public GameObject[] itemSubPnls;
 
+  private int currentRosterMonster;
+  private GameObject rosterNickname;
+  private GameObject rosterEdit;
+  private GameObject rosterInput;
   private Location currentLocation;
   private Glossary glossy;
   private bool swapping;
@@ -499,15 +503,45 @@ public class PauseManager : MonoBehaviour {
     }
   }
 
-  void loadRosterInfo(int clk){
+  public void ShowRosterNicknameInput(){
+    rosterInput.SetActive(true);
+  }
+
+  public void EditedRosterNickname(UnityEngine.UI.Text nickname_edit)
+  {
+    Debug.Log("Submitting Nickname: " + nickname_edit.text);
     AdventureMeta playerMeta = BaseSaver.getAdventure();
-    PlayerRosterMeta monsterMetaShort = playerMeta.roster[clk - 1];
+    playerMeta.roster[currentRosterMonster].nickname = nickname_edit.text;
+    BaseSaver.putAdventure(playerMeta);
+    rosterInput.GetComponent<InputField>().text = "";
+    loadRosterInfo(currentRosterMonster + 1);
+  }
+
+  void loadRosterInfo(int clk){
+    currentRosterMonster = clk - 1;
+
+    if (rosterNickname == null) {
+      rosterNickname = GameObject.Find("LNickName");
+    }
+    if (rosterEdit == null)
+    {
+      rosterEdit = GameObject.Find("NickNameEdit");
+    }
+    if (rosterInput == null)
+    {
+      rosterInput = GameObject.Find("LNickNameInput");
+    }
+    rosterInput.SetActive(false);
+
+    AdventureMeta playerMeta = BaseSaver.getAdventure();
+    PlayerRosterMeta monsterMetaShort = playerMeta.roster[currentRosterMonster];
     MonsterMeta monsterMetaLong = glossy.GetMonsterMain(monsterMetaShort.name).meta;
     int[] lvlInfo = MonsterMeta.CalcLvl(monsterMetaShort, monsterMetaLong.lvlSpeed);
 
     GameObject.Find("LImg").GetComponent<Image>().sprite = glossy.GetMonsterImage(monsterMetaShort.name);
     GameObject.Find("Llvl").GetComponent<Text>().text = lvlInfo[0].ToString();
     GameObject.Find("LName").GetComponent<Text>().text = monsterMetaShort.name;
+    rosterNickname.GetComponent<Text>().text = "\"" + monsterMetaShort.nickname + "\"";
 
     GameObject.Find("HealthTxt").GetComponent<Text>().text = "Health: " + monsterMetaShort.maxHealth.ToString();
     GameObject.Find("ExpTxt").GetComponent<Text>().text = "Exp: " + monsterMetaShort.exp.ToString();
@@ -589,7 +623,7 @@ public class PauseManager : MonoBehaviour {
         GameObject.Find(mExp).GetComponent<Image>().fillAmount = (lvlCalc[1] / (float)lvlCalc[2]);
         GameObject.Find(mExpTxt).GetComponent<Text>().text = (lvlCalc[2] - lvlCalc[1]).ToString();
 
-        GameObject.Find(mName).GetComponent<Text>().text = meta.roster[i - 1].name;
+        GameObject.Find(mName).GetComponent<Text>().text = meta.roster[i - 1].nickname.Length > 0 ? meta.roster[i - 1].nickname : meta.roster[i - 1].name;
         GameObject.Find(mLvl).GetComponent<Text>().text = lvlCalc[0].ToString();
 
         Debug.Log("Power: " + meta.roster[i - 1].getPower().ToString("0.00"));

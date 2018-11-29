@@ -95,7 +95,7 @@ public class GUIManager : MonoBehaviour {
       GameObject.Find("Stat02Txt").GetComponent<Text>().text = "Greed: " + meta.greed.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[1]).ToString("0.00") + "</color>)";
       GameObject.Find("Stat03Txt").GetComponent<Text>().text = "Wrath: " + meta.wrath.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[2]).ToString("0.00") + "</color>)";
       GameObject.Find("Stat04Txt").GetComponent<Text>().text = "Pride: " + meta.pride.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[3]).ToString("0.00") + "</color>)";
-      GameObject.Find("Stat05Txt").GetComponent<Text>().text = "Gluttony: " + meta.gluttony.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[4]).ToString("0.00") + "</color>)";
+      GameObject.Find("Stat05Txt").GetComponent<Text>().text = "Glutt: " + meta.gluttony.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[4]).ToString("0.00") + "</color>)";
       GameObject.Find("Stat06Txt").GetComponent<Text>().text = "Sloth: " + meta.sloth.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[5]).ToString("0.00") + "</color>)";
       GameObject.Find("Stat07Txt").GetComponent<Text>().text = "Envy: " + meta.envy.ToString("0.00") + " (<color=#ff0000>+" + ((i / 100f) * increases[6]).ToString("0.00") + "</color>)";
       yield return new WaitForSeconds(.05f);
