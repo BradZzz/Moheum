@@ -144,6 +144,10 @@ public class Tile : MonoBehaviour {
           BoardManager.instance.PokeTile(this, effect.amount);
         }
         break;
+      case SkillEffect.Effect.Poison:
+        SkillEffect.PoisonSkill poisonskill = (SkillEffect.PoisonSkill)effect;
+        BoardManager.instance.buff(poisonskill.amount);
+        break;
       case SkillEffect.Effect.Reset:
         BoardManager.instance.reset (true);
         break;
@@ -447,15 +451,34 @@ public class Tile : MonoBehaviour {
     string atkMonster = usePlayer ? "HMonsterImg" : "MMonsterImg";
     string defMonster = usePlayer ? "MMonsterImg" : "HMonsterImg";
 
+
     if (dmg > 0)
     {
       Debug.Log("Damage: " + dmg.ToString());
-      GameObject.Find(atkMonster).GetComponent<CharacterActionController>().CharacterIsHitting(usePlayer);
-      GameObject.Find(defMonster).GetComponent<CharacterActionController>().CharacterHit(usePlayer);
-      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
+      CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
+      CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
+
+      //Figure out if there is a buff for attacker
+      int buff = atk.buff;
+      atk.RemoveBuff();
+      //If there is, add it to the dmg and remove it
+      dmg += buff;
+      //Figure out if there is a buff for defender
+      buff = def.buff;
+      dmg -= buff;
+      //If there is, subtract it from the dmg and remove it
+      def.RemoveBuff();
+
+      if (dmg<0) {
+        dmg = 0;
+      }
+
+      atk.CharacterIsHitting(usePlayer);
+      def.CharacterHit(usePlayer);
+      def.showDamage(dmg);
     } else {
       Debug.Log("Healing: " + (dmg * -1).ToString());
-      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg );
+      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
     }
 
     //GameObject.Find(atkMonster).GetComponent<CharacterActionController>().showDamage(dmg * -1);

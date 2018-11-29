@@ -733,6 +733,7 @@ public class PanelManager : MonoBehaviour
 
     MonsterMeta playerMonster = glossary.GetMonsterMain(adventure.roster[myMonster].name).meta;
     GameObject.Find("HMonsterImg").GetComponent<Image>().sprite = glossary.GetMonsterImage(adventure.roster[myMonster].name);
+    GameObject.Find("HMonsterImg").GetComponent<CharacterActionController>().RemoveBuff();
     GameObject.Find("HMonsterName").GetComponent<Text>().text = playerMonster.name;
     GameObject.Find("HOverlay").GetComponent<Progress>().updateHealth(adventure.roster[myMonster].maxHealth);
     GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[myMonster].curHealth);
@@ -757,6 +758,7 @@ public class PanelManager : MonoBehaviour
       GameObject.Find("MOverlay").GetComponent<Progress>().updateHealth(enemyMonster.maxHealth);
       GameObject.Find("MOverlay").GetComponent<Progress>().UpdateProgress(enemyMonster.curHealth);
       GameObject.Find("MMonsterImg").GetComponent<Image>().sprite = glossary.GetMonsterImage(enemyMonster.name);
+      GameObject.Find("MMonsterImg").GetComponent<CharacterActionController>().RemoveBuff();
 
       GameObject.Find("MLvlTxt").GetComponent<Text>().text = enemyMonster.lvl.ToString();
 

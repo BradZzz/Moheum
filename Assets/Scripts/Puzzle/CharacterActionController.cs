@@ -6,7 +6,11 @@ using UnityEngine.UI;
 public class CharacterActionController : MonoBehaviour {
 
   private GameObject txt;
+  private GameObject buffWrap;
+  private GameObject buffTxt;
   bool isMoving = false;
+
+  public int buff;
 
   private void Awake()
   {
@@ -16,8 +20,57 @@ public class CharacterActionController : MonoBehaviour {
       {
         txt = child.gameObject;
       }
+      if (child.name.Equals("MonBuff"))
+      {
+        buffWrap = child.gameObject;
+      }
     }
+    buffTxt = buffWrap.transform.GetChild(0).gameObject;
     txt.SetActive(false);
+    buffWrap.SetActive(false);
+    buff = 0;
+  }
+
+  public void SetBuff(int buff){
+    Debug.Log("SetBuff: " + buff.ToString());
+    buffWrap.SetActive(true);
+    iTween.ValueTo(buffWrap, iTween.Hash(
+      "from", 0,
+      "to", 1,
+      "time", .5f,
+      "onupdatetarget", gameObject,
+      "onupdate", "FadeOverlayWrap"));
+    this.buff = buff;
+    buffTxt.GetComponent<Text>().text = this.buff.ToString();
+  }
+
+  public void RemoveBuff(){
+    StartCoroutine(BreakBuff());
+  }
+
+  private IEnumerator BreakBuff(){
+    if (buff > 0)
+    {
+      iTween.ShakePosition(buffWrap, new Vector3(1, 0, 0), .5f);
+      yield return new WaitForSeconds(.5f);
+      iTween.ValueTo(buffWrap, iTween.Hash(
+        "from", 1,
+        "to", 0,
+        "time", .5f,
+        "onupdatetarget", gameObject,
+        "onupdate", "FadeOverlayWrap"));
+      yield return new WaitForSeconds(.5f);
+
+    }
+    buff = 0;
+    buffWrap.SetActive(false);
+  }
+
+  public void FadeOverlayWrap(float alpha)
+  {
+    Color fadeCol = buffWrap.GetComponent<Image>().color;
+    fadeCol.a = alpha;
+    buffWrap.GetComponent<Image>().color = fadeCol;
   }
 
   // Update is called once per frame

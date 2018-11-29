@@ -223,6 +223,13 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(WaitThenCheck());
   }
 
+  public void buff(int amount)
+  {
+    string bMonster = playerTurn ? "HMonsterImg" : "MMonsterImg";
+    int currentBuff = GameObject.Find(bMonster).GetComponent<CharacterActionController>().buff;
+    GameObject.Find(bMonster).GetComponent<CharacterActionController>().SetBuff(currentBuff + amount);
+  }
+
   public void Sabotage(int amount){
     if(playerTurn)
     {

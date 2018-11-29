@@ -66,6 +66,9 @@ public static class GameUtilities {
               effects.Add (healEffect);
               break;
             case SkillEffect.Effect.Poison:
+              SkillEffect.PoisonSkill buffEffect = new SkillEffect.PoisonSkill();
+              buffEffect.amount = effect.val;
+              effects.Add(buffEffect);
               break;
             case SkillEffect.Effect.Poke:
               SkillEffect.PokeSkill pokeEffect = new SkillEffect.PokeSkill();

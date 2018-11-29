@@ -67,7 +67,7 @@ public class SkillEffect {
     case Effect.Heal:
       return "Heal";
     case Effect.Poison:
-      return "Pois";
+      return "Buff";
     case Effect.Poke:
       return "Poke";
     case Effect.Reset:
@@ -153,12 +153,11 @@ public class SkillEffect {
 
   //Poisons opposing monster
   public class PoisonSkill : SkillEffect {
-    public int turns;
     public PoisonSkill(){
       effect = Effect.Poison;
     }
     public override string effectString(){
-      return abbreviationEffect(effect) + " " + amount.ToString() + " for " + turns.ToString() + "turns";
+      return abbreviationEffect(effect) + " for " + amount.ToString();
     }
   }
 
