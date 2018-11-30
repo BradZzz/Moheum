@@ -195,7 +195,18 @@ public class PanelManager : MonoBehaviour
   }
 
   public PlayerRosterMeta getCurrentMonster(){
-    return adventure.roster[currentMonster];
+    if  (BoardManager.instance.getPlayerTurn()) {
+      return adventure.roster[currentMonster];
+    } else {
+      if (adventure.isTrainerEncounter)
+      {
+        return getTrainerMonster();
+      }
+      else
+      {
+        return adventure.wild;
+      }
+    }
   }
 
   public void continueUpdate(){

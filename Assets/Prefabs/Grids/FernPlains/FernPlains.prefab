@@ -62,5 +62,6 @@ MonoBehaviour:
     - Guatarion
     - Jojoi
     - Wind Pixie
+    - Glaivesect
     monsterLvls: 0400000005000000
   map: {fileID: 1358782490532890, guid: 0587ded2f3f5b4b848707321bc4d4024, type: 2}

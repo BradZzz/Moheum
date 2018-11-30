@@ -55,16 +55,16 @@ MonoBehaviour:
     name: Douse
     req1:
       gem: 2
-      req: 3
+      req: 1
       has: 0
     req2:
       gem: 0
       req: 6
       has: 0
     effects:
-    - effect: 0
-      val: 0
-      val2: 0
+    - effect: 1
+      val: 3
+      val2: 6
       gem1: 4
       gem2: 0
     - effect: 5

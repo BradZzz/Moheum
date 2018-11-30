@@ -318,7 +318,8 @@ public class GameManager : MonoBehaviour {
   }
 
   public static PlayerRosterMeta[] returnTestRoster(Glossary glossy){
-    PlayerRosterMeta monster1 = MonsterMeta.returnMonster(glossy.GetMonsterMain("Glaivesect").meta, 4, false);
+    PlayerRosterMeta monster1 = MonsterMeta.returnMonster(glossy.GetMonsterMain("Vapreaze").meta, 3, false);
+    monster1.nickname = "Six";
     //PlayerRosterMeta monster2 = MonsterMeta.returnMonster(glossy.GetMonsterMain("Octam").meta, 4);
     return new PlayerRosterMeta[] { monster1 };
   }

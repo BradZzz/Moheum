@@ -67,5 +67,6 @@ MonoBehaviour:
     - Wind Pixie
     - Albix
     - Guatarion
+    - Desire Mimic
     monsterLvls: 080000000b000000
   map: {fileID: 1790335833609622, guid: 195dc656fb1314b3ca8870cbd7a1788c, type: 2}

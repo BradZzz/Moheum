@@ -75,13 +75,13 @@ MonoBehaviour:
     - lvl: 1
       skill: Bubble
     - lvl: 3
-      skill: Cure
-    - lvl: 8
-      skill: Harvest
-    - lvl: 17
-      skill: Purify
-    - lvl: 23
       skill: Douse
+    - lvl: 8
+      skill: Dash
+    - lvl: 17
+      skill: Icicle
+    - lvl: 23
+      skill: Purify
     - lvl: 30
       skill: Blizzard
     - lvl: 35
