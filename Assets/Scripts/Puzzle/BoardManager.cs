@@ -645,11 +645,16 @@ public class BoardManager : MonoBehaviour {
         List<Tile> toPoke = new List<Tile>();
         SkillMeta meta = compSkills[i];
         foreach(SkillEffect eff in meta.effects){
-          if (eff.effect == SkillEffect.Effect.Poke) {
-            SkillEffect.PokeSkill pokeskill = (SkillEffect.PokeSkill)eff;
+          if (eff.effect == SkillEffect.Effect.Poke || eff.effect == SkillEffect.Effect.Slice) {
+            TileMeta.GemType tileType;
+            if (eff.effect == SkillEffect.Effect.Poke) {
+              tileType = ((SkillEffect.PokeSkill)eff).toRemove;
+            } else {
+              tileType = ((SkillEffect.SliceSkill)eff).toRemove;
+            }
             for (int x = 0; x < xSize; x++){
               for (int y = 0; y < ySize; y++){
-                if (tiles[x, y].GetComponent<Tile>().type.type == pokeskill.toRemove)
+                if (tiles[x, y].GetComponent<Tile>().type.type == tileType)
                 {
                   toPoke.Add(tiles[x, y].GetComponent<Tile>());
                 }

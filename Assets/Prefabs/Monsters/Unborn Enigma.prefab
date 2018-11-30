@@ -87,7 +87,7 @@ MonoBehaviour:
     - lvl: 40
       skill: Chain Disease
     - lvl: 50
-      skill: Enfeeble
+      skill: Antidote
     lvlSpeed: 1
     maxCatchTurns: 0
     currCatchTurns: 0

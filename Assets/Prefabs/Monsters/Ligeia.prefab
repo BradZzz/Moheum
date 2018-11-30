@@ -71,19 +71,19 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Lurk
-    - lvl: 6
+    - lvl: 7
       skill: Poison Jab
-    - lvl: 14
+    - lvl: 12
       skill: Cure
-    - lvl: 18
+    - lvl: 16
       skill: Misdirect
-    - lvl: 25
-      skill: Enfeeble
+    - lvl: 22
+      skill: Antidote
     - lvl: 33
       skill: Tainted Cross
-    - lvl: 4
-      skill: Look Out
-    - lvl: 40
+    - lvl: 44
+      skill: Wall Of Slime
+    - lvl: 48
       skill: Chain Disease
     lvlSpeed: 1
     maxCatchTurns: 0

@@ -73,23 +73,28 @@ MonoBehaviour:
     - Leech
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Vine Poke
-    - lvl: 3
-      skill: Leech
-    - lvl: 5
-      skill: Growth
-    - lvl: 12
-      skill: Prick
-    - lvl: 18
+      skill: Envigor
+    - lvl: 4
       skill: Dirt Throw
-    - lvl: 26
+    - lvl: 10
+      skill: Growth
+    - lvl: 18
+      skill: Grass Cut
+    - lvl: 22
+      skill: Prick
+    - lvl: 28
       skill: Harvest
-    - lvl: 33
+    - lvl: 32
+      skill: Breaking Wind
+    - lvl: 37
       skill: Vine Lash
     lvlSpeed: 3
-    maxCatchTurns: 0
-    currCatchTurns: 0
-    catchReq: []
+    maxCatchTurns: 8
+    currCatchTurns: 6
+    catchReq:
+    - gem: 3
+      req: 2
+      has: 0
 --- !u!212 &212525639340765704
 SpriteRenderer:
   m_ObjectHideFlags: 1

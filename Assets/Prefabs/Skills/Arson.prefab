@@ -9,56 +9,66 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1165300141751418}
+  m_RootGameObject: {fileID: 1641342610378868}
   m_IsPrefabAsset: 1
---- !u!1 &1165300141751418
+--- !u!1 &1641342610378868
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4942014297110078}
-  - component: {fileID: 114974052395588694}
+  - component: {fileID: 4063435699675934}
+  - component: {fileID: 114218062114895120}
   m_Layer: 0
-  m_Name: FernForest
+  m_Name: Arson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4942014297110078
+--- !u!4 &4063435699675934
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165300141751418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 524.1886, y: 344.16742, z: 279.9125}
+  m_GameObject: {fileID: 1641342610378868}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114974052395588694
+--- !u!114 &114218062114895120
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165300141751418}
+  m_GameObject: {fileID: 1641342610378868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 355c7f526e03e4774ac45efa2a6c6993, type: 3}
+  m_Script: {fileID: 11500000, guid: 6aaa5787d3cc34f7690c3a7f755e0fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   meta:
-    name: Fern Forest
-    monsters:
-    - Beanlock
-    - Octam
-    - Hushwort
-    - Albix
-    - Sea Slime
-    - Guatarion
-    monsterLvls: 0300000005000000
-  map: {fileID: 1570886507235556, guid: 0e4b092398af94df8a812cf4643bbd82, type: 2}
+    name: Arson
+    req1:
+      gem: 4
+      req: 3
+      has: 0
+    req2:
+      gem: 1
+      req: 1
+      has: 0
+    effects:
+    - effect: 1
+      val: 0
+      val2: 3
+      gem1: 2
+      gem2: 4
+    - effect: 1
+      val: 0
+      val2: 3
+      gem1: 3
+      gem2: 4

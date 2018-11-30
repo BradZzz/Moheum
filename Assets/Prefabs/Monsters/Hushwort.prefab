@@ -65,24 +65,26 @@ MonoBehaviour:
     gluttony: -0.2
     sloth: 0
     envy: 0
-    strengths: 0200000003000000
+    strengths: 03000000
     weaknesses: 0400000003000000
     skills: []
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Gnaw
+      skill: Lurk
     - lvl: 4
-      skill: Misdirect
+      skill: Cure
     - lvl: 9
-      skill: Leech
-    - lvl: 14
       skill: Look Out
-    - lvl: 22
+    - lvl: 14
       skill: Poison Jab
+    - lvl: 22
+      skill: Muck
     - lvl: 30
-      skill: Amnesia
-    - lvl: 45
-      skill: Enfeeble
+      skill: Infect
+    - lvl: 41
+      skill: Tainted Cross
+    - lvl: 43
+      skill: Wall Of Slime
     lvlSpeed: 3
     maxCatchTurns: 8
     currCatchTurns: 0

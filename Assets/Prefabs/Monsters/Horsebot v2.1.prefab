@@ -71,20 +71,20 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Static
-    - lvl: 4
-      skill: Open Flame
-    - lvl: 8
-      skill: Spark
-    - lvl: 14
+    - lvl: 5
       skill: Process
-    - lvl: 35
-      skill: Chain Lightning
-    - lvl: 28
-      skill: Quiet Storm
     - lvl: 11
+      skill: Gnaw
+    - lvl: 18
+      skill: Spark
+    - lvl: 25
+      skill: Quiet Storm
+    - lvl: 31
       skill: Fuzz Rub
-    - lvl: 20
-      skill: Boil
+    - lvl: 44
+      skill: Uber Spark
+    - lvl: 46
+      skill: Chain Lightning
     lvlSpeed: 2
     maxCatchTurns: 0
     currCatchTurns: 0

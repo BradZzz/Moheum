@@ -65,7 +65,7 @@ MonoBehaviour:
     gluttony: -0.2
     sloth: -0.05
     envy: 0
-    strengths: 0200000000000000
+    strengths: 02000000
     weaknesses: 0100000005000000
     skills:
     - Dash
@@ -76,16 +76,18 @@ MonoBehaviour:
       skill: Gnaw
     - lvl: 3
       skill: Rustle
+    - lvl: 4
+      skill: Dash
     - lvl: 7
-      skill: Purify
+      skill: Misdirect
+    - lvl: 15
+      skill: Bubble
     - lvl: 22
-      skill: Bath Static
-    - lvl: 14
+      skill: Prick
+    - lvl: 27
       skill: Icicle
-    - lvl: 30
+    - lvl: 34
       skill: Blizzard
-    - lvl: 40
-      skill: Mega Bubble
     lvlSpeed: 4
     maxCatchTurns: 8
     currCatchTurns: 0

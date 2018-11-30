@@ -65,7 +65,7 @@ MonoBehaviour:
     gluttony: 0
     sloth: 0.1
     envy: -0.25
-    strengths: 0200000000000000
+    strengths: 00000000
     weaknesses: 0100000005000000
     skills:
     - Icicle
@@ -73,20 +73,20 @@ MonoBehaviour:
     - Rustle
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Gnaw
-    - lvl: 3
+      skill: Submerge
+    - lvl: 4
       skill: Bubble
-    - lvl: 8
+    - lvl: 9
       skill: Douse
-    - lvl: 14
+    - lvl: 15
       skill: Icicle
-    - lvl: 24
+    - lvl: 23
       skill: Steam Bolt
-    - lvl: 35
-      skill: Blizzard
-    - lvl: 18
-      skill: Growth
-    - lvl: 45
+    - lvl: 29
+      skill: Purify
+    - lvl: 33
+      skill: Wall Of Ice
+    - lvl: 37
       skill: Mega Bubble
     lvlSpeed: 4
     maxCatchTurns: 0

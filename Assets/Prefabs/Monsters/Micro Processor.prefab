@@ -65,7 +65,7 @@ MonoBehaviour:
     gluttony: 0
     sloth: 0.25
     envy: 0
-    strengths: 0400000005000000
+    strengths: 04000000
     weaknesses: 00000000
     skills:
     - Spark
@@ -73,21 +73,21 @@ MonoBehaviour:
     - Uber Spark
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Spark
+      skill: Arson
     - lvl: 4
-      skill: Process
-    - lvl: 13
-      skill: Ignite
-    - lvl: 22
-      skill: Breaking Wind
-    - lvl: 30
-      skill: Uber Spark
-    - lvl: 18
+      skill: Envigor
+    - lvl: 7
       skill: Singe
+    - lvl: 18
+      skill: Wall Of Ice
+    - lvl: 28
+      skill: Prime
+    - lvl: 36
+      skill: Wall Of Slime
     - lvl: 40
       skill: Molten
-    - lvl: 35
-      skill: Tremor
+    - lvl: 48
+      skill: Mega X
     lvlSpeed: 2
     maxCatchTurns: 0
     currCatchTurns: 0

@@ -70,21 +70,21 @@ MonoBehaviour:
     skills: []
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Gnaw
+      skill: Vine Poke
     - lvl: 8
-      skill: Windmill
-    - lvl: 14
-      skill: Vine Lash
-    - lvl: 18
-      skill: Prick
-    - lvl: 24
-      skill: Tremor
-    - lvl: 32
-      skill: Prick
-    - lvl: 40
-      skill: Gaias Fall
-    - lvl: 4
       skill: Dirt Throw
+    - lvl: 14
+      skill: Ignite
+    - lvl: 18
+      skill: Quiet Storm
+    - lvl: 24
+      skill: Zephyr
+    - lvl: 32
+      skill: Windmill
+    - lvl: 40
+      skill: Oak Oath
+    - lvl: 47
+      skill: Bide
     lvlSpeed: 1
     maxCatchTurns: 0
     currCatchTurns: 0

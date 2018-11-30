@@ -74,19 +74,19 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Gnaw
-    - lvl: 3
-      skill: Cure
-    - lvl: 6
-      skill: Look Out
-    - lvl: 12
-      skill: Poison Jab
-    - lvl: 17
-      skill: Process
-    - lvl: 23
-      skill: Windmill
-    - lvl: 27
-      skill: Raze
+    - lvl: 5
+      skill: Rustle
+    - lvl: 10
+      skill: Dash
+    - lvl: 15
+      skill: Zap
+    - lvl: 20
+      skill: Zephyr
+    - lvl: 25
+      skill: Misdirect
     - lvl: 30
+      skill: Amnesia
+    - lvl: 35
       skill: Gaias Fall
     lvlSpeed: 4
     maxCatchTurns: 0

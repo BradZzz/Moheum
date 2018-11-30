@@ -62,4 +62,4 @@ MonoBehaviour:
     - Micro Processor
     - Snowlyne
     monsterLvls: 0200000005000000
-  map: {fileID: 1705441883686456, guid: 54da0c14621ae4dca9fae72f176222b9, type: 2}
+  map: {fileID: 1529019141893254, guid: 54da0c14621ae4dca9fae72f176222b9, type: 2}

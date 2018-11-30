@@ -73,21 +73,21 @@ MonoBehaviour:
     - Purify
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Lurk
-    - lvl: 4
+      skill: Static
+    - lvl: 5
       skill: Spark
-    - lvl: 12
-      skill: Quiet Storm
-    - lvl: 22
+    - lvl: 10
+      skill: Fizzle
+    - lvl: 18
+      skill: Harvest
+    - lvl: 28
       skill: Tainted Cross
-    - lvl: 30
+    - lvl: 35
       skill: Bath Static
-    - lvl: 37
-      skill: Uber Spark
-    - lvl: 45
+    - lvl: 40
       skill: Mega X
-    - lvl: 8
-      skill: Fuzz Rub
+    - lvl: 50
+      skill: Armageddon
     lvlSpeed: 1
     maxCatchTurns: 0
     currCatchTurns: 0

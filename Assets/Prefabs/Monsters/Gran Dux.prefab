@@ -74,19 +74,21 @@ MonoBehaviour:
     - Tremor
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Dirt Throw
-    - lvl: 4
       skill: Vine Poke
-    - lvl: 8
-      skill: Growth
-    - lvl: 15
-      skill: Leech
-    - lvl: 18
+    - lvl: 4
+      skill: Envigor
+    - lvl: 9
+      skill: Grave Jab
+    - lvl: 17
+      skill: Vine Lash
+    - lvl: 23
       skill: Tremor
-    - lvl: 30
-      skill: Mega Tremor
-    - lvl: 24
-      skill: Bide
+    - lvl: 31
+      skill: Zephyr
+    - lvl: 37
+      skill: Windmill
+    - lvl: 47
+      skill: Oak Oath
     lvlSpeed: 1
     maxCatchTurns: 0
     currCatchTurns: 0

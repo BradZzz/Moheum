@@ -74,22 +74,22 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Boil
-    - lvl: 3
+    - lvl: 4
+      skill: Bubble
+    - lvl: 9
       skill: Cure
-    - lvl: 38
-      skill: Enfeeble
     - lvl: 18
-      skill: Submerge
-    - lvl: 26
-      skill: Purify
-    - lvl: 12
-      skill: Gnaw
-    - lvl: 45
-      skill: Armageddon
-    - lvl: 6
-      skill: Harvest
-    - lvl: 30
-      skill: Chain Disease
+      skill: Look Out
+    - lvl: 23
+      skill: Muck
+    - lvl: 28
+      skill: Sacrifice
+    - lvl: 33
+      skill: Molten
+    - lvl: 40
+      skill: Blizzard
+    - lvl: 50
+      skill: Mega Bubble
     lvlSpeed: 1
     maxCatchTurns: 8
     currCatchTurns: 2

@@ -70,21 +70,21 @@ MonoBehaviour:
     skills: []
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Process
-    - lvl: 4
       skill: Gnaw
+    - lvl: 4
+      skill: Static
     - lvl: 7
-      skill: Boil
+      skill: Growth
     - lvl: 12
-      skill: Singe
+      skill: Harvest
     - lvl: 18
-      skill: Ignite
+      skill: Process
     - lvl: 24
-      skill: Molten
+      skill: Spark
     - lvl: 32
-      skill: Raze
+      skill: Uber Spark
     - lvl: 40
-      skill: Molten
+      skill: Enfeeble
     lvlSpeed: 2
     maxCatchTurns: 0
     currCatchTurns: 0

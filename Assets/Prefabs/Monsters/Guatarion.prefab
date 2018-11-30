@@ -75,20 +75,20 @@ MonoBehaviour:
     skillsGainedOnLvlUp:
     - lvl: 1
       skill: Lurk
-    - lvl: 4
-      skill: Submerge
-    - lvl: 12
-      skill: Breaking Wind
-    - lvl: 15
-      skill: Quiet Storm
-    - lvl: 18
-      skill: Open Flame
-    - lvl: 30
-      skill: Tainted Cross
-    - lvl: 36
-      skill: Chain Disease
-    - lvl: 45
-      skill: Molten
+    - lvl: 3
+      skill: Arson
+    - lvl: 5
+      skill: Fizzle
+    - lvl: 7
+      skill: Static
+    - lvl: 22
+      skill: Electrify
+    - lvl: 35
+      skill: Chain Lightning
+    - lvl: 40
+      skill: Process
+    - lvl: 50
+      skill: Mega X
     lvlSpeed: 2
     maxCatchTurns: 0
     currCatchTurns: 0

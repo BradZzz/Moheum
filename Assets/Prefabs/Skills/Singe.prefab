@@ -59,7 +59,7 @@ MonoBehaviour:
       has: 0
     req2:
       gem: 6
-      req: 2
+      req: 1
       has: 0
     effects:
     - effect: 2
@@ -69,6 +69,6 @@ MonoBehaviour:
       gem2: 7
     - effect: 4
       val: 0
-      val2: 3
+      val2: 4
       gem1: 6
       gem2: 7

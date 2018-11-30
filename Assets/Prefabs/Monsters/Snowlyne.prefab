@@ -77,7 +77,7 @@ MonoBehaviour:
     - lvl: 4
       skill: Submerge
     - lvl: 9
-      skill: Spark
+      skill: Arson
     - lvl: 22
       skill: Icicle
     - lvl: 25
@@ -85,9 +85,9 @@ MonoBehaviour:
     - lvl: 30
       skill: Blizzard
     - lvl: 38
-      skill: Mega Bubble
-    - lvl: 45
       skill: Molten
+    - lvl: 45
+      skill: Mega Bubble
     lvlSpeed: 3
     maxCatchTurns: 0
     currCatchTurns: 0

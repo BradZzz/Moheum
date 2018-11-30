@@ -70,20 +70,20 @@ MonoBehaviour:
     skills: []
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Grass Cut
-    - lvl: 4
-      skill: Windmill
+      skill: Vine Poke
+    - lvl: 5
+      skill: Lurk
     - lvl: 11
-      skill: Leech
+      skill: Dirt Throw
     - lvl: 17
-      skill: Grave Jab
-    - lvl: 9
-      skill: Prick
+      skill: Look Out
     - lvl: 22
-      skill: Misdirect
+      skill: Tremor
     - lvl: 30
-      skill: Mega Tremor
-    - lvl: 42
+      skill: Amnesia
+    - lvl: 36
+      skill: Tainted Cross
+    - lvl: 45
       skill: Enfeeble
     lvlSpeed: 3
     maxCatchTurns: 8
