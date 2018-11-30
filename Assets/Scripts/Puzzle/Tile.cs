@@ -473,6 +473,8 @@ public class Tile : MonoBehaviour {
         dmg = 0;
       }
 
+      Debug.Log("Damage w/ Buff: " + dmg.ToString());
+
       atk.CharacterIsHitting(usePlayer);
       def.CharacterHit(usePlayer);
       def.showDamage(dmg);

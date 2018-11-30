@@ -51,8 +51,8 @@ public class CharacterActionController : MonoBehaviour {
   private IEnumerator BreakBuff(){
     if (buff > 0)
     {
-      iTween.ShakePosition(buffWrap, new Vector3(1, 0, 0), .5f);
-      yield return new WaitForSeconds(.5f);
+      //iTween.ShakePosition(buffWrap, new Vector3(1, 0, 0), .5f);
+      //yield return new WaitForSeconds(.5f);
       iTween.ValueTo(buffWrap, iTween.Hash(
         "from", 1,
         "to", 0,
