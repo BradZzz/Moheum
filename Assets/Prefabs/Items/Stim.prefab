@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114383399036833144}
   - component: {fileID: 114250126516259030}
   m_Layer: 0
-  m_Name: Stats
+  m_Name: Stim
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,10 +145,10 @@ MonoBehaviour:
       x: 0
       y: 0
       z: 0
-    description: 
-    effects: 0
-    value: 0
-  tType: 0
+    description: Refresh all skills
+    effects: 4
+    value: 1
+  tType: 1
 --- !u!212 &212889760102548568
 SpriteRenderer:
   m_ObjectHideFlags: 1

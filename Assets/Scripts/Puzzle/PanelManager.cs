@@ -350,8 +350,8 @@ public class PanelManager : MonoBehaviour
        * update ui
        */
       TreasureMain itemToUse = glossaryObj.GetComponent<Glossary>().GetItem(getItem(itemPos));
-      if (GameUtilities.CanUseItem(itemToUse, adventure, pos)) {
-        adventure = GameUtilities.UseItem(itemToUse, adventure, pos);
+      if (GameUtilities.CanUseItem(itemToUse, adventure, pos, skills)) {
+        adventure = GameUtilities.UseItem(itemToUse, adventure, pos, skills);
         adventure.AddToTreasureList(getItem(itemPos), -1);
       }
       monPnl.SetActive(false);
@@ -627,6 +627,14 @@ public class PanelManager : MonoBehaviour
         }
       }
     }
+  }
+
+  public void FillSkills () {
+    foreach (SkillMeta skill in skills)
+    {
+      skill.req1.has = skill.req1.req;
+    }
+    loadSkillsOverlays();
   }
 
   public SkillEffect[] getActiveSkill(){

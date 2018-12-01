@@ -25,6 +25,16 @@ public class DialogManager : MonoBehaviour {
     shopOwnersStock = new Dictionary<string, int>();
     shopOwnersStock.Add("Bandage", 25);
     shopOwnersStock.Add("Resurrect", 250);
+
+    if (PauseManager.instance.glossaryObj != null)
+    {
+      Glossary glossy = PauseManager.instance.glossaryObj.GetComponent<Glossary>();
+      List<string> defeated = GameUtilities.getInteractedWith(glossy, false, true);
+      if (defeated.Contains("Gaia Temple Leader Audrey"))
+      {
+        shopOwnersStock.Add("Stim", 150);
+      }
+    }
   }
 
   //private void Start()

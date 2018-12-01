@@ -55,9 +55,14 @@ MonoBehaviour:
     name: Maine Outlands
     monsters:
     - Octam
+    - Octam
+    - Octam
+    - Octam
+    - Albix
+    - Albix
     - Gran Dux
-    - Beanlock
-    - Horsebot v2.1
-    - Guatarion
+    - Gran Dux
+    - Hushwort
+    - Sea Slime
     monsterLvls: 0100000003000000
   map: {fileID: 1932215599885836, guid: 1c89d9f21f1ff4f0c954d82d02d02cb3, type: 2}

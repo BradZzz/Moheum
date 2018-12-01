@@ -55,11 +55,14 @@ MonoBehaviour:
     name: Cobbles Town
     monsters:
     - Gran Dux
-    - Octam
+    - Gran Dux
+    - Gran Dux
     - Wind Pixie
-    - Hushwort
-    - Cave Thorn
+    - Wind Pixie
+    - Wind Pixie
+    - Micro Processor
     - Micro Processor
     - Snowlyne
+    - Snowlyne
     monsterLvls: 0200000003000000
-  map: {fileID: 1529019141893254, guid: 54da0c14621ae4dca9fae72f176222b9, type: 2}
+  map: {fileID: 1752917796439156, guid: 447f181e7792148bb91981d074061b2f, type: 2}

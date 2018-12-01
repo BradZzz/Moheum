@@ -184,7 +184,7 @@ public static class GameUtilities {
     return false;
   }
 
-  public static bool CanUseItem(TreasureMain itemToUse, AdventureMeta meta, int rosterPos)
+  public static bool CanUseItem(TreasureMain itemToUse, AdventureMeta meta, int rosterPos, List<SkillMeta> skills)
   {
     switch (itemToUse.monTreas.effects)
     {
@@ -202,26 +202,29 @@ public static class GameUtilities {
           return true;
         }
         return false;
+      case MonTreasMeta.Type.Skills:
+        bool hasEmpty = false;
+        foreach(SkillMeta skill in skills) {
+          if (skill.req1.has < skill.req1.req || skill.req2.has < skill.req2.req) {
+            hasEmpty = true;
+          }
+        }
+        return hasEmpty;
       case MonTreasMeta.Type.Stats:
-        return false;
+        return true;
       default:
         return false;
     }
   }
 
-  public static AdventureMeta UseItem(TreasureMain itemToUse, AdventureMeta meta, int rosterPos)
+  public static AdventureMeta UseItem(TreasureMain itemToUse, AdventureMeta meta, int rosterPos, List<SkillMeta> skills)
   {
     /*
      * Verify item is in the list
      * update adventure meta
      */
-    //TreasureMain itemToUse = glossy.GetItem(item);
     if (itemToUse != null)
     {
-      //    public enum Type
-      //{
-      //  Exp, Heal, Money, Revive, Stats, None
-      //}
       switch (itemToUse.monTreas.effects)
       {
         case MonTreasMeta.Type.Exp:
@@ -241,7 +244,11 @@ public static class GameUtilities {
             meta.roster[rosterPos].curHealth = meta.roster[rosterPos].maxHealth / 2;
           }
           break;
+        case MonTreasMeta.Type.Skills:
+          PanelManager.instance.FillSkills();
+          break;
         case MonTreasMeta.Type.Stats:
+          meta.roster[rosterPos].AddToLowest(1);
           break;
         default:
           break;

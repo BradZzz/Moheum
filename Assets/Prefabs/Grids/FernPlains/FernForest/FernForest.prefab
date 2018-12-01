@@ -55,11 +55,11 @@ MonoBehaviour:
     name: Fern Forest
     monsters:
     - Beanlock
-    - Octam
-    - Hushwort
-    - Albix
-    - Sea Slime
+    - Beanlock
+    - Beanlock
+    - Beanlock
+    - Beanlock
     - Guatarion
-    - Micro Processor
+    - Guatarion
     monsterLvls: 0400000005000000
   map: {fileID: 1407946204168004, guid: 0e4b092398af94df8a812cf4643bbd82, type: 2}

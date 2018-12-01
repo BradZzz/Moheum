@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [Serializable]
 public class PlayerRosterMeta {
@@ -54,6 +55,35 @@ public class PlayerRosterMeta {
 
   public float getPower(){
     return lust + greed + wrath + pride + gluttony + sloth + envy;
+  }
+
+  public void AddToLowest(int pwr){
+    int[] stats = new int[] { (int)lust * 100, (int)greed * 100, (int)wrath * 100, (int)pride * 100, (int)gluttony * 100, (int)sloth * 100, (int)envy * 100 };
+    int minIdx = Array.IndexOf(stats, stats.Min());
+    switch(minIdx)
+    {
+      case 0:
+        lust += 1;
+        break;
+      case 1:
+        greed += 1;
+        break;
+      case 2:
+        wrath += 1;
+        break;
+      case 3:
+        pride += 1;
+        break;
+      case 4:
+        gluttony += 1;
+        break;
+      case 5:
+        sloth += 1;
+        break;
+      default:
+        envy += 1;
+        break;
+    }
   }
 
   public override string ToString()

@@ -54,13 +54,15 @@ MonoBehaviour:
   meta:
     name: Yester Wilds
     monsters:
-    - Desire Mimic
-    - Jojoi
-    - Snowlyne
-    - Unborn Enigma
-    - Vapreaze
     - Octam
-    - Sea Slime
+    - Octam
     - Hushwort
+    - Hushwort
+    - Jojoi
+    - Jojoi
+    - Sea Slime
+    - Unborn Enigma
+    - Ligeia
+    - Desire Mimic
     monsterLvls: 0c00000014000000
   map: {fileID: 1232727661818876, guid: 6cd22268befd445f597a69a8508e2657, type: 2}

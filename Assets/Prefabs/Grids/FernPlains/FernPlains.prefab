@@ -54,14 +54,14 @@ MonoBehaviour:
   meta:
     name: Fern Forest
     monsters:
-    - Beanlock
-    - Octam
     - Hushwort
-    - Albix
-    - Gran Dux
+    - Wind Pixie
+    - Hushwort
+    - Jojoi
+    - Jojoi
     - Guatarion
     - Jojoi
     - Wind Pixie
     - Glaivesect
     monsterLvls: 0400000005000000
-  map: {fileID: 1641166347414356, guid: ed3fead8bcbff40b3a0a3fb783c0728c, type: 2}
+  map: {fileID: 1677496973794700, guid: 0587ded2f3f5b4b848707321bc4d4024, type: 2}

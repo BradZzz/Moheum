@@ -78,6 +78,7 @@ MonoBehaviour:
   - {fileID: 1648684441751414, guid: c2242e05fb5dd4b2685af741bfed5d57, type: 2}
   - {fileID: 1648684441751414, guid: 81c88e9b2f79243e890fd27201e47866, type: 2}
   - {fileID: 1648684441751414, guid: f5b38b79d8c6743c6af5d038dfcb66bd, type: 2}
+  - {fileID: 1648684441751414, guid: b0145a39cdffb479e8bf4348e6cdb0ce, type: 2}
   particleSystems:
   - {fileID: 1213845555239018, guid: ad5a76bdf0cd8482f92446cc61db820f, type: 2}
   - {fileID: 1470015101394098, guid: 5b70698bb14ae4400a3fb19a1499fc67, type: 2}
@@ -169,6 +170,8 @@ MonoBehaviour:
   - {fileID: 1165300141751418, guid: 456a54a145cde4be2a7c9880e1d0d7ec, type: 2}
   - {fileID: 1165300141751418, guid: 5e85a4a516bdb43ad84c740a1091d855, type: 2}
   - {fileID: 1165300141751418, guid: 5c29d3f50da024688b684004e6d49317, type: 2}
+  - {fileID: 1165300141751418, guid: cfb543db78cf44f179a0aeaa1dca0eb7, type: 2}
+  - {fileID: 1165300141751418, guid: 2be3661e2e9d74009b137f465185056a, type: 2}
   stories:
   - {fileID: 1119355601886002, guid: 6e104435e88104051b07a00037ff1732, type: 2}
   - {fileID: 1119355601886002, guid: 0784e2963ed684c26830ab95b9f0385b, type: 2}
