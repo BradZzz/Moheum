@@ -85,6 +85,8 @@ public class BoardManager : MonoBehaviour {
         previousBelow = newSprite;
 			}
     }
+    //Debug.Log("Prev Local: " + transform.localScale.ToString());
+    transform.localScale = new Vector3(1.15f,1.15f,1.15f);
   }
 
   public void emitExplosion()

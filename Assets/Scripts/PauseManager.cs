@@ -18,6 +18,8 @@ public class PauseManager : MonoBehaviour {
   public GameObject statusPnl;
   public GameObject glossaryPnl;
 
+  public GameObject clickSprite;
+
   //public GameObject mapsPnl;
   //public GameObject statsPnl;
   //public GameObject optsPnl;

@@ -65,4 +65,4 @@ MonoBehaviour:
     - Hushwort
     - Sea Slime
     monsterLvls: 0100000003000000
-  map: {fileID: 1932215599885836, guid: 1c89d9f21f1ff4f0c954d82d02d02cb3, type: 2}
+  map: {fileID: 1013705971037578, guid: e6cbc7beb87fb4ccab88db0643b48c60, type: 2}

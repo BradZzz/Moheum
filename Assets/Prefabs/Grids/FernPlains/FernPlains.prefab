@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meta:
-    name: Fern Forest
+    name: Fern Plains
     monsters:
     - Hushwort
     - Wind Pixie
@@ -64,4 +64,4 @@ MonoBehaviour:
     - Wind Pixie
     - Glaivesect
     monsterLvls: 0400000005000000
-  map: {fileID: 1677496973794700, guid: 0587ded2f3f5b4b848707321bc4d4024, type: 2}
+  map: {fileID: 1521412031584222, guid: f7a4317911fac471b995006da60dbfa6, type: 2}

@@ -26,9 +26,13 @@ public class BoardListener : MonoBehaviour {
       //    Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
       //Input.mousePosition.y, Camera.main.nearClipPlane)));
 
+      Debug.Log("Camera Pos: " + Camera.main.transform.position.ToString());
 
       Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                          Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.z)));
+
+      StartCoroutine(ClickAtPos(mouseWorldPos));
+      //GameObject clicky = Instantiate(PauseManager.instance.clickSprite, mouseWorldPos, Quaternion.identity, BoardManager.instance.transform);
       //Debug.Log("<== 2 ==>: " + mouseWorldPos.ToString());
       //Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
       //Debug.Log(coordinate);
@@ -39,9 +43,19 @@ public class BoardListener : MonoBehaviour {
       {
         if (!pause.GetComponent<PauseManager>().IsOpen())
         {
+          Debug.Log("Moving Player");
           StartCoroutine(player.GetComponent<Move>().MoveToDest(mouseWorldPos));
         }
+      } else {
+        Debug.Log("Error Moving");
       }
     }
+  }
+
+  IEnumerator ClickAtPos(Vector3 pos){
+    Debug.Log("Setting Target At: " + pos.ToString());
+    GameObject clicky = Instantiate(PauseManager.instance.clickSprite, pos, Quaternion.identity);
+    yield return new WaitForSeconds(.5f);
+    Destroy(clicky);
   }
 }

@@ -129,14 +129,14 @@ public class StorySceneHolder : MonoBehaviour {
     {
       if (i == 1)
       {
-        iTween.MoveBy(storyImages[i], iTween.Hash("x", 120f, "time", 60f, "easetype", "linear", "looptype", iTween.LoopType.pingPong));
+        iTween.MoveBy(storyImages[i], iTween.Hash("x", 30f, "time", 60f, "easetype", "linear", "looptype", iTween.LoopType.pingPong));
       }
       if (i == 2)
       {
-        iTween.MoveBy(storyImages[i], iTween.Hash("x", -80f, "time", 20f, "easetype", "linear", "looptype", iTween.LoopType.pingPong));
+        iTween.MoveBy(storyImages[i], iTween.Hash("x", -20f, "time", 20f, "easetype", "linear", "looptype", iTween.LoopType.pingPong));
       }
       if (i == 3) {
-        iTween.MoveBy(storyImages[i], iTween.Hash("x", 20f, "time", 13f, "easetype", "linear", "looptype", iTween.LoopType.pingPong));
+        iTween.MoveBy(storyImages[i], iTween.Hash("x", 5f, "time", 13f, "easetype", "linear", "looptype", iTween.LoopType.pingPong));
       }
       if (i == 4) {
         iTween.RotateBy(storyImages[i], iTween.Hash("z", .1f, "time", 40f, "easetype", "linear",  "looptype", iTween.LoopType.loop));

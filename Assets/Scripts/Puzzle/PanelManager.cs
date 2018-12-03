@@ -1215,27 +1215,28 @@ public class PanelManager : MonoBehaviour
 
   void setButtons(string[] btnTxt){
     for(int i = 0; i < 4; i++){
+      txt[i].gameObject.SetActive(true);
+      dtls[i].gameObject.SetActive(true);
       if (i < btnTxt.Length) {
-        txt [i].gameObject.SetActive (true);
-        dtls [i].gameObject.SetActive (false);
+        dtls[i].gameObject.GetComponent<Text>().text = "";
         txt [i].text = btnTxt [i];
       } else {
-        txt [i].gameObject.SetActive (false);
-        dtls [i].gameObject.SetActive (false);
+        txt[i].gameObject.GetComponent<Text>().text = "";
+        dtls[i].gameObject.GetComponent<Text>().text = "";
       }
     }
   }
 
   void setButtons(string[] btnTxt, string[] btnDtls){
     for(int i = 0; i < 4; i++){
+      txt[i].gameObject.SetActive(true);
+      dtls[i].gameObject.SetActive(true);
       if (i < btnTxt.Length) {
-        txt [i].gameObject.SetActive (true);
-        dtls [i].gameObject.SetActive (true);
         txt [i].text = btnTxt [i];
         dtls[i].text = btnDtls [i];
       } else {
-        txt [i].gameObject.SetActive (false);
-        dtls [i].gameObject.SetActive (false);
+        txt[i].gameObject.GetComponent<Text>().text = "";
+        dtls[i].gameObject.GetComponent<Text>().text = "";
       }
     }
   }

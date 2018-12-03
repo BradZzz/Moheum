@@ -40,6 +40,7 @@ public class Move : MonoBehaviour {
   //}
 
   public void disableMove(){
+    Debug.Log("Move disabled");
     canMove = false;
   }
 
@@ -74,7 +75,7 @@ public class Move : MonoBehaviour {
     float y = 0;
     Vector3 pos = GetComponent<Rigidbody2D>().position;
 
-    if (canMove && !DialogManager.instance.isShown() && !EventSystem.current.IsPointerOverGameObject())
+    if (canMove && !DialogManager.instance.isShown() && !EventSystem.current.IsPointerOverGameObject() && (destination != Vector3.zero || Input.anyKey))
     {
 
       if (Input.GetKey(KeyCode.LeftArrow))
@@ -120,9 +121,8 @@ public class Move : MonoBehaviour {
 
       if (destination != Vector3.zero)
       {
-        if (Math.Abs(Math.Round(destination.x, 1) - Math.Round(GetComponent<Rigidbody2D>().position.x, 1)) > EPSILON)
+        if (Math.Abs(Math.Round(destination.x, 2) - Math.Round(GetComponent<Rigidbody2D>().position.x, 2)) > EPSILON)
         {
-          //Debug.Log("X different: " + destination.x.ToString() + ":" + GetComponent<Rigidbody2D>().position.x.ToString());
           x = GetComponent<Rigidbody2D>().position.x < destination.x ? .1f : -.1f;
           if (!keyMv)
           {
@@ -137,9 +137,8 @@ public class Move : MonoBehaviour {
             }
           }
         }
-        if (Math.Abs(Math.Round(destination.y, 1) - Math.Round(GetComponent<Rigidbody2D>().position.y, 1)) > EPSILON)
+        if (Math.Abs(Math.Round(destination.y, 2) - Math.Round(GetComponent<Rigidbody2D>().position.y, 2)) > EPSILON)
         {
-          //Debug.Log("Y different: " + destination.y.ToString() + ":" + GetComponent<Rigidbody2D>().position.y.ToString());
           y = GetComponent<Rigidbody2D>().position.y < destination.y ? .1f : -.1f;
           if (!keyMv)
           {
@@ -154,36 +153,21 @@ public class Move : MonoBehaviour {
             }
           }
         }
+      } else {
+        Debug.Log("At destination");
       }
 
       isMoving = Math.Round(x,2) != 0 || Math.Round(y, 2) != 0 ? true : false;
-
-      //Vector3 pos = GetComponent<Rigidbody2D>().position;
-
-      //pos += y * transform.up * Time.deltaTime * speed;
-      //pos += x * transform.right * Time.deltaTime * speed;
-
-      //GetComponent<Rigidbody2D>().position = pos;
     }
-    //if (System.Math.Abs(destination.x - GetComponent<Rigidbody2D>().position.x) > EPSILON 
-    //    || System.Math.Abs(destination.y - GetComponent<Rigidbody2D>().position.y) > EPSILON) {
-    //  x = GetComponent<Rigidbody2D>().position.x < destination.x ? .1f : -.1f;
-    //  y = GetComponent<Rigidbody2D>().position.y < destination.y ? .1f : -.1f;
-    //}
-
-    //Vector3 pos = GetComponent<Rigidbody2D>().position;
 
     if(isMoving){
-      //Debug.Log("Pos: " + GetComponent<Rigidbody2D>().position.ToString());
-      //Debug.Log("Dest: " + destination.ToString());
-      //Debug.Log("x: " + x.ToString() + " y: " + y.ToString());
-
       pos += y * transform.up * Time.deltaTime * speed;
       pos += x * transform.right * Time.deltaTime * speed;
 
       GetComponent<Rigidbody2D>().position = pos;
       //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     } else {
+      Debug.Log("Arrived at destination");
       destination = Vector3.zero;
     }
   }

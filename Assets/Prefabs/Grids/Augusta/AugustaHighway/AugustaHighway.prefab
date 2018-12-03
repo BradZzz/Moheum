@@ -61,4 +61,4 @@ MonoBehaviour:
     - Glaivesect
     - Horsebot v2.1
     monsterLvls: 090000000d000000
-  map: {fileID: 1487418861996636, guid: 0dfa7179bdf9f40a1b236690b09c7bd7, type: 2}
+  map: {fileID: 1166577669836716, guid: 72ce33f01c24e45c38c561d7b9582416, type: 2}
