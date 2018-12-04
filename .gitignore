@@ -3,4 +3,4 @@ Temp/
 **/.env
 **/env.py
 **/.tar.gz
-**/*.resS
+**/sharedassets*
