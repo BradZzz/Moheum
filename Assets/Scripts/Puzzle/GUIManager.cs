@@ -83,6 +83,7 @@ public class GUIManager : MonoBehaviour {
     yield return new WaitForSeconds(.5f);
     GameObject toCopy = introPanel.transform.Find("Image").gameObject;
     GameObject descObj = introPanel.transform.Find("Desc").gameObject;
+    Color oldColor = toCopy.GetComponent<Image>().color;
     if (meta.isTrainerEncounter)
     {
       toCopy.GetComponent<Image>().sprite = genericTrainer;
@@ -90,15 +91,16 @@ public class GUIManager : MonoBehaviour {
     else
     {
       toCopy.GetComponent<Image>().sprite = glossy.GetMonsterImage(meta.wild.name);
+      toCopy.GetComponent<Image>().color = Color.black;
     }
     descObj.GetComponent<Text>().text = "";
 
     //GameObject character = Instantiate(toCopy, toCopy.transform.position, Quaternion.identity);
-    Color oldColor = toCopy.GetComponent<Image>().color;
-    toCopy.GetComponent<Image>().color = Color.black;
     iTween.MoveTo(toCopy, new Vector3(descObj.transform.position.x, toCopy.transform.position.y, toCopy.transform.position.z), 1f);
     yield return new WaitForSeconds(1f);
-    iTween.ShakePosition(toCopy, new Vector3(1,0,0), .2f);
+    if (!meta.isTrainerEncounter) {
+      iTween.ShakePosition(toCopy, new Vector3(1, 0, 0), .2f);
+    }
     yield return new WaitForSeconds(1f);
     //iTween.ValueTo(introPanel, iTween.Hash(
     //"from", 0,

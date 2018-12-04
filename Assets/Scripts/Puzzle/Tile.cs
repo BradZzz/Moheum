@@ -42,8 +42,11 @@ public class Tile : MonoBehaviour {
 	}
 
   void OnMouseDown() {
-    if (!BoardManager.instance.GameOver() && BoardManager.instance.getPlayerTurn() 
-        && !BoardManager.instance.IsProcessing && !BoardManager.instance.IsProcessing) {
+    Debug.Log("Tile Clicked");
+    Debug.Log("BoardManager.instance.GameOver(): " + BoardManager.instance.GameOver().ToString());
+    Debug.Log("BoardManager.instance.getPlayerTurn(): " + BoardManager.instance.getPlayerTurn().ToString());
+    Debug.Log("BoardManager.instance.IsProcessing(): " + BoardManager.instance.IsProcessing.ToString());
+    if (!BoardManager.instance.GameOver() && BoardManager.instance.getPlayerTurn() && !BoardManager.instance.IsProcessing) {
       if (render.sprite == null || BoardManager.instance.IsProcessing) {
         return;
       }
