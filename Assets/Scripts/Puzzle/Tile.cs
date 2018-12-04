@@ -45,9 +45,9 @@ public class Tile : MonoBehaviour {
     Debug.Log("Tile Clicked");
     Debug.Log("BoardManager.instance.GameOver(): " + BoardManager.instance.GameOver().ToString());
     Debug.Log("BoardManager.instance.getPlayerTurn(): " + BoardManager.instance.getPlayerTurn().ToString());
-    Debug.Log("BoardManager.instance.IsProcessing(): " + BoardManager.instance.IsProcessing.ToString());
-    if (!BoardManager.instance.GameOver() && BoardManager.instance.getPlayerTurn() && !BoardManager.instance.IsProcessing) {
-      if (render.sprite == null || BoardManager.instance.IsProcessing) {
+    Debug.Log("BoardManager.instance.IsProcessing(): " + BoardManager.instance.IsThinking().ToString());
+    if (!BoardManager.instance.GameOver() && BoardManager.instance.getPlayerTurn() && !BoardManager.instance.IsThinking()) {
+      if (render.sprite == null || BoardManager.instance.IsThinking()) {
         return;
       }
       if (isSelected) {
@@ -426,6 +426,8 @@ public class Tile : MonoBehaviour {
     dmg += ClearMatch(new Vector2[2] { Vector2.left, Vector2.right });
     dmg += ClearMatch(new Vector2[2] { Vector2.up, Vector2.down });
     if (matchFound) {
+      //Set the wait for turn slightly higher
+      BoardManager.instance.PoppingWait();
       //GetComponent<FadeMaterials>().splitSprite();
       toBeDeleted = true;
       PanelManager.instance.addGem (type.type);

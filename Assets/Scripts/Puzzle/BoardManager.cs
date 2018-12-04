@@ -15,6 +15,7 @@ public class BoardManager : MonoBehaviour {
 
   //public bool IsShifting { get; set; }
   public bool IsProcessing { get; set; }
+  public bool IsPopping { get; set; }
 
   public enum GameType {
     Practice, Duel, None
@@ -32,6 +33,7 @@ public class BoardManager : MonoBehaviour {
   private IEnumerator aiMove = null;
   private IEnumerator resetMove = null;
   private IEnumerator moveWait = null;
+  private IEnumerator popping = null;
   public IEnumerator hinty;
 
   void Start () {
@@ -182,6 +184,24 @@ public class BoardManager : MonoBehaviour {
     yield return new WaitForSeconds(animationWait);
 
     StartCoroutine(FindNullTiles());
+  }
+
+  public void PoppingWait(){
+    IsPopping = true;
+    if (popping != null) {
+      StopCoroutine(popping);
+    }
+    popping = PopProcess();
+    StartCoroutine(popping);
+  }
+
+  IEnumerator PopProcess(){
+    yield return new WaitForSeconds(.25f);
+    IsPopping = false;
+  }
+
+  public bool IsThinking(){
+    return IsProcessing && IsPopping;
   }
 
   public void switchAllTiles(TileMeta.GemType from, TileMeta.GemType to)
@@ -607,7 +627,7 @@ public class BoardManager : MonoBehaviour {
       {
         yield return new WaitForSeconds(.25f);
         counter++;
-        if (!IsProcessing)
+        if (!IsThinking())
         {
           checksPassed++;
         }
@@ -677,13 +697,13 @@ public class BoardManager : MonoBehaviour {
         yield return new WaitForSeconds(.5f);
 //        while(IsShifting && IsProcessing){}
         //Debug.Log("IsShifting: " + isShifting().ToString());
-        Debug.Log("IsProcessing: " + IsProcessing.ToString());
+        Debug.Log("IsProcessing: " + IsThinking().ToString());
         int counter = 0;
         int checksPassed = 0;
         while (checksPassed < 3 && counter < 30) {
           yield return new WaitForSeconds(.25f);
           counter++;
-          if (!IsProcessing) {
+          if (!IsThinking()) {
             checksPassed++;
           } else {
             checksPassed = 0;
@@ -712,7 +732,7 @@ public class BoardManager : MonoBehaviour {
       {
         yield return new WaitForSeconds(.25f);
         counter++;
-        if (!IsProcessing)
+        if (!IsThinking())
         {
           checksPassed++;
         }
@@ -805,13 +825,13 @@ public class BoardManager : MonoBehaviour {
         // There aren't any moves to make, reset the board and try again
         reset(false);
         counter = 0;
-        while (IsProcessing && counter < 30)
+        while (IsThinking() && counter < 30)
         {
           yield return new WaitForSeconds(.25f);
           counter++;
           Debug.Log("Counter: " + counter);
           //Debug.Log("IsShifting: " + isShifting().ToString());
-          Debug.Log("IsProcessing: " + IsProcessing.ToString());
+          Debug.Log("IsProcessing: " + IsThinking().ToString());
         }
         //yield return new WaitForSeconds(.25f);
         StartCoroutine(loopAIMovement());
@@ -821,7 +841,7 @@ public class BoardManager : MonoBehaviour {
 
   IEnumerator WaitForMovement(){
     yield return new WaitForSeconds(2f);
-    if (!IsProcessing && !playerTurn) {
+    if (!IsThinking() && !playerTurn) {
       StartCoroutine(loopAIMovement());
     }
   }
@@ -906,7 +926,7 @@ public class BoardManager : MonoBehaviour {
           {
             yield return new WaitForSeconds(.1f);
             counter++;
-            if (!IsProcessing)
+            if (!IsThinking())
             {
               checksPassed++;
             }
@@ -934,7 +954,7 @@ public class BoardManager : MonoBehaviour {
         {
           yield return new WaitForSeconds(.25f);
           counter++;
-          if (!IsProcessing)
+          if (!IsThinking())
           {
             checksPassed++;
           }

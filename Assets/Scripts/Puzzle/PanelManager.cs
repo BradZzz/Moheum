@@ -186,7 +186,7 @@ public class PanelManager : MonoBehaviour
   {
     yield return new WaitForSeconds(1f);
     int counter = 0;
-    while (BoardManager.instance.IsProcessing && counter < 30)
+    while (BoardManager.instance.IsThinking() && counter < 30)
     {
       yield return new WaitForSeconds(1f);
       counter++;
@@ -247,7 +247,7 @@ public class PanelManager : MonoBehaviour
     {
       yield return new WaitForSeconds(.25f);
       counter++;
-      if (!BoardManager.instance.IsProcessing)
+      if (!BoardManager.instance.IsThinking())
       {
         checksPassed++;
       }

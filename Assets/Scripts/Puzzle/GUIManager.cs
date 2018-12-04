@@ -492,14 +492,14 @@ public class GUIManager : MonoBehaviour {
   }
 
   private IEnumerator WaitForShifting(bool win, bool caughtSomething, bool killed, AdventureMeta meta) {
-    yield return new WaitUntil(()=> !BoardManager.instance.IsProcessing);
+    yield return new WaitUntil(()=> !BoardManager.instance.IsThinking());
     yield return new WaitForSeconds(.25f);
     GameOver(win, caughtSomething, killed, meta);
   }
 
   private IEnumerator WaitForShifting(PlayerRosterMeta abbvMeta, int exp)
   {
-    yield return new WaitUntil(() => !BoardManager.instance.IsProcessing);
+    yield return new WaitUntil(() => !BoardManager.instance.IsThinking());
     yield return new WaitForSeconds(.25f);
     ShowLevelUpScreen(abbvMeta, exp);
   }
