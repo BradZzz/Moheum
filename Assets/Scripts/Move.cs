@@ -153,8 +153,6 @@ public class Move : MonoBehaviour {
             }
           }
         }
-      } else {
-        Debug.Log("At destination");
       }
 
       isMoving = Math.Round(x,2) != 0 || Math.Round(y, 2) != 0 ? true : false;
@@ -167,7 +165,7 @@ public class Move : MonoBehaviour {
       GetComponent<Rigidbody2D>().position = pos;
       //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     } else {
-      Debug.Log("Arrived at destination");
+      //Debug.Log("Arrived at destination");
       destination = Vector3.zero;
     }
   }

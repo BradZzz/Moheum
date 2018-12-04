@@ -56,4 +56,4 @@ MonoBehaviour:
     monsters:
     - Octam
     monsterLvls: 0400000006000000
-  map: {fileID: 1542914896764300, guid: c91651a004ff346ca862506e4579a0f8, type: 2}
+  map: {fileID: 1089281202084876, guid: b48f5b51919264fafa0195685276df8b, type: 2}

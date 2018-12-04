@@ -12,6 +12,10 @@ public class DialogManager : MonoBehaviour {
   private Queue<DialogMeta> msgQueue;
   private bool waiting;
   private GameObject[] shopitemSubPnls;
+  private bool shopActive;
+  private bool dialogActive;
+
+  private float waitingTime = .6f;
 
   private Dictionary<string, int> shopOwnersStock;
 
@@ -24,7 +28,7 @@ public class DialogManager : MonoBehaviour {
     waiting = false;
     shopOwnersStock = new Dictionary<string, int>();
     shopOwnersStock.Add("Bandage", 25);
-    shopOwnersStock.Add("Resurrect", 250);
+    shopOwnersStock.Add("Resurrect", 100);
   }
 
   //private void Start()
@@ -35,6 +39,14 @@ public class DialogManager : MonoBehaviour {
   //  DialogCanvas.transform.
   //}
 
+  public bool ShopActive(){
+    return shopActive;
+  }
+
+  public bool DialogActive(){
+    return dialogActive;
+  }
+
   void FixedUpdate()
   {
     if(Input.anyKeyDown && isShown()){
@@ -43,6 +55,7 @@ public class DialogManager : MonoBehaviour {
   }
 
   public void CloseShop(){
+    shopActive = false;
     ShopCanvas.SetActive(false);
     GameObject.FindWithTag("Player").GetComponent<Move>().disableMoveTimed();
   }
@@ -64,6 +77,7 @@ public class DialogManager : MonoBehaviour {
   }
 
   public void PopulateShop(){
+    shopActive = true;
     Debug.Log("PopulateShop");
     Glossary glossy = PauseManager.instance.glossaryObj.GetComponent<Glossary>();
     List<string> defeated = GameUtilities.getInteractedWith(glossy, false, true);
@@ -130,9 +144,10 @@ public class DialogManager : MonoBehaviour {
   void NxtMsg(){
     Debug.Log("NxtMsg");
     if (msgQueue.Count > 0 && !waiting) {
-      instance.StartCoroutine(WaitTime(.6f));
+      instance.StartCoroutine(WaitTime(waitingTime));
       Debug.Log("msgQueue.Count > 0");
       DialogMeta dialog = msgQueue.Dequeue();
+      GameObject.Find("DialogText").GetComponent<Text>().text = dialog.msgNoTags();
       if (dialog.getHeal()) {
         Debug.Log("Heal");
         AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
@@ -154,11 +169,11 @@ public class DialogManager : MonoBehaviour {
         ShopCanvas.SetActive(true);
         PopulateShop();
       }
-      GameObject.Find("DialogText").GetComponent<Text>().text = dialog.msgNoTags();
     } else if (msgQueue.Count > 0 && waiting) {
       Debug.Log("Waiting");
     } else {
-      DialogCanvas.SetActive(false);
+      //DialogCanvas.SetActive(false);
+      StartCoroutine(WaitSetInactive(waitingTime));
     }
   }
 
@@ -169,9 +184,18 @@ public class DialogManager : MonoBehaviour {
     waiting = false;
   }
 
+  IEnumerator WaitSetInactive(float time)
+  {
+    waiting = true;
+    yield return new WaitForSeconds(time);
+    DialogCanvas.SetActive(false);
+    waiting = false;
+    dialogActive = false;
+  }
+
   IEnumerator HealFlash()
   {
-    yield return new WaitForSeconds(.6f);
+    yield return new WaitForSeconds(waitingTime);
     GameManager.instance.HealFlash();
     yield return null;
   }
@@ -192,6 +216,7 @@ public class DialogManager : MonoBehaviour {
 
   public void SetMsgs(Sprite image, DialogMeta[] dialogs)
   {
+    dialogActive = true;
     Debug.Log("Messages Set");
     foreach(DialogMeta dialog in dialogs){
       Debug.Log(dialog.msg);

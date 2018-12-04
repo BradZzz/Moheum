@@ -28,10 +28,13 @@ using System.Collections.Generic;
 public class GUIManager : MonoBehaviour {
 	public static GUIManager instance;
 
-	public GameObject gameOverPanel;
+  public GameObject introPanel;
+  public GameObject gameOverPanel;
   public GameObject catchPanel;
   public GameObject trainerPanel;
   public GameObject lvlUpPanel;
+
+  public Sprite genericTrainer;
 
   private bool choosingSkill;
 
@@ -44,11 +47,139 @@ public class GUIManager : MonoBehaviour {
 		instance = GetComponent<GUIManager>();
     boardManager = GameObject.Find("BoardManager");
     choosingSkill = false;
-	}
+  }
 
   public void LevelUp(PlayerRosterMeta abbvMeta, int exp){
     StartCoroutine(WaitForShifting(abbvMeta, exp));
   }
+
+  public void HideBoard(){
+    Debug.Log("Hide Board");
+    Vector3 pos = boardManager.transform.position;
+    pos.z = 0;
+    boardManager.transform.position = pos;
+  }
+
+  public void ShowBoard(){
+    Debug.Log("Show Board");
+    Vector3 pos = boardManager.transform.position;
+    pos.z = 90;
+    boardManager.transform.position = pos;
+  }
+
+  public void StartIntroduction(Glossary glossy)
+  {
+    StartCoroutine(StartIntro(glossy, BaseSaver.getAdventure()));
+  }
+
+  IEnumerator StartIntro(Glossary glossy, AdventureMeta meta){
+    /*
+     * Make color = black
+     * move to center
+     * shake
+     * Make color = normal
+     */
+    HideBoard();
+    yield return new WaitForSeconds(.5f);
+    GameObject toCopy = introPanel.transform.Find("Image").gameObject;
+    GameObject descObj = introPanel.transform.Find("Desc").gameObject;
+    if (meta.isTrainerEncounter)
+    {
+      toCopy.GetComponent<Image>().sprite = genericTrainer;
+    }
+    else
+    {
+      toCopy.GetComponent<Image>().sprite = glossy.GetMonsterImage(meta.wild.name);
+    }
+    descObj.GetComponent<Text>().text = "";
+
+    //GameObject character = Instantiate(toCopy, toCopy.transform.position, Quaternion.identity);
+    Color oldColor = toCopy.GetComponent<Image>().color;
+    toCopy.GetComponent<Image>().color = Color.black;
+    iTween.MoveTo(toCopy, new Vector3(descObj.transform.position.x, toCopy.transform.position.y, toCopy.transform.position.z), 1f);
+    yield return new WaitForSeconds(1f);
+    iTween.ShakePosition(toCopy, new Vector3(1,0,0), .2f);
+    yield return new WaitForSeconds(1f);
+    //iTween.ValueTo(introPanel, iTween.Hash(
+    //"from", 0,
+    //"to", 1,
+    //"time", .5f,
+    //"onupdatetarget", gameObject,
+    //"onupdate", "RevealCharacter"));
+    toCopy.GetComponent<Image>().color = oldColor;
+    if (meta.isTrainerEncounter)
+    {
+      descObj.GetComponent<Text>().text = "Challenged By : " + meta.trainer.name;
+    }
+    else
+    {
+      descObj.GetComponent<Text>().text = "Wild " + meta.wild.name + " Found!";
+    }
+  }
+
+  public void RevealCharacter(float alpha)
+  {
+    Color fadeCol = introPanel.GetComponent<Image>().color;
+    fadeCol.a = alpha;
+    introPanel.GetComponent<Image>().color = fadeCol;
+  }
+
+  public void StartFadeIntro(){
+    StartCoroutine(FadeIntro());
+  }
+
+  IEnumerator FadeIntro(){
+    iTween.ValueTo(introPanel, iTween.Hash(
+      "from", 1,
+      "to", 0,
+      "time", .5f,
+      "onupdatetarget", gameObject,
+      "onupdate", "FadeIntroWrap"));
+    yield return new WaitForSeconds(.5f);
+    introPanel.transform.Find("Title").gameObject.SetActive(false);
+    introPanel.transform.Find("Desc").gameObject.SetActive(false);
+    introPanel.transform.Find("Image").gameObject.SetActive(false);
+    yield return new WaitForSeconds(.5f);
+    introPanel.SetActive(false);
+    ShowBoard();
+  }
+
+  public void FadeIntroWrap(float alpha)
+  {
+    Color fadeCol = introPanel.GetComponent<Image>().color;
+    fadeCol.a = alpha;
+    introPanel.GetComponent<Image>().color = fadeCol;
+  }
+
+
+
+  //private IEnumerator BreakBuff()
+  //{
+  //  if (buff > 0)
+  //  {
+  //    //iTween.ShakePosition(buffWrap, new Vector3(1, 0, 0), .5f);
+  //    //yield return new WaitForSeconds(.5f);
+  //    iTween.ValueTo(buffWrap, iTween.Hash(
+  //      "from", 1,
+  //      "to", 0,
+  //      "time", .5f,
+  //      "onupdatetarget", gameObject,
+  //      "onupdate", "FadeOverlayWrap"));
+  //    yield return new WaitForSeconds(.5f);
+
+  //  }
+  //  buff = 0;
+  //  buffWrap.SetActive(false);
+  //}
+
+  //public void FadeOverlayWrap(float alpha)
+  //{
+  //  Color fadeCol = buffWrap.GetComponent<Image>().color;
+  //  fadeCol.a = alpha;
+  //  buffWrap.GetComponent<Image>().color = fadeCol;
+  //}
+
+
 
   public void LevelUpSkillClick(int pos){
     Debug.Log("Click at: " + pos.ToString());

@@ -16,7 +16,7 @@ public class BoardListener : MonoBehaviour {
       //Debug.Log(Input.mousePosition.ToString());
     }
 
-    if (Input.GetMouseButtonUp(0))
+    if (Input.GetMouseButtonUp(0) && !PauseManager.instance.IsOpen() && !DialogManager.instance.ShopActive() && !DialogManager.instance.DialogActive())
     {
       //Debug.Log("Mouse up: " + Camera.main.nearClipPlane.ToString());
       //Debug.Log("<== 1 ==>: " + Input.mousePosition.ToString());
@@ -32,6 +32,9 @@ public class BoardListener : MonoBehaviour {
                                                                          Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.z)));
 
       StartCoroutine(ClickAtPos(mouseWorldPos));
+      //Need to translate to z axis to zero here so that the y isn't as fucked up
+
+
       //GameObject clicky = Instantiate(PauseManager.instance.clickSprite, mouseWorldPos, Quaternion.identity, BoardManager.instance.transform);
       //Debug.Log("<== 2 ==>: " + mouseWorldPos.ToString());
       //Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
@@ -43,7 +46,7 @@ public class BoardListener : MonoBehaviour {
       {
         if (!pause.GetComponent<PauseManager>().IsOpen())
         {
-          Debug.Log("Moving Player");
+          //Debug.Log("Moving Player");
           StartCoroutine(player.GetComponent<Move>().MoveToDest(mouseWorldPos));
         }
       } else {
@@ -52,9 +55,18 @@ public class BoardListener : MonoBehaviour {
     }
   }
 
+  //public Vector3 AdjustY(Vector3 pos)
+  //{
+  //  Debug.Log("pos: " + pos.ToString());
+  //  Vector3 newPos = new Vector3(pos.x, pos.y + Mathf.Abs(pos.z/2));
+  //  Debug.Log("new pos: " + newPos.ToString());
+  //  return newPos;
+  //}
+
   IEnumerator ClickAtPos(Vector3 pos){
     Debug.Log("Setting Target At: " + pos.ToString());
     GameObject clicky = Instantiate(PauseManager.instance.clickSprite, pos, Quaternion.identity);
+
     yield return new WaitForSeconds(.5f);
     Destroy(clicky);
   }

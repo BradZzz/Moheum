@@ -377,6 +377,8 @@ public class PanelManager : MonoBehaviour
 
   // Use this for initialization
   void Start () {
+    GUIManager.instance.StartIntroduction(glossaryObj.GetComponent<Glossary>());
+
     currentMonster = 0;
     isCritical = false;
     isUsingItem = false;
@@ -656,17 +658,37 @@ public class PanelManager : MonoBehaviour
         StartCoroutine(BoardManager.instance.hinty);
         skills [activeSkill].req1.has = 0;
         skills [activeSkill].req2.has = 0;
+
+        StartCoroutine(FlashButton(GameObject.Find("HClick" + (activeSkill + 1).ToString())));
+
         setActiveSkill (-1);
         Debug.Log ("useSkill player");
         loadSkillsOverlays ();
       } else {
         Mskills [activeSkill].req1.has = 0;
         Mskills [activeSkill].req2.has = 0;
+
+        StartCoroutine(FlashButton(GameObject.Find("MClick" + (activeSkill + 1).ToString())));
+
         setActiveSkill (-1);
         Debug.Log ("useSkill comp");
         loadSkillsOverlays ();
       }
     }
+  }
+
+  IEnumerator FlashButton(GameObject button){
+    Color baseColor = button.GetComponent<Image>().color;
+    Color newColor = new Color(253/(float)255, 238/ (float)255, 85/ (float)255);
+    float wait = .2f;
+
+    button.GetComponent<Image>().color = newColor;
+    yield return new WaitForSeconds(wait);
+    button.GetComponent<Image>().color = baseColor;
+    yield return new WaitForSeconds(wait);
+    button.GetComponent<Image>().color = newColor;
+    yield return new WaitForSeconds(wait);
+    button.GetComponent<Image>().color = baseColor;
   }
 
   //This function is called if a 4-5 match occurs during the game

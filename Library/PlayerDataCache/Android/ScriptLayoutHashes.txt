@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_android_v01_0.apk
+/Users/brad/Desktop/MonsterHunterDemo_android_v01_4.apk
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity
@@ -122,6 +122,7 @@ c7dd12c15208b0447e101f80038706df UnityEngine.Timeline.dll:UnityEngine.Timeline.A
 0ddb2c46096a1e59e0dce07886ce4769 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 0ddb2c46096a1e59e0dce07886ce4769 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 64f3a13c1277a7f1324321d93d0ec13b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.BoardClickable
 fcf33feaab14d00f2c97b154bd5bc17e Assembly-CSharp.dll:.GUISizePingPong
 66b3109aa5921cf800bec17926c6adba Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 d1bb7d21da012dbf2acdb5bf8bb0a940 Assembly-CSharp.dll:.CharacterActionController
@@ -273,7 +274,7 @@ e8481a380086763fdbfd46648febf035 Assembly-CSharp.dll:.DialogManager
 f5ece19966a893bd3def5b7aaf85514d Assembly-CSharp.dll:UnityEngine.Tilemaps.TerrainTile
 5b83580a22df4ed5e756000935aa4092 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.TimedObjectDestructor
 7177a8535b00ed63b93409efbddbb62c Assembly-CSharp.dll:.RoadTile
-e04227f3a9796cea087f034df37b26c0 Assembly-CSharp.dll:.PauseManager
+b0f4efeaf4479f7ca3971efd143b70e8 Assembly-CSharp.dll:.PauseManager
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
