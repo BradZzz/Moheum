@@ -320,7 +320,7 @@ public class GameManager : MonoBehaviour {
 	}
 
   public void LoadTestChar(int save){
-    if (BaseSaver.getAdventure() == null) { ResetAll(save); }
+    if ((Convert.ToInt32(BaseSaver.getSN())) != save || BaseSaver.getAdventure() == null) { ResetAll(save); }
     SceneFlash(newScene);
   }
 
@@ -328,7 +328,6 @@ public class GameManager : MonoBehaviour {
     Debug.Log("ResetAll");
     Glossary glossy = GameObject.Find("Glossary").GetComponent<Glossary>();
     HardReset();
-
 
     BaseSaver.putSaveNumber(save);
     BaseSaver.setMapName("ShallowGrove");
