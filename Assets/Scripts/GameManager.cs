@@ -327,15 +327,18 @@ public class GameManager : MonoBehaviour {
   public void ResetAll(int save){
     Debug.Log("ResetAll");
     Glossary glossy = GameObject.Find("Glossary").GetComponent<Glossary>();
-    HardReset();
-
-    BaseSaver.putSaveNumber(save);
+    SoftReset(save);
     BaseSaver.setMapName("ShallowGrove");
     AdventureMeta meta = new AdventureMeta();
     meta.roster = returnTestRoster(glossy);
     meta.vault = new PlayerRosterMeta[0];
     BaseSaver.putAdventure(meta);
     newScene = true;
+  }
+
+  public void SoftReset(int save)
+  {
+    BaseSaver.ResetKeys(save);
   }
 
   public void HardReset()

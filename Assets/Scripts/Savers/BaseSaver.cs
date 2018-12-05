@@ -8,14 +8,13 @@ public class BaseSaver {
   private static string ADVENTURE = "ADVENTURE";
   private static string BOARD = "BOARD";
   private static string MAP_NAME = "MAP_NAME";
-
   private static string SAVE_ADVENTURE = "SAVE_ADVENTURE";
   private static string SAVE_BOARD = "SAVE_BOARD";
   private static string SAVE_MAP_NAME = "SAVE_MAP_NAME";
-
   private static string COMPUTER = "COMPUTER";
   private static string MAP_NAME_PREV = "MAP_NAME_PREV";
   private static string MAP_CONNECTION = "MAP_CONNECTION";
+
   private static string SLIDESHOW_NAME = "SLIDESHOW_NAME";
 
   public static void saveState(){
@@ -47,6 +46,20 @@ public class BaseSaver {
   public static string adjKy(string key)
   {
     return key + getSN();
+  }
+
+  public static void ResetKeys(int save)
+  {
+    putSaveNumber(save);
+    PlayerPrefs.SetString(adjKy(ADVENTURE), "");
+    PlayerPrefs.SetString(adjKy(BOARD), "");
+    PlayerPrefs.SetString(adjKy(MAP_NAME), "");
+    PlayerPrefs.SetString(adjKy(SAVE_ADVENTURE), "");
+    PlayerPrefs.SetString(adjKy(SAVE_BOARD), "");
+    PlayerPrefs.SetString(adjKy(SAVE_MAP_NAME), "");
+    PlayerPrefs.SetString(adjKy(COMPUTER), "");
+    PlayerPrefs.SetString(adjKy(MAP_NAME_PREV), "");
+    PlayerPrefs.SetString(adjKy(MAP_CONNECTION), "");
   }
 
   /*

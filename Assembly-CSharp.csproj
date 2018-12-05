@@ -194,6 +194,7 @@
     <Compile Include="Assets\Scripts\Savers\PosMeta.cs" />
     <Compile Include="Assets\Scripts\Savers\QuestMeta.cs" />
     <Compile Include="Assets\Scripts\SpriteOutline.cs" />
+    <Compile Include="Assets\Scripts\TitleSaveViewer.cs" />
     <Compile Include="Assets\Scripts\WallListener.cs" />
     <Compile Include="Assets\Simple Scene Fade Load System\Demo (You don't have to import this folder)\DemoScript.cs" />
     <Compile Include="Assets\Simple Scene Fade Load System\Scripts\Fader.cs" />
