@@ -67,9 +67,49 @@ public class GameManager : MonoBehaviour {
     instance.StartCoroutine(FadeOut(instance.faderObj, instance.faderImg, Color.black));
 	}
 
-	// Reload the current scene
-	public void ReloadScene() {
-		LoadScene(SceneManager.GetActiveScene().name);
+  public void LoadExitScene(string sceneName)
+  {
+    instance.StartCoroutine(Load(sceneName));
+    instance.StartCoroutine(FadeOutExit(instance.faderObj, instance.faderImg, Color.black));
+  }
+
+  public void FadeOutNoScene()
+  {
+    instance.StartCoroutine(FadeOutNoSceneAsync(instance.faderObj, instance.faderImg, Color.black));
+  }
+
+  IEnumerator FadeOutNoSceneAsync(GameObject faderObject, Image fader, Color fadeColor)
+  {
+    fadeColor.a = 0;
+    faderObject.SetActive(true);
+    fader.gameObject.SetActive(true);
+    fader.color = fadeColor;
+    while (fader.color.a < 1)
+    {
+      fader.color += fadeTransparency;
+      yield return new WaitForSeconds(fadeSpeed);
+    }
+  }
+
+  //Iterate the fader transparency to 100%
+  IEnumerator FadeOutExit(GameObject faderObject, Image fader, Color fadeColor)
+  {
+    //fadeColor.a = 0;
+    //faderObject.SetActive(true);
+    //fader.gameObject.SetActive(true);
+    //fader.color = fadeColor;
+    //while (fader.color.a < 1)
+    //{
+    //  fader.color += fadeTransparency;
+    //  yield return new WaitForSeconds(fadeSpeed);
+    //}
+    yield return new WaitForSeconds(1f);
+    ActivateScene(); //Activate the scene when the fade ends
+  }
+
+  // Reload the current scene
+  public void ReloadScene() {
+    LoadExitScene(SceneManager.GetActiveScene().name);
 	}
 
 	private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode) {
@@ -102,26 +142,6 @@ public class GameManager : MonoBehaviour {
     projectile.GetComponent<ParticleSystem>().Pause();
     yield return new WaitForSeconds(.5f);
     Destroy(projectile);
-
-
-    //GameObject.FindWithTag("Player").transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-    //yield return new WaitForSeconds(.6f);
-    //GameObject.FindWithTag("Player").transform.GetChild(0).GetComponent<ParticleSystem>().Pause();
-
-    //faderObject.SetActive(true);
-    //faderImg.gameObject.SetActive(true);
-    //faderImg.color = fadeColor;
-    //while (fader.color.a < 1)
-    //{
-    //  fader.color += fadeTransparency;
-    //  yield return new WaitForSeconds(fadeSpeed);
-    //}
-    //while (fader.color.a > 0)
-    //{
-    //  fader.color -= fadeTransparency;
-    //  yield return new WaitForSeconds(fadeSpeed);
-    //}
-    //faderObject.SetActive(false);
   }
 
   public void FightFlash()
@@ -213,8 +233,8 @@ public class GameManager : MonoBehaviour {
     fadeColor.a = 0;
     Debug.Log("FightTransition");
     faderObject.SetActive(true);
-    faderImg.gameObject.SetActive(true);
-    faderImg.color = fadeColor;
+    fader.gameObject.SetActive(true);
+    fader.color = fadeColor;
     while (fader.color.a < 1)
     {
       fader.color += fadeTransparency;

@@ -132,6 +132,7 @@ public class ColliderListener : MonoBehaviour {
         }
         if (other.name.Contains("ExitTileGrass"))
         {
+          GameManager.instance.FadeOutNoScene();
           waitingForRoll = true;
           StartCoroutine(WaitForAction(roll_wait));
           StartCoroutine(WaitForConversation(convo_wait));

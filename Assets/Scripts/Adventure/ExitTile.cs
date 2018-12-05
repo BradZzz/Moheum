@@ -10,5 +10,6 @@ public class ExitTile : MonoBehaviour {
     BaseSaver.setMapName(toScene.Split('.')[0]);
     BaseSaver.setMapConnection(toScene.Split('.')[1]);
     GameManager.instance.ReloadScene();
+    //GameManager.instance.LoadScene("MainScene");
   }
 }

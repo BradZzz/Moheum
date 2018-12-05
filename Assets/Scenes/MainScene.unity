@@ -17181,7 +17181,7 @@ Prefab:
     - target: {fileID: 224099120928670676, guid: 959cc4a8bd2394a21b316958f4d8e37b,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224099120928670676, guid: 959cc4a8bd2394a21b316958f4d8e37b,
         type: 2}
@@ -17191,7 +17191,7 @@ Prefab:
     - target: {fileID: 224099120928670676, guid: 959cc4a8bd2394a21b316958f4d8e37b,
         type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224099120928670676, guid: 959cc4a8bd2394a21b316958f4d8e37b,
         type: 2}
@@ -17253,6 +17253,17 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1661402005}
+    - target: {fileID: 114930640098324506, guid: 959cc4a8bd2394a21b316958f4d8e37b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300140, guid: 90cb88a4614454227ab0b49291bbeade,
+        type: 3}
+    - target: {fileID: 224099120928670676, guid: 959cc4a8bd2394a21b316958f4d8e37b,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 959cc4a8bd2394a21b316958f4d8e37b, type: 2}
   m_IsPrefabAsset: 0

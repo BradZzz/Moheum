@@ -137,11 +137,11 @@ public class GUIManager : MonoBehaviour {
       "time", .5f,
       "onupdatetarget", gameObject,
       "onupdate", "FadeIntroWrap"));
-    yield return new WaitForSeconds(.5f);
+    yield return new WaitForSeconds(.2f);
     introPanel.transform.Find("Title").gameObject.SetActive(false);
     introPanel.transform.Find("Desc").gameObject.SetActive(false);
     introPanel.transform.Find("Image").gameObject.SetActive(false);
-    yield return new WaitForSeconds(.5f);
+    yield return new WaitForSeconds(.3f);
     introPanel.SetActive(false);
     ShowBoard();
   }

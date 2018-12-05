@@ -257,6 +257,26 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66551529933211012, guid: 1d44a9c669e6f49349358bc6e3682bea,
+        type: 2}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 66082789656642598, guid: 1d44a9c669e6f49349358bc6e3682bea,
+        type: 2}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 66332893229350224, guid: 1d44a9c669e6f49349358bc6e3682bea,
+        type: 2}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 66550828227948728, guid: 1d44a9c669e6f49349358bc6e3682bea,
+        type: 2}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 66082789656642598, guid: 1d44a9c669e6f49349358bc6e3682bea,
         type: 2}
       propertyPath: m_CompositePaths.m_Paths.Array.data[31].Array.size
@@ -2393,6 +2413,10 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: -314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811931687073016, guid: 1d44a9c669e6f49349358bc6e3682bea, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d44a9c669e6f49349358bc6e3682bea, type: 2}
