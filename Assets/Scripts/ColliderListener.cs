@@ -192,7 +192,8 @@ public class ColliderListener : MonoBehaviour {
   public IEnumerator WaitTrigger(float wait)
   {
     int roll = Random.Range(0, 10);
-    if (roll < 1 && GetComponent<Move>().Moving()){
+    if (roll < 1 && GetComponent<Move>().Moving() && !PauseManager.instance.IsOpen() && !DialogManager.instance.ShopActive() && !DialogManager.instance.DialogActive())
+    {
       Debug.Log("Hit");
 
       //GetComponent<Move>().disableMove();
