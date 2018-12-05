@@ -41,6 +41,72 @@ public class Tile : MonoBehaviour {
 		previousSelected = null;
 	}
 
+  private Vector3 startPosition = Vector3.zero;
+  private Vector3 endPosition = Vector3.zero;
+
+  void Update()
+  {
+    if (Input.GetMouseButtonDown(0))    // swipe begins
+    {
+      Debug.Log("Update Click");
+      startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+    if (Input.GetMouseButtonUp(0))    // swipe ends
+    {
+      Debug.Log("Update Up");
+      endPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    if (startPosition != endPosition && startPosition != Vector3.zero && endPosition != Vector3.zero && isSelected && BoardManager.instance.getPlayerTurn())
+    {
+      //if (!isSelected)
+      //{
+      //  Select();
+      //}
+
+      float deltaX = endPosition.x - startPosition.x;
+      float deltaY = endPosition.y - startPosition.y;
+      Debug.Log("Calculated: " + deltaX.ToString() + ":" + deltaY.ToString());
+      /*
+       * If a gem is selected, move it in the desired direction
+       */
+      bool isSwiping = false;
+      GameObject swipeWith = null;
+
+      if ((deltaX > 1.5f || deltaX < -1.5f) && (deltaY >= -1.0f || deltaY <= 1.0f))
+      {
+        if (startPosition.x < endPosition.x) // swipe LTR
+        {
+          isSwiping = true;
+          swipeWith = GetAdjacent(Vector2.right);
+        }
+        else // swipe RTL
+        {
+          isSwiping = true;
+          swipeWith = GetAdjacent(Vector2.left);
+        }
+      }
+      if ((deltaY > 1.5 || deltaY < -1.5f) && (deltaX >= -1.0f || deltaX <= 1.0f))
+      {
+        if (startPosition.y < endPosition.y) // swipe LTR
+        {
+          isSwiping = true;
+          swipeWith = GetAdjacent(Vector2.up);
+        }
+        else // swipe RTL
+        {
+          isSwiping = true;
+          swipeWith = GetAdjacent(Vector2.down);
+        }
+      }
+      if (isSwiping && swipeWith != null) {
+        SwapWith(swipeWith.GetComponent<Tile>());
+      }
+
+      startPosition = endPosition = Vector3.zero;
+    }
+  }
+
   void OnMouseDown() {
     Debug.Log("Tile Clicked");
     Debug.Log("BoardManager.instance.GameOver(): " + BoardManager.instance.GameOver().ToString());
@@ -77,26 +143,39 @@ public class Tile : MonoBehaviour {
             Debug.Log("Selected: " + type.type.ToString());
             BoardManager.instance.deselectAll();
             Select();
+            startPosition = endPosition = Vector3.zero;
           } else {
-            if (GetAllAdjacentTiles().Contains(previousSelected.gameObject)) {
-              SwapSprite(render, previousSelected.render, false);
-              if (checkMatch(previousSelected, 1)) {
-                BoardManager.instance.setClicked (true);
-                previousSelected.ClearAllMatches ();
-                if (previousSelected != null) {
-                  previousSelected.Deselect();
-                }
-                ClearAllMatches ();
-              } else {
-                SwapSprite(render, previousSelected.render, false);
-              }
-            } else {
-              previousSelected.GetComponent<Tile>().Deselect();
-              Select();
-            }
+            SwapWith(previousSelected);
           }
         }
       }
+    }
+  }
+
+  public void SwapWith(Tile previousTile)
+  {
+    if (GetAllAdjacentTiles().Contains(previousTile.gameObject))
+    {
+      SwapSprite(render, previousTile.render, false);
+      if (checkMatch(previousTile, 1))
+      {
+        BoardManager.instance.setClicked(true);
+        previousTile.ClearAllMatches();
+        if (previousTile != null)
+        {
+          previousTile.Deselect();
+        }
+        ClearAllMatches();
+      }
+      else
+      {
+        SwapSprite(render, previousTile.render, false);
+      }
+    }
+    else
+    {
+      previousTile.Deselect();
+      Select();
     }
   }
 
