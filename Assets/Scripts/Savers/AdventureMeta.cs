@@ -5,16 +5,16 @@ using UnityEngine;
 [Serializable]
 public class AdventureMeta
 {
-  //public PosMeta playerPos;
   public int yen;
+  public string[] treasure;
+  public string[] temples;
+
   public PlayerRosterMeta[] roster;
   public PlayerRosterMeta[] vault;
 
   public NPCMeta trainer;
   public PlayerRosterMeta wild;
   public bool isTrainerEncounter;
-  //public Dictionary<string, int> treasure = new Dictionary<string, int>();
-  public string[] treasure;
 
   public void addYen(int val){
     Debug.Log("Adding Yen: " + val.ToString());
@@ -24,6 +24,17 @@ public class AdventureMeta
 
   public int getYen(){
     return yen;
+  }
+
+  public void UpdateTempleList(string name)
+  {
+    string temple = GameUtilities.GetTempleFromTrainer(name);
+    if (temple.Length > 0)
+    {
+      List<string> tmp = new List<string>(temples);
+      tmp.Add(temple);
+      temples = tmp.ToArray();
+    }
   }
 
   public void SwitchInVault(int rosterPos, int vaultPos){

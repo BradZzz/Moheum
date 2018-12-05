@@ -249,3 +249,6 @@
 /Users/brad/Documents/new_git/MonsterHunterProj/obj/Debug/Assembly-CSharp-firstpass.pdb
 /Users/brad/Documents/new_git/MonsterHunterProj/obj/Debug/Assembly-CSharp-firstpass.csprojAssemblyReference.cache
 /Users/brad/Documents/new_git/MonsterHunterProj/obj/Debug/Assembly-CSharp-firstpass.csproj.CopyComplete
+/Users/brad/Documents/new_git/MonsterHunterProj/Temp/bin/Debug/UnityEditor.UI.dll
+/Users/brad/Documents/new_git/MonsterHunterProj/Temp/bin/Debug/UnityEditor.UI.dll.mdb
+/Users/brad/Documents/new_git/MonsterHunterProj/Temp/bin/Debug/UnityEditor.UI.xml

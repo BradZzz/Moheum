@@ -114,6 +114,16 @@ public static class GameUtilities {
     return value;
   }
 
+  public static string GetTempleFromTrainer(string name)
+  {
+    Dictionary<string, string> templeMapper = new Dictionary<string, string>();
+    templeMapper.Add("Gaia Temple Leader Audrey","Gaia Temple");
+    if (templeMapper.ContainsKey(name)){
+      return templeMapper[name];
+    }
+    return "";
+  }
+
   public static BoardMeta getBoardState(string mapName, PosMeta playerPos){
     //Debug.Log("getBoardState: " + mapName);
     List<NPCMeta> npcs = new List<NPCMeta>();

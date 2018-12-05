@@ -437,6 +437,7 @@ public class GUIManager : MonoBehaviour {
         outcome.text = "Trainer Defeated";
         AdventureMeta adventure = BaseSaver.getAdventure();
         adventure.addYen(yenGained);
+        adventure.UpdateTempleList(adventure.trainer.name);
         BaseSaver.putAdventure(adventure);
       } else {
         outcome.text = "Trainer Wins...";

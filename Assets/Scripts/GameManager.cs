@@ -319,22 +319,29 @@ public class GameManager : MonoBehaviour {
     }
 	}
 
-  public void LoadTestChar(){
-    if (BaseSaver.getAdventure() == null) { ResetAll(); }
+  public void LoadTestChar(int save){
+    if (BaseSaver.getAdventure() == null) { ResetAll(save); }
     SceneFlash(newScene);
   }
 
-  public void ResetAll(){
+  public void ResetAll(int save){
     Debug.Log("ResetAll");
     Glossary glossy = GameObject.Find("Glossary").GetComponent<Glossary>();
-    PlayerPrefs.DeleteAll();
+    HardReset();
 
+
+    BaseSaver.putSaveNumber(save);
     BaseSaver.setMapName("ShallowGrove");
     AdventureMeta meta = new AdventureMeta();
     meta.roster = returnTestRoster(glossy);
     meta.vault = new PlayerRosterMeta[0];
     BaseSaver.putAdventure(meta);
     newScene = true;
+  }
+
+  public void HardReset()
+  {
+    PlayerPrefs.DeleteAll();
   }
 
   public static PlayerRosterMeta[] returnTestRoster(Glossary glossy){

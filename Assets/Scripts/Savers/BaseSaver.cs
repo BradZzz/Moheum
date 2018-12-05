@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseSaver {
+  private static string SAVE_NUMBER = "SAVE_NUMBER";
+
   private static string ADVENTURE = "ADVENTURE";
   private static string BOARD = "BOARD";
   private static string MAP_NAME = "MAP_NAME";
@@ -19,13 +21,13 @@ public class BaseSaver {
   public static void saveState(){
     Debug.Log("saveState!");
 
-    PlayerPrefs.SetString(SAVE_ADVENTURE, PlayerPrefs.GetString(ADVENTURE));
-    PlayerPrefs.SetString(SAVE_BOARD, PlayerPrefs.GetString(BOARD + "_" + PlayerPrefs.GetString(MAP_NAME)));
-    PlayerPrefs.SetString(SAVE_MAP_NAME, PlayerPrefs.GetString(MAP_NAME));
+    PlayerPrefs.SetString(SAVE_ADVENTURE + getSN(), JsonUtility.ToJson(getAdventure()));
+    PlayerPrefs.SetString(SAVE_BOARD + getSN(), JsonUtility.ToJson(getBoard(getMap())));
+    PlayerPrefs.SetString(SAVE_MAP_NAME + getSN(), getMap());
 
-    Debug.Log("SAVE_ADVENTURE: " + PlayerPrefs.GetString(SAVE_ADVENTURE));
-    Debug.Log("SAVE_BOARD: " + PlayerPrefs.GetString(SAVE_BOARD));
-    Debug.Log("SAVE_MAP_NAME: " + PlayerPrefs.GetString(SAVE_MAP_NAME));
+    Debug.Log("SAVE_ADVENTURE: " + PlayerPrefs.GetString(SAVE_ADVENTURE + getSN()));
+    Debug.Log("SAVE_BOARD: " + PlayerPrefs.GetString(SAVE_BOARD + getSN()));
+    Debug.Log("SAVE_MAP_NAME: " + PlayerPrefs.GetString(SAVE_MAP_NAME + getSN()));
   }
 
   public static void restoreState()
@@ -36,45 +38,62 @@ public class BaseSaver {
     //board.playerPos = new PosMeta(-99999, -99999, -99999);
     //BaseSaver.putBoard(board);
 
-    PlayerPrefs.SetString(ADVENTURE, PlayerPrefs.GetString(SAVE_ADVENTURE));
-    PlayerPrefs.SetString(BOARD + "_" + PlayerPrefs.GetString(SAVE_MAP_NAME), PlayerPrefs.GetString(SAVE_BOARD));
-    PlayerPrefs.SetString(MAP_NAME, PlayerPrefs.GetString(SAVE_MAP_NAME));
-    PlayerPrefs.SetString(MAP_NAME_PREV,"");
+    PlayerPrefs.SetString(ADVENTURE + getSN(), PlayerPrefs.GetString(SAVE_ADVENTURE + getSN()));
+    PlayerPrefs.SetString(BOARD + "_" + getMap() + getSN(), PlayerPrefs.GetString(SAVE_BOARD + getSN()));
+    PlayerPrefs.SetString(MAP_NAME + getSN(), SAVE_MAP_NAME + getSN());
+    PlayerPrefs.SetString(MAP_NAME_PREV + getSN(), "");
 
-    Debug.Log("ADVENTURE: " + PlayerPrefs.GetString(ADVENTURE));
-    Debug.Log("BOARD: " + PlayerPrefs.GetString(BOARD));
-    Debug.Log("MAP_NAME: " + PlayerPrefs.GetString(MAP_NAME));
+    Debug.Log("ADVENTURE: " + getAdventure());
+    Debug.Log("BOARD: " + getBoard(getMap()));
+    Debug.Log("MAP_NAME: " + getMap());
+  }
+
+  /*
+   * SAVE NUMBER
+   */
+
+  public static string getSN()
+  {
+    //return PlayerPrefs.GetString(SAVE_NUMBER);
+    return "";
+  }
+
+  public static void putSaveNumber(int save)
+  {
+    PlayerPrefs.SetString(SAVE_NUMBER, save.ToString());
+
+    Debug.Log("Save set: " + save.ToString());
   }
 
   /*
    * ADVENTURE
    */
 
-  public static void resetAdventure()
-  {
-    PlayerPrefs.SetString(ADVENTURE, "");
-    PlayerPrefs.SetString(SAVE_ADVENTURE, "");
+  //public static void resetAdventure()
+  //{
+  //  PlayerPrefs.SetString(ADVENTURE, "");
+  //  PlayerPrefs.SetString(SAVE_ADVENTURE, "");
 
-    Debug.Log("ADVENTURE RESET");
-  }
+  //  Debug.Log("ADVENTURE RESET");
+  //}
 
   public static void putAdventure(AdventureMeta info)
   {
     string json = JsonUtility.ToJson(info);
-    PlayerPrefs.SetString(ADVENTURE, json);
+    PlayerPrefs.SetString(ADVENTURE+getSN(), json);
 
-    Debug.Log("ADVENTURE set: " + json);
+    Debug.Log("ADVENTURE set: " + ADVENTURE + getSN() + ":" + json);
   }
 
 
   public static AdventureMeta getAdventure()
   {
-    string json = PlayerPrefs.GetString(ADVENTURE);
+    string json = PlayerPrefs.GetString(ADVENTURE+getSN()); 
+    Debug.Log("ADVENTURE got: " + ADVENTURE + getSN() + ":" + json);
     if (json.Length == 0)
     {
       return null;
     }
-    Debug.Log("ADVENTURE got: " + json);
     return JsonUtility.FromJson<AdventureMeta>(json);
   }
 
@@ -82,19 +101,19 @@ public class BaseSaver {
    * BOARD
    */
 
-  public static void resetBOARD()
-  {
-    PlayerPrefs.SetString(BOARD, "");
-    PlayerPrefs.SetString(SAVE_BOARD, "");
+  //public static void resetBOARD()
+  //{
+  //  PlayerPrefs.SetString(BOARD, "");
+  //  PlayerPrefs.SetString(SAVE_BOARD, "");
 
-    Debug.Log("BOARD RESET");
-  }
+  //  Debug.Log("BOARD RESET");
+  //}
 
   public static void putBoard(BoardMeta info)
   {
-    //Debug.Log("Putting board at: " + BOARD + "_" + info.mapName);
+    Debug.Log("Set board at: " + BOARD + "_" + info.mapName + getSN());
     string json = JsonUtility.ToJson(info);
-    PlayerPrefs.SetString(BOARD + "_" + info.mapName, json);
+    PlayerPrefs.SetString(BOARD + "_" + info.mapName + getSN(), json);
     Debug.Log("BOARD put: " + json);
     updateNPCS();
   }
@@ -102,9 +121,9 @@ public class BaseSaver {
 
   public static BoardMeta getBoard(string name)
   {
-    //Debug.Log("Getting board at: " + BOARD + "_" + name);
-    string json = PlayerPrefs.GetString(BOARD + "_" + name);
-    //Debug.Log("BOARD got: " + json);
+    Debug.Log("Getting board at: " + BOARD + "_" + name + getSN());
+    string json = PlayerPrefs.GetString(BOARD + "_" + name + getSN());
+    Debug.Log("BOARD got: " + json);
     if (json.Length == 0)
     {
       return null;
@@ -116,17 +135,17 @@ public class BaseSaver {
    * COMPUTER
    */
 
-  public static void resetCOMPUTER()
-  {
-    PlayerPrefs.SetString(COMPUTER, "");
+  //public static void resetCOMPUTER()
+  //{
+  //  PlayerPrefs.SetString(COMPUTER, "");
 
-    Debug.Log("COMPUTER RESET");
-  }
+  //  Debug.Log("COMPUTER RESET");
+  //}
 
   public static void putComputer(PlayerRosterMeta[] info)
   {
     string json = JsonHelper.ToJson(info);
-    PlayerPrefs.SetString(COMPUTER, json);
+    PlayerPrefs.SetString(COMPUTER + getSN(), json);
 
     Debug.Log("COMPUTER set: " + json);
 
@@ -136,7 +155,7 @@ public class BaseSaver {
 
   public static PlayerRosterMeta[] getComputer()
   {
-    string json = PlayerPrefs.GetString(COMPUTER);
+    string json = PlayerPrefs.GetString(COMPUTER + getSN());
     if (json.Length == 0)
     {
       return new PlayerRosterMeta[0];
@@ -151,35 +170,41 @@ public class BaseSaver {
 
   public static string getMap()
   {
-    return PlayerPrefs.GetString(MAP_NAME);
+    string str = PlayerPrefs.GetString(MAP_NAME + getSN());
+    Debug.Log("Map: " + str);
+    return str;
   }
 
   public static string getMapPrev()
   {
-    return PlayerPrefs.GetString(MAP_NAME_PREV);
+    string str = PlayerPrefs.GetString(MAP_NAME_PREV + getSN());
+    Debug.Log("Map Prev: " + str);
+    return str;
   }
 
   public static string getMapConnection()
   {
-    return PlayerPrefs.GetString(MAP_CONNECTION);
+    string str = PlayerPrefs.GetString(MAP_CONNECTION + getSN());
+    Debug.Log("Map Connection: " + str);
+    return str;
   }
 
   public static void setMapName(string name)
   {
     setMapPrevName(getMap());
-    PlayerPrefs.SetString(MAP_NAME, name);
+    PlayerPrefs.SetString(MAP_NAME + getSN(), name);
     //Debug.Log("Map Set: " + name);
   }
 
   public static void setMapPrevName(string name)
   {
-    PlayerPrefs.SetString(MAP_NAME_PREV, name);
+    PlayerPrefs.SetString(MAP_NAME_PREV + getSN(), name);
     //Debug.Log("Map Set Prev: " + name);
   }
 
   public static void setMapConnection(string name)
   {
-    PlayerPrefs.SetString(MAP_CONNECTION, name);
+    PlayerPrefs.SetString(MAP_CONNECTION + getSN(), name);
     //Debug.Log("Connection Set: " + name);
   }
 
