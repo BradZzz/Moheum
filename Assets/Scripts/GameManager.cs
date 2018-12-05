@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour {
     //  fader.color += fadeTransparency;
     //  yield return new WaitForSeconds(fadeSpeed);
     //}
-    yield return new WaitForSeconds(1f);
+    yield return new WaitForSeconds(1.5f);
     ActivateScene(); //Activate the scene when the fade ends
   }
 

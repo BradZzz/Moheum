@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_android_v01_7.apk
+/Users/brad/Desktop/MonsterHunterDemo_android_v01_8.apk
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity
@@ -290,5 +290,3 @@ f5addac084a99f6e319fa86c1bd1fc02 Assembly-CSharp.dll:.Glossary
 1a5d14e81bea6c2c032e7f93ed1be089 Assembly-CSharp.dll:Cinemachine.CinemachineClearShot
 36ed8d92a07a53bf383bc90e377cc388 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 695c9335429d4798b6f74ca73c042ff4 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
-ddcae71b3f91386237efd012a9eef2be UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
-486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.TestResultRendererCallback
