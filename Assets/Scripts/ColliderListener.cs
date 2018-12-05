@@ -90,10 +90,6 @@ public class ColliderListener : MonoBehaviour {
               other.gameObject.GetComponent<NPCMain>().startleNPC();
             }
 
-            //Debug.Log("NPC_Trainer");
-            Debug.Log(npcmeta);
-            //NPCMeta meta = other.gameObject.GetComponent<NPCMain>().meta;
-
             AdventureMeta meta = BaseSaver.getAdventure();
             //meta.playerPos = new PosMeta(transform.position);
             NPCMain trainerMain = other.gameObject.GetComponent<NPCMain>();
