@@ -196,7 +196,7 @@ public class BoardManager : MonoBehaviour {
   }
 
   IEnumerator PopProcess(){
-    yield return new WaitForSeconds(.25f);
+    yield return new WaitForSeconds(.5f);
     IsPopping = false;
   }
 

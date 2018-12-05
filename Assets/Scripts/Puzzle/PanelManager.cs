@@ -635,6 +635,7 @@ public class PanelManager : MonoBehaviour
     foreach (SkillMeta skill in skills)
     {
       skill.req1.has = skill.req1.req;
+      skill.req2.has = skill.req2.req;
     }
     loadSkillsOverlays();
   }
