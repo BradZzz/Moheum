@@ -88,7 +88,14 @@ public class BoardManager : MonoBehaviour {
 			}
     }
     //Debug.Log("Prev Local: " + transform.localScale.ToString());
-    transform.localScale = new Vector3(1.15f,1.15f,1.15f);
+    //Check if the device running this is a console
+    //if (SystemInfo.deviceType == DeviceType.Console || SystemInfo.deviceType == DeviceType.Desktop)
+    //{
+    //  transform.position = new Vector3(520.82f, 342.28f, 90f);
+    //  transform.localScale = new Vector3(.9f, .9f, .9f);
+    //} else {
+    transform.localScale = new Vector3(1.15f, 1.15f, 1.15f);
+    //}
   }
 
   public void emitExplosion()

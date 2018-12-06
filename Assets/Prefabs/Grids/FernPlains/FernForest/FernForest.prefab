@@ -61,5 +61,7 @@ MonoBehaviour:
     - Beanlock
     - Guatarion
     - Guatarion
+    - Boarsch
+    - Boarsch
     monsterLvls: 0400000005000000
   map: {fileID: 1800279779767982, guid: f947c325a3454441e88d8d0f480c86ae, type: 2}

@@ -63,5 +63,9 @@ MonoBehaviour:
     - Jojoi
     - Wind Pixie
     - Glaivesect
+    - Anemoud
+    - Bearnachomp
+    - Anemoud
+    - Bearnachomp
     monsterLvls: 0400000005000000
-  map: {fileID: 1776112610472196, guid: f90d869b6b7154a29afaaac2942da1bb, type: 2}
+  map: {fileID: 1247950129022288, guid: f90d869b6b7154a29afaaac2942da1bb, type: 2}

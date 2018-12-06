@@ -14,7 +14,7 @@ public class TitleSaveViewer : MonoBehaviour {
   public int fileIdx;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
     BaseSaver.putSaveNumber(fileIdx);
     AdventureMeta meta = BaseSaver.getAdventure();
     if (meta != null) {

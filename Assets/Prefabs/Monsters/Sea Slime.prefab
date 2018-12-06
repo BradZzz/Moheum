@@ -75,19 +75,19 @@ MonoBehaviour:
     - lvl: 1
       skill: Submerge
     - lvl: 4
-      skill: Bubble
+      skill: Anger Sea
     - lvl: 9
       skill: Douse
     - lvl: 15
-      skill: Icicle
+      skill: Bubble
     - lvl: 23
-      skill: Steam Bolt
+      skill: Icicle
     - lvl: 29
       skill: Purify
     - lvl: 33
       skill: Wall Of Ice
     - lvl: 37
-      skill: Mega Bubble
+      skill: Drop Charge
     lvlSpeed: 4
     maxCatchTurns: 0
     currCatchTurns: 0

@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_android_v01_8.apk
+/Users/brad/Desktop/MonsterHunterDemo_android_v02_1.apk
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity
@@ -233,7 +233,7 @@ e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 3ef13178210efdcf6a9d57780d65303d Assembly-CSharp.dll:Cinemachine.CinemachineConfiner
 52388db79948bf317254e6bea2552181 Assembly-CSharp.dll:.Fader
-cc76dfadc606a49961918de65ca12946 Assembly-CSharp.dll:.PlayerMain
+c2569c70440c4c7ebd44d4920d8045d4 Assembly-CSharp.dll:.PlayerMain
 486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 9d863b523b577f5c3d915351a74cd338 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -285,6 +285,7 @@ f5addac084a99f6e319fa86c1bd1fc02 Assembly-CSharp.dll:.Glossary
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 88c0c0d93b54d37a84150a42239b56ed Assembly-CSharp.dll:Cinemachine.CinemachineBrain
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:Cinemachine.CinemachineHardLockToTarget
+e5f7b0443226825d1167c55593c37222 Assembly-CSharp.dll:.TitleSaveViewer
 787fd41148aeb76315ed34bd9d485d3e Assembly-CSharp.dll:.TrainerGameoverController
 646c2b83bd38465f35ab127b9ca8a1b2 Assembly-CSharp.dll:Cinemachine.CinemachineBasicMultiChannelPerlin
 1a5d14e81bea6c2c032e7f93ed1be089 Assembly-CSharp.dll:Cinemachine.CinemachineClearShot

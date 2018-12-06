@@ -320,7 +320,11 @@ public class GameManager : MonoBehaviour {
 	}
 
   public void LoadTestChar(int save){
-    if ((Convert.ToInt32(BaseSaver.getSN())) != save || BaseSaver.getAdventure() == null) { ResetAll(save); }
+    if (!BaseSaver.getSN().Equals(save.ToString()))
+    {
+      BaseSaver.putSaveNumber(save);
+    }
+    if (BaseSaver.getAdventure() == null) { ResetAll(save); }
     SceneFlash(newScene);
   }
 
@@ -344,6 +348,9 @@ public class GameManager : MonoBehaviour {
   public void HardReset()
   {
     PlayerPrefs.DeleteAll();
+    GameObject.Find("Save1").GetComponent<TitleSaveViewer>().Start();
+    GameObject.Find("Save2").GetComponent<TitleSaveViewer>().Start();
+    GameObject.Find("Save3").GetComponent<TitleSaveViewer>().Start();
   }
 
   public static PlayerRosterMeta[] returnTestRoster(Glossary glossy){

@@ -64,5 +64,7 @@ MonoBehaviour:
     - Gran Dux
     - Hushwort
     - Sea Slime
+    - Anemoud
+    - Anemoud
     monsterLvls: 0100000003000000
   map: {fileID: 1982965654312464, guid: 27091ab881af142bb835a3ce5e2dc31d, type: 2}
