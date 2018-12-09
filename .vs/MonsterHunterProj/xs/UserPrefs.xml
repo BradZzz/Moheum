@@ -1,21 +1,20 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/BoardManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="323" Column="32" />
-      <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="56" Column="48" />
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="84" Column="39" />
-      <File FileName="Assets/Scripts/TitleSaveViewer.cs" Line="17" Column="22" />
-      <File FileName="Assets/Scripts/Puzzle/MonsterMeta.cs" Line="31" Column="21" />
-      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="97" Column="5" />
+      <File FileName="Assets/Scripts/Puzzle/Tile.cs" Line="545" Column="10" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="1312" Column="23" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="1279" Column="20" />
+      <File FileName="Assets/Scripts/PauseManager.cs" Line="117" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="225" Column="1" />
+      <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="139" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="357" Column="101" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/brad/Documents/new_git/MonsterHunterProj/Assets/Scripts/PauseManager.cs" relfile="Assets/Scripts/PauseManager.cs" line="117" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

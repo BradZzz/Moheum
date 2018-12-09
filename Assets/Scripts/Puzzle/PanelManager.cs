@@ -866,14 +866,19 @@ public class PanelManager : MonoBehaviour
     GameObject.Find("HExpOverlay").GetComponent<ProgressExp>().UpdateExperience(glossary.GetMonsterMain(playerMonster.name).meta.lvlSpeed, adventure.roster[myMonster]);
   }
 
-  void loadEnemyMonster()
+  public PlayerRosterMeta CurrentEnemyMonster()
   {
     PlayerRosterMeta enemyMonster = getTrainerMonster();
-
     if (!adventure.isTrainerEncounter)
     {
       enemyMonster = adventure.wild;
     }
+    return enemyMonster;
+  }
+
+  void loadEnemyMonster()
+  {
+    PlayerRosterMeta enemyMonster = CurrentEnemyMonster();
 
     if (enemyMonster != null)
     {

@@ -821,7 +821,14 @@ public class BoardManager : MonoBehaviour
       }
       if (!getPlayerTurn())
       {
-        StartCoroutine(aiMove);
+        if (GameObject.Find("MOverlay").GetComponent<Progress>().progress > 0)
+        {
+          StartCoroutine(aiMove);
+        }
+        else
+        {
+          StartCoroutine(CheckForEnd());
+        }
       }
       yield return null;
     }
