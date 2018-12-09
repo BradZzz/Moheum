@@ -173,7 +173,7 @@ public class DialogManager : MonoBehaviour {
       Debug.Log("Waiting");
     } else {
       //DialogCanvas.SetActive(false);
-      StartCoroutine(WaitSetInactive(waitingTime));
+      StartCoroutine(WaitSetInactive(waitingTime * 2));
     }
   }
 

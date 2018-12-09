@@ -128,6 +128,7 @@ public class PanelManager : MonoBehaviour
     {
       Debug.Log("KillMonster");
       yield return new WaitForSeconds(1f);
+      BoardManager.instance.IsTransitioning = false;
       StartCoroutine(BoardManager.instance.loopAIMovement());
     }
 
@@ -179,6 +180,7 @@ public class PanelManager : MonoBehaviour
   {
     yield return new WaitForSeconds(.5f);
     GUIManager.instance.EndGame(true, false, true, meta);
+    BoardManager.instance.IsTransitioning = false;
     yield return null;
   }
 
@@ -211,6 +213,7 @@ public class PanelManager : MonoBehaviour
 
   public void continueUpdate(){
     Debug.Log("continueUpdate");
+    //BoardManager.instance.IsTransitioning = true;
     if (getTrainerMonster() == null)
     {
       if (adventure.isTrainerEncounter)

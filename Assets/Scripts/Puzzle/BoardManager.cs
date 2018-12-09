@@ -13,7 +13,8 @@ public class BoardManager : MonoBehaviour {
 	public int xSize, ySize;
   public GameType gType;
 
-  //public bool IsShifting { get; set; }
+  public bool IsTransitioning { get; set; }
+  public bool IsDamaging { get; set; }
   public bool IsProcessing { get; set; }
   public bool IsPopping { get; set; }
 
@@ -30,10 +31,16 @@ public class BoardManager : MonoBehaviour {
 
   private int processingCnt;
   private float animationWait = 1f;
+
   private IEnumerator aiMove = null;
   private IEnumerator resetMove = null;
   private IEnumerator moveWait = null;
   private IEnumerator popping = null;
+  private IEnumerator calculatingDamage = null;
+
+  private int enemyDmgMult = 0;
+  private int heroDmgMult = 0;
+
   public IEnumerator hinty;
 
   void Start () {
@@ -208,7 +215,7 @@ public class BoardManager : MonoBehaviour {
   }
 
   public bool IsThinking(){
-    return IsProcessing && IsPopping;
+    return IsProcessing && IsPopping && IsDamaging && IsTransitioning;
   }
 
   public void switchAllTiles(TileMeta.GemType from, TileMeta.GemType to)
@@ -322,6 +329,117 @@ public class BoardManager : MonoBehaviour {
 
     Tile.characterHit(dmg);
     StartCoroutine(FindNullTiles());
+  }
+
+  public void CalcDamage(int enemy, int player)
+  {
+    IsDamaging = true;
+
+    enemyDmgMult += enemy;
+    heroDmgMult += player;
+
+    if (calculatingDamage != null)
+    {
+      StopCoroutine(calculatingDamage);
+    }
+    calculatingDamage = AddDamage();
+    StartCoroutine(calculatingDamage);
+  }
+
+  IEnumerator AddDamage()
+  {
+    yield return new WaitForSeconds(.5f);
+    UpdateDamage(enemyDmgMult, false);
+    UpdateDamage(heroDmgMult, true);
+
+    enemyDmgMult = 0;
+    heroDmgMult = 0;
+  }
+
+  void UpdateDamage(int dmg, bool player)
+  {
+
+    if (dmg < 0)
+    {
+      player = !player;
+    }
+
+    string atkMonster = player ? "HMonsterImg" : "MMonsterImg";
+    string defMonster = player ? "MMonsterImg" : "HMonsterImg";
+
+    GameObject playerObj = GameObject.Find(atkMonster);
+
+    if (dmg > 0)
+    {
+      Debug.Log("Damage: " + dmg.ToString());
+
+      CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
+      CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
+
+      int buff = atk.buff;
+      atk.RemoveBuff();
+      dmg += buff;
+      buff = def.buff;
+      dmg -= buff;
+      def.RemoveBuff();
+
+      if (dmg < 0)
+      {
+        dmg = 0;
+      }
+
+      Debug.Log("Damage w/ Buff: " + dmg.ToString());
+
+      atk.CharacterIsHitting(player);
+      def.CharacterHit(player);
+      def.showDamage(dmg);
+    }
+    else
+    {
+      Debug.Log("Healing: " + (dmg * -1).ToString());
+      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
+    }
+
+    //string hBar = player ? "MOverlay" : "HOverlay";
+
+    //int health = GameObject.Find(hBar).GetComponent<Progress>().progress;
+    //health -= dmg;
+    //health = health >= 0 ? health : 0;
+    //int mxHlth = GameObject.Find(hBar).GetComponent<Progress>().MAX_HEALTH;
+    //health = health < mxHlth ? health : mxHlth;
+    //GameObject.Find(hBar).GetComponent<Progress>().UpdateProgress(health);
+    //if (health == 0)
+    //{
+    //  PanelManager.instance.DelayedUpdateFromTile(!player);
+    //}
+    StartCoroutine(HitCharChangeHlth(player, dmg));
+  }
+
+  IEnumerator HitCharChangeHlth(bool player, int dmg)
+  {
+    yield return new WaitForSeconds(.5f);
+    IsTransitioning = true;
+    TakeCharHlth(player, dmg);
+    if (enemyDmgMult == 0 && enemyDmgMult == 0)
+    {
+      IsDamaging = false;
+    }
+  }
+
+  void TakeCharHlth(bool player, int dmg)
+  {
+    string hBar = player ? "MOverlay" : "HOverlay";
+
+    int health = GameObject.Find(hBar).GetComponent<Progress>().progress;
+    health -= dmg;
+    health = health >= 0 ? health : 0;
+    int mxHlth = GameObject.Find(hBar).GetComponent<Progress>().MAX_HEALTH;
+    health = health < mxHlth ? health : mxHlth;
+    GameObject.Find(hBar).GetComponent<Progress>().UpdateProgress(health);
+    if (health == 0)
+    {
+      PanelManager.instance.DelayedUpdateFromTile(!player);
+    }
   }
 
   //- [ ] Greed => Destroy more gems with skill

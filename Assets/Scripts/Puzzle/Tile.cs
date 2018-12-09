@@ -526,63 +526,63 @@ public class Tile : MonoBehaviour {
   public static void characterHit(int dmg){
     Debug.Log ("characterHit: " + dmg.ToString ());
     bool usePlayer = BoardManager.instance.getPlayerTurn ();
-    if (dmg < 0) {
-      usePlayer = !usePlayer;
-    }
 
-    string hBar = usePlayer ? "MOverlay" : "HOverlay";
+    BoardManager.instance.CalcDamage(usePlayer ? 0 : dmg, usePlayer ? dmg : 0);
 
-    string atkMonster = usePlayer ? "HMonsterImg" : "MMonsterImg";
-    string defMonster = usePlayer ? "MMonsterImg" : "HMonsterImg";
+    //if (dmg < 0) {
+    //  usePlayer = !usePlayer;
+    //}
+
+    //string hBar = usePlayer ? "MOverlay" : "HOverlay";
+
+    //string atkMonster = usePlayer ? "HMonsterImg" : "MMonsterImg";
+    //string defMonster = usePlayer ? "MMonsterImg" : "HMonsterImg";
 
 
-    if (dmg > 0)
-    {
-      Debug.Log("Damage: " + dmg.ToString());
-      CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
-      CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
+    //if (dmg > 0)
+    //{
+    //  Debug.Log("Damage: " + dmg.ToString());
+    //  CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
+    //  CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
 
-      //Figure out if there is a buff for attacker
-      int buff = atk.buff;
-      atk.RemoveBuff();
-      //If there is, add it to the dmg and remove it
-      dmg += buff;
-      //Figure out if there is a buff for defender
-      buff = def.buff;
-      dmg -= buff;
-      //If there is, subtract it from the dmg and remove it
-      def.RemoveBuff();
+    //  int buff = atk.buff;
+    //  atk.RemoveBuff();
+    //  dmg += buff;
+    //  buff = def.buff;
+    //  dmg -= buff;
+    //  def.RemoveBuff();
 
-      if (dmg<0) {
-        dmg = 0;
-      }
+    //  if (dmg<0) {
+    //    dmg = 0;
+    //  }
 
-      Debug.Log("Damage w/ Buff: " + dmg.ToString());
+    //  Debug.Log("Damage w/ Buff: " + dmg.ToString());
 
-      atk.CharacterIsHitting(usePlayer);
-      def.CharacterHit(usePlayer);
-      def.showDamage(dmg);
-    } else {
-      Debug.Log("Healing: " + (dmg * -1).ToString());
-      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
-    }
+    //  atk.CharacterIsHitting(usePlayer);
+    //  def.CharacterHit(usePlayer);
+    //  def.showDamage(dmg);
+    //} else {
+    //  Debug.Log("Healing: " + (dmg * -1).ToString());
+    //  GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
+    //}
 
     //GameObject.Find(atkMonster).GetComponent<CharacterActionController>().showDamage(dmg * -1);
 
-    Debug.Log ("Using: " + hBar);
+    //Debug.Log ("Using: " + hBar);
 
-    int health = GameObject.Find (hBar).GetComponent<Progress> ().progress;
-    Debug.Log ("Health Before: " + health.ToString ());
-    health -= dmg;
-    health = health >= 0 ? health : 0;
-    int mxHlth = GameObject.Find (hBar).GetComponent<Progress> ().MAX_HEALTH;
-    health = health < mxHlth ? health : mxHlth;
-    Debug.Log ("Health After: " + health.ToString ());
-    GameObject.Find (hBar).GetComponent<Progress> ().UpdateProgress (health);
-    if (health == 0) {
-      Debug.Log("PanelManager.instance.WaitUntilTileUpdate(!usePlayer);");
-      PanelManager.instance.DelayedUpdateFromTile(!usePlayer);
-    }
+    //int health = GameObject.Find (hBar).GetComponent<Progress> ().progress;
+
+    ////Debug.Log ("Health Before: " + health.ToString ());
+    //health -= dmg;
+    //health = health >= 0 ? health : 0;
+    //int mxHlth = GameObject.Find (hBar).GetComponent<Progress> ().MAX_HEALTH;
+    //health = health < mxHlth ? health : mxHlth;
+    ////Debug.Log ("Health After: " + health.ToString ());
+    //GameObject.Find (hBar).GetComponent<Progress> ().UpdateProgress (health);
+    //if (health == 0) {
+    //  //Debug.Log("PanelManager.instance.WaitUntilTileUpdate(!usePlayer);");
+    //  PanelManager.instance.DelayedUpdateFromTile(!usePlayer);
+    //}
   }
 
 }
