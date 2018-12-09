@@ -4,43 +4,53 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class BoardManager : MonoBehaviour {
-	public static BoardManager instance;
-	public List<Sprite> characters = new List<Sprite>();
+public class BoardManager : MonoBehaviour
+{
+  public static BoardManager instance;
+  public List<Sprite> characters = new List<Sprite>();
   public Sprite[] gemLoaders;
   public TileMeta.GemType[] gemTypes;
-	public GameObject tile;
-	public int xSize, ySize;
+  public GameObject tile;
+  public int xSize, ySize;
   public GameType gType;
 
-  //public bool IsShifting { get; set; }
+  public bool IsTransitioning { get; set; }
+  public bool IsDamaging { get; set; }
   public bool IsProcessing { get; set; }
   public bool IsPopping { get; set; }
 
-  public enum GameType {
+  public enum GameType
+  {
     Practice, Duel, None
   }
 
   private bool playerTurn;
   public bool clicked;
 
-	private GameObject[,] tiles;
+  private GameObject[,] tiles;
   private GameObject crossHairA, crossHairB;
   private int xTurns;
 
   private int processingCnt;
   private float animationWait = 1f;
+
   private IEnumerator aiMove = null;
   private IEnumerator resetMove = null;
   private IEnumerator moveWait = null;
   private IEnumerator popping = null;
+  private IEnumerator calculatingDamage = null;
+
+  private int enemyDmgMult = 0;
+  private int heroDmgMult = 0;
+
   public IEnumerator hinty;
 
-  void Start () {
-		instance = GetComponent<BoardManager>();
+  void Start()
+  {
+    instance = GetComponent<BoardManager>();
 
-    crossHairA = GameObject.Find ("HCrosshairs");
-    crossHairB = GameObject.Find ("MCrosshairs");
+    crossHairA = GameObject.Find("HCrosshairs");
+    crossHairB = GameObject.Find("MCrosshairs");
 
     crossHairA.SetActive(false);
     crossHairB.SetActive(false);
@@ -57,35 +67,38 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(CheckForEnd());
   }
 
-	private void CreateBoard (float xOffset, float yOffset) {
-		tiles = new GameObject[xSize, ySize];
+  private void CreateBoard(float xOffset, float yOffset)
+  {
+    tiles = new GameObject[xSize, ySize];
 
     float startX = transform.position.x;
-		float startY = transform.position.y;
+    float startY = transform.position.y;
 
     Sprite[] previousLeft = new Sprite[ySize];
     Sprite previousBelow = null;
 
-		for (int x = 0; x < xSize; x++) {
-			for (int y = 0; y < ySize; y++) {
-				GameObject newTile = Instantiate(tile, new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0), tile.transform.rotation);
-				tiles[x, y] = newTile;
+    for (int x = 0; x < xSize; x++)
+    {
+      for (int y = 0; y < ySize; y++)
+      {
+        GameObject newTile = Instantiate(tile, new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0), tile.transform.rotation);
+        tiles[x, y] = newTile;
 
         newTile.transform.parent = transform;
         List<TileMeta.GemType> possibleGems = new List<TileMeta.GemType>(gemTypes);
         List<Sprite> possibleCharacters = new List<Sprite>(characters);
-          
+
         possibleCharacters.Remove(previousLeft[y]);
         possibleCharacters.Remove(previousBelow);
 
-        TileMeta meta = new TileMeta ();
-        Sprite newSprite = possibleCharacters[UnityEngine.Random.Range (0, possibleCharacters.Count)];
+        TileMeta meta = new TileMeta();
+        Sprite newSprite = possibleCharacters[UnityEngine.Random.Range(0, possibleCharacters.Count)];
         meta.type = gemTypes[characters.IndexOf(newSprite)];
-        newTile.GetComponent<Tile> ().type = meta;
+        newTile.GetComponent<Tile>().type = meta;
         newTile.GetComponent<SpriteRenderer>().sprite = newSprite;
         previousLeft[y] = newSprite;
         previousBelow = newSprite;
-			}
+      }
     }
     //Debug.Log("Prev Local: " + transform.localScale.ToString());
     //Check if the device running this is a console
@@ -102,7 +115,7 @@ public class BoardManager : MonoBehaviour {
   {
     Glossary glossy = PanelManager.instance.glossaryObj.GetComponent<Glossary>();
     Transform dest = !playerTurn ? GameObject.Find("HMonsterImg").transform : GameObject.Find("MMonsterImg").transform;
-    StartCoroutine(sendProjectile(glossy.GetParticleSystem("SlashParticleSystem"), true, dest, dest, SkillEffect.Effect.None, TileMeta.GemType.None, new Vector3(2,2,2)));
+    StartCoroutine(sendProjectile(glossy.GetParticleSystem("SlashParticleSystem"), true, dest, dest, SkillEffect.Effect.None, TileMeta.GemType.None, new Vector3(2, 2, 2)));
   }
 
   public void emitHearts()
@@ -119,7 +132,8 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(sendProjectile(glossy.GetParticleSystem("StarParticleSystem"), true, dest, dest, SkillEffect.Effect.None, TileMeta.GemType.None, Vector3.one));
   }
 
-  public IEnumerator provideAnimation(bool playerTurn, Transform dest, SkillEffect.Effect effect, TileMeta.GemType gem){
+  public IEnumerator provideAnimation(bool playerTurn, Transform dest, SkillEffect.Effect effect, TileMeta.GemType gem)
+  {
     Glossary glossy = PanelManager.instance.glossaryObj.GetComponent<Glossary>();
     Transform start = GameObject.Find("HMonsterImg").transform;
     if (!playerTurn)
@@ -176,7 +190,8 @@ public class BoardManager : MonoBehaviour {
     Destroy(projectile);
   }
 
-  public IEnumerator switchTwoTiles(Tile from, TileMeta.GemType to, Sprite img) {
+  public IEnumerator switchTwoTiles(Tile from, TileMeta.GemType to, Sprite img)
+  {
     StartCoroutine(provideAnimation(playerTurn, from.transform, SkillEffect.Effect.Change, to));
     yield return new WaitForSeconds(animationWait);
     from.GetComponent<Tile>().type.type = to;
@@ -187,28 +202,33 @@ public class BoardManager : MonoBehaviour {
     yield return null;
   }
 
-  public IEnumerator WaitThenCheck(){
+  public IEnumerator WaitThenCheck()
+  {
     yield return new WaitForSeconds(animationWait);
 
     StartCoroutine(FindNullTiles());
   }
 
-  public void PoppingWait(){
+  public void PoppingWait()
+  {
     IsPopping = true;
-    if (popping != null) {
+    if (popping != null)
+    {
       StopCoroutine(popping);
     }
     popping = PopProcess();
     StartCoroutine(popping);
   }
 
-  IEnumerator PopProcess(){
+  IEnumerator PopProcess()
+  {
     yield return new WaitForSeconds(.5f);
     IsPopping = false;
   }
 
-  public bool IsThinking(){
-    return IsProcessing && IsPopping;
+  public bool IsThinking()
+  {
+    return IsProcessing && IsPopping && IsDamaging && IsTransitioning;
   }
 
   public void switchAllTiles(TileMeta.GemType from, TileMeta.GemType to)
@@ -229,25 +249,30 @@ public class BoardManager : MonoBehaviour {
   }
 
   //- [ ] Lust => Change more gems with skill
-  public void switchSomeTiles(TileMeta.GemType from, TileMeta.GemType to, int min, int max){
-    min += (int) PanelManager.instance.getCurrentMonster().lust;
-    max += (int) PanelManager.instance.getCurrentMonster().lust;
-      
-    List<GameObject> validTiles = new List<GameObject> ();
-    for (int x = 0; x < xSize; x++) {
-      for (int y = 0; y < ySize; y++) {
-        if (tiles[x, y].GetComponent<Tile>().type.type == from) {
-          validTiles.Add (tiles[x, y]);
+  public void switchSomeTiles(TileMeta.GemType from, TileMeta.GemType to, int min, int max)
+  {
+    min += (int)PanelManager.instance.getCurrentMonster().lust;
+    max += (int)PanelManager.instance.getCurrentMonster().lust;
+
+    List<GameObject> validTiles = new List<GameObject>();
+    for (int x = 0; x < xSize; x++)
+    {
+      for (int y = 0; y < ySize; y++)
+      {
+        if (tiles[x, y].GetComponent<Tile>().type.type == from)
+        {
+          validTiles.Add(tiles[x, y]);
         }
       }
     }
-    GameObject[] endTiles = validTiles.ToArray ();
-    GameUtilities.ShuffleArray (endTiles);
-    int maxTls = UnityEngine.Random.Range (min, max + 1);
-    for(int i = 0; i < maxTls && i < endTiles.Length; i++){
+    GameObject[] endTiles = validTiles.ToArray();
+    GameUtilities.ShuffleArray(endTiles);
+    int maxTls = UnityEngine.Random.Range(min, max + 1);
+    for (int i = 0; i < maxTls && i < endTiles.Length; i++)
+    {
       int idx = (new List<TileMeta.GemType>(gemTypes)).IndexOf(to);
-      endTiles [i].GetComponent<Tile> ().type.type = to;
-      StartCoroutine(switchTwoTiles(endTiles [i].GetComponent<Tile> (), to, characters [idx]));
+      endTiles[i].GetComponent<Tile>().type.type = to;
+      StartCoroutine(switchTwoTiles(endTiles[i].GetComponent<Tile>(), to, characters[idx]));
     }
     StartCoroutine(WaitThenCheck());
   }
@@ -259,11 +284,14 @@ public class BoardManager : MonoBehaviour {
     GameObject.Find(bMonster).GetComponent<CharacterActionController>().SetBuff(currentBuff + amount);
   }
 
-  public void Sabotage(int amount){
-    if(playerTurn)
+  public void Sabotage(int amount)
+  {
+    if (playerTurn)
     {
       StartCoroutine(provideAnimation(playerTurn, GameObject.Find("MMonsterImg").transform, SkillEffect.Effect.Sabotage, TileMeta.GemType.Purple));
-    } else {
+    }
+    else
+    {
       StartCoroutine(provideAnimation(playerTurn, GameObject.Find("HMonsterImg").transform, SkillEffect.Effect.Sabotage, TileMeta.GemType.Purple));
     }
 
@@ -291,8 +319,10 @@ public class BoardManager : MonoBehaviour {
 
     int dmg = 0;
 
-    for (int i = 0; i <= radius; i++){
-      if (i > 0) {
+    for (int i = 0; i <= radius; i++)
+    {
+      if (i > 0)
+      {
         Vector2[] dirs = new Vector2[]{
           ((Vector2.left + Vector2.up) * i) + pos,
           ((Vector2.left + Vector2.down) * i) + pos,
@@ -300,8 +330,10 @@ public class BoardManager : MonoBehaviour {
           ((Vector2.right + Vector2.down) * i) + pos
         };
 
-        foreach(Vector2 dir in dirs){
-          if (dir.x < xSize && dir.y < ySize) {
+        foreach (Vector2 dir in dirs)
+        {
+          if (dir.x < xSize && dir.y < ySize)
+          {
             Tile pkTile = tiles[(int)dir.x, (int)dir.y].GetComponent<Tile>();
             if (pkTile.type.type == TileMeta.GemType.Fight)
             {
@@ -310,7 +342,9 @@ public class BoardManager : MonoBehaviour {
             StartCoroutine(DestroyTile(pkTile));
           }
         }
-      } else {
+      }
+      else
+      {
         Tile pkTile = tiles[(int)pos.x, (int)pos.y].GetComponent<Tile>();
         if (pkTile.type.type == TileMeta.GemType.Fight)
         {
@@ -324,8 +358,120 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(FindNullTiles());
   }
 
+  public void CalcDamage(int enemy, int player)
+  {
+    IsDamaging = true;
+
+    enemyDmgMult += enemy;
+    heroDmgMult += player;
+
+    if (calculatingDamage != null)
+    {
+      StopCoroutine(calculatingDamage);
+    }
+    calculatingDamage = AddDamage();
+    StartCoroutine(calculatingDamage);
+  }
+
+  IEnumerator AddDamage()
+  {
+    yield return new WaitForSeconds(.5f);
+    UpdateDamage(enemyDmgMult, false);
+    UpdateDamage(heroDmgMult, true);
+
+    enemyDmgMult = 0;
+    heroDmgMult = 0;
+  }
+
+  void UpdateDamage(int dmg, bool player)
+  {
+
+    if (dmg < 0)
+    {
+      player = !player;
+    }
+
+    string atkMonster = player ? "HMonsterImg" : "MMonsterImg";
+    string defMonster = player ? "MMonsterImg" : "HMonsterImg";
+
+    GameObject playerObj = GameObject.Find(atkMonster);
+
+    if (dmg > 0)
+    {
+      Debug.Log("Damage: " + dmg.ToString());
+
+      CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
+      CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
+
+      int buff = atk.buff;
+      atk.RemoveBuff();
+      dmg += buff;
+      buff = def.buff;
+      dmg -= buff;
+      def.RemoveBuff();
+
+      if (dmg < 0)
+      {
+        dmg = 0;
+      }
+
+      Debug.Log("Damage w/ Buff: " + dmg.ToString());
+
+      atk.CharacterIsHitting(player);
+      def.CharacterHit(player);
+      def.showDamage(dmg);
+    }
+    else
+    {
+      Debug.Log("Healing: " + (dmg * -1).ToString());
+      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
+    }
+
+    //string hBar = player ? "MOverlay" : "HOverlay";
+
+    //int health = GameObject.Find(hBar).GetComponent<Progress>().progress;
+    //health -= dmg;
+    //health = health >= 0 ? health : 0;
+    //int mxHlth = GameObject.Find(hBar).GetComponent<Progress>().MAX_HEALTH;
+    //health = health < mxHlth ? health : mxHlth;
+    //GameObject.Find(hBar).GetComponent<Progress>().UpdateProgress(health);
+    //if (health == 0)
+    //{
+    //  PanelManager.instance.DelayedUpdateFromTile(!player);
+    //}
+    StartCoroutine(HitCharChangeHlth(player, dmg));
+  }
+
+  IEnumerator HitCharChangeHlth(bool player, int dmg)
+  {
+    yield return new WaitForSeconds(.5f);
+    IsTransitioning = true;
+    TakeCharHlth(player, dmg);
+    if (enemyDmgMult == 0 && enemyDmgMult == 0)
+    {
+      IsDamaging = false;
+    }
+  }
+
+  void TakeCharHlth(bool player, int dmg)
+  {
+    string hBar = player ? "MOverlay" : "HOverlay";
+
+    int health = GameObject.Find(hBar).GetComponent<Progress>().progress;
+    health -= dmg;
+    health = health >= 0 ? health : 0;
+    int mxHlth = GameObject.Find(hBar).GetComponent<Progress>().MAX_HEALTH;
+    health = health < mxHlth ? health : mxHlth;
+    GameObject.Find(hBar).GetComponent<Progress>().UpdateProgress(health);
+    if (health == 0)
+    {
+      PanelManager.instance.DelayedUpdateFromTile(!player);
+    }
+  }
+
   //- [ ] Greed => Destroy more gems with skill
-  public void PokeTile(Tile toPoke, int radius){
+  public void PokeTile(Tile toPoke, int radius)
+  {
     Vector2 pos = Vector2.zero;
     Debug.Log("Poke started");
 
@@ -335,7 +481,7 @@ public class BoardManager : MonoBehaviour {
       {
         if (tiles[x, y].GetComponent<Tile>() == toPoke)
         {
-          pos = new Vector2(x,y);
+          pos = new Vector2(x, y);
           Debug.Log("Found at: " + pos.ToString());
           break;
         }
@@ -349,7 +495,7 @@ public class BoardManager : MonoBehaviour {
     Debug.Log("xLU: " + xLU.ToString());
     Debug.Log("yLU: " + yLU.ToString());
 
-    for (int x = (int) xLU.x; x < (int)xLU.y; x++)
+    for (int x = (int)xLU.x; x < (int)xLU.y; x++)
     {
       for (int y = (int)yLU.x; y < (int)yLU.y; y++)
       {
@@ -371,7 +517,8 @@ public class BoardManager : MonoBehaviour {
     {
       for (int y = 0; y < ySize; y++)
       {
-        if (tiles[x, y].GetComponent<SpriteRenderer>().sprite == null){
+        if (tiles[x, y].GetComponent<SpriteRenderer>().sprite == null)
+        {
           StartCoroutine(FindNullTiles());
           break;
         }
@@ -382,7 +529,8 @@ public class BoardManager : MonoBehaviour {
     yield return null;
   }
 
-  public IEnumerator DestroyTile(Tile toRemove) {
+  public IEnumerator DestroyTile(Tile toRemove)
+  {
     StartCoroutine(provideAnimation(playerTurn, toRemove.transform, SkillEffect.Effect.Destroy, toRemove.type.type));
     //yield return new WaitForSeconds(animationWait /2);
     PanelManager.instance.addGem(toRemove.type.type);
@@ -390,61 +538,73 @@ public class BoardManager : MonoBehaviour {
     yield return null;
   }
 
-  public void destroyTiles(TileMeta.GemType toRemove){
+  public void destroyTiles(TileMeta.GemType toRemove)
+  {
     int dmg = 0;
-    List<GameObject> validTiles = new List<GameObject> ();
-    for (int x = 0; x < xSize; x++) {
-      for (int y = 0; y < ySize; y++) {
-        if (tiles[x, y].GetComponent<Tile>().type.type == toRemove) {
-          StartCoroutine(DestroyTile(tiles [x, y].GetComponent<Tile> ()));
-          if (toRemove == TileMeta.GemType.Fight) {
+    List<GameObject> validTiles = new List<GameObject>();
+    for (int x = 0; x < xSize; x++)
+    {
+      for (int y = 0; y < ySize; y++)
+      {
+        if (tiles[x, y].GetComponent<Tile>().type.type == toRemove)
+        {
+          StartCoroutine(DestroyTile(tiles[x, y].GetComponent<Tile>()));
+          if (toRemove == TileMeta.GemType.Fight)
+          {
             dmg++;
           }
         }
       }
     }
     Tile.characterHit(dmg);
-    StartCoroutine (FindNullTiles());
+    StartCoroutine(FindNullTiles());
   }
 
   //- [ ] Greed => Destroy more gems with skill
-  public void destroySomeTiles(TileMeta.GemType toRemove, int min, int max){
+  public void destroySomeTiles(TileMeta.GemType toRemove, int min, int max)
+  {
     min += (int)PanelManager.instance.getCurrentMonster().greed;
     max += (int)PanelManager.instance.getCurrentMonster().greed;
 
     int dmg = 0;
-    List<GameObject> validTiles = new List<GameObject> ();
-    for (int x = 0; x < xSize; x++) {
-      for (int y = 0; y < ySize; y++) {
-        if (tiles[x, y].GetComponent<Tile>().type.type == toRemove) {
-          validTiles.Add (tiles[x, y]);
+    List<GameObject> validTiles = new List<GameObject>();
+    for (int x = 0; x < xSize; x++)
+    {
+      for (int y = 0; y < ySize; y++)
+      {
+        if (tiles[x, y].GetComponent<Tile>().type.type == toRemove)
+        {
+          validTiles.Add(tiles[x, y]);
         }
       }
     }
-    GameObject[] endTiles = validTiles.ToArray ();
-    GameUtilities.ShuffleArray (endTiles);
-    int maxTls = UnityEngine.Random.Range (min, max + 1);
-    for(int i = 0; i < maxTls && i < endTiles.Length; i++){
-      StartCoroutine(DestroyTile(endTiles [i].GetComponent<Tile> ()));
+    GameObject[] endTiles = validTiles.ToArray();
+    GameUtilities.ShuffleArray(endTiles);
+    int maxTls = UnityEngine.Random.Range(min, max + 1);
+    for (int i = 0; i < maxTls && i < endTiles.Length; i++)
+    {
+      StartCoroutine(DestroyTile(endTiles[i].GetComponent<Tile>()));
       if (toRemove == TileMeta.GemType.Fight)
       {
         dmg++;
       }
     }
     Tile.characterHit(dmg);
-    StartCoroutine (FindNullTiles());
+    StartCoroutine(FindNullTiles());
   }
 
   public void reset(bool anim)
   {
-    if (resetMove != null) {
+    if (resetMove != null)
+    {
       StopCoroutine(resetMove);
     }
     resetMove = findNullLoop(anim);
-    StartCoroutine (resetMove);
+    StartCoroutine(resetMove);
   }
 
-  private IEnumerator findNullLoop(bool anim){
+  private IEnumerator findNullLoop(bool anim)
+  {
     if (anim)
     {
       GameObject background = GameObject.Find("Background");
@@ -465,7 +625,8 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(FindNullTiles(0));
   }
 
-  public void addExtraTurns(int turns){
+  public void addExtraTurns(int turns)
+  {
     xTurns += turns;
   }
 
@@ -480,11 +641,14 @@ public class BoardManager : MonoBehaviour {
     }
   }
 
-  public bool checkAllMatches(){
+  public bool checkAllMatches()
+  {
     bool blankTiles = false;
-    for (int x = 0; x < xSize; x++) {
-      for (int y = 0; y < ySize; y++) {
-        tiles [x, y].GetComponent<Tile> ().ClearAllMatches ();
+    for (int x = 0; x < xSize; x++)
+    {
+      for (int y = 0; y < ySize; y++)
+      {
+        tiles[x, y].GetComponent<Tile>().ClearAllMatches();
       }
     }
     for (int x = 0; x < xSize; x++)
@@ -492,7 +656,8 @@ public class BoardManager : MonoBehaviour {
       for (int y = 0; y < ySize; y++)
       {
         Tile tileTBD = tiles[x, y].GetComponent<Tile>();
-        if (tileTBD.toBeDeleted) {
+        if (tileTBD.toBeDeleted)
+        {
           tileTBD.splitSprite();
           blankTiles = true;
           tileTBD.toBeDeleted = false;
@@ -508,33 +673,39 @@ public class BoardManager : MonoBehaviour {
    * End Skill Effect Functions
    */
 
-  public bool GameOver(){
-    return GameObject.Find ("MOverlay").GetComponent<Progress> ().progress <= 0 || GameObject.Find ("HOverlay").GetComponent<Progress> ().progress <= 0;
+  public bool GameOver()
+  {
+    return GameObject.Find("MOverlay").GetComponent<Progress>().progress <= 0 || GameObject.Find("HOverlay").GetComponent<Progress>().progress <= 0;
   }
 
-  public void setClicked(bool clicked){
+  public void setClicked(bool clicked)
+  {
     this.clicked = clicked;
   }
 
-  public bool getPlayerTurn(){
+  public bool getPlayerTurn()
+  {
     return playerTurn;
   }
 
-  public IEnumerator FindNullTiles(float delay = .13f) {
+  public IEnumerator FindNullTiles(float delay = .13f)
+  {
     //if (hinty != null) { StopCoroutine(hinty); }
-    if (moveWait != null){StopCoroutine(moveWait);}
+    if (moveWait != null) { StopCoroutine(moveWait); }
     Debug.Log("FindNullTiles: " + delay.ToString());
     deselectAll();
     IsProcessing = true;
-    bool tilesBlank=true;
+    bool tilesBlank = true;
     processingCnt = 0;
-    while(tilesBlank) 
+    while (tilesBlank)
     {
-      for (int x = 0; x < xSize; x++) {
+      for (int x = 0; x < xSize; x++)
+      {
         yield return StartCoroutine(ShiftTilesDown(x, delay));
       }
       tilesBlank = checkAllMatches();
-      if (tilesBlank) {
+      if (tilesBlank)
+      {
         yield return new WaitForSeconds(delay > 0 ? .05f : .01f);
       }
     }
@@ -542,16 +713,19 @@ public class BoardManager : MonoBehaviour {
     StartCoroutine(CheckForEnd());
   }
 
-  class coords {
+  class coords
+  {
     public Tile tile;
     public Vector2 dir;
-    public coords(Tile tile, Vector2 dir){
+    public coords(Tile tile, Vector2 dir)
+    {
       this.tile = tile;
       this.dir = dir;
     }
   }
 
-  public IEnumerator waitHint(){
+  public IEnumerator waitHint()
+  {
     yield return new WaitForSeconds(20f);
     if (!GameManager.instance.gameOver)
     {
@@ -616,14 +790,16 @@ public class BoardManager : MonoBehaviour {
   //   StartCoroutine(loopAIMovement());
   //}
 
-  public void stopAI(){
+  public void stopAI()
+  {
     if (aiMove != null)
     {
       StopCoroutine(aiMove);
     }
   }
 
-  public IEnumerator loopAIMovement(){
+  public IEnumerator loopAIMovement()
+  {
     stopAI();
     if (!getPlayerTurn())
     {
@@ -655,34 +831,46 @@ public class BoardManager : MonoBehaviour {
    * ai sometimes moves for player
    * gems sometimes given to player when they are not players gems
    */
-  public IEnumerator MoveAI() {
+  public IEnumerator MoveAI()
+  {
     bool hasSpecial = false;
-    List<SkillMeta> compSkills = new List<SkillMeta> (PanelManager.instance.getComputerSkills ());
-    for(int i =0; i < compSkills.Count; i++){
+    List<SkillMeta> compSkills = new List<SkillMeta>(PanelManager.instance.getComputerSkills());
+    for (int i = 0; i < compSkills.Count; i++)
+    {
       bool ready = true;
-      foreach(SkillReq req in new SkillReq[]{compSkills[i].req1,compSkills[i].req2}){
-        if (req.has != req.req){
+      foreach (SkillReq req in new SkillReq[] { compSkills[i].req1, compSkills[i].req2 })
+      {
+        if (req.has != req.req)
+        {
           ready = false;
         }
       }
-      if (ready) {
+      if (ready)
+      {
         hasSpecial = true;
-        PanelManager.instance.setActiveSkill (i);
+        PanelManager.instance.setActiveSkill(i);
         yield return new WaitForSeconds(.5f);
 
         bool found = false;
         List<Tile> toPoke = new List<Tile>();
         SkillMeta meta = compSkills[i];
-        foreach(SkillEffect eff in meta.effects){
-          if (eff.effect == SkillEffect.Effect.Poke || eff.effect == SkillEffect.Effect.Slice) {
+        foreach (SkillEffect eff in meta.effects)
+        {
+          if (eff.effect == SkillEffect.Effect.Poke || eff.effect == SkillEffect.Effect.Slice)
+          {
             TileMeta.GemType tileType;
-            if (eff.effect == SkillEffect.Effect.Poke) {
+            if (eff.effect == SkillEffect.Effect.Poke)
+            {
               tileType = ((SkillEffect.PokeSkill)eff).toRemove;
-            } else {
+            }
+            else
+            {
               tileType = ((SkillEffect.SliceSkill)eff).toRemove;
             }
-            for (int x = 0; x < xSize; x++){
-              for (int y = 0; y < ySize; y++){
+            for (int x = 0; x < xSize; x++)
+            {
+              for (int y = 0; y < ySize; y++)
+              {
                 if (tiles[x, y].GetComponent<Tile>().type.type == tileType)
                 {
                   toPoke.Add(tiles[x, y].GetComponent<Tile>());
@@ -693,26 +881,33 @@ public class BoardManager : MonoBehaviour {
           }
         }
 
-        if (!found) {
+        if (!found)
+        {
           tiles[0, 0].GetComponent<Tile>().computerUseSkill();
-        } else if (toPoke.Count > 0) {
+        }
+        else if (toPoke.Count > 0)
+        {
           Tile[] pkArr = toPoke.ToArray();
           GameUtilities.ShuffleArray(pkArr);
           pkArr[0].computerUseSkill();
         }
 
         yield return new WaitForSeconds(.5f);
-//        while(IsShifting && IsProcessing){}
+        //        while(IsShifting && IsProcessing){}
         //Debug.Log("IsShifting: " + isShifting().ToString());
         Debug.Log("IsProcessing: " + IsThinking().ToString());
         int counter = 0;
         int checksPassed = 0;
-        while (checksPassed < 3 && counter < 30) {
+        while (checksPassed < 3 && counter < 30)
+        {
           yield return new WaitForSeconds(.25f);
           counter++;
-          if (!IsThinking()) {
+          if (!IsThinking())
+          {
             checksPassed++;
-          } else {
+          }
+          else
+          {
             checksPassed = 0;
           }
         }
@@ -721,14 +916,18 @@ public class BoardManager : MonoBehaviour {
         break;
       }
     }
-    if (!hasSpecial) {
+    if (!hasSpecial)
+    {
       // See which gems the computer needs to complete it's skills
       List<TileMeta.GemType> preferredGems = new List<TileMeta.GemType>();
-      preferredGems.Add (TileMeta.GemType.Fight);
-      for (int i = 0; i < compSkills.Count; i++) {
-        foreach (SkillReq req in new SkillReq[]{compSkills[i].req1,compSkills[i].req2}) {
-          if (req.has != req.req && !preferredGems.Contains(req.gem)) {
-            preferredGems.Add (req.gem);
+      preferredGems.Add(TileMeta.GemType.Fight);
+      for (int i = 0; i < compSkills.Count; i++)
+      {
+        foreach (SkillReq req in new SkillReq[] { compSkills[i].req1, compSkills[i].req2 })
+        {
+          if (req.has != req.req && !preferredGems.Contains(req.gem))
+          {
+            preferredGems.Add(req.gem);
           }
         }
       }
@@ -749,13 +948,15 @@ public class BoardManager : MonoBehaviour {
         }
       }
 
-      List<coords> validMoves = new List<coords> ();
-      List<coords> preferredMoves = new List<coords> ();
+      List<coords> validMoves = new List<coords>();
+      List<coords> preferredMoves = new List<coords>();
       int max = 0;
       int[,] tempBoard = new int[xSize, ySize];
-      for (int x = 0; x < xSize; x++){
-        for (int y = 0; y < ySize; y++){
-          tempBoard[x,y] = (int) tiles[x, y].GetComponent<Tile>().type.type;
+      for (int x = 0; x < xSize; x++)
+      {
+        for (int y = 0; y < ySize; y++)
+        {
+          tempBoard[x, y] = (int)tiles[x, y].GetComponent<Tile>().type.type;
         }
       }
 
@@ -764,27 +965,32 @@ public class BoardManager : MonoBehaviour {
       List<Vector2> positions = new List<Vector2>();
 
       int[,] scoreBoard = new int[xSize, ySize];
-      for (int x = 0; x < xSize; x++) {
-        for (int y = 0; y < ySize; y++) {
+      for (int x = 0; x < xSize; x++)
+      {
+        for (int y = 0; y < ySize; y++)
+        {
           foreach (Vector2 dir in Tile.adjacentDirections)
           {
             int[,] copyBoard = tempBoard.Clone() as int[,];
-            if (dir.x + x >= 0 && dir.x + x < xSize && dir.y + y >= 0 && dir.y + y < ySize) {
+            if (dir.x + x >= 0 && dir.x + x < xSize && dir.y + y >= 0 && dir.y + y < ySize)
+            {
               int temp = copyBoard[(int)dir.x + x, (int)dir.y + y];
               copyBoard[(int)dir.x + x, (int)dir.y + y] = copyBoard[x, y];
               copyBoard[x, y] = temp;
               // At the two points selected, look out in all the directions and see if we've found a match
-              int mtchA = returnBoardMatches(copyBoard, new Vector2(x,y));
+              int mtchA = returnBoardMatches(copyBoard, new Vector2(x, y));
               int mtchB = returnBoardMatches(copyBoard, new Vector2((int)dir.x + x, (int)dir.y + y));
 
               int score = mtchA > mtchB ? mtchA : mtchB;
               scoreBoard[x, y] = score;
 
-              if (score > 2) {
-                positions.Add(new Vector2(x,y));
+              if (score > 2)
+              {
+                positions.Add(new Vector2(x, y));
 
                 validMoves.Add(new coords(tiles[x, y].GetComponent<Tile>(), dir));
-                if (preferredGems.Contains(tiles[x, y].GetComponent<Tile>().type.type)){
+                if (preferredGems.Contains(tiles[x, y].GetComponent<Tile>().type.type))
+                {
                   score++;
                 }
 
@@ -805,30 +1011,35 @@ public class BoardManager : MonoBehaviour {
         }
       }
 
-      coords[] moves = validMoves.ToArray ();
-      coords[] prefMoves = preferredMoves.ToArray ();
+      coords[] moves = validMoves.ToArray();
+      coords[] prefMoves = preferredMoves.ToArray();
 
-      GameUtilities.ShuffleArray (moves);
-      GameUtilities.ShuffleArray (prefMoves);
+      GameUtilities.ShuffleArray(moves);
+      GameUtilities.ShuffleArray(prefMoves);
 
-      if (prefMoves.Length > 0) {
-        Debug.Log ("prefMoves: " + prefMoves.Length.ToString());
-        prefMoves [0].tile.Select ();
-        yield return new WaitForSeconds (.6f);
-        prefMoves [0].tile.computerSwap (prefMoves [0].dir);
+      if (prefMoves.Length > 0)
+      {
+        Debug.Log("prefMoves: " + prefMoves.Length.ToString());
+        prefMoves[0].tile.Select();
+        yield return new WaitForSeconds(.6f);
+        prefMoves[0].tile.computerSwap(prefMoves[0].dir);
         moveWait = WaitForMovement();
         StartCoroutine(moveWait);
-        yield return null; 
-      } else if (moves.Length > 0) {
-        Debug.Log ("moves: " + moves.Length.ToString());
+        yield return null;
+      }
+      else if (moves.Length > 0)
+      {
         Debug.Log("moves: " + moves.Length.ToString());
-        moves [0].tile.Select ();
-        yield return new WaitForSeconds (.6f);
-        moves [0].tile.computerSwap (moves [0].dir);
+        Debug.Log("moves: " + moves.Length.ToString());
+        moves[0].tile.Select();
+        yield return new WaitForSeconds(.6f);
+        moves[0].tile.computerSwap(moves[0].dir);
         moveWait = WaitForMovement();
         StartCoroutine(moveWait);
-        yield return null; 
-      } else {
+        yield return null;
+      }
+      else
+      {
         // There aren't any moves to make, reset the board and try again
         reset(false);
         counter = 0;
@@ -846,23 +1057,27 @@ public class BoardManager : MonoBehaviour {
     }
   }
 
-  IEnumerator WaitForMovement(){
+  IEnumerator WaitForMovement()
+  {
     yield return new WaitForSeconds(2f);
-    if (!IsThinking() && !playerTurn) {
+    if (!IsThinking() && !playerTurn)
+    {
       StartCoroutine(loopAIMovement());
     }
   }
 
-  public int returnBoardMatches(int[,] board, Vector2 pos){
+  public int returnBoardMatches(int[,] board, Vector2 pos)
+  {
     int LR = 1;
     int UD = 1;
 
-    int thisGem = board[(int)pos.x,(int)pos.y];
+    int thisGem = board[(int)pos.x, (int)pos.y];
     Vector2 cPos;
 
     // L/R
     cPos = pos + Vector2.left;
-    while (cPos.x >= 0 && cPos.x < xSize && board[(int)cPos.x, (int)cPos.y] == thisGem){
+    while (cPos.x >= 0 && cPos.x < xSize && board[(int)cPos.x, (int)cPos.y] == thisGem)
+    {
       LR += 1;
       cPos = cPos + Vector2.left;
     }
@@ -892,7 +1107,8 @@ public class BoardManager : MonoBehaviour {
     return UD > LR ? UD : LR;
   }
 
-  public bool MovesLeft(){
+  public bool MovesLeft()
+  {
     bool movesLeft = false;
     for (int x = 0; x < xSize && !movesLeft; x++)
     {
@@ -912,19 +1128,27 @@ public class BoardManager : MonoBehaviour {
     return false;
   }
 
-  public IEnumerator CheckForEnd() {
+  public IEnumerator CheckForEnd()
+  {
     bool movesLeft = MovesLeft();
     //Debug.Log ("movesLeft: " + movesLeft);
-    if (!movesLeft) {
-      reset (false);
-    } else {
+    if (!movesLeft)
+    {
+      reset(false);
+    }
+    else
+    {
       // If there aren't any more moves, toggle the player
-      if (xTurns > 0) {
+      if (xTurns > 0)
+      {
         xTurns--;
-        if (!getPlayerTurn()) {
+        if (!getPlayerTurn())
+        {
           StartCoroutine(loopAIMovement());
         }
-      } else if (gType == BoardManager.GameType.Duel) {
+      }
+      else if (gType == BoardManager.GameType.Duel)
+      {
         if (getPlayerTurn())
         {
           int counter = 0;
@@ -946,10 +1170,11 @@ public class BoardManager : MonoBehaviour {
         StartCoroutine(SwapTurn());
       }
     }
-    yield return null; 
+    yield return null;
   }
 
-  private IEnumerator SwapTurn(){
+  private IEnumerator SwapTurn()
+  {
     if (clicked)
     {
       clicked = false;
@@ -1006,18 +1231,24 @@ public class BoardManager : MonoBehaviour {
   //  yield return null;
   //}
 
-  private void CheckTurn(){
-    if (gType == BoardManager.GameType.Duel) {
+  private void CheckTurn()
+  {
+    if (gType == BoardManager.GameType.Duel)
+    {
       if (hinty != null) { StopCoroutine(hinty); }
-      if (playerTurn) {
+      if (playerTurn)
+      {
         hinty = waitHint();
         StartCoroutine(hinty);
-        crossHairA.SetActive (true);
-        crossHairB.SetActive (false);
-      } else {
-        crossHairA.SetActive (false);
-        crossHairB.SetActive (true);
-        if (!GameOver()) {
+        crossHairA.SetActive(true);
+        crossHairB.SetActive(false);
+      }
+      else
+      {
+        crossHairA.SetActive(false);
+        crossHairB.SetActive(true);
+        if (!GameOver())
+        {
           PanelManager.instance.IncrementCatchTurns();
           StartCoroutine(loopAIMovement());
           //StartCoroutine(WaitForAIMove());
@@ -1110,7 +1341,7 @@ public class BoardManager : MonoBehaviour {
   //    TileMeta metaB = new TileMeta();
   //    int idxB = characters.IndexOf(prev.GetComponent<SpriteRenderer>().sprite);
   //    metaB.type = gemTypes[idxB > -1 ? idxB : 0];
-        
+
   //    curr.GetComponent<Tile>().type = metaB;
   //    prev.GetComponent<Tile>().type = metaB;
 
@@ -1202,12 +1433,15 @@ public class BoardManager : MonoBehaviour {
       yield return new WaitForSeconds(shiftDelay);
       for (int k = 0; k < ySize; k++)
       {
-        if (k < ySize - 1){
+        if (k < ySize - 1)
+        {
           if (renders[k].GetComponent<SpriteRenderer>().sprite == null)
           {
-            StartCoroutine(AnimateGemFall2(renders[k], renders[k+1], shiftDelay > 0 ? .05f : 0));
+            StartCoroutine(AnimateGemFall2(renders[k], renders[k + 1], shiftDelay > 0 ? .05f : 0));
           }
-        } else {
+        }
+        else
+        {
           if (renders[k].GetComponent<SpriteRenderer>().sprite == null)
           {
             StartCoroutine(AnimateGemFall2(renders[k], GetNewSprite(x, ySize - 1), shiftDelay > 0 ? .05f : 0));
@@ -1217,7 +1451,8 @@ public class BoardManager : MonoBehaviour {
     }
   }
 
-  private Sprite GetNewSprite(int x, int y) {
+  private Sprite GetNewSprite(int x, int y)
+  {
     List<Sprite> possibleCharacters = new List<Sprite>();
     possibleCharacters.AddRange(characters);
 

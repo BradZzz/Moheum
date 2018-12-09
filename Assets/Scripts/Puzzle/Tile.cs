@@ -4,30 +4,33 @@ using System.Collections.Generic;
 using System.Linq;
 using cakeslice;
 
-public class Tile : MonoBehaviour {
+public class Tile : MonoBehaviour
+{
   public TileMeta type;
 
-	private static Color selectedColor = new Color(.5f, .5f, .5f, 1.0f);
-	private static Tile previousSelected = null;
+  private static Color selectedColor = new Color(.5f, .5f, .5f, 1.0f);
+  private static Tile previousSelected = null;
 
-	private SpriteRenderer render;
-	private bool isSelected = false;
+  private SpriteRenderer render;
+  private bool isSelected = false;
 
   public static Vector2[] adjacentDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
   public bool toBeDeleted = false;
   private bool matchFound = false;
 
-	void Awake() {
-		render = GetComponent<SpriteRenderer>();
-   }
+  void Awake()
+  {
+    render = GetComponent<SpriteRenderer>();
+  }
 
-	public void Select() {
-		isSelected = true;
+  public void Select()
+  {
+    isSelected = true;
     gameObject.GetComponent<Outline>().eraseRenderer = false;
     gameObject.GetComponent<Outline>().color = 0;
     previousSelected = gameObject.GetComponent<Tile>();
-		SFXManager.instance.PlaySFX(Clip.Select);
-	}
+    SFXManager.instance.PlaySFX(Clip.Select);
+  }
 
   public void SelectHint()
   {
@@ -35,11 +38,12 @@ public class Tile : MonoBehaviour {
     gameObject.GetComponent<Outline>().color = 1;
   }
 
-  public void Deselect() {
-		isSelected = false;
+  public void Deselect()
+  {
+    isSelected = false;
     gameObject.GetComponent<Outline>().eraseRenderer = true;
-		previousSelected = null;
-	}
+    previousSelected = null;
+  }
 
   private Vector3 startPosition = Vector3.zero;
   private Vector3 endPosition = Vector3.zero;
@@ -99,7 +103,8 @@ public class Tile : MonoBehaviour {
           swipeWith = GetAdjacent(Vector2.down);
         }
       }
-      if (isSwiping && swipeWith != null) {
+      if (isSwiping && swipeWith != null)
+      {
         SwapWith(swipeWith.GetComponent<Tile>());
       }
 
@@ -107,26 +112,34 @@ public class Tile : MonoBehaviour {
     }
   }
 
-  void OnMouseDown() {
+  void OnMouseDown()
+  {
     Debug.Log("Tile Clicked");
     Debug.Log("BoardManager.instance.GameOver(): " + BoardManager.instance.GameOver().ToString());
     Debug.Log("BoardManager.instance.getPlayerTurn(): " + BoardManager.instance.getPlayerTurn().ToString());
     Debug.Log("BoardManager.instance.IsProcessing(): " + BoardManager.instance.IsThinking().ToString());
-    if (!BoardManager.instance.GameOver() && BoardManager.instance.getPlayerTurn() && !BoardManager.instance.IsThinking()) {
-      if (render.sprite == null || BoardManager.instance.IsThinking()) {
+    if (!BoardManager.instance.GameOver() && BoardManager.instance.getPlayerTurn() && !BoardManager.instance.IsThinking())
+    {
+      if (render.sprite == null || BoardManager.instance.IsThinking())
+      {
         return;
       }
-      if (isSelected) {
+      if (isSelected)
+      {
         Deselect();
-      } else {
-        SkillEffect[] effects = PanelManager.instance.getActiveSkill ();
-        if (effects != null) {
-          Debug.Log ("Active Skill!");
+      }
+      else
+      {
+        SkillEffect[] effects = PanelManager.instance.getActiveSkill();
+        if (effects != null)
+        {
+          Debug.Log("Active Skill!");
           bool valid = true;
           foreach (SkillEffect effect in effects)
           {
             valid = checkEffect(effect);
-            if (!valid) {
+            if (!valid)
+            {
               break;
             }
           }
@@ -138,13 +151,18 @@ public class Tile : MonoBehaviour {
             }
             PanelManager.instance.useSkill();
           }
-        } else {
-          if (previousSelected == null) {
+        }
+        else
+        {
+          if (previousSelected == null)
+          {
             Debug.Log("Selected: " + type.type.ToString());
             BoardManager.instance.deselectAll();
             Select();
             startPosition = endPosition = Vector3.zero;
-          } else {
+          }
+          else
+          {
             SwapWith(previousSelected);
           }
         }
@@ -179,7 +197,8 @@ public class Tile : MonoBehaviour {
     }
   }
 
-  bool checkEffect(SkillEffect effect){
+  bool checkEffect(SkillEffect effect)
+  {
     switch (effect.effect)
     {
       case SkillEffect.Effect.Poke:
@@ -194,35 +213,38 @@ public class Tile : MonoBehaviour {
     }
   }
 
-  void doEffect(SkillEffect effect){
-    Debug.Log ("Skill: " + effect.ToString());
-    Debug.Log ("Effect: " + effect.effect.ToString());
-    switch(effect.effect){
+  void doEffect(SkillEffect effect)
+  {
+    Debug.Log("Skill: " + effect.ToString());
+    Debug.Log("Effect: " + effect.effect.ToString());
+    switch (effect.effect)
+    {
       case SkillEffect.Effect.Change:
         SkillEffect.ChangeSkill cskill = (SkillEffect.ChangeSkill)effect;
-        BoardManager.instance.switchAllTiles (cskill.from, cskill.to);
+        BoardManager.instance.switchAllTiles(cskill.from, cskill.to);
         break;
       case SkillEffect.Effect.ChangeSome:
         SkillEffect.ChangeSomeSkill csomeskill = (SkillEffect.ChangeSomeSkill)effect;
-        BoardManager.instance.switchSomeTiles (csomeskill.from, csomeskill.to, csomeskill.lower, csomeskill.upper);
+        BoardManager.instance.switchSomeTiles(csomeskill.from, csomeskill.to, csomeskill.lower, csomeskill.upper);
         break;
       case SkillEffect.Effect.Damage:
-        characterHit (effect.amount + (int)PanelManager.instance.getCurrentMonster().sloth);
+        characterHit(effect.amount + (int)PanelManager.instance.getCurrentMonster().sloth);
         break;
       case SkillEffect.Effect.Destroy:
         SkillEffect.DestroySkill destroyskill = (SkillEffect.DestroySkill)effect;
-        BoardManager.instance.destroyTiles (destroyskill.toRemove);
+        BoardManager.instance.destroyTiles(destroyskill.toRemove);
         break;
       case SkillEffect.Effect.DestroySome:
         SkillEffect.DestroySomeSkill destroysomeskill = (SkillEffect.DestroySomeSkill)effect;
-        BoardManager.instance.destroySomeTiles (destroysomeskill.toRemove, destroysomeskill.from, destroysomeskill.to);
+        BoardManager.instance.destroySomeTiles(destroysomeskill.toRemove, destroysomeskill.from, destroysomeskill.to);
         break;
       case SkillEffect.Effect.Heal:
-        characterHit (-(effect.amount + (int)PanelManager.instance.getCurrentMonster().sloth));
+        characterHit(-(effect.amount + (int)PanelManager.instance.getCurrentMonster().sloth));
         break;
       case SkillEffect.Effect.Poke:
         SkillEffect.PokeSkill pokeskill = (SkillEffect.PokeSkill)effect;
-        if (type.type == pokeskill.toRemove) {
+        if (type.type == pokeskill.toRemove)
+        {
           BoardManager.instance.PokeTile(this, effect.amount);
         }
         break;
@@ -231,7 +253,7 @@ public class Tile : MonoBehaviour {
         BoardManager.instance.buff(poisonskill.amount);
         break;
       case SkillEffect.Effect.Reset:
-        BoardManager.instance.reset (true);
+        BoardManager.instance.reset(true);
         break;
       case SkillEffect.Effect.Sabotage:
         BoardManager.instance.Sabotage(effect.amount);
@@ -244,52 +266,63 @@ public class Tile : MonoBehaviour {
         }
         break;
       case SkillEffect.Effect.xTurn:
-        BoardManager.instance.addExtraTurns (effect.amount);
+        BoardManager.instance.addExtraTurns(effect.amount);
         break;
     }
   }
 
   //The swap the computer uses
-  public void computerSwap(Vector2 dir){
-    if (checkSwap(dir)) {
+  public void computerSwap(Vector2 dir)
+  {
+    if (checkSwap(dir))
+    {
       Debug.Log("Can swap");
-      BoardManager.instance.setClicked (true);
+      BoardManager.instance.setClicked(true);
       Debug.Log("Check 1");
       GameObject adj = GetAdjacent(dir);
       Debug.Log("Check 2");
       SwapSprite(render, adj.GetComponent<SpriteRenderer>(), false);
       Debug.Log("Check 3");
-      adj.GetComponent<Tile>().ClearAllMatches ();
+      adj.GetComponent<Tile>().ClearAllMatches();
       Debug.Log("Check 4");
-      Deselect ();
+      Deselect();
       Debug.Log("Check 5");
-      ClearAllMatches ();
+      ClearAllMatches();
       Debug.Log("Check 6");
-    } else {
+    }
+    else
+    {
       Debug.Log("Cant swap!");
       Deselect();
       StartCoroutine(BoardManager.instance.loopAIMovement());
     }
   }
 
-  public void computerUseSkill(){
-    if (PanelManager.instance.getActiveSkill () != null) {
-      foreach(SkillEffect effect in PanelManager.instance.getActiveSkill ()){
+  public void computerUseSkill()
+  {
+    if (PanelManager.instance.getActiveSkill() != null)
+    {
+      foreach (SkillEffect effect in PanelManager.instance.getActiveSkill())
+      {
         doEffect(effect);
       }
-      PanelManager.instance.useSkill ();
+      PanelManager.instance.useSkill();
     }
   }
 
-  private int checkMatchDirectionType(Vector2[] dirs, Tile other, bool checkingAdj){
+  private int checkMatchDirectionType(Vector2[] dirs, Tile other, bool checkingAdj)
+  {
     int total = 0;
     Tile tl;
 
-    if (checkingAdj) {
-      total = other.FindMatch(dirs[0], true).Count + other.FindMatch (dirs[1], true).Count;
+    if (checkingAdj)
+    {
+      total = other.FindMatch(dirs[0], true).Count + other.FindMatch(dirs[1], true).Count;
       tl = other;
-    } else {
-      total = FindMatch (dirs[0], true).Count + FindMatch (dirs[1], true).Count;
+    }
+    else
+    {
+      total = FindMatch(dirs[0], true).Count + FindMatch(dirs[1], true).Count;
       tl = this;
     }
 
@@ -300,21 +333,29 @@ public class Tile : MonoBehaviour {
 
     Debug.Log("checkMatchDirectionType Total: " + total.ToString());
 
-    if (total == 4) {
+    if (total == 4)
+    {
       Debug.Log("Extreme move found");
-      if (tl.type.type == TileMeta.GemType.Fight) {
+      if (tl.type.type == TileMeta.GemType.Fight)
+      {
         return 6;
       }
       return 5;
-    } else if (total == 3) {
+    }
+    else if (total == 3)
+    {
       Debug.Log("Awesome move found");
-      if (tl.type.type == TileMeta.GemType.Fight) {
+      if (tl.type.type == TileMeta.GemType.Fight)
+      {
         return 4;
       }
       return 3;
-    } else if (total == 2) {
+    }
+    else if (total == 2)
+    {
       Debug.Log("Simple move found");
-      if (tl.type.type == TileMeta.GemType.Fight) {
+      if (tl.type.type == TileMeta.GemType.Fight)
+      {
         return 2;
       }
       return 1;
@@ -322,7 +363,8 @@ public class Tile : MonoBehaviour {
     return -1;
   }
 
-  public int checkMatchType(Vector2 dir){
+  public int checkMatchType(Vector2 dir)
+  {
 
     Vector2 invDir = new Vector2(dir.y, dir.x);
     GameObject adj = GetAdjacent(dir);
@@ -341,7 +383,8 @@ public class Tile : MonoBehaviour {
     return 0;
   }
 
-  public bool checkMatch(Tile adjTile, int min, bool swap = false){
+  public bool checkMatch(Tile adjTile, int min, bool swap = false)
+  {
     bool matchA, matchB, matchC, matchD;
 
     matchA = (FindMatch(Vector2.left, swap).Count + FindMatch(Vector2.right, swap).Count > min);
@@ -356,12 +399,14 @@ public class Tile : MonoBehaviour {
    * TODO: This function takes a direction and indicates if a swap in that direction will lead to a match
    */
 
-  public bool checkSwap(Vector2 dir){
+  public bool checkSwap(Vector2 dir)
+  {
     //Get nearest gem in that direction
     Vector2 invDir = new Vector2(dir.y, dir.x);
     GameObject adj = GetAdjacent(dir);
-    if (adj != null) {
-      SpriteRenderer adjSprRend = adj.GetComponent<SpriteRenderer> ();
+    if (adj != null)
+    {
+      SpriteRenderer adjSprRend = adj.GetComponent<SpriteRenderer>();
       SwapSprite(render, adjSprRend, false, true);
       bool canSwap = checkMatch(adj.GetComponent<Tile>(), 1, true);
       SwapSprite(render, adjSprRend, false, true);
@@ -370,14 +415,19 @@ public class Tile : MonoBehaviour {
     return false;
   }
 
-  public void SwapSprite(SpriteRenderer render1, SpriteRenderer render2, bool sound, bool testing = false) {
-    if (render1.sprite == render2.sprite) {
+  public void SwapSprite(SpriteRenderer render1, SpriteRenderer render2, bool sound, bool testing = false)
+  {
+    if (render1.sprite == render2.sprite)
+    {
       return;
     }
 
-    if (!testing) {
+    if (!testing)
+    {
       StartCoroutine(BoardManager.instance.AnimateGemSwap(render1.gameObject, render2.gameObject));
-    } else {
+    }
+    else
+    {
       TileMeta type1 = render1.gameObject.GetComponent<Tile>().type;
       TileMeta type2 = render2.gameObject.GetComponent<Tile>().type;
 
@@ -388,49 +438,59 @@ public class Tile : MonoBehaviour {
       render1.gameObject.GetComponent<Tile>().type = type2;
     }
 
-    if (sound) {
+    if (sound)
+    {
       SFXManager.instance.PlaySFX(Clip.Swap);
     }
   }
 
-  public GameObject GetAdjacent(Vector2 castDir) {
-    RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position, castDir);
-    if (hits.Length > 1 && hits[1].collider != null) {
+  public GameObject GetAdjacent(Vector2 castDir)
+  {
+    RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, castDir);
+    if (hits.Length > 1 && hits[1].collider != null)
+    {
       return hits[1].collider.gameObject;
     }
     return null;
   }
 
-  private List<GameObject> GetAllAdjacentTiles() {
+  private List<GameObject> GetAllAdjacentTiles()
+  {
     List<GameObject> adjacentTiles = new List<GameObject>();
-    for (int i = 0; i < adjacentDirections.Length; i++) {
+    for (int i = 0; i < adjacentDirections.Length; i++)
+    {
       adjacentTiles.Add(GetAdjacent(adjacentDirections[i]));
     }
     return adjacentTiles;
   }
 
-//  public List<GameObject> FindMatch(Vector2 castDir) { // 1
-//    List<GameObject> matchingTiles = new List<GameObject>(); // 2
-//    RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position, castDir);
-//    for (int i = 1; i < hits.Length; i++) {
-//      if (hits[i].collider != null && hits[i].collider.GetComponent<SpriteRenderer> ().sprite == render.sprite) {
-//        matchingTiles.Add (hits[i].collider.gameObject);
-//      } else {
-//        break;
-//      }
-//    }
-//    return matchingTiles;
-//  }
+  //  public List<GameObject> FindMatch(Vector2 castDir) { // 1
+  //    List<GameObject> matchingTiles = new List<GameObject>(); // 2
+  //    RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position, castDir);
+  //    for (int i = 1; i < hits.Length; i++) {
+  //      if (hits[i].collider != null && hits[i].collider.GetComponent<SpriteRenderer> ().sprite == render.sprite) {
+  //        matchingTiles.Add (hits[i].collider.gameObject);
+  //      } else {
+  //        break;
+  //      }
+  //    }
+  //    return matchingTiles;
+  //  }
 
-  public List<GameObject> FindMatch(Vector2 castDir, bool swap = false) { // 1
+  public List<GameObject> FindMatch(Vector2 castDir, bool swap = false)
+  { // 1
     List<GameObject> matchingTiles = new List<GameObject>(); // 2
-    RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position, castDir);
-    for (int i = 1; i < hits.Length; i++) {
-      if (hits[i].collider != null 
-          && ((!swap && hits[i].collider.GetComponent<SpriteRenderer> ().sprite == render.sprite)
-              || (swap && hits[i].collider.GetComponent<Tile>().type.type == type.type))) {
-        matchingTiles.Add (hits[i].collider.gameObject);
-      } else {
+    RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, castDir);
+    for (int i = 1; i < hits.Length; i++)
+    {
+      if (hits[i].collider != null
+          && ((!swap && hits[i].collider.GetComponent<SpriteRenderer>().sprite == render.sprite)
+              || (swap && hits[i].collider.GetComponent<Tile>().type.type == type.type)))
+      {
+        matchingTiles.Add(hits[i].collider.gameObject);
+      }
+      else
+      {
         break;
       }
     }
@@ -466,21 +526,23 @@ public class Tile : MonoBehaviour {
     }
     if (matchingTiles.Count >= 2)
     {
-      if (matchingTiles.Count >= 3){
+      if (matchingTiles.Count >= 3)
+      {
         PanelManager.instance.addBonus(matchingTiles.ToArray());
       }
-//      Debug.Log("4 match!: " + (matchingTiles.Count == 3).ToString());
-//      Debug.Log("5 match!: " + (matchingTiles.Count == 4).ToString());
+      //      Debug.Log("4 match!: " + (matchingTiles.Count == 3).ToString());
+      //      Debug.Log("5 match!: " + (matchingTiles.Count == 4).ToString());
       for (int i = 0; i < matchingTiles.Count; i++)
       {
-        PanelManager.instance.addGem (matchingTiles [i].GetComponent<Tile> ().type.type);
+        PanelManager.instance.addGem(matchingTiles[i].GetComponent<Tile>().type.type);
 
         //matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
         //matchingTiles[i].GetComponent<FadeMaterials>().splitSprite();
         matchingTiles[i].GetComponent<Tile>().toBeDeleted = true;
 
         //- [ ] Wrath => Deal more damage with fight gems
-        if (matchingTiles [i].GetComponent<Tile> ().type.type == TileMeta.GemType.Fight) {
+        if (matchingTiles[i].GetComponent<Tile>().type.type == TileMeta.GemType.Fight)
+        {
           // Triple 5 match damage. Double 4 match damage
           int pride = (int)PanelManager.instance.getCurrentMonster().pride;
           int wrath = (int)PanelManager.instance.getCurrentMonster().wrath;
@@ -493,28 +555,33 @@ public class Tile : MonoBehaviour {
     return dmg;
   }
 
-  public void splitSprite(){
+  public void splitSprite()
+  {
     GetComponent<FadeMaterials>().splitSprite();
   }
-    
-  public void ClearAllMatches() {
+
+  public void ClearAllMatches()
+  {
     if (render.sprite == null || toBeDeleted)
       return;
 
     int dmg = 0;
     dmg += ClearMatch(new Vector2[2] { Vector2.left, Vector2.right });
     dmg += ClearMatch(new Vector2[2] { Vector2.up, Vector2.down });
-    if (matchFound) {
+    if (matchFound)
+    {
       //Set the wait for turn slightly higher
       BoardManager.instance.PoppingWait();
       //GetComponent<FadeMaterials>().splitSprite();
       toBeDeleted = true;
-      PanelManager.instance.addGem (type.type);
-      if (type.type == TileMeta.GemType.Fight) {
+      PanelManager.instance.addGem(type.type);
+      if (type.type == TileMeta.GemType.Fight)
+      {
         dmg += 1;
       }
-      if (dmg > 0) {
-        characterHit (dmg);
+      if (dmg > 0)
+      {
+        characterHit(dmg);
       }
       matchFound = false;
       StopCoroutine(BoardManager.instance.FindNullTiles());
@@ -523,66 +590,67 @@ public class Tile : MonoBehaviour {
     }
   }
 
-  public static void characterHit(int dmg){
-    Debug.Log ("characterHit: " + dmg.ToString ());
-    bool usePlayer = BoardManager.instance.getPlayerTurn ();
-    if (dmg < 0) {
-      usePlayer = !usePlayer;
-    }
+  public static void characterHit(int dmg)
+  {
+    Debug.Log("characterHit: " + dmg.ToString());
+    bool usePlayer = BoardManager.instance.getPlayerTurn();
 
-    string hBar = usePlayer ? "MOverlay" : "HOverlay";
+    BoardManager.instance.CalcDamage(usePlayer ? 0 : dmg, usePlayer ? dmg : 0);
 
-    string atkMonster = usePlayer ? "HMonsterImg" : "MMonsterImg";
-    string defMonster = usePlayer ? "MMonsterImg" : "HMonsterImg";
+    //if (dmg < 0) {
+    //  usePlayer = !usePlayer;
+    //}
+
+    //string hBar = usePlayer ? "MOverlay" : "HOverlay";
+
+    //string atkMonster = usePlayer ? "HMonsterImg" : "MMonsterImg";
+    //string defMonster = usePlayer ? "MMonsterImg" : "HMonsterImg";
 
 
-    if (dmg > 0)
-    {
-      Debug.Log("Damage: " + dmg.ToString());
-      CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
-      CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
+    //if (dmg > 0)
+    //{
+    //  Debug.Log("Damage: " + dmg.ToString());
+    //  CharacterActionController atk = GameObject.Find(atkMonster).GetComponent<CharacterActionController>();
+    //  CharacterActionController def = GameObject.Find(defMonster).GetComponent<CharacterActionController>();
 
-      //Figure out if there is a buff for attacker
-      int buff = atk.buff;
-      atk.RemoveBuff();
-      //If there is, add it to the dmg and remove it
-      dmg += buff;
-      //Figure out if there is a buff for defender
-      buff = def.buff;
-      dmg -= buff;
-      //If there is, subtract it from the dmg and remove it
-      def.RemoveBuff();
+    //  int buff = atk.buff;
+    //  atk.RemoveBuff();
+    //  dmg += buff;
+    //  buff = def.buff;
+    //  dmg -= buff;
+    //  def.RemoveBuff();
 
-      if (dmg<0) {
-        dmg = 0;
-      }
+    //  if (dmg<0) {
+    //    dmg = 0;
+    //  }
 
-      Debug.Log("Damage w/ Buff: " + dmg.ToString());
+    //  Debug.Log("Damage w/ Buff: " + dmg.ToString());
 
-      atk.CharacterIsHitting(usePlayer);
-      def.CharacterHit(usePlayer);
-      def.showDamage(dmg);
-    } else {
-      Debug.Log("Healing: " + (dmg * -1).ToString());
-      GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
-    }
+    //  atk.CharacterIsHitting(usePlayer);
+    //  def.CharacterHit(usePlayer);
+    //  def.showDamage(dmg);
+    //} else {
+    //  Debug.Log("Healing: " + (dmg * -1).ToString());
+    //  GameObject.Find(defMonster).GetComponent<CharacterActionController>().showDamage(dmg);
+    //}
 
     //GameObject.Find(atkMonster).GetComponent<CharacterActionController>().showDamage(dmg * -1);
 
-    Debug.Log ("Using: " + hBar);
+    //Debug.Log ("Using: " + hBar);
 
-    int health = GameObject.Find (hBar).GetComponent<Progress> ().progress;
-    Debug.Log ("Health Before: " + health.ToString ());
-    health -= dmg;
-    health = health >= 0 ? health : 0;
-    int mxHlth = GameObject.Find (hBar).GetComponent<Progress> ().MAX_HEALTH;
-    health = health < mxHlth ? health : mxHlth;
-    Debug.Log ("Health After: " + health.ToString ());
-    GameObject.Find (hBar).GetComponent<Progress> ().UpdateProgress (health);
-    if (health == 0) {
-      Debug.Log("PanelManager.instance.WaitUntilTileUpdate(!usePlayer);");
-      PanelManager.instance.DelayedUpdateFromTile(!usePlayer);
-    }
+    //int health = GameObject.Find (hBar).GetComponent<Progress> ().progress;
+
+    ////Debug.Log ("Health Before: " + health.ToString ());
+    //health -= dmg;
+    //health = health >= 0 ? health : 0;
+    //int mxHlth = GameObject.Find (hBar).GetComponent<Progress> ().MAX_HEALTH;
+    //health = health < mxHlth ? health : mxHlth;
+    ////Debug.Log ("Health After: " + health.ToString ());
+    //GameObject.Find (hBar).GetComponent<Progress> ().UpdateProgress (health);
+    //if (health == 0) {
+    //  //Debug.Log("PanelManager.instance.WaitUntilTileUpdate(!usePlayer);");
+    //  PanelManager.instance.DelayedUpdateFromTile(!usePlayer);
+    //}
   }
 
 }

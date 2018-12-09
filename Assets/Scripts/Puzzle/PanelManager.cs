@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class PanelManager : MonoBehaviour
 {
-
   public static PanelManager instance;
   public GameObject glossaryObj;
 
@@ -128,6 +127,7 @@ public class PanelManager : MonoBehaviour
     {
       Debug.Log("KillMonster");
       yield return new WaitForSeconds(1f);
+      BoardManager.instance.IsTransitioning = false;
       StartCoroutine(BoardManager.instance.loopAIMovement());
     }
 
@@ -179,6 +179,7 @@ public class PanelManager : MonoBehaviour
   {
     yield return new WaitForSeconds(.5f);
     GUIManager.instance.EndGame(true, false, true, meta);
+    BoardManager.instance.IsTransitioning = false;
     yield return null;
   }
 
@@ -194,10 +195,14 @@ public class PanelManager : MonoBehaviour
     GUIManager.instance.LevelUp(adventure.roster[currentMonster], exp);
   }
 
-  public PlayerRosterMeta getCurrentMonster(){
-    if  (BoardManager.instance.getPlayerTurn()) {
+  public PlayerRosterMeta getCurrentMonster()
+  {
+    if (BoardManager.instance.getPlayerTurn())
+    {
       return adventure.roster[currentMonster];
-    } else {
+    }
+    else
+    {
       if (adventure.isTrainerEncounter)
       {
         return getTrainerMonster();
@@ -209,8 +214,10 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  public void continueUpdate(){
+  public void continueUpdate()
+  {
     Debug.Log("continueUpdate");
+    //BoardManager.instance.IsTransitioning = true;
     if (getTrainerMonster() == null)
     {
       if (adventure.isTrainerEncounter)
@@ -227,13 +234,15 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  public void updateCurrent(PlayerRosterMeta meta){
+  public void updateCurrent(PlayerRosterMeta meta)
+  {
     adventure.roster[currentMonster] = meta;
     /*Refresh skills if monster learned anything new*/
     loadSkills();
   }
 
-  public void DelayedUpdateFromTile(bool playerDead){
+  public void DelayedUpdateFromTile(bool playerDead)
+  {
     Debug.Log("UpdateTile");
     StartCoroutine(WaitUntilTileUpdate(playerDead));
   }
@@ -261,22 +270,27 @@ public class PanelManager : MonoBehaviour
     UpdateFromTile(playerDead);
   }
 
-  public void UpdateFromTile(bool playerDead){
+  public void UpdateFromTile(bool playerDead)
+  {
     Debug.Log("Update From Tile");
 
     PlayerRosterMeta enemyMonster;
-    if (adventure.isTrainerEncounter) {
+    if (adventure.isTrainerEncounter)
+    {
       enemyMonster = getTrainerMonster();
-    } else {
+    }
+    else
+    {
       enemyMonster = adventure.wild;
     }
-    while(GameObject.Find("MOverlay").GetComponent<Progress>().Updating() || GameObject.Find("HOverlay").GetComponent<Progress>().Updating())
+    while (GameObject.Find("MOverlay").GetComponent<Progress>().Updating() || GameObject.Find("HOverlay").GetComponent<Progress>().Updating())
     {
 
     }
     adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
     enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
-    if (!playerDead) {
+    if (!playerDead)
+    {
       //enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
 
       int addedExp = MonsterMeta.getExperience(enemyMonster, !adventure.isTrainerEncounter);
@@ -290,30 +304,38 @@ public class PanelManager : MonoBehaviour
       //adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
       //adventure.roster[currentMonster].exp += addedExp;
       int[] lvlData = MonsterMeta.CalcLvl(adventure.roster[currentMonster], glossary.GetMonsterMain(adventure.roster[currentMonster].name).meta.lvlSpeed);
-      if (lvlData[1] + addedExp >= lvlData[2]) {
+      if (lvlData[1] + addedExp >= lvlData[2])
+      {
         StartCoroutine(WaitForLevelUp(addedExp));
-      } else {
+      }
+      else
+      {
         adventure.roster[currentMonster].exp += addedExp;
         continueUpdate();
       }
-    } else {
+    }
+    else
+    {
       Debug.Log("Player Lost Monster");
 
       //enemyMonster.curHealth = GameObject.Find("MOverlay").GetComponent<Progress>().progress;
       //GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(0);
       //adventure.roster[currentMonster].curHealth = 0;
       bool monstersLeft = false;
-      for (int i = 0; i < adventure.roster.Length; i++) {
-        if (adventure.roster[i].curHealth > 0) {
+      for (int i = 0; i < adventure.roster.Length; i++)
+      {
+        if (adventure.roster[i].curHealth > 0)
+        {
           monstersLeft = true;
           currentMonster = i;
           StartCoroutine(KillPlayerMonster());
-//          loadHeroMonster();
-//          loadLocation();
+          //          loadHeroMonster();
+          //          loadLocation();
           break;
         }
       }
-      if (!monstersLeft){
+      if (!monstersLeft)
+      {
         BaseSaver.putAdventure(adventure);
         GUIManager.instance.EndGame(false, false, false, adventure);
       }
@@ -342,7 +364,9 @@ public class PanelManager : MonoBehaviour
         currentLocation = Location.Action;
         loadLocation();
       }
-    } else {
+    }
+    else
+    {
       /*
        * give monster the item bonuses
        * subtract from inventory
@@ -350,7 +374,8 @@ public class PanelManager : MonoBehaviour
        * update ui
        */
       TreasureMain itemToUse = glossaryObj.GetComponent<Glossary>().GetItem(getItem(itemPos));
-      if (GameUtilities.CanUseItem(itemToUse, adventure, pos, skills)) {
+      if (GameUtilities.CanUseItem(itemToUse, adventure, pos, skills))
+      {
         adventure = GameUtilities.UseItem(itemToUse, adventure, pos, skills);
         adventure.AddToTreasureList(getItem(itemPos), -1);
       }
@@ -376,31 +401,38 @@ public class PanelManager : MonoBehaviour
   }
 
   // Use this for initialization
-  void Start () {
+  void Start()
+  {
     GUIManager.instance.StartIntroduction(glossaryObj.GetComponent<Glossary>());
 
     currentMonster = 0;
     isCritical = false;
     isUsingItem = false;
     adventure = BaseSaver.getAdventure();
-    for (int i = 0; i < adventure.roster.Length; i++){
-      if (adventure.roster[i].curHealth > 0){
+    for (int i = 0; i < adventure.roster.Length; i++)
+    {
+      if (adventure.roster[i].curHealth > 0)
+      {
         currentMonster = i;
         break;
       }
     }
 
     //Debug.Log("Adventurer Pos: " + adventure.playerPos.ToString());
-    foreach(PlayerRosterMeta meta in adventure.roster){
+    foreach (PlayerRosterMeta meta in adventure.roster)
+    {
       Debug.Log("Monster: " + meta.name.ToString());
     }
 
     instance = GetComponent<PanelManager>();
-    glossary = glossaryObj.GetComponent<Glossary> ();
+    glossary = glossaryObj.GetComponent<Glossary>();
 
-    if (!adventure.isTrainerEncounter) {
+    if (!adventure.isTrainerEncounter)
+    {
       wildMeta = glossary.GetMonsterMain(adventure.wild.name).meta;
-    } else {
+    }
+    else
+    {
       wildMeta = null;
     }
     //eMeta = glossary.GetMonsterMain(E_MONSTER).meta;
@@ -462,16 +494,16 @@ public class PanelManager : MonoBehaviour
     rMonstersLvl[5] = GameObject.Find("LvlTxt6");
 
     txt = new Text[4];
-    txt [0] = GameObject.Find ("HClick1Txt").GetComponent<Text> ();
-    txt [1] = GameObject.Find ("HClick2Txt").GetComponent<Text> ();
-    txt [2] = GameObject.Find ("HClick3Txt").GetComponent<Text> ();
-    txt [3] = GameObject.Find ("HClick4Txt").GetComponent<Text> ();
+    txt[0] = GameObject.Find("HClick1Txt").GetComponent<Text>();
+    txt[1] = GameObject.Find("HClick2Txt").GetComponent<Text>();
+    txt[2] = GameObject.Find("HClick3Txt").GetComponent<Text>();
+    txt[3] = GameObject.Find("HClick4Txt").GetComponent<Text>();
 
     dtls = new Text[4];
-    dtls [0] = GameObject.Find ("HClick1DtlTxt").GetComponent<Text> ();
-    dtls [1] = GameObject.Find ("HClick2DtlTxt").GetComponent<Text> ();
-    dtls [2] = GameObject.Find ("HClick3DtlTxt").GetComponent<Text> ();
-    dtls [3] = GameObject.Find ("HClick4DtlTxt").GetComponent<Text> ();
+    dtls[0] = GameObject.Find("HClick1DtlTxt").GetComponent<Text>();
+    dtls[1] = GameObject.Find("HClick2DtlTxt").GetComponent<Text>();
+    dtls[2] = GameObject.Find("HClick3DtlTxt").GetComponent<Text>();
+    dtls[3] = GameObject.Find("HClick4DtlTxt").GetComponent<Text>();
 
     Mtxt = new Text[4];
     Mtxt[0] = GameObject.Find("MClick1Txt").GetComponent<Text>();
@@ -482,34 +514,34 @@ public class PanelManager : MonoBehaviour
     MSklls = new GameObject[4];
     MSklls[0] = GameObject.Find("MSkillPanel1");
     MSklls[1] = GameObject.Find("MSkillPanel2");
-    MSklls[2] = GameObject.Find ("MSkillPanel3");
-    MSklls[3] = GameObject.Find ("MSkillPanel4");
+    MSklls[2] = GameObject.Find("MSkillPanel3");
+    MSklls[3] = GameObject.Find("MSkillPanel4");
 
     Mdtls = new Text[4];
-    Mdtls [0] = GameObject.Find ("MClick1DtlTxt").GetComponent<Text> ();
-    Mdtls [1] = GameObject.Find ("MClick2DtlTxt").GetComponent<Text> ();
-    Mdtls [2] = GameObject.Find ("MClick3DtlTxt").GetComponent<Text> ();
-    Mdtls [3] = GameObject.Find ("MClick4DtlTxt").GetComponent<Text> ();
+    Mdtls[0] = GameObject.Find("MClick1DtlTxt").GetComponent<Text>();
+    Mdtls[1] = GameObject.Find("MClick2DtlTxt").GetComponent<Text>();
+    Mdtls[2] = GameObject.Find("MClick3DtlTxt").GetComponent<Text>();
+    Mdtls[3] = GameObject.Find("MClick4DtlTxt").GetComponent<Text>();
 
-    back = GameObject.Find ("BackBtn");
-    btnPnl = GameObject.Find ("HButtonPanel");
-    monPnl = GameObject.Find ("HMonsterPanel");
+    back = GameObject.Find("BackBtn");
+    btnPnl = GameObject.Find("HButtonPanel");
+    monPnl = GameObject.Find("HMonsterPanel");
     itemPnl = GameObject.Find("HItemPanel");
 
-    skills = new List<SkillMeta> ();
-    Mskills = new List<SkillMeta> ();
+    skills = new List<SkillMeta>();
+    Mskills = new List<SkillMeta>();
 
-    skillPanels = new List<GameObject> ();
-    MskillPanels = new List<GameObject> ();
+    skillPanels = new List<GameObject>();
+    MskillPanels = new List<GameObject>();
 
-    skillLoaders = new List<GameObject> ();
-    MskillLoaders = new List<GameObject> ();
+    skillLoaders = new List<GameObject>();
+    MskillLoaders = new List<GameObject>();
 
-    skillTxts = new List<GameObject> ();
+    skillTxts = new List<GameObject>();
 
-    loadSkills ();
+    loadSkills();
 
-    initSkillOverlays ();
+    initSkillOverlays();
 
     //List<string> actions = new List<string> ();
     //for(int i = 0; i < Mskills.Count; i++){
@@ -517,121 +549,143 @@ public class PanelManager : MonoBehaviour
     //  Mdtls[i].text = getEffectsString(Mskills[i].effects);
     //}
 
-    for (int i = 0; i < 4; i++) {
-      if (i < Mskills.Count) {
+    for (int i = 0; i < 4; i++)
+    {
+      if (i < Mskills.Count)
+      {
         //GameObject.Find("MSkillPanel" + (i + 1).ToString()).SetActive(false);
         //Mtxt[i].gameObject.SetActive(false);
         //Mdtls[i].gameObject.SetActive(false);
         MSklls[i].gameObject.SetActive(true);
         Mtxt[i].gameObject.SetActive(true);
         Mdtls[i].gameObject.SetActive(true);
-        updatePanels ('M', i);
-      } else {
+        updatePanels('M', i);
+      }
+      else
+      {
         //GameObject.Find("MSkillPanel" + (i + 1).ToString()).SetActive (false);
         MSklls[i].gameObject.SetActive(false);
-        Mtxt [i].gameObject.SetActive (false);
-        Mdtls [i].gameObject.SetActive (false);
+        Mtxt[i].gameObject.SetActive(false);
+        Mdtls[i].gameObject.SetActive(false);
       }
     }
 
     //loadSkillsOverlays();
 
-    for (int i = 1; i < 5; i++) {
-      string id = "MClick" + i.ToString ();
-      GameObject.Find (id).GetComponent<Outline> ().enabled = false;
+    for (int i = 1; i < 5; i++)
+    {
+      string id = "MClick" + i.ToString();
+      GameObject.Find(id).GetComponent<Outline>().enabled = false;
     }
 
     currentLocation = Location.Action;
-    loadLocation ();
+    loadLocation();
     setActiveSkill(-1);
 
     updateUI(adventure.trainer);
-	}
+  }
 
   void updateUI(NPCMeta meta)
   {
     if (meta != null)
     {
-      GameObject.Find("MTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(meta.roster, 
+      GameObject.Find("MTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(meta.roster,
         adventure.isTrainerEncounter ? TrainerUpdateController.TrainerType.Trainer : TrainerUpdateController.TrainerType.Wild);
       GameObject.Find("HTrainerResPnl").GetComponent<TrainerUpdateController>().updateMonsterUI(adventure.roster, TrainerUpdateController.TrainerType.Player);
     }
   }
 
-  public static string getEffectsString(SkillEffect[] effects){
+  public static string getEffectsString(SkillEffect[] effects)
+  {
     string buffer = "";
-    foreach(SkillEffect effect in effects){
-      switch(effect.effect){
-      case SkillEffect.Effect.Change:
-        buffer += ((SkillEffect.ChangeSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.ChangeSome:
-        buffer += ((SkillEffect.ChangeSomeSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.Damage:
-        buffer += ((SkillEffect.DamageSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.Destroy:
-        buffer += ((SkillEffect.DestroySkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.DestroySome:
-        buffer += ((SkillEffect.DestroySomeSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.Heal:
-        buffer += ((SkillEffect.HealSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.Poison:
-        buffer += ((SkillEffect.PoisonSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.Poke:
-        buffer += ((SkillEffect.PokeSkill)effect).effectString();
-        break;
-      case SkillEffect.Effect.Reset:
-        buffer += ((SkillEffect.ResetSkill)effect).effectString ();
-        break;
-      case SkillEffect.Effect.Sabotage:
-        buffer += ((SkillEffect.SabotageSkill)effect).effectString();
-        break;
-      case SkillEffect.Effect.Slice:
-        buffer += ((SkillEffect.SliceSkill)effect).effectString();
-        break;
-      case SkillEffect.Effect.xTurn:
-        buffer += ((SkillEffect.xTurnSkill)effect).effectString ();
-        break;
+    foreach (SkillEffect effect in effects)
+    {
+      switch (effect.effect)
+      {
+        case SkillEffect.Effect.Change:
+          buffer += ((SkillEffect.ChangeSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.ChangeSome:
+          buffer += ((SkillEffect.ChangeSomeSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Damage:
+          buffer += ((SkillEffect.DamageSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Destroy:
+          buffer += ((SkillEffect.DestroySkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.DestroySome:
+          buffer += ((SkillEffect.DestroySomeSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Heal:
+          buffer += ((SkillEffect.HealSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Poison:
+          buffer += ((SkillEffect.PoisonSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Poke:
+          buffer += ((SkillEffect.PokeSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Reset:
+          buffer += ((SkillEffect.ResetSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Sabotage:
+          buffer += ((SkillEffect.SabotageSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.Slice:
+          buffer += ((SkillEffect.SliceSkill)effect).effectString();
+          break;
+        case SkillEffect.Effect.xTurn:
+          buffer += ((SkillEffect.xTurnSkill)effect).effectString();
+          break;
       }
       buffer += "\n";
     }
-    return buffer.Remove (buffer.Length - 1);
+    return buffer.Remove(buffer.Length - 1);
   }
 
-  public void setActiveSkill(int idx){
+  public void setActiveSkill(int idx)
+  {
     Debug.Log("setActiveSkill: " + idx.ToString());
     activeSkill = idx;
-    if (BoardManager.instance.getPlayerTurn ()) {
-      if (activeSkill != -1 && !skills [activeSkill].hasReq ()) {
+    if (BoardManager.instance.getPlayerTurn())
+    {
+      if (activeSkill != -1 && !skills[activeSkill].hasReq())
+      {
         activeSkill = -1;
       }
-      for (int i = 1; i < 5; i++) {
-        string id = "HClick" + i.ToString ();
-        if (i == (activeSkill + 1)) {
-          GameObject.Find (id).GetComponent<Outline> ().enabled = true;
-        } else {
-          GameObject.Find (id).GetComponent<Outline> ().enabled = false;
+      for (int i = 1; i < 5; i++)
+      {
+        string id = "HClick" + i.ToString();
+        if (i == (activeSkill + 1))
+        {
+          GameObject.Find(id).GetComponent<Outline>().enabled = true;
+        }
+        else
+        {
+          GameObject.Find(id).GetComponent<Outline>().enabled = false;
         }
       }
-    } else {
-      for (int i = 1; i < 5; i++) {
-        string id = "MClick" + i.ToString ();
-        if (i == (activeSkill + 1)) {
-          GameObject.Find (id).GetComponent<Outline> ().enabled = true;
-        } else {
-          GameObject.Find (id).GetComponent<Outline> ().enabled = false;
+    }
+    else
+    {
+      for (int i = 1; i < 5; i++)
+      {
+        string id = "MClick" + i.ToString();
+        if (i == (activeSkill + 1))
+        {
+          GameObject.Find(id).GetComponent<Outline>().enabled = true;
+        }
+        else
+        {
+          GameObject.Find(id).GetComponent<Outline>().enabled = false;
         }
       }
     }
   }
 
-  public void FillSkills () {
+  public void FillSkills()
+  {
     foreach (SkillMeta skill in skills)
     {
       skill.req1.has = skill.req1.req;
@@ -640,47 +694,58 @@ public class PanelManager : MonoBehaviour
     loadSkillsOverlays();
   }
 
-  public SkillEffect[] getActiveSkill(){
-    if (activeSkill == -1) {
+  public SkillEffect[] getActiveSkill()
+  {
+    if (activeSkill == -1)
+    {
       return null;
     }
-    if (BoardManager.instance.getPlayerTurn ()) {
-      return skills [activeSkill].effects;
-    } else {
-      return Mskills [activeSkill].effects;
+    if (BoardManager.instance.getPlayerTurn())
+    {
+      return skills[activeSkill].effects;
+    }
+    else
+    {
+      return Mskills[activeSkill].effects;
     }
   }
 
-  public void useSkill(){
-    if (activeSkill != -1) {
-      if (BoardManager.instance.getPlayerTurn ()) {
+  public void useSkill()
+  {
+    if (activeSkill != -1)
+    {
+      if (BoardManager.instance.getPlayerTurn())
+      {
         if (BoardManager.instance.hinty != null) { StopCoroutine(BoardManager.instance.hinty); }
         BoardManager.instance.hinty = BoardManager.instance.waitHint();
         StartCoroutine(BoardManager.instance.hinty);
-        skills [activeSkill].req1.has = 0;
-        skills [activeSkill].req2.has = 0;
+        skills[activeSkill].req1.has = 0;
+        skills[activeSkill].req2.has = 0;
 
         StartCoroutine(FlashButton(GameObject.Find("HClick" + (activeSkill + 1).ToString())));
 
-        setActiveSkill (-1);
-        Debug.Log ("useSkill player");
-        loadSkillsOverlays ();
-      } else {
-        Mskills [activeSkill].req1.has = 0;
-        Mskills [activeSkill].req2.has = 0;
+        setActiveSkill(-1);
+        Debug.Log("useSkill player");
+        loadSkillsOverlays();
+      }
+      else
+      {
+        Mskills[activeSkill].req1.has = 0;
+        Mskills[activeSkill].req2.has = 0;
 
         StartCoroutine(FlashButton(GameObject.Find("MClick" + (activeSkill + 1).ToString())));
 
-        setActiveSkill (-1);
-        Debug.Log ("useSkill comp");
-        loadSkillsOverlays ();
+        setActiveSkill(-1);
+        Debug.Log("useSkill comp");
+        loadSkillsOverlays();
       }
     }
   }
 
-  IEnumerator FlashButton(GameObject button){
+  IEnumerator FlashButton(GameObject button)
+  {
     Color baseColor = button.GetComponent<Image>().color;
-    Color newColor = new Color(253/(float)255, 238/ (float)255, 85/ (float)255);
+    Color newColor = new Color(253 / (float)255, 238 / (float)255, 85 / (float)255);
     float wait = .2f;
 
     button.GetComponent<Image>().color = newColor;
@@ -694,21 +759,27 @@ public class PanelManager : MonoBehaviour
 
   //This function is called if a 4-5 match occurs during the game
   //Adds a bonus to the affected player
-  public void addBonus(GameObject[] matches){
-    if (matches != null && matches.Length >= 3) {
+  public void addBonus(GameObject[] matches)
+  {
+    if (matches != null && matches.Length >= 3)
+    {
       TileMeta.GemType pivotGem = matches[0].GetComponent<Tile>().type.type;
       bool fiver = matches.Length == 4;
-      if (pivotGem != TileMeta.GemType.Fight) {
-        foreach (TileMeta.GemType gem in Enum.GetValues(typeof(TileMeta.GemType))){
-          if (/*gem != TileMeta.GemType.Fight && */gem != TileMeta.GemType.None) {
-            int pride = (int) getCurrentMonster().pride;
+      if (pivotGem != TileMeta.GemType.Fight)
+      {
+        foreach (TileMeta.GemType gem in Enum.GetValues(typeof(TileMeta.GemType)))
+        {
+          if (/*gem != TileMeta.GemType.Fight && */gem != TileMeta.GemType.None)
+          {
+            int pride = (int)getCurrentMonster().pride;
             //- [ ] Pride => Receive bigger bonuses when matching 4/5 gems
             /*
              * 4-Match: 3 to matched gem. 1 to other gems
              * 5-Match: 5 to matched gem. 3 to other gems
              */
             int amount = gem == pivotGem ? 3 + pride : 1 + pride;
-            if (fiver) {
+            if (fiver)
+            {
               amount = gem == pivotGem ? 5 + pride : 3 + pride;
             }
             for (int i = 0; i < amount; i++)
@@ -721,7 +792,8 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  public void removeGems(int amount){
+  public void removeGems(int amount)
+  {
     foreach (SkillMeta skill in BoardManager.instance.getPlayerTurn() ? Mskills : skills)
     {
       foreach (SkillReq req in new SkillReq[] { skill.req1, skill.req2 })
@@ -733,31 +805,38 @@ public class PanelManager : MonoBehaviour
     loadSkillsOverlays();
   }
 
-  public void addGem(TileMeta.GemType type){
-    foreach(SkillMeta skill in BoardManager.instance.getPlayerTurn() ? skills : Mskills){
-      foreach(SkillReq req in new SkillReq[]{skill.req1,skill.req2}){
-        if (req.gem == type && req.has < req.req) {
-          req.has++;
-        }
-      }
-    }
-    if (BoardManager.instance.getPlayerTurn() && isCritical) {
-      foreach(SkillReq req in wildMeta.catchReq){
+  public void addGem(TileMeta.GemType type)
+  {
+    foreach (SkillMeta skill in BoardManager.instance.getPlayerTurn() ? skills : Mskills)
+    {
+      foreach (SkillReq req in new SkillReq[] { skill.req1, skill.req2 })
+      {
         if (req.gem == type && req.has < req.req)
         {
           req.has++;
         }
       }
     }
-    loadSkillsOverlays ();
-    if (isCritical) 
+    if (BoardManager.instance.getPlayerTurn() && isCritical)
+    {
+      foreach (SkillReq req in wildMeta.catchReq)
+      {
+        if (req.gem == type && req.has < req.req)
+        {
+          req.has++;
+        }
+      }
+    }
+    loadSkillsOverlays();
+    if (isCritical)
     {
       updateCatchReq();
     }
   }
 
-  SkillReq createReq(TileMeta.GemType gem, int has, int req){
-    SkillReq retReq = new SkillReq ();
+  SkillReq createReq(TileMeta.GemType gem, int has, int req)
+  {
+    SkillReq retReq = new SkillReq();
     retReq.gem = gem;
     retReq.has = has;
     retReq.req = req;
@@ -765,30 +844,34 @@ public class PanelManager : MonoBehaviour
   }
 
 
-  void loadSkills(){
+  void loadSkills()
+  {
     loadHeroMonster();
     loadEnemyMonster();
   }
 
-  void loadHeroMonster(){
+  void loadHeroMonster()
+  {
     int myMonster = currentMonster;
 
     MonsterMeta playerMonster = glossary.GetMonsterMain(adventure.roster[myMonster].name).meta;
     GameObject.Find("HMonsterImg").GetComponent<Image>().sprite = glossary.GetMonsterImage(adventure.roster[myMonster].name);
     GameObject.Find("HMonsterImg").GetComponent<CharacterActionController>().RemoveBuff();
-    GameObject.Find("HMonsterName").GetComponent<Text>().text = adventure.roster[myMonster].nickname.Length > 0 ? 
+    GameObject.Find("HMonsterName").GetComponent<Text>().text = adventure.roster[myMonster].nickname.Length > 0 ?
       adventure.roster[myMonster].nickname : adventure.roster[myMonster].name;
     GameObject.Find("HOverlay").GetComponent<Progress>().updateHealth(adventure.roster[myMonster].maxHealth);
     GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[myMonster].curHealth);
 
     skills = new List<SkillMeta>(GameUtilities.parseSkills(adventure.roster[myMonster].skills, glossary));
-    GameObject.Find("HExpOverlay").GetComponent<ProgressExp>().UpdateExperience(glossary.GetMonsterMain(playerMonster.name).meta.lvlSpeed,adventure.roster[myMonster]);
+    GameObject.Find("HExpOverlay").GetComponent<ProgressExp>().UpdateExperience(glossary.GetMonsterMain(playerMonster.name).meta.lvlSpeed, adventure.roster[myMonster]);
   }
 
-  void loadEnemyMonster(){
+  void loadEnemyMonster()
+  {
     PlayerRosterMeta enemyMonster = getTrainerMonster();
 
-    if (!adventure.isTrainerEncounter) {
+    if (!adventure.isTrainerEncounter)
+    {
       enemyMonster = adventure.wild;
     }
 
@@ -833,90 +916,102 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  void initSkillOverlays(){
-    for(int i = 0; i < 4; i++){
-      string dirStr = (i + 1).ToString ();
-      GameObject skilla = GameObject.Find ("HSkill" + dirStr + "A");
-      GameObject skillb = GameObject.Find ("HSkill" + dirStr + "B");
+  void initSkillOverlays()
+  {
+    for (int i = 0; i < 4; i++)
+    {
+      string dirStr = (i + 1).ToString();
+      GameObject skilla = GameObject.Find("HSkill" + dirStr + "A");
+      GameObject skillb = GameObject.Find("HSkill" + dirStr + "B");
 
-      skillPanels.Add (skilla);
-      skillPanels.Add (skillb);
+      skillPanels.Add(skilla);
+      skillPanels.Add(skillb);
 
-      GameObject mskilla = GameObject.Find ("MSkill" + dirStr + "A");
-      GameObject mskillb = GameObject.Find ("MSkill" + dirStr + "B");
+      GameObject mskilla = GameObject.Find("MSkill" + dirStr + "A");
+      GameObject mskillb = GameObject.Find("MSkill" + dirStr + "B");
 
-      MskillPanels.Add (mskilla);
-      MskillPanels.Add (mskillb);
+      MskillPanels.Add(mskilla);
+      MskillPanels.Add(mskillb);
     }
   }
 
-  void updatePanels(char prefix, int i){
+  void updatePanels(char prefix, int i)
+  {
     List<TileMeta.GemType> gemTypes = new List<TileMeta.GemType>(BoardManager.instance.gemTypes);
     Sprite[] loaders = BoardManager.instance.gemLoaders;
     Sprite[] gems = BoardManager.instance.characters.ToArray();
 
-    string dirStr = (i + 1).ToString ();
-    GameObject overlaya = GameObject.Find (prefix + "Overlay" + dirStr + "A");
-    GameObject overlayb = GameObject.Find (prefix + "Overlay" + dirStr + "B");
-//
-//    skillLoaders.Add (overlaya);
-//    skillLoaders.Add (overlayb);
+    string dirStr = (i + 1).ToString();
+    GameObject overlaya = GameObject.Find(prefix + "Overlay" + dirStr + "A");
+    GameObject overlayb = GameObject.Find(prefix + "Overlay" + dirStr + "B");
+    //
+    //    skillLoaders.Add (overlaya);
+    //    skillLoaders.Add (overlayb);
 
-    GameObject gema = GameObject.Find (prefix + "Gem" + dirStr + "A");
-    GameObject gemb = GameObject.Find (prefix + "Gem" + dirStr + "B");
+    GameObject gema = GameObject.Find(prefix + "Gem" + dirStr + "A");
+    GameObject gemb = GameObject.Find(prefix + "Gem" + dirStr + "B");
 
-    GameObject skilltxta = GameObject.Find (prefix + "SkillTxt" + dirStr + "A");
-    GameObject skilltxtb = GameObject.Find (prefix + "SkillTxt" + dirStr + "B");
+    GameObject skilltxta = GameObject.Find(prefix + "SkillTxt" + dirStr + "A");
+    GameObject skilltxtb = GameObject.Find(prefix + "SkillTxt" + dirStr + "B");
 
-//    skillTxts.Add (skilltxta);
-//    skillTxts.Add (skilltxtb);
+    //    skillTxts.Add (skilltxta);
+    //    skillTxts.Add (skilltxtb);
 
     SkillMeta skill;
 
-    if (prefix == 'H') {
-      skill = skills [i];
-    } else {
-      skill = Mskills [i];
+    if (prefix == 'H')
+    {
+      skill = skills[i];
+    }
+    else
+    {
+      skill = Mskills[i];
     }
 
-    int idxA = gemTypes.IndexOf (skill.req1.gem);
-    int idxB = gemTypes.IndexOf (skill.req2.gem);
+    int idxA = gemTypes.IndexOf(skill.req1.gem);
+    int idxB = gemTypes.IndexOf(skill.req2.gem);
 
-    Sprite loaderA = loaders [idxA];
-    Sprite loaderB = loaders [idxB];
+    Sprite loaderA = loaders[idxA];
+    Sprite loaderB = loaders[idxB];
 
-    Sprite gemSpriteA = gems [idxA];
-    Sprite gemSpriteB = gems [idxB];
+    Sprite gemSpriteA = gems[idxA];
+    Sprite gemSpriteB = gems[idxB];
 
-//    Debug.Log (prefix + "Overlay" + dirStr + "A");
+    //    Debug.Log (prefix + "Overlay" + dirStr + "A");
 
-    overlaya.GetComponent<Image> ().sprite = loaderA;
-    overlaya.GetComponent<Image> ().fillAmount = (float)skill.req1.has / (float)skill.req1.req;
-    overlayb.GetComponent<Image> ().sprite = loaderB;
-    overlayb.GetComponent<Image> ().fillAmount = (float)skill.req2.has / (float)skill.req2.req;
+    overlaya.GetComponent<Image>().sprite = loaderA;
+    overlaya.GetComponent<Image>().fillAmount = (float)skill.req1.has / (float)skill.req1.req;
+    overlayb.GetComponent<Image>().sprite = loaderB;
+    overlayb.GetComponent<Image>().fillAmount = (float)skill.req2.has / (float)skill.req2.req;
 
-    gema.GetComponent<Image> ().sprite = gemSpriteA;
-    gemb.GetComponent<Image> ().sprite = gemSpriteB;
+    gema.GetComponent<Image>().sprite = gemSpriteA;
+    gemb.GetComponent<Image>().sprite = gemSpriteB;
 
-    skilltxta.GetComponent<Text> ().text = skill.req1.has + " / " + skill.req1.req;
-    skilltxtb.GetComponent<Text> ().text = skill.req2.has + " / " + skill.req2.req;
+    skilltxta.GetComponent<Text>().text = skill.req1.has + " / " + skill.req1.req;
+    skilltxtb.GetComponent<Text>().text = skill.req2.has + " / " + skill.req2.req;
   }
 
-  void loadSkillsOverlays(){
+  void loadSkillsOverlays()
+  {
     List<TileMeta.GemType> gemTypes = new List<TileMeta.GemType>(BoardManager.instance.gemTypes);
     Sprite[] loaders = BoardManager.instance.gemLoaders;
     Sprite[] gems = BoardManager.instance.characters.ToArray();
-    if (currentLocation == Location.Action) {
-      for (int i = 0; i < 4; i++) {
-        if (i < skills.Count) {
-          txt [i].gameObject.SetActive (true);
-          dtls [i].gameObject.SetActive (true);
-          updatePanels ('H', i);
-        } else {
-          skillPanels [2 * i].SetActive (false);
-          skillPanels [(2 * i) + 1].SetActive (false);
-          txt [i].gameObject.SetActive (false);
-          dtls [i].gameObject.SetActive (false);
+    if (currentLocation == Location.Action)
+    {
+      for (int i = 0; i < 4; i++)
+      {
+        if (i < skills.Count)
+        {
+          txt[i].gameObject.SetActive(true);
+          dtls[i].gameObject.SetActive(true);
+          updatePanels('H', i);
+        }
+        else
+        {
+          skillPanels[2 * i].SetActive(false);
+          skillPanels[(2 * i) + 1].SetActive(false);
+          txt[i].gameObject.SetActive(false);
+          dtls[i].gameObject.SetActive(false);
         }
         if (i < Mskills.Count)
         {
@@ -936,19 +1031,24 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  void showSkills(){
-    foreach (GameObject pnl in skillPanels) {
-      pnl.SetActive (true);
+  void showSkills()
+  {
+    foreach (GameObject pnl in skillPanels)
+    {
+      pnl.SetActive(true);
     }
   }
 
-  void hideSkills(){
-    foreach(GameObject pnl in skillPanels) {
-      pnl.SetActive (false);
+  void hideSkills()
+  {
+    foreach (GameObject pnl in skillPanels)
+    {
+      pnl.SetActive(false);
     }
   }
 
-  public void playerActed(){
+  public void playerActed()
+  {
     Debug.Log("playerActed");
     if (!adventure.isTrainerEncounter)
     {
@@ -976,7 +1076,8 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  void loadCatchReq(){
+  void loadCatchReq()
+  {
     Sprite[] loaders = BoardManager.instance.gemLoaders;
     Sprite[] gems = BoardManager.instance.characters.ToArray();
 
@@ -987,20 +1088,22 @@ public class PanelManager : MonoBehaviour
 
     int strengthMult = wildMeta.lvl / 10;
 
-    for (int i = 0; i < wildMeta.weaknesses.Length; i++){
-      int gemIdx = (int) wildMeta.weaknesses[i];
-      GameObject.Find("MCatchOverlay"+(i + 1).ToString()).GetComponent<Image>().sprite = loaders[gemIdx];
+    for (int i = 0; i < wildMeta.weaknesses.Length; i++)
+    {
+      int gemIdx = (int)wildMeta.weaknesses[i];
+      GameObject.Find("MCatchOverlay" + (i + 1).ToString()).GetComponent<Image>().sprite = loaders[gemIdx];
       GameObject.Find("MCatchGem" + (i + 1).ToString()).GetComponent<Image>().sprite = gems[gemIdx];
 
       SkillReq catchReq = new SkillReq();
-      catchReq.gem = (TileMeta.GemType) gemIdx;
+      catchReq.gem = (TileMeta.GemType)gemIdx;
       catchReq.has = 0;
       catchReq.req = 2 + (4 * strengthMult);
       wildMeta.catchReq[i] = catchReq;
     }
   }
 
-  public void IncrementCatchTurns(){
+  public void IncrementCatchTurns()
+  {
     if (isCritical)
     {
       Debug.Log("IncrementCatchTurns");
@@ -1040,7 +1143,9 @@ public class PanelManager : MonoBehaviour
           List<PlayerRosterMeta> rosterMetas = new List<PlayerRosterMeta>(adventure.roster);
           rosterMetas.Add(wildMonsterMeta);
           adventure.roster = rosterMetas.ToArray();
-        } else {
+        }
+        else
+        {
           List<PlayerRosterMeta> vaultMetas = new List<PlayerRosterMeta>(adventure.vault);
           vaultMetas.Add(wildMonsterMeta);
           adventure.vault = vaultMetas.ToArray();
@@ -1057,8 +1162,10 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  PlayerRosterMeta getCurrentWild(){
-    if (!adventure.isTrainerEncounter) {
+  PlayerRosterMeta getCurrentWild()
+  {
+    if (!adventure.isTrainerEncounter)
+    {
       //PlayerRosterMeta wildMonsterMeta = new PlayerRosterMeta();
 
       PlayerRosterMeta wildMonsterMeta = MonsterMeta.returnMonster(glossary.GetMonsterMain(adventure.wild.name).meta, adventure.wild.lvl, true);
@@ -1108,11 +1215,13 @@ public class PanelManager : MonoBehaviour
 
   }
 
-  void TryToRun(){
+  void TryToRun()
+  {
     StartCoroutine(Run());
   }
 
-  IEnumerator Run(){
+  IEnumerator Run()
+  {
     float roll = UnityEngine.Random.Range(0, 2);
     Debug.Log("Roll: " + roll.ToString());
     GameObject player = GameObject.Find("HMonsterImg");
@@ -1138,8 +1247,10 @@ public class PanelManager : MonoBehaviour
     }
   }
 
-  void moveLocation(int click){
-    if (click == -1) {
+  void moveLocation(int click)
+  {
+    if (click == -1)
+    {
       //If the player decides not to use an item, 
       //close the monster menu and go back
       if (isUsingItem)
@@ -1151,140 +1262,170 @@ public class PanelManager : MonoBehaviour
       {
         currentLocation = Location.Main;
       }
-    } else {
-      switch(currentLocation){
-      case Location.Main:
-        switch(click){
-          case 0:
-            currentLocation = Location.Action;
-            break;
-          case 1:
-            currentLocation = Location.Swap;
-            break;
-          case 2:
-            currentLocation = Location.Item;
-            break;
-          case 3:
-            if (!adventure.isTrainerEncounter) {
-              TryToRun();
-            }
-            break;
-        default:
-          currentLocation = Location.Main;
+    }
+    else
+    {
+      switch (currentLocation)
+      {
+        case Location.Main:
+          switch (click)
+          {
+            case 0:
+              currentLocation = Location.Action;
+              break;
+            case 1:
+              currentLocation = Location.Swap;
+              break;
+            case 2:
+              currentLocation = Location.Item;
+              break;
+            case 3:
+              if (!adventure.isTrainerEncounter)
+              {
+                TryToRun();
+              }
+              break;
+            default:
+              currentLocation = Location.Main;
+              break;
+          }
           break;
-        }
+        case Location.Action:
+          if (activeSkill == click)
+          {
+            setActiveSkill(-1);
+            Debug.Log("Active Skill: None");
+          }
+          else
+          {
+            Debug.Log(activeSkill);
+            Debug.Log(click);
+            setActiveSkill(click);
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  void loadLocation()
+  {
+    hideSkills();
+    Debug.Log("Current Location: " + currentLocation.ToString());
+    switch (currentLocation)
+    {
+      case Location.Main:
+        back.SetActive(false);
+        btnPnl.SetActive(true);
+        monPnl.SetActive(false);
+        itemPnl.SetActive(false);
+        setButtons(new string[] { "Action", "Swap", "Item", "Run" });
         break;
       case Location.Action:
-        if (activeSkill == click) {
-          setActiveSkill(-1);
-          Debug.Log ("Active Skill: None");
-        } else {
-          Debug.Log (activeSkill);
-          Debug.Log (click);
-          setActiveSkill(click);
+        back.SetActive(true);
+        btnPnl.SetActive(true);
+        monPnl.SetActive(false);
+        itemPnl.SetActive(false);
+        List<string> actions = new List<string>();
+        List<string> details = new List<string>();
+        foreach (SkillMeta skill in skills)
+        {
+          actions.Add(skill.name);
+          details.Add(getEffectsString(skill.effects));
         }
+        setButtons(actions.ToArray(), details.ToArray());
+        showSkills();
+        Debug.Log("loadLocation");
+        loadSkillsOverlays();
+        break;
+      case Location.Swap:
+        back.SetActive(true);
+        itemPnl.SetActive(false);
+        btnPnl.SetActive(false);
+        monPnl.SetActive(true);
+        setSwapMonsters();
+        break;
+      case Location.Item:
+        back.SetActive(true);
+        itemPnl.SetActive(true);
+        btnPnl.SetActive(false);
+        monPnl.SetActive(false);
+        setItems();
         break;
       default:
         break;
-      }
-    }
-  }
-	
-  void loadLocation(){
-    hideSkills ();
-    Debug.Log ("Current Location: " + currentLocation.ToString() );
-    switch(currentLocation){
-    case Location.Main:
-      back.SetActive (false);
-      btnPnl.SetActive (true);
-      monPnl.SetActive (false);
-      itemPnl.SetActive(false);
-      setButtons(new string[]{"Action", "Swap", "Item", "Run"});
-      break;
-    case Location.Action:
-      back.SetActive (true);
-      btnPnl.SetActive (true);
-      monPnl.SetActive (false);
-      itemPnl.SetActive(false);
-      List<string> actions = new List<string> ();
-      List<string> details = new List<string> ();
-      foreach(SkillMeta skill in skills){
-        actions.Add (skill.name);
-        details.Add (getEffectsString(skill.effects));
-      }
-      setButtons(actions.ToArray(), details.ToArray());
-      showSkills ();
-      Debug.Log ("loadLocation");
-      loadSkillsOverlays ();
-      break;
-    case Location.Swap:
-      back.SetActive (true);
-      itemPnl.SetActive(false);
-      btnPnl.SetActive (false);
-      monPnl.SetActive (true);
-      setSwapMonsters();
-      break;
-    case Location.Item:
-      back.SetActive(true);
-      itemPnl.SetActive(true);
-      btnPnl.SetActive(false);
-      monPnl.SetActive(false);
-      setItems();
-      break;
-      default:
-      break;
     }
   }
 
-  void setButtons(string[] btnTxt){
-    for(int i = 0; i < 4; i++){
+  void setButtons(string[] btnTxt)
+  {
+    for (int i = 0; i < 4; i++)
+    {
       txt[i].gameObject.SetActive(true);
       dtls[i].gameObject.SetActive(true);
-      if (i < btnTxt.Length) {
+      if (i < btnTxt.Length)
+      {
         dtls[i].gameObject.GetComponent<Text>().text = "";
-        txt [i].text = btnTxt [i];
-      } else {
+        txt[i].text = btnTxt[i];
+      }
+      else
+      {
         txt[i].gameObject.GetComponent<Text>().text = "";
         dtls[i].gameObject.GetComponent<Text>().text = "";
       }
     }
   }
 
-  void setButtons(string[] btnTxt, string[] btnDtls){
-    for(int i = 0; i < 4; i++){
+  void setButtons(string[] btnTxt, string[] btnDtls)
+  {
+    for (int i = 0; i < 4; i++)
+    {
       txt[i].gameObject.SetActive(true);
       dtls[i].gameObject.SetActive(true);
-      if (i < btnTxt.Length) {
-        txt [i].text = btnTxt [i];
-        dtls[i].text = btnDtls [i];
-      } else {
+      if (i < btnTxt.Length)
+      {
+        txt[i].text = btnTxt[i];
+        dtls[i].text = btnDtls[i];
+      }
+      else
+      {
         txt[i].gameObject.GetComponent<Text>().text = "";
         dtls[i].gameObject.GetComponent<Text>().text = "";
       }
     }
   }
 
-  void setSwapMonsters(){
-    for(int i = 1; i < 7; i++){
-      if (i <= adventure.roster.Length) {
+  void setSwapMonsters()
+  {
+    for (int i = 1; i < 7; i++)
+    {
+      if (i <= adventure.roster.Length)
+      {
         rMonsters[i - 1].SetActive(true);
         rMonstersDead[i - 1].SetActive(false);
         rMonstersLvl[i - 1].SetActive(true);
         rMonstersHealth[i - 1].SetActive(true);
 
-        rMonsters[i - 1].GetComponent<Image>().sprite = glossary.GetMonsterImage(adventure.roster[i -1].name);
+        rMonsters[i - 1].GetComponent<Image>().sprite = glossary.GetMonsterImage(adventure.roster[i - 1].name);
         rMonstersLvl[i - 1].GetComponent<Text>().text = adventure.roster[i - 1].lvl.ToString();
-        if (i - 1 == currentMonster) {
+        if (i - 1 == currentMonster)
+        {
           rMonstersHealth[i - 1].GetComponent<Text>().text = ((int)(((float)GameObject.Find("HOverlay").GetComponent<Progress>().progress / (float)adventure.roster[i - 1].maxHealth) * 100)).ToString() + "%";
-        } else {
+        }
+        else
+        {
           rMonstersHealth[i - 1].GetComponent<Text>().text = ((int)(((float)adventure.roster[i - 1].curHealth / (float)adventure.roster[i - 1].maxHealth) * 100)).ToString() + "%";
 
         }
         //Debug.Log("Health: " + adventure.roster[i - 1].curHealth.ToString() + ":" + adventure.roster[i - 1].maxHealth.ToString());
-        if (adventure.roster[i - 1].curHealth <= 0) {
+        if (adventure.roster[i - 1].curHealth <= 0)
+        {
           rMonstersDead[i - 1].SetActive(true);
         }
-      } else {
+      }
+      else
+      {
         rMonsters[i - 1].SetActive(false);
         rMonstersDead[i - 1].SetActive(false);
         rMonstersLvl[i - 1].SetActive(false);
@@ -1300,19 +1441,23 @@ public class PanelManager : MonoBehaviour
 
     for (int i = 0; i < 6; i++)
     {
-      if (i < keys.Length) {
+      if (i < keys.Length)
+      {
         Items[i].SetActive(true);
         itemTxt[i].SetActive(true);
         Items[i].GetComponent<Image>().sprite = glossary.GetItem(keys[i]).gameObject.GetComponent<SpriteRenderer>().sprite;
         itemTxt[i].GetComponent<Text>().text = "x" + itemDict[keys[i]].ToString();
-      } else {
+      }
+      else
+      {
         Items[i].SetActive(false);
         itemTxt[i].SetActive(false);
       }
     }
   }
 
-  public string getItem(int pos){
+  public string getItem(int pos)
+  {
     return adventure.GetTreasureList().Keys.ToArray()[pos];
   }
 }
