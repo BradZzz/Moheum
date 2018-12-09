@@ -1,19 +1,18 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PauseManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/GUIManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Puzzle/Tile.cs" Line="536" Column="7" />
-      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="218" Column="4" />
-      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="238" Column="35" />
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="117" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="421" Column="19" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="216" Column="7" />
+      <File FileName="Assets/Scripts/PauseManager.cs" Line="161" Column="49" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="225" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/brad/Documents/new_git/MonsterHunterProj/Assets/Scripts/PauseManager.cs" relfile="Assets/Scripts/PauseManager.cs" line="117" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
