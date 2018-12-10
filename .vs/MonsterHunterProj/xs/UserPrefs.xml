@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/BoardManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/Tile.cs">
     <Files>
-      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="600" Column="32" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="1425" Column="22" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="358" Column="31" />
+      <File FileName="Assets/Scripts/Puzzle/Tile.cs" Line="256" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

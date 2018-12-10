@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour
 {
@@ -100,15 +101,7 @@ public class BoardManager : MonoBehaviour
         previousBelow = newSprite;
       }
     }
-    //Debug.Log("Prev Local: " + transform.localScale.ToString());
-    //Check if the device running this is a console
-    //if (SystemInfo.deviceType == DeviceType.Console || SystemInfo.deviceType == DeviceType.Desktop)
-    //{
-    //  transform.position = new Vector3(520.82f, 342.28f, 90f);
-    //  transform.localScale = new Vector3(.9f, .9f, .9f);
-    //} else {
     transform.localScale = new Vector3(1.15f, 1.15f, 1.15f);
-    //}
   }
 
   public void emitExplosion()
@@ -605,14 +598,15 @@ public class BoardManager : MonoBehaviour
 
   private IEnumerator findNullLoop(bool anim)
   {
+    Debug.Log("findNullLoop");
     if (anim)
     {
-      GameObject background = GameObject.Find("Background");
-      Color prev = background.GetComponent<SpriteRenderer>().color;
-      background.GetComponent<SpriteRenderer>().color = new Color(1, .54f, .54f);
+      GameObject background = GameObject.Find("BkOverlay");
+      Color prev = background.GetComponent<Image>().color;
+      background.GetComponent<Image>().color = new Color(1, .54f, .54f);
       iTween.ShakePosition(GameObject.Find("BoardManager"), new Vector3(1, 0, 0), animationWait - .4f);
       yield return new WaitForSeconds(animationWait - .4f);
-      background.GetComponent<SpriteRenderer>().color = prev;
+      background.GetComponent<Image>().color = prev;
     }
     for (int x = 0; x < xSize; x++)
     {
@@ -624,6 +618,8 @@ public class BoardManager : MonoBehaviour
     }
     StartCoroutine(FindNullTiles(0));
   }
+
+
 
   public void addExtraTurns(int turns)
   {
@@ -1048,7 +1044,7 @@ public class BoardManager : MonoBehaviour
       else
       {
         // There aren't any moves to make, reset the board and try again
-        reset(false);
+        reset(true);
         counter = 0;
         while (IsThinking() && counter < 30)
         {
@@ -1141,7 +1137,7 @@ public class BoardManager : MonoBehaviour
     //Debug.Log ("movesLeft: " + movesLeft);
     if (!movesLeft)
     {
-      reset(false);
+      reset(true);
     }
     else
     {

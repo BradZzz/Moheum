@@ -56,7 +56,7 @@ MonoBehaviour:
     req1:
       gem: 4
       req: 2
-      has: 0
+      has: 1
     req2:
       gem: 1
       req: 5
