@@ -167,6 +167,7 @@ MonoBehaviour:
   - {fileID: 1641342610378868, guid: a047897dde4804ae280c556f3270eb4b, type: 2}
   - {fileID: 1641342610378868, guid: ede2234896bcf4969856bde6f4fbfcad, type: 2}
   - {fileID: 1641342610378868, guid: f2558447b4a7940bfafa28cd87304408, type: 2}
+  - {fileID: 1641342610378868, guid: abb782204012640e881157db4ee703e6, type: 2}
   scenes:
   - {fileID: 1165300141751418, guid: b96632385398741969124018654bb524, type: 2}
   - {fileID: 1165300141751418, guid: 7ab0da7a7e2fb47b2812e34ee8408c7d, type: 2}

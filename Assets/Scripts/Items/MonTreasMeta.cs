@@ -19,6 +19,6 @@ public class MonTreasMeta : TreasureMeta
 
   public enum Type
   {
-    Exp, Heal, Money, Revive, Skills, Stats, None
+    Exp, Heal, Money, Revive, Skills, Stats, XBuff, None
   }
 }

@@ -73,9 +73,9 @@ MonoBehaviour:
     - Purify
     skillsGainedOnLvlUp:
     - lvl: 1
-      skill: Dirt Throw
-    - lvl: 2
       skill: Static
+    - lvl: 2
+      skill: Rainbow Glow
     - lvl: 12
       skill: Envigor
     - lvl: 25

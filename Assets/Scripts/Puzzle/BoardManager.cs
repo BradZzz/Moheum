@@ -613,7 +613,6 @@ public class BoardManager : MonoBehaviour
       for (int y = 0; y < ySize; y++)
       {
         tiles[x, y].GetComponent<Tile>().toBeDeleted = true;
-
       }
     }
     StartCoroutine(FindNullTiles(0));

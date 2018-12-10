@@ -222,6 +222,8 @@ public static class GameUtilities {
         return hasEmpty;
       case MonTreasMeta.Type.Stats:
         return true;
+      case MonTreasMeta.Type.XBuff:
+        return true;
       default:
         return false;
     }
@@ -259,6 +261,9 @@ public static class GameUtilities {
           break;
         case MonTreasMeta.Type.Stats:
           meta.roster[rosterPos].AddToLowest(1);
+          break;
+        case MonTreasMeta.Type.XBuff:
+          BoardManager.instance.buff(itemToUse.monTreas.value);
           break;
         default:
           break;
