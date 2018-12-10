@@ -62,7 +62,7 @@ public class MonsterMeta {
 
   public static int getExperience(PlayerRosterMeta monster, bool wild){
     float wildMonster = wild ? 1.15f : 1.7f;
-    float effortPoints = (monster.maxHealth + monster.lvl) * 11;
+    float effortPoints = (monster.maxHealth + monster.lvl + monster.getPower()) * 11;
     return (int) ((wildMonster * effortPoints) / 7);
   }
 
