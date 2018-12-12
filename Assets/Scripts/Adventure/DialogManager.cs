@@ -13,7 +13,9 @@ public class DialogManager : MonoBehaviour {
   private bool waiting;
   private GameObject[] shopitemSubPnls;
   private bool shopActive;
+  private bool shopActiveWait;
   private bool dialogActive;
+  private bool dialogActiveWait;
 
   private float waitingTime = .6f;
 
@@ -31,6 +33,11 @@ public class DialogManager : MonoBehaviour {
     shopOwnersStock.Add("Resurrect", 100);
   }
 
+  public Queue<DialogMeta> GetMessages()
+  {
+    return msgQueue;
+  }
+
   //private void Start()
   //{
   //  instance = this;
@@ -43,8 +50,18 @@ public class DialogManager : MonoBehaviour {
     return shopActive;
   }
 
+  public bool ShopActiveWait()
+  {
+    return shopActiveWait;
+  }
+
   public bool DialogActive(){
     return dialogActive;
+  }
+
+  public bool DialogActiveWait()
+  {
+    return dialogActiveWait;
   }
 
   void FixedUpdate()
@@ -55,9 +72,17 @@ public class DialogManager : MonoBehaviour {
   }
 
   public void CloseShop(){
-    shopActive = false;
+    StartCoroutine(WaitCloseShop());
     ShopCanvas.SetActive(false);
     GameObject.FindWithTag("Player").GetComponent<Move>().disableMoveTimed();
+  }
+
+  IEnumerator WaitCloseShop()
+  {
+    shopActive = false;
+    shopActiveWait = true;
+    yield return new WaitForSeconds(2f);
+    shopActiveWait = false;
   }
 
   public void PurchaseShop(int click){
@@ -150,15 +175,16 @@ public class DialogManager : MonoBehaviour {
       GameObject.Find("DialogText").GetComponent<Text>().text = dialog.msgNoTags();
       if (dialog.getHeal()) {
         Debug.Log("Heal");
-        AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
-        meta.trainer = null;
-        //meta.playerPos = new PosMeta(GameObject.Find("PlayerHero").transform.position);
-        foreach(PlayerRosterMeta monster in meta.roster){
-          monster.curHealth = monster.maxHealth;
-        }
-        BaseSaver.putAdventure(meta);
-        BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
-        BaseSaver.saveState();
+        //AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
+        //meta.trainer = null;
+        ////meta.playerPos = new PosMeta(GameObject.Find("PlayerHero").transform.position);
+        //foreach(PlayerRosterMeta monster in meta.roster){
+        //  monster.curHealth = monster.maxHealth;
+        //}
+        //BaseSaver.putAdventure(meta);
+        //BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
+        //BaseSaver.saveState();
+        StartCoroutine(HealSave());
 
         instance.StartCoroutine(HealFlash());
         // Flash the screen right here
@@ -177,6 +203,21 @@ public class DialogManager : MonoBehaviour {
     }
   }
 
+  IEnumerator HealSave()
+  {
+    AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
+    meta.trainer = null;
+    //meta.playerPos = new PosMeta(GameObject.Find("PlayerHero").transform.position);
+    foreach (PlayerRosterMeta monster in meta.roster)
+    {
+      monster.curHealth = monster.maxHealth;
+    }
+    BaseSaver.putAdventure(meta);
+    BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
+    BaseSaver.saveState();
+    yield return null;
+  }
+
   IEnumerator WaitTime(float time)
   {
     waiting = true;
@@ -190,6 +231,9 @@ public class DialogManager : MonoBehaviour {
     {
       DialogCanvas.SetActive(false);
       dialogActive = false;
+      dialogActiveWait = true;
+      yield return new WaitForSeconds(.2f);
+      dialogActiveWait = false;
     }
     yield return null;
     //waiting = true;

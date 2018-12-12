@@ -90,23 +90,25 @@ public class ColliderListener : MonoBehaviour {
               other.gameObject.GetComponent<NPCMain>().startleNPC();
             }
 
-            AdventureMeta meta = BaseSaver.getAdventure();
-            //meta.playerPos = new PosMeta(transform.position);
-            NPCMain trainerMain = other.gameObject.GetComponent<NPCMain>();
-            if (trainerMain.meta.infiniteTrainer) {
-              meta.trainer = trainerMain.getInfiniteMeta(meta);
-            } else {
-              meta.trainer = trainerMain.getRefinedMeta();
-            }
-            meta.trainer.pos = new PosMeta(other.gameObject.transform.position);
-            meta.wild = null;
-            meta.isTrainerEncounter = true;
+            StartCoroutine(SaveConversation(other.gameObject));
 
-            Debug.Log(meta.ToString());
-            Debug.Log(meta.trainer.ToString());
+            //AdventureMeta meta = BaseSaver.getAdventure();
+            ////meta.playerPos = new PosMeta(transform.position);
+            //NPCMain trainerMain = other.gameObject.GetComponent<NPCMain>();
+            //if (trainerMain.meta.infiniteTrainer) {
+            //  meta.trainer = trainerMain.getInfiniteMeta(meta);
+            //} else {
+            //  meta.trainer = trainerMain.getRefinedMeta();
+            //}
+            //meta.trainer.pos = new PosMeta(other.gameObject.transform.position);
+            //meta.wild = null;
+            //meta.isTrainerEncounter = true;
 
-            BaseSaver.putAdventure(meta);
-            BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
+            //Debug.Log(meta.ToString());
+            //Debug.Log(meta.trainer.ToString());
+
+            //BaseSaver.putAdventure(meta);
+            //BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
             //BaseSaver.saveState();
 
             if (npcmeta.canFight) {
@@ -139,6 +141,31 @@ public class ColliderListener : MonoBehaviour {
         Debug.Log("Waiting for roll");
       }
     }
+  }
+
+  IEnumerator SaveConversation(GameObject npc)
+  {
+    AdventureMeta meta = BaseSaver.getAdventure();
+    //meta.playerPos = new PosMeta(transform.position);
+    NPCMain trainerMain = npc.GetComponent<NPCMain>();
+    if (trainerMain.meta.infiniteTrainer)
+    {
+      meta.trainer = trainerMain.getInfiniteMeta(meta);
+    }
+    else
+    {
+      meta.trainer = trainerMain.getRefinedMeta();
+    }
+    meta.trainer.pos = new PosMeta(npc.transform.position);
+    meta.wild = null;
+    meta.isTrainerEncounter = true;
+
+    Debug.Log(meta.ToString());
+    Debug.Log(meta.trainer.ToString());
+
+    BaseSaver.putAdventure(meta);
+    BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
+    yield return null;
   }
 
   void OnTriggerExit2D(Collider2D other)
@@ -189,10 +216,15 @@ public class ColliderListener : MonoBehaviour {
     yield return null;
   }
 
+  public bool AnythingOpen()
+  {
+    return PauseManager.instance.IsOpen() || DialogManager.instance.ShopActiveWait() || DialogManager.instance.DialogActiveWait();
+  }
+
   public IEnumerator WaitTrigger(float wait)
   {
     int roll = Random.Range(0, 10);
-    if (roll < 1 && GetComponent<Move>().Moving() && !PauseManager.instance.IsOpen() && !DialogManager.instance.ShopActive() && !DialogManager.instance.DialogActive())
+    if (roll < 1 && GetComponent<Move>().Moving() && !AnythingOpen())
     {
       Debug.Log("Hit");
 
