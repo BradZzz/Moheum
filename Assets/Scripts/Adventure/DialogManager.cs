@@ -150,15 +150,17 @@ public class DialogManager : MonoBehaviour {
       GameObject.Find("DialogText").GetComponent<Text>().text = dialog.msgNoTags();
       if (dialog.getHeal()) {
         Debug.Log("Heal");
-        AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
-        meta.trainer = null;
-        //meta.playerPos = new PosMeta(GameObject.Find("PlayerHero").transform.position);
-        foreach(PlayerRosterMeta monster in meta.roster){
-          monster.curHealth = monster.maxHealth;
-        }
-        BaseSaver.putAdventure(meta);
-        BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
-        BaseSaver.saveState();
+        //AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
+        //meta.trainer = null;
+        ////meta.playerPos = new PosMeta(GameObject.Find("PlayerHero").transform.position);
+        //foreach(PlayerRosterMeta monster in meta.roster){
+        //  monster.curHealth = monster.maxHealth;
+        //}
+        //BaseSaver.putAdventure(meta);
+        //BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
+        //BaseSaver.saveState();
+
+        StartCoroutine(HealSave());
 
         instance.StartCoroutine(HealFlash());
         // Flash the screen right here
@@ -175,6 +177,21 @@ public class DialogManager : MonoBehaviour {
       //DialogCanvas.SetActive(false);
       StartCoroutine(WaitSetInactive());
     }
+  }
+
+  IEnumerator HealSave()
+  {
+    AdventureMeta meta = GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta;
+    meta.trainer = null;
+    //meta.playerPos = new PosMeta(GameObject.Find("PlayerHero").transform.position);
+    foreach (PlayerRosterMeta monster in meta.roster)
+    {
+      monster.curHealth = monster.maxHealth;
+    }
+    BaseSaver.putAdventure(meta);
+    BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
+    BaseSaver.saveState();
+    yield return null;
   }
 
   IEnumerator WaitTime(float time)
