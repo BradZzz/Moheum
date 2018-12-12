@@ -64,7 +64,7 @@ public class ColliderListener : MonoBehaviour {
           diag[0] = new DialogMeta("Received: " + other.name + "\n" + other.GetComponent<TreasureMain>().monTreas.description);
           DialogManager.instance.SetMsgs(other.gameObject.GetComponent<SpriteRenderer>().sprite, diag);
 
-          SaveItem(other.gameObject);
+          StartCoroutine(SaveItem(other.gameObject));
 
           //AdventureMeta meta = BaseSaver.getAdventure();
           //if (other.GetComponent<TreasureMain>().monTreas.effects == MonTreasMeta.Type.Money)
