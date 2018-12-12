@@ -173,7 +173,7 @@ public class DialogManager : MonoBehaviour {
       Debug.Log("Waiting");
     } else {
       //DialogCanvas.SetActive(false);
-      StartCoroutine(WaitSetInactive(waitingTime));
+      StartCoroutine(WaitSetInactive());
     }
   }
 
@@ -184,13 +184,19 @@ public class DialogManager : MonoBehaviour {
     waiting = false;
   }
 
-  IEnumerator WaitSetInactive(float time)
+  IEnumerator WaitSetInactive()
   {
-    waiting = true;
-    yield return new WaitForSeconds(time);
-    DialogCanvas.SetActive(false);
-    waiting = false;
-    dialogActive = false;
+    if (dialogActive && !waiting)
+    {
+      DialogCanvas.SetActive(false);
+      dialogActive = false;
+    }
+    yield return null;
+    //waiting = true;
+    //yield return new WaitForSeconds(time);
+    //DialogCanvas.SetActive(false);
+    //waiting = false;
+    //dialogActive = false;
   }
 
   IEnumerator HealFlash()

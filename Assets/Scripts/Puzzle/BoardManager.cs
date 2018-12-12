@@ -602,11 +602,10 @@ public class BoardManager : MonoBehaviour
     if (anim)
     {
       GameObject background = GameObject.Find("BkOverlay");
-      Color prev = background.GetComponent<Image>().color;
       background.GetComponent<Image>().color = new Color(1, .54f, .54f);
       iTween.ShakePosition(GameObject.Find("BoardManager"), new Vector3(1, 0, 0), animationWait - .4f);
       yield return new WaitForSeconds(animationWait - .4f);
-      background.GetComponent<Image>().color = prev;
+      background.GetComponent<Image>().color = Color.white;
     }
     for (int x = 0; x < xSize; x++)
     {
@@ -617,8 +616,6 @@ public class BoardManager : MonoBehaviour
     }
     StartCoroutine(FindNullTiles(0));
   }
-
-
 
   public void addExtraTurns(int turns)
   {

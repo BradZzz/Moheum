@@ -54,15 +54,15 @@ MonoBehaviour:
   meta:
     name: Orphanage
     monsters:
-    - Gran Dux
-    - Gran Dux
-    - Gran Dux
-    - Wind Pixie
-    - Wind Pixie
-    - Wind Pixie
-    - Micro Processor
-    - Micro Processor
-    - Snowlyne
-    - Snowlyne
-    monsterLvls: 0200000003000000
-  map: {fileID: 1795481784521106, guid: e2a770cd9a9504864a6c2d4bbf695449, type: 2}
+    - Octam
+    - Octam
+    - Octam
+    - Hushwort
+    - Hushwort
+    - Albix
+    - Sickle Fox
+    - Sickle Fox
+    - Ifrith
+    - Ligeia
+    monsterLvls: 0a0000000e000000
+  map: {fileID: 1448115136800726, guid: e2a770cd9a9504864a6c2d4bbf695449, type: 2}
