@@ -55,11 +55,11 @@ MonoBehaviour:
     name: Misdirect
     req1:
       gem: 3
-      req: 4
+      req: 2
       has: 0
     req2:
       gem: 2
-      req: 2
+      req: 4
       has: 1
     effects:
     - effect: 9

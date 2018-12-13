@@ -606,7 +606,10 @@ public class BoardManager : MonoBehaviour
       background.GetComponent<Image>().color = new Color(1, .54f, .54f);
       iTween.ShakePosition(GameObject.Find("BoardManager"), new Vector3(1, 0, 0), animationWait - .4f);
       yield return new WaitForSeconds(animationWait - .4f);
-      background.GetComponent<Image>().color = Color.white;
+      Color bkCol = Color.white;
+      bkCol.a = 2 / 5;
+      background.GetComponent<Image>().color = bkCol;
+
     }
     for (int x = 0; x < xSize; x++)
     {

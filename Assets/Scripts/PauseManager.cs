@@ -420,6 +420,7 @@ public class PauseManager : MonoBehaviour {
             case 4:
               currentLocation = Location.Glossary;
               glossaryPnl.SetActive(true);
+              LoadGlossary();
               break;
             default:
               currentLocation = Location.None;
@@ -701,5 +702,58 @@ public class PauseManager : MonoBehaviour {
         vMoheLvl.GetComponent<Text>().enabled = false;
       }
     }
+  }
+
+  void LoadGlossary()
+  {
+    //- [ ] Pride => Receive bigger bonuses when matching 4/5 gems
+    //- [ ] Greed => Destroy more gems with skill
+    //- [ ] Lust => Change more gems with skill
+    //- [ ] Envy => Increases level gains by a small amount. Sabotage skills more effective. 
+    //- [ ] Gluttony => Receive more health on lvl up
+    //- [ ] Wrath => Deal more damage with fight gems
+    //- [ ] Sloth => Reset / Heal / Damage skills more effective
+
+    /*
+     * static string abbreviationEffect(Effect effect){
+    switch(effect){
+    case Effect.Change:
+      return "Cng";
+    case Effect.ChangeSome:
+      return "Cng";
+    case Effect.Damage:
+      return "Dmg";
+    case Effect.Destroy:
+      return "Dest";
+    case Effect.DestroySome:
+      return "Dest";
+    case Effect.Heal:
+      return "Heal";
+    case Effect.Poison:
+      return "Buff";
+    case Effect.Poke:
+      return "Poke";
+    case Effect.Reset:
+      return "Reset";
+    case Effect.Sabotage:
+      return "Sabo";
+    case Effect.Slice:
+      return "Slice";
+    case Effect.xTurn:
+      return "xTurn";
+    }
+    return "";
+  }
+   Buff => Applies a shield that either blocks an opponents next attack or enhances your own.
+   Chg => Change gem1 to gem2.
+   Dmg => Deal damage directly to opponent's mohe.
+   Dest => Destroy gem.
+   Heal => Heal mohe that amount.
+   Poke => Click on gem of type to destroy it. Adding strength increases the radius destroyed in a square.
+   Reset => Resets the board.
+   Sabo => Removes a certain amount of gems from your opponents skills.
+   Slice => Click on gem of type to destroy it. Adding strength increases the radius destroyed in an X.
+     */
+
   }
 }

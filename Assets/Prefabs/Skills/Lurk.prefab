@@ -55,11 +55,11 @@ MonoBehaviour:
     name: Lurk
     req1:
       gem: 3
-      req: 2
+      req: 1
       has: 0
     req2:
       gem: 5
-      req: 2
+      req: 4
       has: 0
     effects:
     - effect: 9

@@ -352,38 +352,40 @@ public class PanelManager : MonoBehaviour
 
   public void swap(int pos)
   {
-    if (!isUsingItem)
-    {
-      Debug.Log("swap: " + pos.ToString());
-      adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
-      if (pos < adventure.roster.Length && adventure.roster[pos].curHealth > 0 && pos != currentMonster)
+    if (BoardManager.instance.getPlayerTurn()) { 
+      if (!isUsingItem)
       {
-        currentMonster = pos;
-        loadHeroMonster();
-        SFXManager.instance.PlaySFX(Clip.Select);
-        currentLocation = Location.Action;
+        Debug.Log("swap: " + pos.ToString());
+        adventure.roster[currentMonster].curHealth = GameObject.Find("HOverlay").GetComponent<Progress>().progress;
+        if (pos < adventure.roster.Length && adventure.roster[pos].curHealth > 0 && pos != currentMonster)
+        {
+          currentMonster = pos;
+          loadHeroMonster();
+          SFXManager.instance.PlaySFX(Clip.Select);
+          currentLocation = Location.Action;
+          loadLocation();
+        }
+      }
+      else
+      {
+        /*
+         * give monster the item bonuses
+         * subtract from inventory
+         * close the monster menu
+         * update ui
+         */
+        TreasureMain itemToUse = glossaryObj.GetComponent<Glossary>().GetItem(getItem(itemPos));
+        if (GameUtilities.CanUseItem(itemToUse, adventure, pos, skills))
+        {
+          adventure = GameUtilities.UseItem(itemToUse, adventure, pos, skills);
+          adventure.AddToTreasureList(getItem(itemPos), -1);
+        }
+        monPnl.SetActive(false);
+        isUsingItem = false;
+        GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[currentMonster].curHealth);
         loadLocation();
+        updateUI(adventure.trainer);
       }
-    }
-    else
-    {
-      /*
-       * give monster the item bonuses
-       * subtract from inventory
-       * close the monster menu
-       * update ui
-       */
-      TreasureMain itemToUse = glossaryObj.GetComponent<Glossary>().GetItem(getItem(itemPos));
-      if (GameUtilities.CanUseItem(itemToUse, adventure, pos, skills))
-      {
-        adventure = GameUtilities.UseItem(itemToUse, adventure, pos, skills);
-        adventure.AddToTreasureList(getItem(itemPos), -1);
-      }
-      monPnl.SetActive(false);
-      isUsingItem = false;
-      GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[currentMonster].curHealth);
-      loadLocation();
-      updateUI(adventure.trainer);
     }
   }
 
@@ -393,11 +395,13 @@ public class PanelManager : MonoBehaviour
      * When an item is clicked, the monster panel needs to open up next
      * swap needs to be caught if the computer is waiting for an item input
      */
-
-    isUsingItem = true;
-    monPnl.SetActive(true);
-    setSwapMonsters();
-    itemPos = pos;
+    if (BoardManager.instance.getPlayerTurn())
+    {
+      isUsingItem = true;
+      monPnl.SetActive(true);
+      setSwapMonsters();
+      itemPos = pos;
+    }
   }
 
   // Use this for initialization
@@ -862,7 +866,30 @@ public class PanelManager : MonoBehaviour
     GameObject.Find("HOverlay").GetComponent<Progress>().updateHealth(adventure.roster[myMonster].maxHealth);
     GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(adventure.roster[myMonster].curHealth);
 
-    skills = new List<SkillMeta>(GameUtilities.parseSkills(adventure.roster[myMonster].skills, glossary));
+    /*
+     * If there are skills, cycle through them and restore all of the 
+     */
+
+    if (skills == null)
+    {
+      skills = new List<SkillMeta>(GameUtilities.parseSkills(adventure.roster[myMonster].skills, glossary));
+    }
+    else
+    {
+      List<SkillMeta> newSkills = new List<SkillMeta>(GameUtilities.parseSkills(adventure.roster[myMonster].skills, glossary));
+      foreach(SkillMeta sk in newSkills)
+      {
+        foreach (SkillMeta skOld in skills)
+        {
+          if (sk.name.Equals(skOld.name))
+          {
+            sk.req1.has = skOld.req1.has;
+            sk.req2.has = skOld.req2.has;
+          }
+        }
+      }
+      skills = newSkills;
+    }
     GameObject.Find("HExpOverlay").GetComponent<ProgressExp>().UpdateExperience(glossary.GetMonsterMain(playerMonster.name).meta.lvlSpeed, adventure.roster[myMonster]);
   }
 
@@ -1091,7 +1118,7 @@ public class PanelManager : MonoBehaviour
 
     wildMeta.catchReq = new SkillReq[wildMeta.weaknesses.Length];
 
-    int strengthMult = wildMeta.lvl / 10;
+    float strengthMult = wildMeta.lvl / 10f;
 
     for (int i = 0; i < wildMeta.weaknesses.Length; i++)
     {
@@ -1102,7 +1129,7 @@ public class PanelManager : MonoBehaviour
       SkillReq catchReq = new SkillReq();
       catchReq.gem = (TileMeta.GemType)gemIdx;
       catchReq.has = 0;
-      catchReq.req = 2 + (4 * strengthMult);
+      catchReq.req = 2 + (int)(4 * strengthMult);
       wildMeta.catchReq[i] = catchReq;
     }
   }
@@ -1285,7 +1312,7 @@ public class PanelManager : MonoBehaviour
               currentLocation = Location.Item;
               break;
             case 3:
-              if (!adventure.isTrainerEncounter)
+              if (!adventure.isTrainerEncounter && BoardManager.instance.getPlayerTurn())
               {
                 TryToRun();
               }
@@ -1303,9 +1330,16 @@ public class PanelManager : MonoBehaviour
           }
           else
           {
-            Debug.Log(activeSkill);
-            Debug.Log(click);
-            setActiveSkill(click);
+            if (BoardManager.instance.getPlayerTurn())
+            {
+              Debug.Log(activeSkill);
+              Debug.Log(click);
+              setActiveSkill(click);
+            }
+            else
+            {
+              Debug.Log("Not player's turn!");
+            }
           }
           break;
         default:

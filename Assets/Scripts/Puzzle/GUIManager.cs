@@ -331,6 +331,8 @@ public class GUIManager : MonoBehaviour {
     loadLvlUpSkills(mSkills, newSkills);
 
     meta.skills = newSkills.ToArray();
+    meta.curHealth = meta.maxHealth;
+
     lastMeta = meta;
     //PanelManager.instance.updateCurrent(meta);
   }
