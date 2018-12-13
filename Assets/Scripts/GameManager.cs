@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour {
 	private AsyncOperation async;
   private bool newScene = false;
 
+  private bool waiting;
+
 	void Awake() {
 		// Only 1 Game Manager can exist at a time
 		//if (instance == null) {
@@ -52,10 +54,18 @@ public class GameManager : MonoBehaviour {
 		//}
 
     instance = GetComponent<GameManager>();
+    waiting = true;
+    StartCoroutine(WaitTime(1.5f));
     //GameObject.FindWithTag("Player").transform.GetChild(0).GetComponent<ParticleSystem>().Pause();
   }
 
-	void Update() {
+  IEnumerator WaitTime(float time)
+  {
+    yield return new WaitForSeconds(time);
+    waiting = false;
+  }
+
+  void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			ReturnToMenu();
 		}
@@ -320,12 +330,14 @@ public class GameManager : MonoBehaviour {
 	}
 
   public void LoadTestChar(int save){
-    if (!BaseSaver.getSN().Equals(save.ToString()))
-    {
-      BaseSaver.putSaveNumber(save);
+    if (!waiting) {
+      if (!BaseSaver.getSN().Equals(save.ToString()))
+      {
+        BaseSaver.putSaveNumber(save);
+      }
+      if (BaseSaver.getAdventure() == null) { ResetAll(save); }
+      SceneFlash(newScene);
     }
-    if (BaseSaver.getAdventure() == null) { ResetAll(save); }
-    SceneFlash(newScene);
   }
 
   public void ResetAll(int save){

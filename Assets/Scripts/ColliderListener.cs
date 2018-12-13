@@ -31,21 +31,6 @@ public class ColliderListener : MonoBehaviour {
     BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
   }
 
-  IEnumerator SaveItem(GameObject item)
-  {
-    AdventureMeta meta = BaseSaver.getAdventure();
-    if (item.GetComponent<TreasureMain>().monTreas.effects == MonTreasMeta.Type.Money)
-    {
-      meta.addYen(item.GetComponent<TreasureMain>().monTreas.value);
-    }
-    else
-    {
-      meta.AddToTreasureList(item.name, 1);
-    }
-    BaseSaver.putAdventure(meta);
-    yield return null;
-  }
-
   void OnTriggerEnter2D (Collider2D other)
   {
     Debug.Log("Other Checking: " + other.name);
@@ -184,6 +169,21 @@ public class ColliderListener : MonoBehaviour {
 
     BaseSaver.putAdventure(meta);
     BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
+    yield return null;
+  }
+
+  IEnumerator SaveItem(GameObject item)
+  {
+    AdventureMeta meta = BaseSaver.getAdventure();
+    if (item.GetComponent<TreasureMain>().monTreas.effects == MonTreasMeta.Type.Money)
+    {
+      meta.addYen(item.GetComponent<TreasureMain>().monTreas.value);
+    }
+    else
+    {
+      meta.AddToTreasureList(item.name, 1);
+    }
+    BaseSaver.putAdventure(meta);
     yield return null;
   }
 

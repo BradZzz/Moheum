@@ -588,6 +588,7 @@ public class BoardManager : MonoBehaviour
 
   public void reset(bool anim)
   {
+    IsProcessing = true;
     if (resetMove != null)
     {
       StopCoroutine(resetMove);

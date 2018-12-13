@@ -62,8 +62,24 @@ public class MonsterMeta {
 
   public static int getExperience(PlayerRosterMeta monster, bool wild){
     float wildMonster = wild ? 1.15f : 1.7f;
-    float effortPoints = (monster.lvl + monster.maxHealth + Mathf.Pow(monster.getPower(), 2)) * 11;
-    return (int) ((wildMonster * effortPoints) / 7);
+
+    float lower = -75.3f + 66.84f * (float) Math.Exp(.137f * monster.lvl);
+    float upper = -152.7f + 134f * (float)Math.Exp(.137f * monster.lvl);
+    float pwrBns = (upper - lower) * (monster.getPower() > 100 ? 100 : (monster.getPower())) / 100;
+
+    Debug.Log("lower: " + lower.ToString());
+    Debug.Log("upper: " + upper.ToString());
+    Debug.Log("pwrBns: " + pwrBns.ToString());
+
+    //float effortPoints = (monster.maxHealth + ((5 * Mathf.Pow(monster.lvl, 2)) / 3)) * 11;
+    //float limPwr = monster.getPower() > 100 ? 99 : monster.getPower();
+
+    int retExp = (int)(lower + pwrBns);
+    retExp = retExp < 1 ? 1 : retExp;
+
+    Debug.Log("Exp Gained: " + retExp.ToString());
+
+    return retExp;
   }
 
   /*

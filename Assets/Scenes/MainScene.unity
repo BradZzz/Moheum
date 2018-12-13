@@ -17257,7 +17257,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300002, guid: 90cb88a4614454227ab0b49291bbeade,
+      objectReference: {fileID: 21300014, guid: 90cb88a4614454227ab0b49291bbeade,
         type: 3}
     - target: {fileID: 224099120928670676, guid: 959cc4a8bd2394a21b316958f4d8e37b,
         type: 2}
@@ -28153,7 +28153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &1411445888
 GameObject:

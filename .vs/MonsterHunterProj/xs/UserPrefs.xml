@@ -1,16 +1,15 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Adventure/DialogManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/PanelManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="608" Column="60" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="340" Column="21" />
-      <File FileName="Assets/Scripts/Puzzle/Tile.cs" Line="253" Column="9" />
-      <File FileName="Assets/Scripts/Items/TreasureMain.cs" Line="25" Column="17" />
-      <File FileName="Assets/Scripts/Items/MonTreasMeta.cs" Line="22" Column="41" />
-      <File FileName="Assets/Scripts/GameUtilities.cs" Line="224" Column="21" />
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="117" Column="23" />
-      <File FileName="Assets/Scripts/Puzzle/MonsterMain.cs" Line="6" Column="27" />
-      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="93" Column="39" />
-      <File FileName="Assets/Scripts/ColliderListener.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ColliderListener.cs" Line="186" Column="34" />
+      <File FileName="Assets/Scripts/Move.cs" Line="15" Column="25" />
+      <File FileName="Assets/Scripts/BoardListener.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="1105" Column="45" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="591" Column="25" />
+      <File FileName="Assets/Scripts/Puzzle/MonsterMeta.cs" Line="62" Column="3" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="333" Column="20" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="214" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

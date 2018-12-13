@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_android_v02_3.apk
+/Users/brad/Desktop/MonsterHunterDemo_android_v02_6.apk
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity
