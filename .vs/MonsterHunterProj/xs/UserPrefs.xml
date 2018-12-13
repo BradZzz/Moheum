@@ -4,7 +4,7 @@
       <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="381" Column="36" />
       <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="634" Column="40" />
       <File FileName="Assets/Scripts/Puzzle/BackgroundManager.cs" Line="12" Column="23" />
-      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="609" Column="40" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="599" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
