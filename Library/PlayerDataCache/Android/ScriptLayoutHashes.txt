@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_android_v02_7.apk
+/Users/brad/Desktop/MonsterHunterDemo_android_v02_8.apk
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity
@@ -71,6 +71,8 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 50b0b141074b216c8b53b1bd467f73c9 Unity.TextMeshPro.dll:TMPro.TMP_InputField
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ColliderListener
 b827b25f832158fdaa480c476121350e Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TiltInput
+486cd95c82d8305219c352c06b776e1f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+486cd95c82d8305219c352c06b776e1f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:cakeslice.OutlineAnimation
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput

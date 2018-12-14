@@ -55,7 +55,7 @@ MonoBehaviour:
     name: Icicle
     req1:
       gem: 2
-      req: 1
+      req: 2
       has: 1
     req2:
       gem: 0

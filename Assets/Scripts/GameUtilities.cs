@@ -243,6 +243,7 @@ public static class GameUtilities {
           meta.roster[rosterPos].exp += itemToUse.monTreas.value;
           break;
         case MonTreasMeta.Type.Heal:
+          Debug.Log("Healing: " + itemToUse.monTreas.value.ToString());
           meta.roster[rosterPos].curHealth += itemToUse.monTreas.value;
           if (meta.roster[rosterPos].curHealth > meta.roster[rosterPos].maxHealth) {
             meta.roster[rosterPos].curHealth = meta.roster[rosterPos].maxHealth;
