@@ -1152,24 +1152,6 @@ public class BoardManager : MonoBehaviour
       }
       else if (gType == BoardManager.GameType.Duel)
       {
-        if (getPlayerTurn())
-        {
-          int counter = 0;
-          int checksPassed = 0;
-          while (checksPassed < 3 && counter < 30)
-          {
-            yield return new WaitForSeconds(.1f);
-            counter++;
-            if (!IsThinking())
-            {
-              checksPassed++;
-            }
-            else
-            {
-              checksPassed = 0;
-            }
-          }
-        }
         StartCoroutine(SwapTurn());
       }
     }
@@ -1181,22 +1163,19 @@ public class BoardManager : MonoBehaviour
     if (clicked)
     {
       clicked = false;
-      if (!playerTurn)
+      int counter = 0;
+      int checksPassed = 0;
+      while (checksPassed < 3 && counter < 30)
       {
-        int counter = 0;
-        int checksPassed = 0;
-        while (checksPassed < 3 && counter < 30)
+        yield return new WaitForSeconds(.25f);
+        counter++;
+        if (!IsThinking())
         {
-          yield return new WaitForSeconds(.25f);
-          counter++;
-          if (!IsThinking())
-          {
-            checksPassed++;
-          }
-          else
-          {
-            checksPassed = 0;
-          }
+          checksPassed++;
+        }
+        else
+        {
+          checksPassed = 0;
         }
       }
       playerTurn = !playerTurn;

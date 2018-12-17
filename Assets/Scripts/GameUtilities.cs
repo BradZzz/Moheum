@@ -244,7 +244,9 @@ public static class GameUtilities {
           break;
         case MonTreasMeta.Type.Heal:
           Debug.Log("Healing: " + itemToUse.monTreas.value.ToString());
-          meta.roster[rosterPos].curHealth += itemToUse.monTreas.value;
+          //For some reason, there's a bug here
+          //meta.roster[rosterPos].curHealth += itemToUse.monTreas.value;
+          meta.roster[rosterPos].curHealth += 10;
           if (meta.roster[rosterPos].curHealth > meta.roster[rosterPos].maxHealth) {
             meta.roster[rosterPos].curHealth = meta.roster[rosterPos].maxHealth;
           }

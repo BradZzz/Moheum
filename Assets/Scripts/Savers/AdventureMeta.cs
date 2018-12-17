@@ -6,6 +6,7 @@ using UnityEngine;
 public class AdventureMeta
 {
   public int yen;
+  public int expBuff;
   public string[] treasure;
   public string[] temples;
 

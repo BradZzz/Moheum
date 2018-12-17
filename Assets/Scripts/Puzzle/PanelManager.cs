@@ -322,6 +322,7 @@ public class PanelManager : MonoBehaviour
       //GameObject.Find("HOverlay").GetComponent<Progress>().UpdateProgress(0);
       //adventure.roster[currentMonster].curHealth = 0;
       bool monstersLeft = false;
+      setActiveSkill(-1);
       for (int i = 0; i < adventure.roster.Length; i++)
       {
         if (adventure.roster[i].curHealth > 0)

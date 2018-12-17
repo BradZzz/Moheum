@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +40,12 @@ public class PauseManager : MonoBehaviour {
   private int[] deleteBuffer;
   private bool panelOpen;
   private int vaultPos;
+  private bool vaultDeleting;
+  private int[] vaultDeleteBuffer;
   private bool vaultSwap;
+  private int pageDistance;
+
+  private int PAGE_DIST = 24;
 
   private enum Location
   {
@@ -302,16 +308,61 @@ public class PauseManager : MonoBehaviour {
   public void VaultClick(int pos){
     AdventureMeta adventure = BaseSaver.getAdventure();
     if (adventure.vault.Length > pos) {
-      vaultPos = pos;
-      vaultSwap = true;
-      vaultPnl.SetActive(false);
-      rosterPnl.SetActive(true);
-      loadRoster();
+      if (vaultDeleting)
+      {
+        if (vaultDeleteBuffer[0] != -1)
+        {
+          Debug.Log("Attempt to remove at: " + pos.ToString());
+          if (vaultDeleteBuffer[0] == pos) {
+            Debug.Log("Removing at: " + pos.ToString());
+            List<PlayerRosterMeta> vList = new List<PlayerRosterMeta>(adventure.vault);
+            vList.RemoveAt(pos);
+            adventure.vault = vList.ToArray();
+            BaseSaver.putAdventure(adventure);
+          }
+          //adventure.vault = adventure.vault.Skip(pos+1).ToArray();
+          notVaultDeleting();
+          loadVault();
+        }
+        else
+        {
+          vaultDeleteBuffer[0] = pos;
+          string posStr = pos + 1 < 10 ? 0 + (pos + 1).ToString() : (pos + 1).ToString();
+          GameObject clicked = GameObject.Find("VBk" + posStr);
+          clicked.AddComponent<Outline>();
+          clicked.GetComponent<Outline>().enabled = true;
+          clicked.GetComponent<Outline>().effectColor = new Color(.871f, .376f, .318f);
+        }
+      }
+      else
+      {
+        vaultPos = pos;
+        vaultSwap = true;
+        vaultPnl.SetActive(false);
+        rosterPnl.SetActive(true);
+        loadRoster();
+      }
     }
   }
 
   public void PageDir(bool left){
-    Debug.Log("Paging...");
+    AdventureMeta meta = BaseSaver.getAdventure();
+    if (left)
+    {
+      pageDistance -= PAGE_DIST;
+      if (pageDistance < 0)
+      {
+        pageDistance = 0;
+      }
+    }
+    else
+    {
+      if (pageDistance + PAGE_DIST < meta.vault.Length)
+      {
+        pageDistance += PAGE_DIST;
+      }
+    }
+    loadVault();
   }
 
   public void swapClicked()
@@ -340,6 +391,24 @@ public class PauseManager : MonoBehaviour {
     vaultSwap = false;
   }
 
+  public void notVaultDeleting()
+  {
+    if (vaultDeleting) {
+      vaultDeleting = false;
+
+      GameObject trashIcon = GameObject.Find("RImage");
+      Destroy(trashIcon.GetComponent<Outline>());
+
+      if (vaultDeleteBuffer != null && vaultDeleteBuffer[0] != -1)
+      {
+        string posStr = vaultDeleteBuffer[0] + 1 < 10 ? 0 + (vaultDeleteBuffer[0] + 1).ToString() : (vaultDeleteBuffer[0] + 1).ToString();
+        GameObject clicked = GameObject.Find("VBk" + posStr);
+        Destroy(clicked.GetComponent<Outline>());
+        vaultDeleteBuffer = new int[] { -1, -1 };
+      }
+    }
+  }
+
   public void deleteClicked()
   {
     if (BaseSaver.getAdventure().roster.Length > 0)
@@ -362,6 +431,21 @@ public class PauseManager : MonoBehaviour {
     glossaryPnl.SetActive(false);
   }
 
+  public void vaultDeleteClicked()
+  {
+    if (BaseSaver.getAdventure().vault.Length > 0)
+    {
+      vaultDeleting = true;
+      vaultDeleteBuffer = new int[] { -1, -1 };
+      Debug.Log("Vault Deleting!");
+      GameObject trashIcon = GameObject.Find("RImage");
+      trashIcon.AddComponent<Outline>();
+      trashIcon.GetComponent<Outline>().enabled = true;
+      trashIcon.GetComponent<Outline>().effectColor = new Color(.871f, .376f, .318f);
+    }
+    SFXManager.instance.PlaySFX(Clip.Select);
+  }
+
   void moveLocation(int clk)
   {
     StopCoroutine(WaitForExit());
@@ -381,12 +465,14 @@ public class PauseManager : MonoBehaviour {
       } else if (currentLocation == Location.Vault && vaultSwap)
       {
         notVaultSwapping();
+        notVaultDeleting();
         vaultPnl.SetActive(true);
         rosterPnl.SetActive(false);
       }
       else {
         currentLocation = Location.Main;
         notVaultSwapping();
+        notVaultDeleting();
         clearAll();
         mainPnl.SetActive(true);
       }
@@ -485,6 +571,11 @@ public class PauseManager : MonoBehaviour {
 
                 List<PlayerRosterMeta> roster = new List<PlayerRosterMeta>(playerMeta.roster);
                 roster.RemoveAt(deleteBuffer[0]);
+                if (playerMeta.vault.Length > 0)
+                {
+                  roster.Add(playerMeta.vault[0]);
+                  playerMeta.vault = playerMeta.vault.Skip(1).ToArray();
+                }
                 playerMeta.roster = roster.ToArray();
                 BaseSaver.putAdventure(playerMeta);
 
@@ -670,7 +761,7 @@ public class PauseManager : MonoBehaviour {
   {
     AdventureMeta meta = BaseSaver.getAdventure();
     //VBk01
-    for (int i = 0; i < 24; i++) {
+    for (int i = 0 + pageDistance; i < 24 + pageDistance; i++) {
       GameObject vMohe;
       GameObject vMoheLvlOut;
       GameObject vMoheLvl;
