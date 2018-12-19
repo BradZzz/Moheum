@@ -27,7 +27,7 @@ public class ColliderListener : MonoBehaviour {
   IEnumerator DestWait(Collider2D other)
   {
     Destroy(other.gameObject);
-    yield return new WaitForSeconds(1f);
+    yield return null;
     BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(transform.position)));
   }
 
@@ -48,20 +48,7 @@ public class ColliderListener : MonoBehaviour {
           DialogMeta[] diag = new DialogMeta[1];
           diag[0] = new DialogMeta("Received: " + other.name + "\n" + other.GetComponent<TreasureMain>().monTreas.description);
           DialogManager.instance.SetMsgs(other.gameObject.GetComponent<SpriteRenderer>().sprite, diag);
-
           StartCoroutine(SaveItem(other.gameObject));
-
-          //AdventureMeta meta = BaseSaver.getAdventure();
-          //if (other.GetComponent<TreasureMain>().monTreas.effects == MonTreasMeta.Type.Money)
-          //{
-          //  meta.addYen(other.GetComponent<TreasureMain>().monTreas.value);
-          //}
-          //else
-          //{
-          //  meta.AddToTreasureList(other.name, 1);
-          //}
-          //BaseSaver.putAdventure(meta);
-
           GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta = BaseSaver.getAdventure();
           StartCoroutine(DestWait(other));
         }

@@ -359,7 +359,8 @@ public class GameManager : MonoBehaviour {
 
   public void HardReset()
   {
-    PlayerPrefs.DeleteAll();
+    //PlayerPrefs.DeleteAll();
+    BaseSaver.DeleteAll();
     GameObject.Find("Save1").GetComponent<TitleSaveViewer>().Start();
     GameObject.Find("Save2").GetComponent<TitleSaveViewer>().Start();
     GameObject.Find("Save3").GetComponent<TitleSaveViewer>().Start();

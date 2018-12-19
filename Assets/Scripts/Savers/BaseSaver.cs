@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class BaseSaver {
   private static string SAVE_NUMBER = "SAVE_NUMBER";
@@ -27,6 +28,8 @@ public class BaseSaver {
     Debug.Log("SAVE_ADVENTURE: " + PlayerPrefs.GetString(adjKy(SAVE_ADVENTURE)));
     Debug.Log("SAVE_BOARD: " + PlayerPrefs.GetString(adjKy(SAVE_BOARD)));
     Debug.Log("SAVE_MAP_NAME: " + PlayerPrefs.GetString(adjKy(SAVE_MAP_NAME)));
+
+    PlayerPrefs.Flush();
   }
 
   public static void restoreState()
@@ -41,6 +44,8 @@ public class BaseSaver {
     Debug.Log("ADVENTURE: " + getAdventure());
     Debug.Log("BOARD: " + getBoard(getMap()));
     Debug.Log("MAP_NAME: " + getMap());
+
+    PlayerPrefs.Flush();
   }
 
   public static string adjKy(string key)
@@ -103,7 +108,7 @@ public class BaseSaver {
   {
     string json = PlayerPrefs.GetString(adjKy(ADVENTURE)); 
     Debug.Log("ADVENTURE got: " + adjKy(ADVENTURE) + ":" + json);
-    if (json.Length == 0)
+    if (json == null)
     {
       return null;
     }
@@ -137,7 +142,7 @@ public class BaseSaver {
     Debug.Log("Getting board at: " + adjKy(BOARD) + "_" + name);
     string json = PlayerPrefs.GetString(adjKy(BOARD) + "_" + name);
     Debug.Log("BOARD got: " + json);
-    if (json.Length == 0)
+    if (json == null)
     {
       return null;
     }
@@ -169,7 +174,7 @@ public class BaseSaver {
   public static PlayerRosterMeta[] getComputer()
   {
     string json = PlayerPrefs.GetString(adjKy(COMPUTER));
-    if (json.Length == 0)
+    if (json == null)
     {
       return new PlayerRosterMeta[0];
     }
@@ -185,21 +190,21 @@ public class BaseSaver {
   {
     string str = PlayerPrefs.GetString(adjKy(MAP_NAME));
     Debug.Log("Map: " + str);
-    return str;
+    return str == null ? "" : str;
   }
 
   public static string getMapPrev()
   {
     string str = PlayerPrefs.GetString(adjKy(MAP_NAME_PREV));
     Debug.Log("Map Prev: " + str);
-    return str;
+    return str == null ? "" : str;
   }
 
   public static string getMapConnection()
   {
     string str = PlayerPrefs.GetString(adjKy(MAP_CONNECTION));
     Debug.Log("Map Connection: " + str);
-    return str;
+    return str == null ? "" : str;
   }
 
   public static void setMapName(string name)
@@ -236,6 +241,11 @@ public class BaseSaver {
     {
       item.GetComponent<TreasureMain>().UpdateInteractable();
     }
+  }
+
+  public static void DeleteAll()
+  {
+    PlayerPrefs.DeleteAll();
   }
 
   /*

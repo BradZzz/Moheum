@@ -158,6 +158,7 @@
     <Compile Include="Assets\Scripts\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerPrefs.cs" />
     <Compile Include="Assets\Scripts\PlayerTile.cs" />
     <Compile Include="Assets\Scripts\Puzzle\BackgroundManager.cs" />
     <Compile Include="Assets\Scripts\Puzzle\BackgroundMeta.cs" />

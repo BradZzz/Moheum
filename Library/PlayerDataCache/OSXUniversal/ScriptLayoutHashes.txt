@@ -1,6 +1,6 @@
 OSXStandalone
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_v02_1.app
+/Users/brad/Desktop/MonsterHunterDemo_v03_0.app
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity
@@ -233,7 +233,7 @@ e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 3ef13178210efdcf6a9d57780d65303d Assembly-CSharp.dll:Cinemachine.CinemachineConfiner
 52388db79948bf317254e6bea2552181 Assembly-CSharp.dll:.Fader
-c2569c70440c4c7ebd44d4920d8045d4 Assembly-CSharp.dll:.PlayerMain
+be120e9206bdd25abe8e12d5851db18e Assembly-CSharp.dll:.PlayerMain
 486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 9d863b523b577f5c3d915351a74cd338 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
