@@ -53,18 +53,19 @@ public class GUIManager : MonoBehaviour {
     StartCoroutine(WaitForShifting(abbvMeta, exp));
   }
 
-  public void HideBoard(){
-    Debug.Log("Hide Board");
-    Vector3 pos = boardManager.transform.position;
-    pos.z = 0;
-    boardManager.transform.position = pos;
-  }
+  //public void HideBoard(){
+  //  Debug.Log("Hide Board");
+  //  Vector3 pos = boardManager.transform.position;
+  //  pos.z = 0;
+  //  boardManager.transform.position = pos;
+  //}
 
   public void ShowBoard(){
     Debug.Log("Show Board");
-    Vector3 pos = boardManager.transform.position;
-    pos.z = 90;
-    boardManager.transform.position = pos;
+    boardManager.GetComponent<BoardManager>().StartBoardCreate();
+    //Vector3 pos = boardManager.transform.position;
+    //pos.z = 90;
+    //boardManager.transform.position = pos;
   }
 
   public void StartIntroduction(Glossary glossy)
@@ -79,7 +80,7 @@ public class GUIManager : MonoBehaviour {
      * shake
      * Make color = normal
      */
-    HideBoard();
+    //HideBoard();
     yield return new WaitForSeconds(.5f);
     GameObject toCopy = introPanel.transform.Find("Image").gameObject;
     GameObject descObj = introPanel.transform.Find("Desc").gameObject;
@@ -131,6 +132,7 @@ public class GUIManager : MonoBehaviour {
   }
 
   IEnumerator FadeIntro(){
+    //GUIManager.instance.GetComponent<PanelManager>().StartPanelManager();
     iTween.ValueTo(introPanel, iTween.Hash(
       "from", 1,
       "to", 0,

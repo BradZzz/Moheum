@@ -49,7 +49,10 @@ public class BoardManager : MonoBehaviour
   void Start()
   {
     instance = GetComponent<BoardManager>();
+  }
 
+  public void StartBoardCreate()
+  {
     crossHairA = GameObject.Find("HCrosshairs");
     crossHairB = GameObject.Find("MCrosshairs");
 
@@ -101,7 +104,18 @@ public class BoardManager : MonoBehaviour
         previousBelow = newSprite;
       }
     }
-    transform.localScale = new Vector3(1.15f, 1.15f, 1.15f);
+    float ratio = (float) Screen.width / (float) Screen.height;
+    float adjust = (ratio - 1.75f) / 2;
+
+    Debug.Log("Screen.width / Screen.height: " + Screen.width.ToString() + "-" + Screen.height.ToString());
+    Debug.Log("Ratio: " + ratio.ToString());
+    Debug.Log("Adjust: " + adjust.ToString());
+
+    //16:9 = perfect = 1.7
+    //2340:1080 = too small = 2.15
+    //16:10 = too big = 1.6
+
+    transform.localScale = new Vector3(1f + adjust, 1f + adjust, 0f);
   }
 
   public void emitExplosion()

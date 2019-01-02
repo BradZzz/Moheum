@@ -1,6 +1,6 @@
 OSXStandalone
 PlayerPath?
-/Users/brad/Desktop/MonsterHunterDemo_v03_0.app
+/Users/brad/Desktop/MonsterHunterDemo_v03_1.app
 SceneListBegin?
 Assets/Scenes/TitleScene.unity
 Assets/Scenes/MainScene.unity

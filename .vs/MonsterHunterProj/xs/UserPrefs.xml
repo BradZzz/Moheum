@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PauseManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/BoardManager.cs">
     <Files>
       <File FileName="Assets/Scripts/PauseManager.cs" Line="365" Column="17" />
       <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="205" Column="46" />
@@ -9,6 +9,10 @@
       <File FileName="Assets/Scripts/PlayerPrefs.cs" Line="5" Column="16" />
       <File FileName="Assets/Scripts/Savers/DialogMeta.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="193" Column="18" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="429" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="108" Column="40" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="134" Column="27" />
+      <File FileName="Assets/Scripts/Puzzle/TileMeta.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
