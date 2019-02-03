@@ -35,7 +35,8 @@ public class StorySceneHolder : MonoBehaviour {
   // Use this for initialization
   void Awake () {
     string storyName = BaseSaver.getSlideshow();
-    meta = glossary.GetComponent<Glossary>().GetStory(storyName);
+    Glossary glossy = glossary.GetComponent<Glossary>();
+    meta = glossy.GetStory(storyName);
     textHolder = meta.textHolder;
     nextScene = meta.nextScene;
     clickToContinue = GameObject.Find("ClickToContinue");

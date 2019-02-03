@@ -1,25 +1,24 @@
 ﻿<Properties StartupConfiguration="{6422F23A-7E7F-370E-362E-36C3F86102CC}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/BoardManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Puzzle/GUIManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PauseManager.cs" Line="365" Column="17" />
-      <File FileName="Assets/Scripts/Savers/BaseSaver.cs" Line="205" Column="46" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="361" Column="4" />
-      <File FileName="Assets/Scripts/Savers/AdventureMeta.cs" Line="9" Column="22" />
-      <File FileName="Assets/Scripts/ColliderListener.cs" Line="30" Column="23" />
-      <File FileName="Assets/Scripts/PlayerPrefs.cs" Line="5" Column="16" />
-      <File FileName="Assets/Scripts/Savers/DialogMeta.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Adventure/DialogManager.cs" Line="193" Column="18" />
-      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="429" Column="1" />
-      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="108" Column="40" />
-      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="134" Column="27" />
-      <File FileName="Assets/Scripts/Puzzle/TileMeta.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/BoardManager.cs" Line="55" Column="4" />
+      <File FileName="Assets/Scripts/Puzzle/PanelManager.cs" Line="445" Column="15" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="54" Column="6" />
+      <File FileName="Assets/Match 3 Starter/Scripts/Managers/SFXManager.cs" Line="33" Column="17" />
+      <File FileName="Assets/Scripts/PauseManager.cs" Line="319" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/Tile.cs" Line="55" Column="33" />
+      <File FileName="Assets/Standard Assets/CrossPlatformInput/Scripts/MobileControlRig.cs" Line="89" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle/GUIManager.cs" Line="157" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/brad/Documents/new_git/MonsterHunterProj/Assets/Scripts/Puzzle/Glossary.cs" relfile="Assets/Scripts/Puzzle/Glossary.cs" line="32" column="1" />
+      <Breakpoint file="/Users/brad/Documents/new_git/MonsterHunterProj/Assets/Scripts/Crawler/StorySceneHolder.cs" relfile="Assets/Scripts/Crawler/StorySceneHolder.cs" line="38" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

@@ -33,7 +33,7 @@ public class SFXManager : MonoBehaviour {
 	void Start () {
 		instance = GetComponent<SFXManager>();
 		sfx = GetComponents<AudioSource>();
-    }
+  }
 
 	public void PlaySFX(Clip audioClip) {
 		sfx[(int)audioClip].Play();

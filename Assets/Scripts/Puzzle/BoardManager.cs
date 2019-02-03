@@ -53,6 +53,7 @@ public class BoardManager : MonoBehaviour
 
   public void StartBoardCreate()
   {
+
     crossHairA = GameObject.Find("HCrosshairs");
     crossHairB = GameObject.Find("MCrosshairs");
 

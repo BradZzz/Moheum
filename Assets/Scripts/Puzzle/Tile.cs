@@ -424,6 +424,7 @@ public class Tile : MonoBehaviour
 
     if (!testing)
     {
+      SFXManager.instance.PlaySFX(Clip.Swap);
       StartCoroutine(BoardManager.instance.AnimateGemSwap(render1.gameObject, render2.gameObject));
     }
     else
@@ -436,11 +437,6 @@ public class Tile : MonoBehaviour
       render2.gameObject.GetComponent<Tile>().type = type1;
       //render1.sprite = tempSprite;
       render1.gameObject.GetComponent<Tile>().type = type2;
-    }
-
-    if (sound)
-    {
-      SFXManager.instance.PlaySFX(Clip.Swap);
     }
   }
 

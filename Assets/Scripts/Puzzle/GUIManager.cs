@@ -62,7 +62,16 @@ public class GUIManager : MonoBehaviour {
 
   public void ShowBoard(){
     Debug.Log("Show Board");
+    //if (!introPanel.activeInHierarchy)
+    //{
+      //Debug.Log("Intro Panel Closed");
     boardManager.GetComponent<BoardManager>().StartBoardCreate();
+    //}
+    //else
+    //{
+    //  Debug.Log("Intro Panel Open!");
+    //}
+    //boardManager.GetComponent<BoardManager>().StartBoardCreate();
     //Vector3 pos = boardManager.transform.position;
     //pos.z = 90;
     //boardManager.transform.position = pos;
@@ -139,11 +148,14 @@ public class GUIManager : MonoBehaviour {
       "time", .5f,
       "onupdatetarget", gameObject,
       "onupdate", "FadeIntroWrap"));
+    PanelManager.instance.StartGame();
     yield return new WaitForSeconds(.2f);
     introPanel.transform.Find("Title").gameObject.SetActive(false);
     introPanel.transform.Find("Desc").gameObject.SetActive(false);
     introPanel.transform.Find("Image").gameObject.SetActive(false);
+    //PanelManager.instance.StartGame();
     yield return new WaitForSeconds(.3f);
+    //PanelManager.instance.StartGame();
     introPanel.SetActive(false);
     ShowBoard();
   }

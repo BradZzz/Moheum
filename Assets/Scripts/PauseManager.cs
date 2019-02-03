@@ -175,92 +175,6 @@ public class PauseManager : MonoBehaviour {
     }
   }
 
-  //private void Awake()
-  //{
-  //  instance = GetComponent<PauseManager>();
-  //  panelOpen = false;
-  //  glossy = glossaryObj.GetComponent<Glossary>();
-  //  SceneMain scene = glossy.GetScene(BaseSaver.getMap());
-  //  GameObject.Find("MenuTitle").SetActive(true);
-  //  GameObject.Find("MenuTitle").GetComponent<Text>().text = scene.name;
-  //  StartCoroutine(WaitForAction(3f));
-
-  //  GameObject map = Instantiate(scene.map, new Vector3(0, 0, 0), Quaternion.identity);
-  //  map.SetActive(true);
-  //  swapping = false;
-  //  deleting = false;
-
-  //  Debug.Log("PauseManager Awake");
-
-  //  AdventureMeta meta = BaseSaver.getAdventure();
-  //  BoardMeta board = BaseSaver.getBoard(BaseSaver.getMap());
-
-  //  GameObject hero = GameObject.FindWithTag("Player");
-  //  if (hero == null){
-  //    GameObject newHero = null;
-  //    Debug.Log("Hero is null!");
-  //    // Pull the hero out of the glossary and instantiate it in the right exit/entrance tile
-  //    string dest = BaseSaver.getMapConnection();
-  //    string prev = BaseSaver.getMapPrev();
-  //    foreach (GameObject exit in GameObject.FindGameObjectsWithTag("Exit")){
-  //      ExitTile tile = exit.GetComponent<ExitTile>();
-  //      if (tile.toScene.Equals(prev+'.'+dest)){
-  //        newHero = Instantiate(glossy.hero, exit.transform.position, exit.transform.rotation, GameObject.Find("Units").transform);
-  //        break;
-  //      }
-  //    }
-  //    //If there is no exit tiles to instatiate the player on instantiate at last save in area
-  //    //if (newHero==null) {
-  //    //  newHero = Instantiate(glossy.hero, board.playerPos.ToVector3(), Quaternion.identity, GameObject.Find("Units").transform);
-  //    //}
-  //    newHero.GetComponent<PlayerMain>().playerMeta = meta;
-  //  } else {
-  //    Debug.Log("Hero not null");
-  //    GameObject.FindWithTag("Player").GetComponent<PlayerMain>().playerMeta = meta;
-  //  }
-
-  //  //Debug.Log("Player Pos: " + GameObject.Find("PlayerHero").transform.position.ToString());
-
-  //  if (board != null) {
-  //    Debug.Log("Board not null");
-
-  //    GameObject[] npcs = GameObject.FindGameObjectsWithTag("NPC");
-  //    GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
-
-  //    Debug.Log("board: " + board.mapName);
-  //    Debug.Log("player pos: " + board.playerPos);
-
-  //    foreach (GameObject npc in npcs)
-  //    {
-  //      Debug.Log("board npc: " + (new PosMeta(npc.transform.position)).ToString());
-  //      Debug.Log("equals battle: " + meta.trainer.pos.Equals(new PosMeta(npc.transform.position)).ToString());
-  //      foreach (NPCMeta NPCMeta in board.NPCs)
-  //      {
-  //        if (NPCMeta.name.Equals(npc.GetComponent<NPCMain>().meta.name))
-  //        {
-  //          npc.GetComponent<NPCMain>().meta = new NPCMeta(NPCMeta);
-  //        }
-  //      }
-  //      if (meta.trainer != null && meta.trainer.name.Equals(npc.GetComponent<NPCMain>().meta.name))
-  //      {
-  //        Debug.Log("Found: " + npc.GetComponent<NPCMain>().meta.ToString());
-  //        npc.GetComponent<NPCMain>().meta = new NPCMeta(meta.trainer);
-  //        Debug.Log("changed: " + npc.GetComponent<NPCMain>().meta.ToString());
-  //      }
-  //    }
-  //    foreach (GameObject item in items)
-  //    {
-  //      item.GetComponent<TreasureMain>().UpdateInteractable();
-  //    }
-  //    //if (!board.playerPos.Equals(new PosMeta(-99999,-99999,-99999))) {
-  //    //  GameObject.FindWithTag("Player").transform.position = new Vector3(board.playerPos.x, board.playerPos.y, board.playerPos.z);
-  //    //}
-  //    BaseSaver.putBoard(GameUtilities.getBoardState(BaseSaver.getMap(), new PosMeta(GameObject.FindWithTag("Player").transform.position)));
-  //  } else {
-  //    Debug.Log("Board is null");
-  //  }
-  //}
-
   void Start()
   {
     Debug.Log("Panel Manager Start");
@@ -295,6 +209,8 @@ public class PauseManager : MonoBehaviour {
 
   public void click(int pos)
   {
+    SFXManager.instance.PlaySFX(Clip.Select);
+
     Debug.Log("pos: " + pos.ToString());
     if (!swapping && !deleting && !vaultSwap)
     {
@@ -306,6 +222,7 @@ public class PauseManager : MonoBehaviour {
   }
 
   public void VaultClick(int pos){
+    SFXManager.instance.PlaySFX(Clip.Select);
     AdventureMeta adventure = BaseSaver.getAdventure();
     if (adventure.vault.Length > pos) {
       if (vaultDeleting)
@@ -346,6 +263,7 @@ public class PauseManager : MonoBehaviour {
   }
 
   public void PageDir(bool left){
+    SFXManager.instance.PlaySFX(Clip.Select);
     AdventureMeta meta = BaseSaver.getAdventure();
     if (left)
     {

@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
 
     instance = GetComponent<GameManager>();
     waiting = true;
-    StartCoroutine(WaitTime(1.5f));
+    StartCoroutine(WaitTime(.75f));
     //GameObject.FindWithTag("Player").transform.GetChild(0).GetComponent<ParticleSystem>().Pause();
   }
 
@@ -331,6 +331,7 @@ public class GameManager : MonoBehaviour {
 
   public void LoadTestChar(int save){
     if (!waiting) {
+      SFXManager.instance.PlaySFX(Clip.Select);
       if (!BaseSaver.getSN().Equals(save.ToString()))
       {
         BaseSaver.putSaveNumber(save);
@@ -360,6 +361,7 @@ public class GameManager : MonoBehaviour {
   public void HardReset()
   {
     //PlayerPrefs.DeleteAll();
+    SFXManager.instance.PlaySFX(Clip.Select);
     BaseSaver.DeleteAll();
     GameObject.Find("Save1").GetComponent<TitleSaveViewer>().Start();
     GameObject.Find("Save2").GetComponent<TitleSaveViewer>().Start();

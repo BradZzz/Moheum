@@ -440,16 +440,10 @@ public class PanelManager : MonoBehaviour
     {
       wildMeta = null;
     }
-    //eMeta = glossary.GetMonsterMain(E_MONSTER).meta;
-    //eMeta.currHealth = eMeta.mxHealth;
-    //eMeta.currHealth = 8;
+  }
 
-    //currentLocation = Location.Action;
-    //setActiveSkill(-1);
-
-    //critialHealthPanel = GameObject.Find("MCatchPanelHolder");
-    //critialHealthPanelSkills = new GameObject[] { GameObject.Find("MCatchSkillA"), GameObject.Find("MCatchSkillB") };
-
+  public void StartGame()
+  {
     Items = new GameObject[6];
     Items[0] = GameObject.Find("IImg1");
     Items[1] = GameObject.Find("IImg2");
@@ -651,6 +645,10 @@ public class PanelManager : MonoBehaviour
 
   public void setActiveSkill(int idx)
   {
+    if (BoardManager.instance == null)
+    {
+      return;
+    }
     Debug.Log("setActiveSkill: " + idx.ToString());
     activeSkill = idx;
     if (BoardManager.instance.getPlayerTurn())
@@ -970,6 +968,12 @@ public class PanelManager : MonoBehaviour
 
   void updatePanels(char prefix, int i)
   {
+    Debug.Log("updatePanels");
+    Debug.Log(BoardManager.instance);
+    if (BoardManager.instance == null)
+    {
+      return;
+    }
     List<TileMeta.GemType> gemTypes = new List<TileMeta.GemType>(BoardManager.instance.gemTypes);
     Sprite[] loaders = BoardManager.instance.gemLoaders;
     Sprite[] gems = BoardManager.instance.characters.ToArray();
@@ -977,9 +981,6 @@ public class PanelManager : MonoBehaviour
     string dirStr = (i + 1).ToString();
     GameObject overlaya = GameObject.Find(prefix + "Overlay" + dirStr + "A");
     GameObject overlayb = GameObject.Find(prefix + "Overlay" + dirStr + "B");
-    //
-    //    skillLoaders.Add (overlaya);
-    //    skillLoaders.Add (overlayb);
 
     GameObject gema = GameObject.Find(prefix + "Gem" + dirStr + "A");
     GameObject gemb = GameObject.Find(prefix + "Gem" + dirStr + "B");
@@ -987,9 +988,9 @@ public class PanelManager : MonoBehaviour
     GameObject skilltxta = GameObject.Find(prefix + "SkillTxt" + dirStr + "A");
     GameObject skilltxtb = GameObject.Find(prefix + "SkillTxt" + dirStr + "B");
 
-    //    skillTxts.Add (skilltxta);
-    //    skillTxts.Add (skilltxtb);
-
+    //if (overlaya != null && overlayb != null && gema != null 
+    //  && gemb != null && skilltxta != null && skilltxtb != null)
+    //{
     SkillMeta skill;
 
     if (prefix == 'H')
@@ -1010,8 +1011,6 @@ public class PanelManager : MonoBehaviour
     Sprite gemSpriteA = gems[idxA];
     Sprite gemSpriteB = gems[idxB];
 
-    //    Debug.Log (prefix + "Overlay" + dirStr + "A");
-
     overlaya.GetComponent<Image>().sprite = loaderA;
     overlaya.GetComponent<Image>().fillAmount = (float)skill.req1.has / (float)skill.req1.req;
     overlayb.GetComponent<Image>().sprite = loaderB;
@@ -1022,10 +1021,17 @@ public class PanelManager : MonoBehaviour
 
     skilltxta.GetComponent<Text>().text = skill.req1.has + " / " + skill.req1.req;
     skilltxtb.GetComponent<Text>().text = skill.req2.has + " / " + skill.req2.req;
+    //}
   }
 
   void loadSkillsOverlays()
   {
+    Debug.Log("loadSkillsOverlays");
+    Debug.Log(BoardManager.instance);
+    if (BoardManager.instance == null)
+    {
+      return;
+    }
     List<TileMeta.GemType> gemTypes = new List<TileMeta.GemType>(BoardManager.instance.gemTypes);
     Sprite[] loaders = BoardManager.instance.gemLoaders;
     Sprite[] gems = BoardManager.instance.characters.ToArray();
