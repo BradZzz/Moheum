@@ -1,174 +1,498 @@
 fileFormatVersion: 2
 guid: c95e5c67f28c748548b531197acf10da
-timeCreated: 1531977787
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: genericItem_color_001.png
-    21300002: genericItem_color_002.png
-    21300004: genericItem_color_003.png
-    21300006: genericItem_color_004.png
-    21300008: genericItem_color_005.png
-    21300010: genericItem_color_006.png
-    21300012: genericItem_color_007.png
-    21300014: genericItem_color_008.png
-    21300016: genericItem_color_009.png
-    21300018: genericItem_color_010.png
-    21300020: genericItem_color_011.png
-    21300022: genericItem_color_012.png
-    21300024: genericItem_color_013.png
-    21300026: genericItem_color_014.png
-    21300028: genericItem_color_015.png
-    21300030: genericItem_color_016.png
-    21300032: genericItem_color_017.png
-    21300034: genericItem_color_018.png
-    21300036: genericItem_color_019.png
-    21300038: genericItem_color_020.png
-    21300040: genericItem_color_021.png
-    21300042: genericItem_color_022.png
-    21300044: genericItem_color_023.png
-    21300046: genericItem_color_024.png
-    21300048: genericItem_color_025.png
-    21300050: genericItem_color_026.png
-    21300052: genericItem_color_027.png
-    21300054: genericItem_color_028.png
-    21300056: genericItem_color_029.png
-    21300058: genericItem_color_030.png
-    21300060: genericItem_color_031.png
-    21300062: genericItem_color_032.png
-    21300064: genericItem_color_033.png
-    21300066: genericItem_color_034.png
-    21300068: genericItem_color_035.png
-    21300070: genericItem_color_036.png
-    21300072: genericItem_color_037.png
-    21300074: genericItem_color_038.png
-    21300076: genericItem_color_039.png
-    21300078: genericItem_color_040.png
-    21300080: genericItem_color_041.png
-    21300082: genericItem_color_042.png
-    21300084: genericItem_color_043.png
-    21300086: genericItem_color_044.png
-    21300088: genericItem_color_045.png
-    21300090: genericItem_color_046.png
-    21300092: genericItem_color_047.png
-    21300094: genericItem_color_048.png
-    21300096: genericItem_color_049.png
-    21300098: genericItem_color_050.png
-    21300100: genericItem_color_051.png
-    21300102: genericItem_color_052.png
-    21300104: genericItem_color_053.png
-    21300106: genericItem_color_054.png
-    21300108: genericItem_color_055.png
-    21300110: genericItem_color_056.png
-    21300112: genericItem_color_057.png
-    21300114: genericItem_color_058.png
-    21300116: genericItem_color_059.png
-    21300118: genericItem_color_060.png
-    21300120: genericItem_color_061.png
-    21300122: genericItem_color_062.png
-    21300124: genericItem_color_063.png
-    21300126: genericItem_color_064.png
-    21300128: genericItem_color_065.png
-    21300130: genericItem_color_066.png
-    21300132: genericItem_color_067.png
-    21300134: genericItem_color_068.png
-    21300136: genericItem_color_069.png
-    21300138: genericItem_color_070.png
-    21300140: genericItem_color_071.png
-    21300142: genericItem_color_072.png
-    21300144: genericItem_color_073.png
-    21300146: genericItem_color_074.png
-    21300148: genericItem_color_075.png
-    21300150: genericItem_color_076.png
-    21300152: genericItem_color_077.png
-    21300154: genericItem_color_078.png
-    21300156: genericItem_color_079.png
-    21300158: genericItem_color_080.png
-    21300160: genericItem_color_081.png
-    21300162: genericItem_color_082.png
-    21300164: genericItem_color_083.png
-    21300166: genericItem_color_084.png
-    21300168: genericItem_color_085.png
-    21300170: genericItem_color_086.png
-    21300172: genericItem_color_087.png
-    21300174: genericItem_color_088.png
-    21300176: genericItem_color_089.png
-    21300178: genericItem_color_090.png
-    21300180: genericItem_color_091.png
-    21300182: genericItem_color_092.png
-    21300184: genericItem_color_093.png
-    21300186: genericItem_color_094.png
-    21300188: genericItem_color_095.png
-    21300190: genericItem_color_096.png
-    21300192: genericItem_color_097.png
-    21300194: genericItem_color_098.png
-    21300196: genericItem_color_099.png
-    21300198: genericItem_color_100.png
-    21300200: genericItem_color_101.png
-    21300202: genericItem_color_102.png
-    21300204: genericItem_color_103.png
-    21300206: genericItem_color_104.png
-    21300208: genericItem_color_105.png
-    21300210: genericItem_color_106.png
-    21300212: genericItem_color_107.png
-    21300214: genericItem_color_108.png
-    21300216: genericItem_color_109.png
-    21300218: genericItem_color_110.png
-    21300220: genericItem_color_111.png
-    21300222: genericItem_color_112.png
-    21300224: genericItem_color_113.png
-    21300226: genericItem_color_114.png
-    21300228: genericItem_color_115.png
-    21300230: genericItem_color_116.png
-    21300232: genericItem_color_117.png
-    21300234: genericItem_color_118.png
-    21300236: genericItem_color_119.png
-    21300238: genericItem_color_120.png
-    21300240: genericItem_color_121.png
-    21300242: genericItem_color_122.png
-    21300244: genericItem_color_123.png
-    21300246: genericItem_color_124.png
-    21300248: genericItem_color_125.png
-    21300250: genericItem_color_126.png
-    21300252: genericItem_color_127.png
-    21300254: genericItem_color_128.png
-    21300256: genericItem_color_129.png
-    21300258: genericItem_color_130.png
-    21300260: genericItem_color_131.png
-    21300262: genericItem_color_132.png
-    21300264: genericItem_color_133.png
-    21300266: genericItem_color_134.png
-    21300268: genericItem_color_135.png
-    21300270: genericItem_color_136.png
-    21300272: genericItem_color_137.png
-    21300274: genericItem_color_138.png
-    21300276: genericItem_color_139.png
-    21300278: genericItem_color_140.png
-    21300280: genericItem_color_141.png
-    21300282: genericItem_color_142.png
-    21300284: genericItem_color_143.png
-    21300286: genericItem_color_144.png
-    21300288: genericItem_color_145.png
-    21300290: genericItem_color_146.png
-    21300292: genericItem_color_147.png
-    21300294: genericItem_color_148.png
-    21300296: genericItem_color_149.png
-    21300298: genericItem_color_150.png
-    21300300: genericItem_color_151.png
-    21300302: genericItem_color_152.png
-    21300304: genericItem_color_153.png
-    21300306: genericItem_color_154.png
-    21300308: genericItem_color_155.png
-    21300310: genericItem_color_156.png
-    21300312: genericItem_color_157.png
-    21300314: genericItem_color_158.png
-    21300316: genericItem_color_159.png
-    21300318: genericItem_color_160.png
-    21300320: genericItem_color_161.png
-    21300322: genericItem_color_162.png
-    21300324: genericItem_color_163.png
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: genericItem_color_001.png
+  - first:
+      213: 21300002
+    second: genericItem_color_002.png
+  - first:
+      213: 21300004
+    second: genericItem_color_003.png
+  - first:
+      213: 21300006
+    second: genericItem_color_004.png
+  - first:
+      213: 21300008
+    second: genericItem_color_005.png
+  - first:
+      213: 21300010
+    second: genericItem_color_006.png
+  - first:
+      213: 21300012
+    second: genericItem_color_007.png
+  - first:
+      213: 21300014
+    second: genericItem_color_008.png
+  - first:
+      213: 21300016
+    second: genericItem_color_009.png
+  - first:
+      213: 21300018
+    second: genericItem_color_010.png
+  - first:
+      213: 21300020
+    second: genericItem_color_011.png
+  - first:
+      213: 21300022
+    second: genericItem_color_012.png
+  - first:
+      213: 21300024
+    second: genericItem_color_013.png
+  - first:
+      213: 21300026
+    second: genericItem_color_014.png
+  - first:
+      213: 21300028
+    second: genericItem_color_015.png
+  - first:
+      213: 21300030
+    second: genericItem_color_016.png
+  - first:
+      213: 21300032
+    second: genericItem_color_017.png
+  - first:
+      213: 21300034
+    second: genericItem_color_018.png
+  - first:
+      213: 21300036
+    second: genericItem_color_019.png
+  - first:
+      213: 21300038
+    second: genericItem_color_020.png
+  - first:
+      213: 21300040
+    second: genericItem_color_021.png
+  - first:
+      213: 21300042
+    second: genericItem_color_022.png
+  - first:
+      213: 21300044
+    second: genericItem_color_023.png
+  - first:
+      213: 21300046
+    second: genericItem_color_024.png
+  - first:
+      213: 21300048
+    second: genericItem_color_025.png
+  - first:
+      213: 21300050
+    second: genericItem_color_026.png
+  - first:
+      213: 21300052
+    second: genericItem_color_027.png
+  - first:
+      213: 21300054
+    second: genericItem_color_028.png
+  - first:
+      213: 21300056
+    second: genericItem_color_029.png
+  - first:
+      213: 21300058
+    second: genericItem_color_030.png
+  - first:
+      213: 21300060
+    second: genericItem_color_031.png
+  - first:
+      213: 21300062
+    second: genericItem_color_032.png
+  - first:
+      213: 21300064
+    second: genericItem_color_033.png
+  - first:
+      213: 21300066
+    second: genericItem_color_034.png
+  - first:
+      213: 21300068
+    second: genericItem_color_035.png
+  - first:
+      213: 21300070
+    second: genericItem_color_036.png
+  - first:
+      213: 21300072
+    second: genericItem_color_037.png
+  - first:
+      213: 21300074
+    second: genericItem_color_038.png
+  - first:
+      213: 21300076
+    second: genericItem_color_039.png
+  - first:
+      213: 21300078
+    second: genericItem_color_040.png
+  - first:
+      213: 21300080
+    second: genericItem_color_041.png
+  - first:
+      213: 21300082
+    second: genericItem_color_042.png
+  - first:
+      213: 21300084
+    second: genericItem_color_043.png
+  - first:
+      213: 21300086
+    second: genericItem_color_044.png
+  - first:
+      213: 21300088
+    second: genericItem_color_045.png
+  - first:
+      213: 21300090
+    second: genericItem_color_046.png
+  - first:
+      213: 21300092
+    second: genericItem_color_047.png
+  - first:
+      213: 21300094
+    second: genericItem_color_048.png
+  - first:
+      213: 21300096
+    second: genericItem_color_049.png
+  - first:
+      213: 21300098
+    second: genericItem_color_050.png
+  - first:
+      213: 21300100
+    second: genericItem_color_051.png
+  - first:
+      213: 21300102
+    second: genericItem_color_052.png
+  - first:
+      213: 21300104
+    second: genericItem_color_053.png
+  - first:
+      213: 21300106
+    second: genericItem_color_054.png
+  - first:
+      213: 21300108
+    second: genericItem_color_055.png
+  - first:
+      213: 21300110
+    second: genericItem_color_056.png
+  - first:
+      213: 21300112
+    second: genericItem_color_057.png
+  - first:
+      213: 21300114
+    second: genericItem_color_058.png
+  - first:
+      213: 21300116
+    second: genericItem_color_059.png
+  - first:
+      213: 21300118
+    second: genericItem_color_060.png
+  - first:
+      213: 21300120
+    second: genericItem_color_061.png
+  - first:
+      213: 21300122
+    second: genericItem_color_062.png
+  - first:
+      213: 21300124
+    second: genericItem_color_063.png
+  - first:
+      213: 21300126
+    second: genericItem_color_064.png
+  - first:
+      213: 21300128
+    second: genericItem_color_065.png
+  - first:
+      213: 21300130
+    second: genericItem_color_066.png
+  - first:
+      213: 21300132
+    second: genericItem_color_067.png
+  - first:
+      213: 21300134
+    second: genericItem_color_068.png
+  - first:
+      213: 21300136
+    second: genericItem_color_069.png
+  - first:
+      213: 21300138
+    second: genericItem_color_070.png
+  - first:
+      213: 21300140
+    second: genericItem_color_071.png
+  - first:
+      213: 21300142
+    second: genericItem_color_072.png
+  - first:
+      213: 21300144
+    second: genericItem_color_073.png
+  - first:
+      213: 21300146
+    second: genericItem_color_074.png
+  - first:
+      213: 21300148
+    second: genericItem_color_075.png
+  - first:
+      213: 21300150
+    second: genericItem_color_076.png
+  - first:
+      213: 21300152
+    second: genericItem_color_077.png
+  - first:
+      213: 21300154
+    second: genericItem_color_078.png
+  - first:
+      213: 21300156
+    second: genericItem_color_079.png
+  - first:
+      213: 21300158
+    second: genericItem_color_080.png
+  - first:
+      213: 21300160
+    second: genericItem_color_081.png
+  - first:
+      213: 21300162
+    second: genericItem_color_082.png
+  - first:
+      213: 21300164
+    second: genericItem_color_083.png
+  - first:
+      213: 21300166
+    second: genericItem_color_084.png
+  - first:
+      213: 21300168
+    second: genericItem_color_085.png
+  - first:
+      213: 21300170
+    second: genericItem_color_086.png
+  - first:
+      213: 21300172
+    second: genericItem_color_087.png
+  - first:
+      213: 21300174
+    second: genericItem_color_088.png
+  - first:
+      213: 21300176
+    second: genericItem_color_089.png
+  - first:
+      213: 21300178
+    second: genericItem_color_090.png
+  - first:
+      213: 21300180
+    second: genericItem_color_091.png
+  - first:
+      213: 21300182
+    second: genericItem_color_092.png
+  - first:
+      213: 21300184
+    second: genericItem_color_093.png
+  - first:
+      213: 21300186
+    second: genericItem_color_094.png
+  - first:
+      213: 21300188
+    second: genericItem_color_095.png
+  - first:
+      213: 21300190
+    second: genericItem_color_096.png
+  - first:
+      213: 21300192
+    second: genericItem_color_097.png
+  - first:
+      213: 21300194
+    second: genericItem_color_098.png
+  - first:
+      213: 21300196
+    second: genericItem_color_099.png
+  - first:
+      213: 21300198
+    second: genericItem_color_100.png
+  - first:
+      213: 21300200
+    second: genericItem_color_101.png
+  - first:
+      213: 21300202
+    second: genericItem_color_102.png
+  - first:
+      213: 21300204
+    second: genericItem_color_103.png
+  - first:
+      213: 21300206
+    second: genericItem_color_104.png
+  - first:
+      213: 21300208
+    second: genericItem_color_105.png
+  - first:
+      213: 21300210
+    second: genericItem_color_106.png
+  - first:
+      213: 21300212
+    second: genericItem_color_107.png
+  - first:
+      213: 21300214
+    second: genericItem_color_108.png
+  - first:
+      213: 21300216
+    second: genericItem_color_109.png
+  - first:
+      213: 21300218
+    second: genericItem_color_110.png
+  - first:
+      213: 21300220
+    second: genericItem_color_111.png
+  - first:
+      213: 21300222
+    second: genericItem_color_112.png
+  - first:
+      213: 21300224
+    second: genericItem_color_113.png
+  - first:
+      213: 21300226
+    second: genericItem_color_114.png
+  - first:
+      213: 21300228
+    second: genericItem_color_115.png
+  - first:
+      213: 21300230
+    second: genericItem_color_116.png
+  - first:
+      213: 21300232
+    second: genericItem_color_117.png
+  - first:
+      213: 21300234
+    second: genericItem_color_118.png
+  - first:
+      213: 21300236
+    second: genericItem_color_119.png
+  - first:
+      213: 21300238
+    second: genericItem_color_120.png
+  - first:
+      213: 21300240
+    second: genericItem_color_121.png
+  - first:
+      213: 21300242
+    second: genericItem_color_122.png
+  - first:
+      213: 21300244
+    second: genericItem_color_123.png
+  - first:
+      213: 21300246
+    second: genericItem_color_124.png
+  - first:
+      213: 21300248
+    second: genericItem_color_125.png
+  - first:
+      213: 21300250
+    second: genericItem_color_126.png
+  - first:
+      213: 21300252
+    second: genericItem_color_127.png
+  - first:
+      213: 21300254
+    second: genericItem_color_128.png
+  - first:
+      213: 21300256
+    second: genericItem_color_129.png
+  - first:
+      213: 21300258
+    second: genericItem_color_130.png
+  - first:
+      213: 21300260
+    second: genericItem_color_131.png
+  - first:
+      213: 21300262
+    second: genericItem_color_132.png
+  - first:
+      213: 21300264
+    second: genericItem_color_133.png
+  - first:
+      213: 21300266
+    second: genericItem_color_134.png
+  - first:
+      213: 21300268
+    second: genericItem_color_135.png
+  - first:
+      213: 21300270
+    second: genericItem_color_136.png
+  - first:
+      213: 21300272
+    second: genericItem_color_137.png
+  - first:
+      213: 21300274
+    second: genericItem_color_138.png
+  - first:
+      213: 21300276
+    second: genericItem_color_139.png
+  - first:
+      213: 21300278
+    second: genericItem_color_140.png
+  - first:
+      213: 21300280
+    second: genericItem_color_141.png
+  - first:
+      213: 21300282
+    second: genericItem_color_142.png
+  - first:
+      213: 21300284
+    second: genericItem_color_143.png
+  - first:
+      213: 21300286
+    second: genericItem_color_144.png
+  - first:
+      213: 21300288
+    second: genericItem_color_145.png
+  - first:
+      213: 21300290
+    second: genericItem_color_146.png
+  - first:
+      213: 21300292
+    second: genericItem_color_147.png
+  - first:
+      213: 21300294
+    second: genericItem_color_148.png
+  - first:
+      213: 21300296
+    second: genericItem_color_149.png
+  - first:
+      213: 21300298
+    second: genericItem_color_150.png
+  - first:
+      213: 21300300
+    second: genericItem_color_151.png
+  - first:
+      213: 21300302
+    second: genericItem_color_152.png
+  - first:
+      213: 21300304
+    second: genericItem_color_153.png
+  - first:
+      213: 21300306
+    second: genericItem_color_154.png
+  - first:
+      213: 21300308
+    second: genericItem_color_155.png
+  - first:
+      213: 21300310
+    second: genericItem_color_156.png
+  - first:
+      213: 21300312
+    second: genericItem_color_157.png
+  - first:
+      213: 21300314
+    second: genericItem_color_158.png
+  - first:
+      213: 21300316
+    second: genericItem_color_159.png
+  - first:
+      213: 21300318
+    second: genericItem_color_160.png
+  - first:
+      213: 21300320
+    second: genericItem_color_161.png
+  - first:
+      213: 21300322
+    second: genericItem_color_162.png
+  - first:
+      213: 21300324
+    second: genericItem_color_163.png
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -186,6 +510,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -196,7 +522,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -208,18 +534,22 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -229,7 +559,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -239,7 +571,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Android
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -249,7 +583,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -259,6 +595,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -276,6 +613,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_002.png
       rect:
@@ -290,6 +634,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_003.png
       rect:
@@ -304,6 +655,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_004.png
       rect:
@@ -318,6 +676,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_005.png
       rect:
@@ -332,6 +697,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_006.png
       rect:
@@ -346,6 +718,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_007.png
       rect:
@@ -360,6 +739,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_008.png
       rect:
@@ -374,6 +760,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_009.png
       rect:
@@ -388,6 +781,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_010.png
       rect:
@@ -402,6 +802,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_011.png
       rect:
@@ -416,6 +823,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_012.png
       rect:
@@ -430,6 +844,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_013.png
       rect:
@@ -444,6 +865,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_014.png
       rect:
@@ -458,6 +886,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_015.png
       rect:
@@ -472,6 +907,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_016.png
       rect:
@@ -486,6 +928,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_017.png
       rect:
@@ -500,6 +949,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_018.png
       rect:
@@ -514,6 +970,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_019.png
       rect:
@@ -528,6 +991,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_020.png
       rect:
@@ -542,6 +1012,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_021.png
       rect:
@@ -556,6 +1033,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_022.png
       rect:
@@ -570,6 +1054,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_023.png
       rect:
@@ -584,6 +1075,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_024.png
       rect:
@@ -598,6 +1096,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_025.png
       rect:
@@ -612,6 +1117,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_026.png
       rect:
@@ -626,6 +1138,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_027.png
       rect:
@@ -640,6 +1159,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_028.png
       rect:
@@ -654,6 +1180,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_029.png
       rect:
@@ -668,6 +1201,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_030.png
       rect:
@@ -682,6 +1222,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_031.png
       rect:
@@ -696,6 +1243,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_032.png
       rect:
@@ -710,6 +1264,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_033.png
       rect:
@@ -724,6 +1285,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_034.png
       rect:
@@ -738,6 +1306,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_035.png
       rect:
@@ -752,6 +1327,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_036.png
       rect:
@@ -766,6 +1348,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_037.png
       rect:
@@ -780,6 +1369,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_038.png
       rect:
@@ -794,6 +1390,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_039.png
       rect:
@@ -808,6 +1411,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_040.png
       rect:
@@ -822,6 +1432,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_041.png
       rect:
@@ -836,6 +1453,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_042.png
       rect:
@@ -850,6 +1474,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_043.png
       rect:
@@ -864,6 +1495,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_044.png
       rect:
@@ -878,6 +1516,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_045.png
       rect:
@@ -892,6 +1537,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_046.png
       rect:
@@ -906,6 +1558,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_047.png
       rect:
@@ -920,6 +1579,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_048.png
       rect:
@@ -934,6 +1600,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_049.png
       rect:
@@ -948,6 +1621,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_050.png
       rect:
@@ -962,6 +1642,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_051.png
       rect:
@@ -976,6 +1663,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_052.png
       rect:
@@ -990,6 +1684,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_053.png
       rect:
@@ -1004,6 +1705,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_054.png
       rect:
@@ -1018,6 +1726,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_055.png
       rect:
@@ -1032,6 +1747,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_056.png
       rect:
@@ -1046,6 +1768,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_057.png
       rect:
@@ -1060,6 +1789,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_058.png
       rect:
@@ -1074,6 +1810,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_059.png
       rect:
@@ -1088,6 +1831,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_060.png
       rect:
@@ -1102,6 +1852,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_061.png
       rect:
@@ -1116,6 +1873,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_062.png
       rect:
@@ -1130,6 +1894,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_063.png
       rect:
@@ -1144,6 +1915,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_064.png
       rect:
@@ -1158,6 +1936,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_065.png
       rect:
@@ -1172,6 +1957,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_066.png
       rect:
@@ -1186,6 +1978,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_067.png
       rect:
@@ -1200,6 +1999,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_068.png
       rect:
@@ -1214,6 +2020,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_069.png
       rect:
@@ -1228,6 +2041,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_070.png
       rect:
@@ -1242,6 +2062,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_071.png
       rect:
@@ -1256,6 +2083,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_072.png
       rect:
@@ -1270,6 +2104,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_073.png
       rect:
@@ -1284,6 +2125,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_074.png
       rect:
@@ -1298,6 +2146,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_075.png
       rect:
@@ -1312,6 +2167,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_076.png
       rect:
@@ -1326,6 +2188,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_077.png
       rect:
@@ -1340,6 +2209,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_078.png
       rect:
@@ -1354,6 +2230,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_079.png
       rect:
@@ -1368,6 +2251,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_080.png
       rect:
@@ -1382,6 +2272,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_081.png
       rect:
@@ -1396,6 +2293,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_082.png
       rect:
@@ -1410,6 +2314,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_083.png
       rect:
@@ -1424,6 +2335,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_084.png
       rect:
@@ -1438,6 +2356,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6c305410000000000800000000000000
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_085.png
       rect:
@@ -1452,6 +2377,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_086.png
       rect:
@@ -1466,6 +2398,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_087.png
       rect:
@@ -1480,6 +2419,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_088.png
       rect:
@@ -1494,6 +2440,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_089.png
       rect:
@@ -1508,6 +2461,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_090.png
       rect:
@@ -1522,6 +2482,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_091.png
       rect:
@@ -1536,6 +2503,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_092.png
       rect:
@@ -1550,6 +2524,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_093.png
       rect:
@@ -1564,6 +2545,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_094.png
       rect:
@@ -1578,6 +2566,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_095.png
       rect:
@@ -1592,6 +2587,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_096.png
       rect:
@@ -1606,6 +2608,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ed305410000000000800000000000000
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_097.png
       rect:
@@ -1620,6 +2629,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0e305410000000000800000000000000
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_098.png
       rect:
@@ -1634,6 +2650,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_099.png
       rect:
@@ -1648,6 +2671,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_100.png
       rect:
@@ -1662,6 +2692,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_101.png
       rect:
@@ -1676,6 +2713,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_102.png
       rect:
@@ -1690,6 +2734,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_103.png
       rect:
@@ -1704,6 +2755,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ce305410000000000800000000000000
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_104.png
       rect:
@@ -1718,6 +2776,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ee305410000000000800000000000000
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_105.png
       rect:
@@ -1732,6 +2797,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0f305410000000000800000000000000
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_106.png
       rect:
@@ -1746,6 +2818,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2f305410000000000800000000000000
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_107.png
       rect:
@@ -1760,6 +2839,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4f305410000000000800000000000000
+      internalID: 21300212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_108.png
       rect:
@@ -1774,6 +2860,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6f305410000000000800000000000000
+      internalID: 21300214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_109.png
       rect:
@@ -1788,6 +2881,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8f305410000000000800000000000000
+      internalID: 21300216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_110.png
       rect:
@@ -1802,6 +2902,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: af305410000000000800000000000000
+      internalID: 21300218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_111.png
       rect:
@@ -1816,6 +2923,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cf305410000000000800000000000000
+      internalID: 21300220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_112.png
       rect:
@@ -1830,6 +2944,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ef305410000000000800000000000000
+      internalID: 21300222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_113.png
       rect:
@@ -1844,6 +2965,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 00405410000000000800000000000000
+      internalID: 21300224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_114.png
       rect:
@@ -1858,6 +2986,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 20405410000000000800000000000000
+      internalID: 21300226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_115.png
       rect:
@@ -1872,6 +3007,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 40405410000000000800000000000000
+      internalID: 21300228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_116.png
       rect:
@@ -1886,6 +3028,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 60405410000000000800000000000000
+      internalID: 21300230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_117.png
       rect:
@@ -1900,6 +3049,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 80405410000000000800000000000000
+      internalID: 21300232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_118.png
       rect:
@@ -1914,6 +3070,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a0405410000000000800000000000000
+      internalID: 21300234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_119.png
       rect:
@@ -1928,6 +3091,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c0405410000000000800000000000000
+      internalID: 21300236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_120.png
       rect:
@@ -1942,6 +3112,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e0405410000000000800000000000000
+      internalID: 21300238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_121.png
       rect:
@@ -1956,6 +3133,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 01405410000000000800000000000000
+      internalID: 21300240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_122.png
       rect:
@@ -1970,6 +3154,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 21405410000000000800000000000000
+      internalID: 21300242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_123.png
       rect:
@@ -1984,6 +3175,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 41405410000000000800000000000000
+      internalID: 21300244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_124.png
       rect:
@@ -1998,6 +3196,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 61405410000000000800000000000000
+      internalID: 21300246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_125.png
       rect:
@@ -2012,6 +3217,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 81405410000000000800000000000000
+      internalID: 21300248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_126.png
       rect:
@@ -2026,6 +3238,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a1405410000000000800000000000000
+      internalID: 21300250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_127.png
       rect:
@@ -2040,6 +3259,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c1405410000000000800000000000000
+      internalID: 21300252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_128.png
       rect:
@@ -2054,6 +3280,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e1405410000000000800000000000000
+      internalID: 21300254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_129.png
       rect:
@@ -2068,6 +3301,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 02405410000000000800000000000000
+      internalID: 21300256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_130.png
       rect:
@@ -2082,6 +3322,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 22405410000000000800000000000000
+      internalID: 21300258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_131.png
       rect:
@@ -2096,6 +3343,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 42405410000000000800000000000000
+      internalID: 21300260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_132.png
       rect:
@@ -2110,6 +3364,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 62405410000000000800000000000000
+      internalID: 21300262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_133.png
       rect:
@@ -2124,6 +3385,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 82405410000000000800000000000000
+      internalID: 21300264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_134.png
       rect:
@@ -2138,6 +3406,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a2405410000000000800000000000000
+      internalID: 21300266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_135.png
       rect:
@@ -2152,6 +3427,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c2405410000000000800000000000000
+      internalID: 21300268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_136.png
       rect:
@@ -2166,6 +3448,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e2405410000000000800000000000000
+      internalID: 21300270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_137.png
       rect:
@@ -2180,6 +3469,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 03405410000000000800000000000000
+      internalID: 21300272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_138.png
       rect:
@@ -2194,6 +3490,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 23405410000000000800000000000000
+      internalID: 21300274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_139.png
       rect:
@@ -2208,6 +3511,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 43405410000000000800000000000000
+      internalID: 21300276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_140.png
       rect:
@@ -2222,6 +3532,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 63405410000000000800000000000000
+      internalID: 21300278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_141.png
       rect:
@@ -2236,6 +3553,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 83405410000000000800000000000000
+      internalID: 21300280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_142.png
       rect:
@@ -2250,6 +3574,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a3405410000000000800000000000000
+      internalID: 21300282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_143.png
       rect:
@@ -2264,6 +3595,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c3405410000000000800000000000000
+      internalID: 21300284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_144.png
       rect:
@@ -2278,6 +3616,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e3405410000000000800000000000000
+      internalID: 21300286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_145.png
       rect:
@@ -2292,6 +3637,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 04405410000000000800000000000000
+      internalID: 21300288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_146.png
       rect:
@@ -2306,6 +3658,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 24405410000000000800000000000000
+      internalID: 21300290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_147.png
       rect:
@@ -2320,6 +3679,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 44405410000000000800000000000000
+      internalID: 21300292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_148.png
       rect:
@@ -2334,6 +3700,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 64405410000000000800000000000000
+      internalID: 21300294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_149.png
       rect:
@@ -2348,6 +3721,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 84405410000000000800000000000000
+      internalID: 21300296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_150.png
       rect:
@@ -2362,6 +3742,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a4405410000000000800000000000000
+      internalID: 21300298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_151.png
       rect:
@@ -2376,6 +3763,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c4405410000000000800000000000000
+      internalID: 21300300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_152.png
       rect:
@@ -2390,6 +3784,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e4405410000000000800000000000000
+      internalID: 21300302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_153.png
       rect:
@@ -2404,6 +3805,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 05405410000000000800000000000000
+      internalID: 21300304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_154.png
       rect:
@@ -2418,6 +3826,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 25405410000000000800000000000000
+      internalID: 21300306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_155.png
       rect:
@@ -2432,6 +3847,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 45405410000000000800000000000000
+      internalID: 21300308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_156.png
       rect:
@@ -2446,6 +3868,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 65405410000000000800000000000000
+      internalID: 21300310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_157.png
       rect:
@@ -2460,6 +3889,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 85405410000000000800000000000000
+      internalID: 21300312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_158.png
       rect:
@@ -2474,6 +3910,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a5405410000000000800000000000000
+      internalID: 21300314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_159.png
       rect:
@@ -2488,6 +3931,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c5405410000000000800000000000000
+      internalID: 21300316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_160.png
       rect:
@@ -2502,6 +3952,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e5405410000000000800000000000000
+      internalID: 21300318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_161.png
       rect:
@@ -2516,6 +3973,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 06405410000000000800000000000000
+      internalID: 21300320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_162.png
       rect:
@@ -2530,6 +3994,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 26405410000000000800000000000000
+      internalID: 21300322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: genericItem_color_163.png
       rect:
@@ -2544,9 +4015,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 46405410000000000800000000000000
+      internalID: 21300324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

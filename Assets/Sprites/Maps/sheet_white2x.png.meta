@@ -1,92 +1,252 @@
 fileFormatVersion: 2
 guid: 6af49a939180f4683b1b7b199ff74210
-timeCreated: 1531983568
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: DPAD.png
-    21300002: DPAD_all.png
-    21300004: DPAD_down.png
-    21300006: DPAD_left.png
-    21300008: DPAD_right.png
-    21300010: DPAD_up.png
-    21300012: car.png
-    21300014: cloud.png
-    21300016: cloudUpload.png
-    21300018: coin.png
-    21300020: controllerTilt.png
-    21300022: controllerTilt_left.png
-    21300024: controllerTilt_right.png
-    21300026: cpu.png
-    21300028: cursor.png
-    21300030: deviceTilt.png
-    21300032: deviceTilt_left.png
-    21300034: deviceTilt_right.png
-    21300036: diamond.png
-    21300038: download.png
-    21300040: fightFist.png
-    21300042: fightFist_circle.png
-    21300044: fightJ.png
-    21300046: fightJoy_00.png
-    21300048: fightJoy_01.png
-    21300050: fightJoy_02.png
-    21300052: fightJoy_03.png
-    21300054: fightJoy_04.png
-    21300056: fightJoy_05.png
-    21300058: fightJoy_06.png
-    21300060: fightJoy_07.png
-    21300062: fightJoy_08.png
-    21300064: fightJoy_09.png
-    21300066: fightJoy_10.png
-    21300068: fightJoy_11.png
-    21300070: fightJoy_12.png
-    21300072: fightJoy_13.png
-    21300074: fightJoy_14.png
-    21300076: fightJoy_15.png
-    21300078: fightJoy_16.png
-    21300080: fightJoy_17.png
-    21300082: fightJoy_18.png
-    21300084: fightJoy_19.png
-    21300086: fightJoy_20.png
-    21300088: fightJoy_21.png
-    21300090: fightJoy_22.png
-    21300092: fightJoy_23.png
-    21300094: fightJoy_24.png
-    21300096: fightJoy_25.png
-    21300098: fightJoy_26.png
-    21300100: fightJoy_27.png
-    21300102: fightJoy_28.png
-    21300104: fightJoy_29.png
-    21300106: fightJoy_30.png
-    21300108: fightJoy_31.png
-    21300110: fightPlus.png
-    21300112: figurine.png
-    21300114: flag.png
-    21300116: joystick.png
-    21300118: joystickL_side.png
-    21300120: joystickL_top.png
-    21300122: joystickLeft.png
-    21300124: joystickR_side.png
-    21300126: joystickR_top.png
-    21300128: joystickRight.png
-    21300130: key.png
-    21300132: keyLarge.png
-    21300134: keyLarge_3d.png
-    21300136: keySmall.png
-    21300138: keySmall_3d.png
-    21300140: mouse.png
-    21300142: mouseLeft.png
-    21300144: mouseMiddle.png
-    21300146: mouseRight.png
-    21300148: pointer.png
-    21300150: toolBrush.png
-    21300152: toolEraser.png
-    21300154: toolFill.png
-    21300156: toolPencil.png
-    21300158: upload.png
-    21300160: userRobot.png
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: DPAD.png
+  - first:
+      213: 21300002
+    second: DPAD_all.png
+  - first:
+      213: 21300004
+    second: DPAD_down.png
+  - first:
+      213: 21300006
+    second: DPAD_left.png
+  - first:
+      213: 21300008
+    second: DPAD_right.png
+  - first:
+      213: 21300010
+    second: DPAD_up.png
+  - first:
+      213: 21300012
+    second: car.png
+  - first:
+      213: 21300014
+    second: cloud.png
+  - first:
+      213: 21300016
+    second: cloudUpload.png
+  - first:
+      213: 21300018
+    second: coin.png
+  - first:
+      213: 21300020
+    second: controllerTilt.png
+  - first:
+      213: 21300022
+    second: controllerTilt_left.png
+  - first:
+      213: 21300024
+    second: controllerTilt_right.png
+  - first:
+      213: 21300026
+    second: cpu.png
+  - first:
+      213: 21300028
+    second: cursor.png
+  - first:
+      213: 21300030
+    second: deviceTilt.png
+  - first:
+      213: 21300032
+    second: deviceTilt_left.png
+  - first:
+      213: 21300034
+    second: deviceTilt_right.png
+  - first:
+      213: 21300036
+    second: diamond.png
+  - first:
+      213: 21300038
+    second: download.png
+  - first:
+      213: 21300040
+    second: fightFist.png
+  - first:
+      213: 21300042
+    second: fightFist_circle.png
+  - first:
+      213: 21300044
+    second: fightJ.png
+  - first:
+      213: 21300046
+    second: fightJoy_00.png
+  - first:
+      213: 21300048
+    second: fightJoy_01.png
+  - first:
+      213: 21300050
+    second: fightJoy_02.png
+  - first:
+      213: 21300052
+    second: fightJoy_03.png
+  - first:
+      213: 21300054
+    second: fightJoy_04.png
+  - first:
+      213: 21300056
+    second: fightJoy_05.png
+  - first:
+      213: 21300058
+    second: fightJoy_06.png
+  - first:
+      213: 21300060
+    second: fightJoy_07.png
+  - first:
+      213: 21300062
+    second: fightJoy_08.png
+  - first:
+      213: 21300064
+    second: fightJoy_09.png
+  - first:
+      213: 21300066
+    second: fightJoy_10.png
+  - first:
+      213: 21300068
+    second: fightJoy_11.png
+  - first:
+      213: 21300070
+    second: fightJoy_12.png
+  - first:
+      213: 21300072
+    second: fightJoy_13.png
+  - first:
+      213: 21300074
+    second: fightJoy_14.png
+  - first:
+      213: 21300076
+    second: fightJoy_15.png
+  - first:
+      213: 21300078
+    second: fightJoy_16.png
+  - first:
+      213: 21300080
+    second: fightJoy_17.png
+  - first:
+      213: 21300082
+    second: fightJoy_18.png
+  - first:
+      213: 21300084
+    second: fightJoy_19.png
+  - first:
+      213: 21300086
+    second: fightJoy_20.png
+  - first:
+      213: 21300088
+    second: fightJoy_21.png
+  - first:
+      213: 21300090
+    second: fightJoy_22.png
+  - first:
+      213: 21300092
+    second: fightJoy_23.png
+  - first:
+      213: 21300094
+    second: fightJoy_24.png
+  - first:
+      213: 21300096
+    second: fightJoy_25.png
+  - first:
+      213: 21300098
+    second: fightJoy_26.png
+  - first:
+      213: 21300100
+    second: fightJoy_27.png
+  - first:
+      213: 21300102
+    second: fightJoy_28.png
+  - first:
+      213: 21300104
+    second: fightJoy_29.png
+  - first:
+      213: 21300106
+    second: fightJoy_30.png
+  - first:
+      213: 21300108
+    second: fightJoy_31.png
+  - first:
+      213: 21300110
+    second: fightPlus.png
+  - first:
+      213: 21300112
+    second: figurine.png
+  - first:
+      213: 21300114
+    second: flag.png
+  - first:
+      213: 21300116
+    second: joystick.png
+  - first:
+      213: 21300118
+    second: joystickL_side.png
+  - first:
+      213: 21300120
+    second: joystickL_top.png
+  - first:
+      213: 21300122
+    second: joystickLeft.png
+  - first:
+      213: 21300124
+    second: joystickR_side.png
+  - first:
+      213: 21300126
+    second: joystickR_top.png
+  - first:
+      213: 21300128
+    second: joystickRight.png
+  - first:
+      213: 21300130
+    second: key.png
+  - first:
+      213: 21300132
+    second: keyLarge.png
+  - first:
+      213: 21300134
+    second: keyLarge_3d.png
+  - first:
+      213: 21300136
+    second: keySmall.png
+  - first:
+      213: 21300138
+    second: keySmall_3d.png
+  - first:
+      213: 21300140
+    second: mouse.png
+  - first:
+      213: 21300142
+    second: mouseLeft.png
+  - first:
+      213: 21300144
+    second: mouseMiddle.png
+  - first:
+      213: 21300146
+    second: mouseRight.png
+  - first:
+      213: 21300148
+    second: pointer.png
+  - first:
+      213: 21300150
+    second: toolBrush.png
+  - first:
+      213: 21300152
+    second: toolEraser.png
+  - first:
+      213: 21300154
+    second: toolFill.png
+  - first:
+      213: 21300156
+    second: toolPencil.png
+  - first:
+      213: 21300158
+    second: upload.png
+  - first:
+      213: 21300160
+    second: userRobot.png
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -104,6 +264,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -114,7 +276,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -126,18 +288,22 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -147,7 +313,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -157,7 +325,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Android
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -167,7 +337,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -177,6 +349,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -194,6 +367,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DPAD_all.png
       rect:
@@ -208,6 +388,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DPAD_down.png
       rect:
@@ -222,6 +409,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DPAD_left.png
       rect:
@@ -236,6 +430,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DPAD_right.png
       rect:
@@ -250,6 +451,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: DPAD_up.png
       rect:
@@ -264,6 +472,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: car.png
       rect:
@@ -278,6 +493,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: cloud.png
       rect:
@@ -292,6 +514,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: cloudUpload.png
       rect:
@@ -306,6 +535,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: coin.png
       rect:
@@ -320,6 +556,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: controllerTilt.png
       rect:
@@ -334,6 +577,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: controllerTilt_left.png
       rect:
@@ -348,6 +598,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: controllerTilt_right.png
       rect:
@@ -362,6 +619,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: cpu.png
       rect:
@@ -376,6 +640,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: cursor.png
       rect:
@@ -390,6 +661,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: deviceTilt.png
       rect:
@@ -404,6 +682,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: deviceTilt_left.png
       rect:
@@ -418,6 +703,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: deviceTilt_right.png
       rect:
@@ -432,6 +724,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: diamond.png
       rect:
@@ -446,6 +745,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: download.png
       rect:
@@ -460,6 +766,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightFist.png
       rect:
@@ -474,6 +787,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightFist_circle.png
       rect:
@@ -488,6 +808,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJ.png
       rect:
@@ -502,6 +829,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_00.png
       rect:
@@ -516,6 +850,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_01.png
       rect:
@@ -530,6 +871,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_02.png
       rect:
@@ -544,6 +892,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_03.png
       rect:
@@ -558,6 +913,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_04.png
       rect:
@@ -572,6 +934,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_05.png
       rect:
@@ -586,6 +955,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_06.png
       rect:
@@ -600,6 +976,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_07.png
       rect:
@@ -614,6 +997,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_08.png
       rect:
@@ -628,6 +1018,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_09.png
       rect:
@@ -642,6 +1039,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_10.png
       rect:
@@ -656,6 +1060,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_11.png
       rect:
@@ -670,6 +1081,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_12.png
       rect:
@@ -684,6 +1102,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_13.png
       rect:
@@ -698,6 +1123,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_14.png
       rect:
@@ -712,6 +1144,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_15.png
       rect:
@@ -726,6 +1165,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_16.png
       rect:
@@ -740,6 +1186,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_17.png
       rect:
@@ -754,6 +1207,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_18.png
       rect:
@@ -768,6 +1228,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_19.png
       rect:
@@ -782,6 +1249,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_20.png
       rect:
@@ -796,6 +1270,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_21.png
       rect:
@@ -810,6 +1291,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_22.png
       rect:
@@ -824,6 +1312,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_23.png
       rect:
@@ -838,6 +1333,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_24.png
       rect:
@@ -852,6 +1354,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_25.png
       rect:
@@ -866,6 +1375,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_26.png
       rect:
@@ -880,6 +1396,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_27.png
       rect:
@@ -894,6 +1417,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_28.png
       rect:
@@ -908,6 +1438,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_29.png
       rect:
@@ -922,6 +1459,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_30.png
       rect:
@@ -936,6 +1480,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightJoy_31.png
       rect:
@@ -950,6 +1501,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fightPlus.png
       rect:
@@ -964,6 +1522,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: figurine.png
       rect:
@@ -978,6 +1543,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: flag.png
       rect:
@@ -992,6 +1564,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystick.png
       rect:
@@ -1006,6 +1585,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystickL_side.png
       rect:
@@ -1020,6 +1606,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystickL_top.png
       rect:
@@ -1034,6 +1627,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystickLeft.png
       rect:
@@ -1048,6 +1648,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystickR_side.png
       rect:
@@ -1062,6 +1669,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystickR_top.png
       rect:
@@ -1076,6 +1690,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: joystickRight.png
       rect:
@@ -1090,6 +1711,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: key.png
       rect:
@@ -1104,6 +1732,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: keyLarge.png
       rect:
@@ -1118,6 +1753,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: keyLarge_3d.png
       rect:
@@ -1132,6 +1774,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: keySmall.png
       rect:
@@ -1146,6 +1795,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: keySmall_3d.png
       rect:
@@ -1160,6 +1816,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: mouse.png
       rect:
@@ -1174,6 +1837,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: mouseLeft.png
       rect:
@@ -1188,6 +1858,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: mouseMiddle.png
       rect:
@@ -1202,6 +1879,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: mouseRight.png
       rect:
@@ -1216,6 +1900,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: pointer.png
       rect:
@@ -1230,6 +1921,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: toolBrush.png
       rect:
@@ -1244,6 +1942,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: toolEraser.png
       rect:
@@ -1258,6 +1963,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: toolFill.png
       rect:
@@ -1272,6 +1984,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: toolPencil.png
       rect:
@@ -1286,6 +2005,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: upload.png
       rect:
@@ -1300,6 +2026,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: userRobot.png
       rect:
@@ -1314,9 +2047,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

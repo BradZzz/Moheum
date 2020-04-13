@@ -40,7 +40,7 @@ using UnityEngine;
 #endregion
 
 /// <summary>
-/// <para>Version: 2.0.7</para>	 
+/// <para>Version: 2.0.8</para>	 
 /// <para>Author: Bob Berkebile (http://pixelplacement.com)</para>
 /// <para>Support: http://itween.pixelplacement.com</para>
 /// </summary>
@@ -4012,7 +4012,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.position;
 		if(physics){
-			thisTransform.position=preUpdate;
+			//thisTransform.position=preUpdate;
 			GetComponent<Rigidbody>().MovePosition(postUpdate);
 		}
 	}
@@ -4046,7 +4046,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.position;
 		if(physics){
-			thisTransform.position=preUpdate;
+			//thisTransform.position=preUpdate;
 			GetComponent<Rigidbody>().MovePosition(postUpdate);
 		}
 	}	
@@ -4088,7 +4088,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.position;
 		if(physics){
-			thisTransform.position=preUpdate;
+			//thisTransform.position=preUpdate;
 			GetComponent<Rigidbody>().MovePosition(postUpdate);
 		}
 	}	
@@ -4149,7 +4149,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.eulerAngles;
 		if(physics){
-			thisTransform.eulerAngles=preUpdate;
+			//thisTransform.eulerAngles=preUpdate;
 			GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(postUpdate));
 		}
 	}
@@ -4171,7 +4171,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.eulerAngles;
 		if(physics){
-			thisTransform.eulerAngles=preUpdate;
+			//thisTransform.eulerAngles=preUpdate;
 			GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(postUpdate));
 		}		
 	}	
@@ -4227,7 +4227,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.position;
 		if(physics){
-			thisTransform.position=preUpdate;
+			//thisTransform.position=preUpdate;
 			GetComponent<Rigidbody>().MovePosition(postUpdate);
 		}
 	}	
@@ -4274,7 +4274,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.eulerAngles;
 		if(physics){
-			thisTransform.eulerAngles=preUpdate;
+			//thisTransform.eulerAngles=preUpdate;
 			GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(postUpdate));
 		}
 	}		
@@ -4328,7 +4328,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.position;
 		if(physics){
-			thisTransform.position=preUpdate;
+			//thisTransform.position=preUpdate;
 			GetComponent<Rigidbody>().MovePosition(postUpdate);
 		}
 	}		
@@ -4369,7 +4369,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		postUpdate=thisTransform.eulerAngles;
 		if(physics){
-			thisTransform.eulerAngles=preUpdate;
+			//thisTransform.eulerAngles=preUpdate;
 			GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(postUpdate));
 		}
 	}	
@@ -4881,7 +4881,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		if(target.GetComponent<Rigidbody>() != null){
 			Vector3 postUpdate=target.transform.eulerAngles;
-			target.transform.eulerAngles=preUpdate;
+			//target.transform.eulerAngles=preUpdate;
 			target.GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(postUpdate));
 		}
 	}
@@ -5090,7 +5090,7 @@ public class iTween : MonoBehaviour
 		//need physics?
 		if(target.GetComponent<Rigidbody>() != null){
 			Vector3 postUpdate=target.transform.position;
-			target.transform.position=preUpdate;
+			//target.transform.position=preUpdate;
 			target.GetComponent<Rigidbody>().MovePosition(postUpdate);
 		}
 	}

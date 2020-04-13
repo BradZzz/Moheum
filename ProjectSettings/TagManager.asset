@@ -47,6 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
+  - name: Background
     uniqueID: 3518991521
+    locked: 0
+  - name: UI
+    uniqueID: 673761839
+    locked: 0
+  - name: Jewel
+    uniqueID: 3706810901
     locked: 0

@@ -1,203 +1,585 @@
 fileFormatVersion: 2
 guid: b5875e07c7e144e92bba4871c3f53142
-timeCreated: 1531684829
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: rpg_heros_0
-    21300002: rpg_heros_1
-    21300004: rpg_heros_2
-    21300006: rpg_heros_3
-    21300008: rpg_heros_4
-    21300010: rpg_heros_5
-    21300012: rpg_heros_6
-    21300014: rpg_heros_7
-    21300016: rpg_heros_8
-    21300018: rpg_heros_9
-    21300020: rpg_heros_10
-    21300022: rpg_heros_11
-    21300024: rpg_heros_12
-    21300026: rpg_heros_13
-    21300028: rpg_heros_14
-    21300030: rpg_heros_15
-    21300032: rpg_heros_16
-    21300034: rpg_heros_17
-    21300036: rpg_heros_18
-    21300038: rpg_heros_19
-    21300040: rpg_heros_20
-    21300042: rpg_heros_21
-    21300044: rpg_heros_22
-    21300046: rpg_heros_23
-    21300048: rpg_heros_24
-    21300050: rpg_heros_25
-    21300052: rpg_heros_26
-    21300054: rpg_heros_27
-    21300056: rpg_heros_28
-    21300058: rpg_heros_29
-    21300060: rpg_heros_30
-    21300062: rpg_heros_31
-    21300064: rpg_heros_32
-    21300066: rpg_heros_33
-    21300068: rpg_heros_34
-    21300070: rpg_heros_35
-    21300072: rpg_heros_36
-    21300074: rpg_heros_37
-    21300076: rpg_heros_38
-    21300078: rpg_heros_39
-    21300080: rpg_heros_40
-    21300082: rpg_heros_41
-    21300084: rpg_heros_42
-    21300086: rpg_heros_43
-    21300088: rpg_heros_44
-    21300090: rpg_heros_45
-    21300092: rpg_heros_46
-    21300094: rpg_heros_47
-    21300096: rpg_heros_48
-    21300098: rpg_heros_49
-    21300100: rpg_heros_50
-    21300102: rpg_heros_51
-    21300104: rpg_heros_52
-    21300106: rpg_heros_53
-    21300108: rpg_heros_54
-    21300110: rpg_heros_55
-    21300112: rpg_heros_56
-    21300114: rpg_heros_57
-    21300116: rpg_heros_58
-    21300118: rpg_heros_59
-    21300120: rpg_heros_60
-    21300122: rpg_heros_61
-    21300124: rpg_heros_62
-    21300126: rpg_heros_63
-    21300128: rpg_heros_64
-    21300130: rpg_heros_65
-    21300132: rpg_heros_66
-    21300134: rpg_heros_67
-    21300136: rpg_heros_68
-    21300138: rpg_heros_69
-    21300140: rpg_heros_70
-    21300142: rpg_heros_71
-    21300144: rpg_heros_72
-    21300146: rpg_heros_73
-    21300148: rpg_heros_74
-    21300150: rpg_heros_75
-    21300152: rpg_heros_76
-    21300154: rpg_heros_77
-    21300156: rpg_heros_78
-    21300158: rpg_heros_79
-    21300160: rpg_heros_80
-    21300162: rpg_heros_81
-    21300164: rpg_heros_82
-    21300166: rpg_heros_83
-    21300168: rpg_heros_84
-    21300170: rpg_heros_85
-    21300172: rpg_heros_86
-    21300174: rpg_heros_87
-    21300176: rpg_heros_88
-    21300178: rpg_heros_89
-    21300180: rpg_heros_90
-    21300182: rpg_heros_91
-    21300184: rpg_heros_92
-    21300186: rpg_heros_93
-    21300188: rpg_heros_94
-    21300190: rpg_heros_95
-    21300192: rpg_heros_96
-    21300194: rpg_heros_97
-    21300196: rpg_heros_98
-    21300198: rpg_heros_99
-    21300200: rpg_heros_100
-    21300202: rpg_heros_101
-    21300204: rpg_heros_102
-    21300206: rpg_heros_103
-    21300208: rpg_heros_104
-    21300210: rpg_heros_105
-    21300212: rpg_heros_106
-    21300214: rpg_heros_107
-    21300216: rpg_heros_108
-    21300218: rpg_heros_109
-    21300220: rpg_heros_110
-    21300222: rpg_heros_111
-    21300224: rpg_heros_112
-    21300226: rpg_heros_113
-    21300228: rpg_heros_114
-    21300230: rpg_heros_115
-    21300232: rpg_heros_116
-    21300234: rpg_heros_117
-    21300236: rpg_heros_118
-    21300238: rpg_heros_119
-    21300240: rpg_heros_120
-    21300242: rpg_heros_121
-    21300244: rpg_heros_122
-    21300246: rpg_heros_123
-    21300248: rpg_heros_124
-    21300250: rpg_heros_125
-    21300252: rpg_heros_126
-    21300254: rpg_heros_127
-    21300256: rpg_heros_128
-    21300258: rpg_heros_129
-    21300260: rpg_heros_130
-    21300262: rpg_heros_131
-    21300264: rpg_heros_132
-    21300266: rpg_heros_133
-    21300268: rpg_heros_134
-    21300270: rpg_heros_135
-    21300272: rpg_heros_136
-    21300274: rpg_heros_137
-    21300276: rpg_heros_138
-    21300278: rpg_heros_139
-    21300280: rpg_heros_140
-    21300282: rpg_heros_141
-    21300284: rpg_heros_142
-    21300286: rpg_heros_143
-    21300288: rpg_heros_144
-    21300290: rpg_heros_145
-    21300292: rpg_heros_146
-    21300294: rpg_heros_147
-    21300296: rpg_heros_148
-    21300298: rpg_heros_149
-    21300300: rpg_heros_150
-    21300302: rpg_heros_151
-    21300304: rpg_heros_152
-    21300306: rpg_heros_153
-    21300308: rpg_heros_154
-    21300310: rpg_heros_155
-    21300312: rpg_heros_156
-    21300314: rpg_heros_157
-    21300316: rpg_heros_158
-    21300318: rpg_heros_159
-    21300320: rpg_heros_160
-    21300322: rpg_heros_161
-    21300324: rpg_heros_162
-    21300326: rpg_heros_163
-    21300328: rpg_heros_164
-    21300330: rpg_heros_165
-    21300332: rpg_heros_166
-    21300334: rpg_heros_167
-    21300336: rpg_heros_168
-    21300338: rpg_heros_169
-    21300340: rpg_heros_170
-    21300342: rpg_heros_171
-    21300344: rpg_heros_172
-    21300346: rpg_heros_173
-    21300348: rpg_heros_174
-    21300350: rpg_heros_175
-    21300352: rpg_heros_176
-    21300354: rpg_heros_177
-    21300356: rpg_heros_178
-    21300358: rpg_heros_179
-    21300360: rpg_heros_180
-    21300362: rpg_heros_181
-    21300364: rpg_heros_182
-    21300366: rpg_heros_183
-    21300368: rpg_heros_184
-    21300370: rpg_heros_185
-    21300372: rpg_heros_186
-    21300374: rpg_heros_187
-    21300376: rpg_heros_188
-    21300378: rpg_heros_189
-    21300380: rpg_heros_190
-    21300382: rpg_heros_191
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: rpg_heros_0
+  - first:
+      213: 21300002
+    second: rpg_heros_1
+  - first:
+      213: 21300004
+    second: rpg_heros_2
+  - first:
+      213: 21300006
+    second: rpg_heros_3
+  - first:
+      213: 21300008
+    second: rpg_heros_4
+  - first:
+      213: 21300010
+    second: rpg_heros_5
+  - first:
+      213: 21300012
+    second: rpg_heros_6
+  - first:
+      213: 21300014
+    second: rpg_heros_7
+  - first:
+      213: 21300016
+    second: rpg_heros_8
+  - first:
+      213: 21300018
+    second: rpg_heros_9
+  - first:
+      213: 21300020
+    second: rpg_heros_10
+  - first:
+      213: 21300022
+    second: rpg_heros_11
+  - first:
+      213: 21300024
+    second: rpg_heros_12
+  - first:
+      213: 21300026
+    second: rpg_heros_13
+  - first:
+      213: 21300028
+    second: rpg_heros_14
+  - first:
+      213: 21300030
+    second: rpg_heros_15
+  - first:
+      213: 21300032
+    second: rpg_heros_16
+  - first:
+      213: 21300034
+    second: rpg_heros_17
+  - first:
+      213: 21300036
+    second: rpg_heros_18
+  - first:
+      213: 21300038
+    second: rpg_heros_19
+  - first:
+      213: 21300040
+    second: rpg_heros_20
+  - first:
+      213: 21300042
+    second: rpg_heros_21
+  - first:
+      213: 21300044
+    second: rpg_heros_22
+  - first:
+      213: 21300046
+    second: rpg_heros_23
+  - first:
+      213: 21300048
+    second: rpg_heros_24
+  - first:
+      213: 21300050
+    second: rpg_heros_25
+  - first:
+      213: 21300052
+    second: rpg_heros_26
+  - first:
+      213: 21300054
+    second: rpg_heros_27
+  - first:
+      213: 21300056
+    second: rpg_heros_28
+  - first:
+      213: 21300058
+    second: rpg_heros_29
+  - first:
+      213: 21300060
+    second: rpg_heros_30
+  - first:
+      213: 21300062
+    second: rpg_heros_31
+  - first:
+      213: 21300064
+    second: rpg_heros_32
+  - first:
+      213: 21300066
+    second: rpg_heros_33
+  - first:
+      213: 21300068
+    second: rpg_heros_34
+  - first:
+      213: 21300070
+    second: rpg_heros_35
+  - first:
+      213: 21300072
+    second: rpg_heros_36
+  - first:
+      213: 21300074
+    second: rpg_heros_37
+  - first:
+      213: 21300076
+    second: rpg_heros_38
+  - first:
+      213: 21300078
+    second: rpg_heros_39
+  - first:
+      213: 21300080
+    second: rpg_heros_40
+  - first:
+      213: 21300082
+    second: rpg_heros_41
+  - first:
+      213: 21300084
+    second: rpg_heros_42
+  - first:
+      213: 21300086
+    second: rpg_heros_43
+  - first:
+      213: 21300088
+    second: rpg_heros_44
+  - first:
+      213: 21300090
+    second: rpg_heros_45
+  - first:
+      213: 21300092
+    second: rpg_heros_46
+  - first:
+      213: 21300094
+    second: rpg_heros_47
+  - first:
+      213: 21300096
+    second: rpg_heros_48
+  - first:
+      213: 21300098
+    second: rpg_heros_49
+  - first:
+      213: 21300100
+    second: rpg_heros_50
+  - first:
+      213: 21300102
+    second: rpg_heros_51
+  - first:
+      213: 21300104
+    second: rpg_heros_52
+  - first:
+      213: 21300106
+    second: rpg_heros_53
+  - first:
+      213: 21300108
+    second: rpg_heros_54
+  - first:
+      213: 21300110
+    second: rpg_heros_55
+  - first:
+      213: 21300112
+    second: rpg_heros_56
+  - first:
+      213: 21300114
+    second: rpg_heros_57
+  - first:
+      213: 21300116
+    second: rpg_heros_58
+  - first:
+      213: 21300118
+    second: rpg_heros_59
+  - first:
+      213: 21300120
+    second: rpg_heros_60
+  - first:
+      213: 21300122
+    second: rpg_heros_61
+  - first:
+      213: 21300124
+    second: rpg_heros_62
+  - first:
+      213: 21300126
+    second: rpg_heros_63
+  - first:
+      213: 21300128
+    second: rpg_heros_64
+  - first:
+      213: 21300130
+    second: rpg_heros_65
+  - first:
+      213: 21300132
+    second: rpg_heros_66
+  - first:
+      213: 21300134
+    second: rpg_heros_67
+  - first:
+      213: 21300136
+    second: rpg_heros_68
+  - first:
+      213: 21300138
+    second: rpg_heros_69
+  - first:
+      213: 21300140
+    second: rpg_heros_70
+  - first:
+      213: 21300142
+    second: rpg_heros_71
+  - first:
+      213: 21300144
+    second: rpg_heros_72
+  - first:
+      213: 21300146
+    second: rpg_heros_73
+  - first:
+      213: 21300148
+    second: rpg_heros_74
+  - first:
+      213: 21300150
+    second: rpg_heros_75
+  - first:
+      213: 21300152
+    second: rpg_heros_76
+  - first:
+      213: 21300154
+    second: rpg_heros_77
+  - first:
+      213: 21300156
+    second: rpg_heros_78
+  - first:
+      213: 21300158
+    second: rpg_heros_79
+  - first:
+      213: 21300160
+    second: rpg_heros_80
+  - first:
+      213: 21300162
+    second: rpg_heros_81
+  - first:
+      213: 21300164
+    second: rpg_heros_82
+  - first:
+      213: 21300166
+    second: rpg_heros_83
+  - first:
+      213: 21300168
+    second: rpg_heros_84
+  - first:
+      213: 21300170
+    second: rpg_heros_85
+  - first:
+      213: 21300172
+    second: rpg_heros_86
+  - first:
+      213: 21300174
+    second: rpg_heros_87
+  - first:
+      213: 21300176
+    second: rpg_heros_88
+  - first:
+      213: 21300178
+    second: rpg_heros_89
+  - first:
+      213: 21300180
+    second: rpg_heros_90
+  - first:
+      213: 21300182
+    second: rpg_heros_91
+  - first:
+      213: 21300184
+    second: rpg_heros_92
+  - first:
+      213: 21300186
+    second: rpg_heros_93
+  - first:
+      213: 21300188
+    second: rpg_heros_94
+  - first:
+      213: 21300190
+    second: rpg_heros_95
+  - first:
+      213: 21300192
+    second: rpg_heros_96
+  - first:
+      213: 21300194
+    second: rpg_heros_97
+  - first:
+      213: 21300196
+    second: rpg_heros_98
+  - first:
+      213: 21300198
+    second: rpg_heros_99
+  - first:
+      213: 21300200
+    second: rpg_heros_100
+  - first:
+      213: 21300202
+    second: rpg_heros_101
+  - first:
+      213: 21300204
+    second: rpg_heros_102
+  - first:
+      213: 21300206
+    second: rpg_heros_103
+  - first:
+      213: 21300208
+    second: rpg_heros_104
+  - first:
+      213: 21300210
+    second: rpg_heros_105
+  - first:
+      213: 21300212
+    second: rpg_heros_106
+  - first:
+      213: 21300214
+    second: rpg_heros_107
+  - first:
+      213: 21300216
+    second: rpg_heros_108
+  - first:
+      213: 21300218
+    second: rpg_heros_109
+  - first:
+      213: 21300220
+    second: rpg_heros_110
+  - first:
+      213: 21300222
+    second: rpg_heros_111
+  - first:
+      213: 21300224
+    second: rpg_heros_112
+  - first:
+      213: 21300226
+    second: rpg_heros_113
+  - first:
+      213: 21300228
+    second: rpg_heros_114
+  - first:
+      213: 21300230
+    second: rpg_heros_115
+  - first:
+      213: 21300232
+    second: rpg_heros_116
+  - first:
+      213: 21300234
+    second: rpg_heros_117
+  - first:
+      213: 21300236
+    second: rpg_heros_118
+  - first:
+      213: 21300238
+    second: rpg_heros_119
+  - first:
+      213: 21300240
+    second: rpg_heros_120
+  - first:
+      213: 21300242
+    second: rpg_heros_121
+  - first:
+      213: 21300244
+    second: rpg_heros_122
+  - first:
+      213: 21300246
+    second: rpg_heros_123
+  - first:
+      213: 21300248
+    second: rpg_heros_124
+  - first:
+      213: 21300250
+    second: rpg_heros_125
+  - first:
+      213: 21300252
+    second: rpg_heros_126
+  - first:
+      213: 21300254
+    second: rpg_heros_127
+  - first:
+      213: 21300256
+    second: rpg_heros_128
+  - first:
+      213: 21300258
+    second: rpg_heros_129
+  - first:
+      213: 21300260
+    second: rpg_heros_130
+  - first:
+      213: 21300262
+    second: rpg_heros_131
+  - first:
+      213: 21300264
+    second: rpg_heros_132
+  - first:
+      213: 21300266
+    second: rpg_heros_133
+  - first:
+      213: 21300268
+    second: rpg_heros_134
+  - first:
+      213: 21300270
+    second: rpg_heros_135
+  - first:
+      213: 21300272
+    second: rpg_heros_136
+  - first:
+      213: 21300274
+    second: rpg_heros_137
+  - first:
+      213: 21300276
+    second: rpg_heros_138
+  - first:
+      213: 21300278
+    second: rpg_heros_139
+  - first:
+      213: 21300280
+    second: rpg_heros_140
+  - first:
+      213: 21300282
+    second: rpg_heros_141
+  - first:
+      213: 21300284
+    second: rpg_heros_142
+  - first:
+      213: 21300286
+    second: rpg_heros_143
+  - first:
+      213: 21300288
+    second: rpg_heros_144
+  - first:
+      213: 21300290
+    second: rpg_heros_145
+  - first:
+      213: 21300292
+    second: rpg_heros_146
+  - first:
+      213: 21300294
+    second: rpg_heros_147
+  - first:
+      213: 21300296
+    second: rpg_heros_148
+  - first:
+      213: 21300298
+    second: rpg_heros_149
+  - first:
+      213: 21300300
+    second: rpg_heros_150
+  - first:
+      213: 21300302
+    second: rpg_heros_151
+  - first:
+      213: 21300304
+    second: rpg_heros_152
+  - first:
+      213: 21300306
+    second: rpg_heros_153
+  - first:
+      213: 21300308
+    second: rpg_heros_154
+  - first:
+      213: 21300310
+    second: rpg_heros_155
+  - first:
+      213: 21300312
+    second: rpg_heros_156
+  - first:
+      213: 21300314
+    second: rpg_heros_157
+  - first:
+      213: 21300316
+    second: rpg_heros_158
+  - first:
+      213: 21300318
+    second: rpg_heros_159
+  - first:
+      213: 21300320
+    second: rpg_heros_160
+  - first:
+      213: 21300322
+    second: rpg_heros_161
+  - first:
+      213: 21300324
+    second: rpg_heros_162
+  - first:
+      213: 21300326
+    second: rpg_heros_163
+  - first:
+      213: 21300328
+    second: rpg_heros_164
+  - first:
+      213: 21300330
+    second: rpg_heros_165
+  - first:
+      213: 21300332
+    second: rpg_heros_166
+  - first:
+      213: 21300334
+    second: rpg_heros_167
+  - first:
+      213: 21300336
+    second: rpg_heros_168
+  - first:
+      213: 21300338
+    second: rpg_heros_169
+  - first:
+      213: 21300340
+    second: rpg_heros_170
+  - first:
+      213: 21300342
+    second: rpg_heros_171
+  - first:
+      213: 21300344
+    second: rpg_heros_172
+  - first:
+      213: 21300346
+    second: rpg_heros_173
+  - first:
+      213: 21300348
+    second: rpg_heros_174
+  - first:
+      213: 21300350
+    second: rpg_heros_175
+  - first:
+      213: 21300352
+    second: rpg_heros_176
+  - first:
+      213: 21300354
+    second: rpg_heros_177
+  - first:
+      213: 21300356
+    second: rpg_heros_178
+  - first:
+      213: 21300358
+    second: rpg_heros_179
+  - first:
+      213: 21300360
+    second: rpg_heros_180
+  - first:
+      213: 21300362
+    second: rpg_heros_181
+  - first:
+      213: 21300364
+    second: rpg_heros_182
+  - first:
+      213: 21300366
+    second: rpg_heros_183
+  - first:
+      213: 21300368
+    second: rpg_heros_184
+  - first:
+      213: 21300370
+    second: rpg_heros_185
+  - first:
+      213: 21300372
+    second: rpg_heros_186
+  - first:
+      213: 21300374
+    second: rpg_heros_187
+  - first:
+      213: 21300376
+    second: rpg_heros_188
+  - first:
+      213: 21300378
+    second: rpg_heros_189
+  - first:
+      213: 21300380
+    second: rpg_heros_190
+  - first:
+      213: 21300382
+    second: rpg_heros_191
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -215,6 +597,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -225,7 +609,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -237,18 +621,22 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -258,7 +646,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -268,7 +658,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Android
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -278,7 +670,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -288,6 +682,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -305,6 +700,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_1
       rect:
@@ -319,6 +721,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_2
       rect:
@@ -333,6 +742,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_3
       rect:
@@ -347,6 +763,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_4
       rect:
@@ -361,6 +784,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_5
       rect:
@@ -375,6 +805,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_6
       rect:
@@ -389,6 +826,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_7
       rect:
@@ -403,6 +847,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_8
       rect:
@@ -417,6 +868,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_9
       rect:
@@ -431,6 +889,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_10
       rect:
@@ -445,6 +910,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_11
       rect:
@@ -459,6 +931,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_12
       rect:
@@ -473,6 +952,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_13
       rect:
@@ -487,6 +973,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_14
       rect:
@@ -501,6 +994,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_15
       rect:
@@ -515,6 +1015,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_16
       rect:
@@ -529,6 +1036,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_17
       rect:
@@ -543,6 +1057,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_18
       rect:
@@ -557,6 +1078,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_19
       rect:
@@ -571,6 +1099,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_20
       rect:
@@ -585,6 +1120,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_21
       rect:
@@ -599,6 +1141,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_22
       rect:
@@ -613,6 +1162,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_23
       rect:
@@ -627,6 +1183,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_24
       rect:
@@ -641,6 +1204,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_25
       rect:
@@ -655,6 +1225,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_26
       rect:
@@ -669,6 +1246,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_27
       rect:
@@ -683,6 +1267,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_28
       rect:
@@ -697,6 +1288,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_29
       rect:
@@ -711,6 +1309,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_30
       rect:
@@ -725,6 +1330,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_31
       rect:
@@ -739,6 +1351,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_32
       rect:
@@ -753,6 +1372,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_33
       rect:
@@ -767,6 +1393,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_34
       rect:
@@ -781,6 +1414,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_35
       rect:
@@ -795,6 +1435,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_36
       rect:
@@ -809,6 +1456,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_37
       rect:
@@ -823,6 +1477,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_38
       rect:
@@ -837,6 +1498,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_39
       rect:
@@ -851,6 +1519,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_40
       rect:
@@ -865,6 +1540,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_41
       rect:
@@ -879,6 +1561,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_42
       rect:
@@ -893,6 +1582,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_43
       rect:
@@ -907,6 +1603,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_44
       rect:
@@ -921,6 +1624,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_45
       rect:
@@ -935,6 +1645,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_46
       rect:
@@ -949,6 +1666,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_47
       rect:
@@ -963,6 +1687,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_48
       rect:
@@ -977,6 +1708,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_49
       rect:
@@ -991,6 +1729,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_50
       rect:
@@ -1005,6 +1750,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_51
       rect:
@@ -1019,6 +1771,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_52
       rect:
@@ -1033,6 +1792,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_53
       rect:
@@ -1047,6 +1813,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_54
       rect:
@@ -1061,6 +1834,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_55
       rect:
@@ -1075,6 +1855,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_56
       rect:
@@ -1089,6 +1876,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_57
       rect:
@@ -1103,6 +1897,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_58
       rect:
@@ -1117,6 +1918,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_59
       rect:
@@ -1131,6 +1939,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_60
       rect:
@@ -1145,6 +1960,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_61
       rect:
@@ -1159,6 +1981,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_62
       rect:
@@ -1173,6 +2002,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_63
       rect:
@@ -1187,6 +2023,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_64
       rect:
@@ -1201,6 +2044,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_65
       rect:
@@ -1215,6 +2065,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_66
       rect:
@@ -1229,6 +2086,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_67
       rect:
@@ -1243,6 +2107,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_68
       rect:
@@ -1257,6 +2128,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_69
       rect:
@@ -1271,6 +2149,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_70
       rect:
@@ -1285,6 +2170,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_71
       rect:
@@ -1299,6 +2191,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_72
       rect:
@@ -1313,6 +2212,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_73
       rect:
@@ -1327,6 +2233,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_74
       rect:
@@ -1341,6 +2254,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_75
       rect:
@@ -1355,6 +2275,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_76
       rect:
@@ -1369,6 +2296,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_77
       rect:
@@ -1383,6 +2317,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_78
       rect:
@@ -1397,6 +2338,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_79
       rect:
@@ -1411,6 +2359,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_80
       rect:
@@ -1425,6 +2380,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_81
       rect:
@@ -1439,6 +2401,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_82
       rect:
@@ -1453,6 +2422,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_83
       rect:
@@ -1467,6 +2443,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6c305410000000000800000000000000
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_84
       rect:
@@ -1481,6 +2464,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_85
       rect:
@@ -1495,6 +2485,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_86
       rect:
@@ -1509,6 +2506,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_87
       rect:
@@ -1523,6 +2527,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_88
       rect:
@@ -1537,6 +2548,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_89
       rect:
@@ -1551,6 +2569,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_90
       rect:
@@ -1565,6 +2590,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_91
       rect:
@@ -1579,6 +2611,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_92
       rect:
@@ -1593,6 +2632,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_93
       rect:
@@ -1607,6 +2653,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_94
       rect:
@@ -1621,6 +2674,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_95
       rect:
@@ -1635,6 +2695,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ed305410000000000800000000000000
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_96
       rect:
@@ -1649,6 +2716,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0e305410000000000800000000000000
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_97
       rect:
@@ -1663,6 +2737,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_98
       rect:
@@ -1677,6 +2758,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_99
       rect:
@@ -1691,6 +2779,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_100
       rect:
@@ -1705,6 +2800,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_101
       rect:
@@ -1719,6 +2821,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_102
       rect:
@@ -1733,6 +2842,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ce305410000000000800000000000000
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_103
       rect:
@@ -1747,6 +2863,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ee305410000000000800000000000000
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_104
       rect:
@@ -1761,6 +2884,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0f305410000000000800000000000000
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_105
       rect:
@@ -1775,6 +2905,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2f305410000000000800000000000000
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_106
       rect:
@@ -1789,6 +2926,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4f305410000000000800000000000000
+      internalID: 21300212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_107
       rect:
@@ -1803,6 +2947,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6f305410000000000800000000000000
+      internalID: 21300214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_108
       rect:
@@ -1817,6 +2968,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8f305410000000000800000000000000
+      internalID: 21300216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_109
       rect:
@@ -1831,6 +2989,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: af305410000000000800000000000000
+      internalID: 21300218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_110
       rect:
@@ -1845,6 +3010,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cf305410000000000800000000000000
+      internalID: 21300220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_111
       rect:
@@ -1859,6 +3031,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ef305410000000000800000000000000
+      internalID: 21300222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_112
       rect:
@@ -1873,6 +3052,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 00405410000000000800000000000000
+      internalID: 21300224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_113
       rect:
@@ -1887,6 +3073,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 20405410000000000800000000000000
+      internalID: 21300226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_114
       rect:
@@ -1901,6 +3094,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 40405410000000000800000000000000
+      internalID: 21300228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_115
       rect:
@@ -1915,6 +3115,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 60405410000000000800000000000000
+      internalID: 21300230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_116
       rect:
@@ -1929,6 +3136,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 80405410000000000800000000000000
+      internalID: 21300232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_117
       rect:
@@ -1943,6 +3157,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a0405410000000000800000000000000
+      internalID: 21300234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_118
       rect:
@@ -1957,6 +3178,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c0405410000000000800000000000000
+      internalID: 21300236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_119
       rect:
@@ -1971,6 +3199,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e0405410000000000800000000000000
+      internalID: 21300238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_120
       rect:
@@ -1985,6 +3220,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 01405410000000000800000000000000
+      internalID: 21300240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_121
       rect:
@@ -1999,6 +3241,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 21405410000000000800000000000000
+      internalID: 21300242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_122
       rect:
@@ -2013,6 +3262,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 41405410000000000800000000000000
+      internalID: 21300244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_123
       rect:
@@ -2027,6 +3283,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 61405410000000000800000000000000
+      internalID: 21300246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_124
       rect:
@@ -2041,6 +3304,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 81405410000000000800000000000000
+      internalID: 21300248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_125
       rect:
@@ -2055,6 +3325,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a1405410000000000800000000000000
+      internalID: 21300250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_126
       rect:
@@ -2069,6 +3346,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c1405410000000000800000000000000
+      internalID: 21300252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_127
       rect:
@@ -2083,6 +3367,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e1405410000000000800000000000000
+      internalID: 21300254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_128
       rect:
@@ -2097,6 +3388,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 02405410000000000800000000000000
+      internalID: 21300256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_129
       rect:
@@ -2111,6 +3409,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 22405410000000000800000000000000
+      internalID: 21300258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_130
       rect:
@@ -2125,6 +3430,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 42405410000000000800000000000000
+      internalID: 21300260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_131
       rect:
@@ -2139,6 +3451,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 62405410000000000800000000000000
+      internalID: 21300262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_132
       rect:
@@ -2153,6 +3472,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 82405410000000000800000000000000
+      internalID: 21300264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_133
       rect:
@@ -2167,6 +3493,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a2405410000000000800000000000000
+      internalID: 21300266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_134
       rect:
@@ -2181,6 +3514,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c2405410000000000800000000000000
+      internalID: 21300268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_135
       rect:
@@ -2195,6 +3535,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2405410000000000800000000000000
+      internalID: 21300270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_136
       rect:
@@ -2209,6 +3556,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 03405410000000000800000000000000
+      internalID: 21300272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_137
       rect:
@@ -2223,6 +3577,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 23405410000000000800000000000000
+      internalID: 21300274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_138
       rect:
@@ -2237,6 +3598,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43405410000000000800000000000000
+      internalID: 21300276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_139
       rect:
@@ -2251,6 +3619,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 63405410000000000800000000000000
+      internalID: 21300278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_140
       rect:
@@ -2265,6 +3640,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 83405410000000000800000000000000
+      internalID: 21300280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_141
       rect:
@@ -2279,6 +3661,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a3405410000000000800000000000000
+      internalID: 21300282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_142
       rect:
@@ -2293,6 +3682,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3405410000000000800000000000000
+      internalID: 21300284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_143
       rect:
@@ -2307,6 +3703,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e3405410000000000800000000000000
+      internalID: 21300286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_144
       rect:
@@ -2321,6 +3724,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 04405410000000000800000000000000
+      internalID: 21300288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_145
       rect:
@@ -2335,6 +3745,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24405410000000000800000000000000
+      internalID: 21300290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_146
       rect:
@@ -2349,6 +3766,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44405410000000000800000000000000
+      internalID: 21300292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_147
       rect:
@@ -2363,6 +3787,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64405410000000000800000000000000
+      internalID: 21300294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_148
       rect:
@@ -2377,6 +3808,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84405410000000000800000000000000
+      internalID: 21300296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_149
       rect:
@@ -2391,6 +3829,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4405410000000000800000000000000
+      internalID: 21300298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_150
       rect:
@@ -2405,6 +3850,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c4405410000000000800000000000000
+      internalID: 21300300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_151
       rect:
@@ -2419,6 +3871,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e4405410000000000800000000000000
+      internalID: 21300302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_152
       rect:
@@ -2433,6 +3892,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 05405410000000000800000000000000
+      internalID: 21300304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_153
       rect:
@@ -2447,6 +3913,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 25405410000000000800000000000000
+      internalID: 21300306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_154
       rect:
@@ -2461,6 +3934,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 45405410000000000800000000000000
+      internalID: 21300308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_155
       rect:
@@ -2475,6 +3955,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 65405410000000000800000000000000
+      internalID: 21300310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_156
       rect:
@@ -2489,6 +3976,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 85405410000000000800000000000000
+      internalID: 21300312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_157
       rect:
@@ -2503,6 +3997,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a5405410000000000800000000000000
+      internalID: 21300314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_158
       rect:
@@ -2517,6 +4018,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5405410000000000800000000000000
+      internalID: 21300316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_159
       rect:
@@ -2531,6 +4039,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e5405410000000000800000000000000
+      internalID: 21300318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_160
       rect:
@@ -2545,6 +4060,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 06405410000000000800000000000000
+      internalID: 21300320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_161
       rect:
@@ -2559,6 +4081,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 26405410000000000800000000000000
+      internalID: 21300322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_162
       rect:
@@ -2573,6 +4102,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 46405410000000000800000000000000
+      internalID: 21300324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_163
       rect:
@@ -2587,6 +4123,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 66405410000000000800000000000000
+      internalID: 21300326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_164
       rect:
@@ -2601,6 +4144,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 86405410000000000800000000000000
+      internalID: 21300328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_165
       rect:
@@ -2615,6 +4165,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a6405410000000000800000000000000
+      internalID: 21300330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_166
       rect:
@@ -2629,6 +4186,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c6405410000000000800000000000000
+      internalID: 21300332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_167
       rect:
@@ -2643,6 +4207,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e6405410000000000800000000000000
+      internalID: 21300334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_168
       rect:
@@ -2657,6 +4228,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 07405410000000000800000000000000
+      internalID: 21300336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_169
       rect:
@@ -2671,6 +4249,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 27405410000000000800000000000000
+      internalID: 21300338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_170
       rect:
@@ -2685,6 +4270,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 47405410000000000800000000000000
+      internalID: 21300340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_171
       rect:
@@ -2699,6 +4291,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 67405410000000000800000000000000
+      internalID: 21300342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_172
       rect:
@@ -2713,6 +4312,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 87405410000000000800000000000000
+      internalID: 21300344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_173
       rect:
@@ -2727,6 +4333,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a7405410000000000800000000000000
+      internalID: 21300346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_174
       rect:
@@ -2741,6 +4354,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c7405410000000000800000000000000
+      internalID: 21300348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_175
       rect:
@@ -2755,6 +4375,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7405410000000000800000000000000
+      internalID: 21300350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_176
       rect:
@@ -2769,6 +4396,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 08405410000000000800000000000000
+      internalID: 21300352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_177
       rect:
@@ -2783,6 +4417,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 28405410000000000800000000000000
+      internalID: 21300354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_178
       rect:
@@ -2797,6 +4438,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 48405410000000000800000000000000
+      internalID: 21300356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_179
       rect:
@@ -2811,6 +4459,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 68405410000000000800000000000000
+      internalID: 21300358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_180
       rect:
@@ -2825,6 +4480,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 88405410000000000800000000000000
+      internalID: 21300360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_181
       rect:
@@ -2839,6 +4501,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a8405410000000000800000000000000
+      internalID: 21300362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_182
       rect:
@@ -2853,6 +4522,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c8405410000000000800000000000000
+      internalID: 21300364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_183
       rect:
@@ -2867,6 +4543,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e8405410000000000800000000000000
+      internalID: 21300366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_184
       rect:
@@ -2881,6 +4564,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 09405410000000000800000000000000
+      internalID: 21300368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_185
       rect:
@@ -2895,6 +4585,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 29405410000000000800000000000000
+      internalID: 21300370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_186
       rect:
@@ -2909,6 +4606,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 49405410000000000800000000000000
+      internalID: 21300372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_187
       rect:
@@ -2923,6 +4627,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 69405410000000000800000000000000
+      internalID: 21300374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_188
       rect:
@@ -2937,6 +4648,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 89405410000000000800000000000000
+      internalID: 21300376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_189
       rect:
@@ -2951,6 +4669,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a9405410000000000800000000000000
+      internalID: 21300378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_190
       rect:
@@ -2965,6 +4690,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c9405410000000000800000000000000
+      internalID: 21300380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rpg_heros_191
       rect:
@@ -2979,9 +4711,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e9405410000000000800000000000000
+      internalID: 21300382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
