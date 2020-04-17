@@ -120,7 +120,7 @@ namespace Battle.UI.Jewel
 
     public void Select()
     {
-      Board.SelectJewel(this);
+      //Board.SelectJewel(this);
       Fsm.Select();
     }
 

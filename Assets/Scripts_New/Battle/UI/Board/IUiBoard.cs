@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.UI.Jewel;
+using Battle.UI.Utils;
+using Patterns.StateMachine;
 using UnityEngine;
 
 namespace Battle.UI.Board
 {
-  public interface IUiBoard
+  public interface IUiBoard : IUiGemPile
   {
     List<IUiJewel> Jewels { get; }
 
@@ -15,13 +18,14 @@ namespace Battle.UI.Board
     Action<IUiJewel> OnJewelSelected { get; set; }
     Action<IUiJewel> OnJewelDiscarded { get; set; }
 
-    void SwapSelected();
+    void PlaySelected();
     void Unselect();
-    void UnselectJewel(IUiJewel jewel);
-    void SelectJewel(IUiJewel jewel);
+    void PlayJewel(IUiJewel uiCard);
+    void SelectJewel(IUiJewel uiCard);
+    void DiscardJewel(IUiJewel uiCard);
+    void UnselectJewel(IUiJewel uiCard);
     void EnableJewels();
     void DisableJewels();
-
-    IUiJewel GetJewel(IRuntimeJewel jewel);
+    IUiJewel GetJewel(IRuntimeJewel card);
   }
 }

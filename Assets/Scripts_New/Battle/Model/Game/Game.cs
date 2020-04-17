@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.Model.Game.Mechanics;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard;
 using Battle.Model.TurnLogic;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Battle.Model.Game
 
     #region Constructor
 
-    public Game(List<IPlayer> players, Battle.Configurations.Configurations configurations)
+    public Game(List<IPlayer> players, IRuntimeBoard GameBoard, Battle.Configurations.Configurations configurations)
     {
       Configurations = configurations;
       TurnLogic = new Battle.Model.TurnLogic.TurnLogic(players);
@@ -28,7 +29,7 @@ namespace Battle.Model.Game
       ProcessTick = new TickTimeMechanics(this);
       ProcessSwap = new SwapMechanics(this);
       ProcessFinishGame = new FinishGameMechanics(this);
-      GameBoard = new Board();
+      gameBoard = GameBoard;
 
       AddMechanic(ProcessPreStartGame);
       AddMechanic(ProcessStartGame);
@@ -52,7 +53,7 @@ namespace Battle.Model.Game
     public bool IsTurnInProgress { get; set; }
     public int TurnTime { get; set; }
     public int TotalTime { get; set; }
-    public Board GameBoard { get; set; }
+    public IRuntimeBoard gameBoard { get; set; }
     public Battle.Configurations.Configurations Configurations { get; }
 
     #region Processes

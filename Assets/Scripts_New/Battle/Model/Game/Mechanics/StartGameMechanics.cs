@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Player;
+using UnityEngine;
 
 namespace Battle.Model.Game.Mechanics
 {
@@ -36,6 +37,7 @@ namespace Battle.Model.Game.Mechanics
     /// <param name="starterPlayer"></param>
     private void OnGameStarted(IPlayer starterPlayer)
     {
+      Debug.Log("OnGameStarted");
       GameEvents.Instance.Notify<IStartGame>(i => i.OnStartGame(starterPlayer));
     }
   }

@@ -12,11 +12,13 @@ namespace Battle.GameEvent
       protected override void OnAwake()
       {
           Logger.Log<GameEvents>("Awake");
+          Debug.Log("Awake");
       }
 
       private void Start()
       {
           Logger.Log<GameEvents>("Start");
+          Debug.Log("Start");
       }
   }
 
@@ -78,29 +80,34 @@ namespace Battle.GameEvent
     void OnTickTime(int time, IPlayer player);
   }
 
-  /// <summary>
-  ///     Broadcast of Jewel Swap to Listeners
-  /// </summary>
-  public interface IOnSwapJewels : ISubject
+  public interface IBoardDrawJewel : ISubject
   {
-      void IOnSwapJewels(IRuntimeJewel jewel1, IRuntimeJewel jewel2);
+    void OnDraw(IRuntimeJewel jewel);
   }
 
-  /// <summary>
-  ///     Broadcast of Jewel Click to Listeners
-  /// </summary>
-  public interface IOnClickJewel : ISubject
-  {
-      void IOnClickJewel(IRuntimeJewel jewel);
-  }
+  ///// <summary>
+  /////     Broadcast of Jewel Swap to Listeners
+  ///// </summary>
+  //public interface IOnSwapJewels : ISubject
+  //{
+  //    void IOnSwapJewels(IRuntimeJewel jewel1, IRuntimeJewel jewel2);
+  //}
 
-  /// <summary>
-  ///     Broadcast of Jewel Destroy to Listeners
-  /// </summary>
-  public interface IOnDestroyJewel : ISubject
-  {
-      void IOnDestroyJewel(IRuntimeJewel jewel);
-  }
+  ///// <summary>
+  /////     Broadcast of Jewel Click to Listeners
+  ///// </summary>
+  //public interface IOnClickJewel : ISubject
+  //{
+  //    void IOnClickJewel(IRuntimeJewel jewel);
+  //}
+
+  ///// <summary>
+  /////     Broadcast of Jewel Destroy to Listeners
+  ///// </summary>
+  //public interface IOnDestroyJewel : ISubject
+  //{
+  //    void IOnDestroyJewel(IRuntimeJewel jewel);
+  //}
 
   #endregion
 }

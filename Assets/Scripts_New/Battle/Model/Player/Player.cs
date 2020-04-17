@@ -18,40 +18,32 @@ namespace Battle.Model.Player
             Configurations = configurations;
             Seat = seat;
 
-      //Hand = new Collection<IRuntimeJewel>();
+            //Hand = new Collection<IRuntimeJewel>();
 
-      //if (teamData != null)
-      //    Team = new Team(this, teamData);
+            //if (teamData != null)
+            //    Team = new Team(this, teamData);
 
-      //if (deckData != null)
-      //    Library = new Library(this, deckData, Configurations);
+            //if (deckData != null)
+            //    Library = new Library(this, deckData, Configurations);
 
-      //Graveyard = new Graveyard(this);
+            //Graveyard = new Graveyard(this);
 
-      #region Mechanics
+            #region Mechanics
 
-      //DrawMechanics = new DrawMechanics(this);
-      //DiscardMechanics = new DiscardMechanics(this);
-      //PlayCardMechanics = new PlayCardMechanics(this);
-      StartTurnMechanics = new StartTurnMechanics(this);
-      FinishTurnMechanics = new FinishTurnMechanics(this);
-      //SpawnMechanics = new SpawnMechanics(this);
-      //ManaMechanics = new ManaMechanics(this);
-      //PowerMechanic = new PowerMechanic(this);
-      //GoldMechanic = new GoldMechanic(this);
+            //DrawMechanics = new DrawMechanics(this);
+            //DiscardMechanics = new DiscardMechanics(this);
+            //PlayCardMechanics = new PlayCardMechanics(this);
+            StartTurnMechanics = new StartTurnMechanics(this);
+            FinishTurnMechanics = new FinishTurnMechanics(this);
+            //SpawnMechanics = new SpawnMechanics(this);
+            //ManaMechanics = new ManaMechanics(this);
+            //PowerMechanic = new PowerMechanic(this);
+            //GoldMechanic = new GoldMechanic(this);
 
-      #endregion
-    }
+            #endregion
+         }
 
         //----------------------------------------------------------------------------------------------------------
-
-        //public ILibrary Library { get; private set; }
-
-        //public Graveyard Graveyard { get; private set; }
-
-        //public ITeam Team { get; private set; }
-
-        //public Collection<IRuntimeCard> Hand { get; private set; }
 
         public Battle.Configurations.Configurations Configurations { get; }
 
@@ -79,14 +71,12 @@ namespace Battle.Model.Player
 
         public void Swap(IRuntimeJewel jewel, IRuntimeJewel jewel2)
         {
-          //SwapMechanics.Execute(SwapMechanics.RuntimeSwapData(jewel, jewel2));
-
-          var attackData = new SwapMechanics.RuntimeSwapData()
+          var swapData = new SwapMechanics.RuntimeSwapData()
           {
             Swapper = jewel,
             Swappee = jewel2
           };
-
+          SwapMechanics.Execute(swapData);
         }
 
         #endregion

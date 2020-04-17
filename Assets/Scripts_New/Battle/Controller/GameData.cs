@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.Model.Game;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard;
 using Patterns;
 using UnityEngine;
 
@@ -93,8 +94,10 @@ namespace Battle.Controller
             //if the second player doesn't have a deck, send null
             var player2 = new Player(PlayerSeat.Right, configurations: configurations);
 
+            var board = new Board();
+
             //create game data
-            RuntimeGame = new Game(new List<IPlayer> { player1, player2 }, configurations);
+            RuntimeGame = new Game(new List<IPlayer> { player1, player2 }, board, configurations);
         }
 
         public void LoadGame()
