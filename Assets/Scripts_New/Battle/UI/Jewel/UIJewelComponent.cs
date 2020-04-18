@@ -7,11 +7,11 @@ using UnityEngine;
 
 namespace Battle.UI.Jewel
 {
-  [RequireComponent(typeof(Collider))]
-  [RequireComponent(typeof(Rigidbody))]
-  [RequireComponent(typeof(IMouseInput))]
-  [RequireComponent(typeof(IUiJewelData))]
-  public class UiJewelComponent : MonoBehaviour, IUiJewel
+  //[RequireComponent(typeof(Collider))]
+  //[RequireComponent(typeof(Rigidbody))]
+  //[RequireComponent(typeof(IMouseInput))]
+  //[RequireComponent(typeof(IUiJewelData))]
+  public class UIJewelComponent : MonoBehaviour, IUiJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ namespace Battle.UI.Jewel
       Motion = new UiMotion(this);
 
       //fsm
-      Fsm = new UiJewelBoardFsm(MainCamera, cardConfigsParameters, this);
+      Fsm = new UiJewelBoardFsm(MainCamera, jewelConfigParameters, this);
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace Battle.UI.Jewel
     IMouseInput IUiJewelComponents.Input => MyInput;
     IUiBoard IUiJewel.Board => Board;
     public string Name => gameObject.name;
-    [SerializeField] public Battle.UI.Jewel.UiJewelParameters.UiJewelParameters cardConfigsParameters;
+    [SerializeField] public Battle.UI.Jewel.UiJewelParameters.UiJewelParameters jewelConfigParameters;
     private UiJewelBoardFsm Fsm { get; set; }
     private Transform MyTransform { get; set; }
     private Collider MyCollider { get; set; }

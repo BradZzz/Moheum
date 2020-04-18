@@ -19,7 +19,7 @@ namespace Battle.UI.Jewel.UiJewelData
 
   //--------------------------------------------------------------------------------------------------------------
 
-  public class UiCardDataComponent : MonoBehaviour, IUiJewelData
+  public class UiJewelDataComponent : MonoBehaviour, IUiJewelData
   {
     /// <summary>
     ///     Set a jewel.

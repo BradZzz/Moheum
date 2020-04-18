@@ -12,7 +12,7 @@ namespace Battle.Model.RuntimeBoard
   // Use IListener for the moodels. UIListener for the UI controllers
   public class Board : IRuntimeBoard
   {
-    public Board()
+    public Board(Battle.Configurations.Configurations configuration)
     {
       /*
        * Things the board needs to have:
@@ -21,9 +21,9 @@ namespace Battle.Model.RuntimeBoard
        * Where Jewels are
        * Board Mechanics(Start Turn, End Turn)
        */
-      width = 10;
-      height = 10;
-      jewelMap = new IRuntimeJewel[width, height];
+
+      this.configuration = configuration;
+      jewelMap = new IRuntimeJewel[configuration.boardConfigs.width, configuration.boardConfigs.height];
 
       ProcessCascadeBoardMechanics = new CascadeBoardMechanics(this);
       ProcessEndGameBoardMechanics = new EndGameBoardMechanics(this);
@@ -36,7 +36,7 @@ namespace Battle.Model.RuntimeBoard
       Mechanics.Add(ProcessSwapBoardMechanics);
     }
 
-    private int height, width;
+    private Battle.Configurations.Configurations configuration { get; }
     private IRuntimeJewel[,] jewelMap;
 
     public List<BaseBoardMechanics> Mechanics { get; set; } = new List<BaseBoardMechanics>();

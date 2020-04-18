@@ -35,16 +35,19 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       //OnGameStarted(Game.TurnLogic.StarterPlayer);
 
       // Draw the initial jewels the board needs here!
-      OnDrawJewel(null);
+      // The position relates to the offset position from center
+      OnDrawJewel(null, new Vector2(-1, -1));
+      OnDrawJewel(null, new Vector2(-1, 0));
+      OnDrawJewel(null, new Vector2(-1, 1));
     }
 
     /// <summary>
     ///     Dispatch start game event to the listeners.
     /// </summary>
     /// <param name="starterPlayer"></param>
-    private void OnDrawJewel(IRuntimeJewel jewel)
+    private void OnDrawJewel(IRuntimeJewel jewel, Vector2 pos)
     {
-      GameEvents.Instance.Notify<IBoardDrawJewel>(i => i.OnDraw(jewel));
+      GameEvents.Instance.Notify<IBoardDrawJewel>(i => i.OnDraw(jewel, pos));
     }
   }
 }

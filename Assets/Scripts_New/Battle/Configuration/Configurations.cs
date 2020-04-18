@@ -11,43 +11,47 @@ namespace Battle.Configurations
     [CreateAssetMenu(menuName = "Configurations")]
     public class Configurations : ScriptableObject
     {
-        ////----------------------------------------------------------------------------------------------------------
+    ////----------------------------------------------------------------------------------------------------------
 
-        //public Amounts Amount = new Amounts();
+    //public Amounts Amount = new Amounts();
+    public BoardConfigs boardConfigs = new BoardConfigs();
 
-        //[Serializable]
-        //public class Amounts
-        //{
-        //    public Library LibraryPlayer = new Library();
+    [Serializable]
+    public class BoardConfigs
+    {
+      //public Library LibraryPlayer = new Library();
 
-        //    [Serializable]
-        //    public class Library
-        //    {
-        //        [Tooltip("Quantity of cards drawn each turn.")]
-        //        [Range(0, 7)]
-        //        public int drawAmountByTurn = 1;
+      //[Serializable]
+      //public class Library
+      //{
+      //  [Tooltip("Quantity of cards drawn each turn.")]
+      //  [Range(0, 7)]
+      //  public int drawAmountByTurn = 1;
 
-        //        [Tooltip("Whether hands are discarded in the end of the turn or not.")]
-        //        public bool isDiscardableHands;
+      //  [Tooltip("Whether hands are discarded in the end of the turn or not.")]
+      //  public bool isDiscardableHands;
 
-        //        [Tooltip("Whether the library has an finite amount of cards or it reshuffles automatically.")]
-        //        public bool isFinite;
+      //  [Tooltip("Whether the library has an finite amount of cards or it reshuffles automatically.")]
+      //  public bool isFinite;
 
-        //        [Tooltip("Amount of cards in the starting hand.")]
-        //        [Range(0, 7)]
-        //        public int startingAmount = 3;
-        //    }
+      //  [Tooltip("Amount of cards in the starting hand.")]
+      //  [Range(0, 7)]
+      //  public int startingAmount = 3;
+      //}
 
-        //    [Range(0, 10)] public int startingMana = 5;
-        //    [Range(1, 13)] public int maxTeam = 9;
-        //}
+      //[Range(0, 10)] public int startingMana = 5;
+      //[Range(1, 13)] public int maxTeam = 9;
 
-        ////----------------------------------------------------------------------------------------------------------
+      [Range(8, 20)] public int width = 10;
+      [Range(8, 20)] public int height = 10;
+    }
 
-        #region Properties
+    ////----------------------------------------------------------------------------------------------------------
 
-        //player turn
-        public float TimeStartTurn => PlayerTurn.TimeStartTurn;
+    #region Properties
+
+    //player turn
+    public float TimeStartTurn => PlayerTurn.TimeStartTurn;
         public float TimeOutTurn => PlayerTurn.TimeOutTurn;
 
         //game start

@@ -205,12 +205,14 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\IUiBoard.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\IUiBoardComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\IUiGemPile.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Board\IUiPlayerBoardUtils.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\UiBoard.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\UiBoardComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\UiBoardDrawListener.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\UiGemPile.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Board\UiPlayerBoardUtils.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\IUiBoardPositioner.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\IUiPlayerBoardUtils.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\UiBoardPositioner.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\UiPlayerBoardUtils.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\IUiJewel.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\IUiJewelComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponent.cs" />

@@ -7,7 +7,7 @@ using Extensions;
 using System.Linq;
 using Battle.Model.Jewel;
 
-namespace Battle.UI.Board
+namespace Battle.UI.Board.Utils
 {
   public class UiPlayerBoardUtils : MonoBehaviour, IUiPlayerBoardUtils
   {
@@ -21,6 +21,8 @@ namespace Battle.UI.Board
     [Tooltip("World point where the deck is positioned")]
     private Transform deckPosition;
 
+    private UiBoardPositioner BoardPos;
+
     private IUiBoard PlayerBoard { get; set; }
 
     #endregion
@@ -30,6 +32,7 @@ namespace Battle.UI.Board
     private void Awake()
     {
       PlayerBoard = transform.parent.GetComponentInChildren<IUiBoard>();
+      BoardPos = new UiBoardPositioner();
     }
 
     private void Start()
@@ -39,14 +42,17 @@ namespace Battle.UI.Board
 
     //--------------------------------------------------------------------------------------------------------------
 
-    public void Draw(IRuntimeJewel jewel)
+    public void Draw(IRuntimeJewel jewel, Vector2 pos)
     {
       Debug.Log("Draw");
       Debug.Log(UiJewelPool.Instance);
       var uiJewel = UiJewelPool.Instance.Get(jewel);
-      uiJewel.MonoBehavior.name = "Jewel_" + Count;
-      uiJewel.transform.position = deckPosition.position;
-      Count++;
+      Debug.Log("UiPlayerBoardUtils uiJewel");
+      Debug.Log(uiJewel);
+      uiJewel.MonoBehavior.name = "Jewel_" + Count++;
+      //Offset jewel position from center
+      Vector3 uiPos = BoardPos.GetNextJewelPosition(pos, deckPosition.position);
+      uiJewel.transform.position = uiPos;
       PlayerBoard.AddJewel(uiJewel);
     }
 

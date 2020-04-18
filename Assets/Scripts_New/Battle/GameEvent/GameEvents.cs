@@ -82,7 +82,7 @@ namespace Battle.GameEvent
 
   public interface IBoardDrawJewel : ISubject
   {
-    void OnDraw(IRuntimeJewel jewel);
+    void OnDraw(IRuntimeJewel jewel, Vector2 pos);
   }
 
   ///// <summary>

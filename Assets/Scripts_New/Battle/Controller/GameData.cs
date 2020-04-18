@@ -94,7 +94,7 @@ namespace Battle.Controller
             //if the second player doesn't have a deck, send null
             var player2 = new Player(PlayerSeat.Right, configurations: configurations);
 
-            var board = new Board();
+            var board = new Board(configurations);
 
             //create game data
             RuntimeGame = new Game(new List<IPlayer> { player1, player2 }, board, configurations);

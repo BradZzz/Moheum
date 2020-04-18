@@ -52,6 +52,17 @@ namespace Battle.Model.Jewel
         {
             var obj = Get<IUiJewel>();
             //obj.Data.SetData(jewel);
+            //busyObjects[prefabModel].Add(pooledObj);
+
+            //pooledObj.SetActive(true);
+            //OnPool(pooledObj);
+
+            //return pooledObj;
+
+            //GameObject instantiatedJewel = Instantiate(modelsPooled[0], transform);
+            //instantiatedJewel.SetActive(true);
+            //base.OnPool(instantiatedJewel);
+            //IUiJewel uiJewel = instantiatedJewel.GetComponent<IUiJewel>();
             return obj;
         }
 

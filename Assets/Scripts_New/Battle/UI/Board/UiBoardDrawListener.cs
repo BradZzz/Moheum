@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
+using Battle.UI.Board.Utils;
 using Battle.UI.Utils;
 using UnityEngine;
 
@@ -16,9 +17,9 @@ namespace Battle.UI.Board
 
     private IUiPlayerBoardUtils BoardUtils { get; set; }
 
-    public void OnDraw(IRuntimeJewel jewel)
+    public void OnDraw(IRuntimeJewel jewel, Vector2 pos)
     {
-      BoardUtils.Draw(jewel);
+      BoardUtils.Draw(jewel, pos);
     }
   }
 }
