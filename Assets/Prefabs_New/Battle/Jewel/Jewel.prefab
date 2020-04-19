@@ -94,4 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119ad7298707e437b88d93590e084f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardConfigsParameters: {fileID: 0}
+  jewelConfigParameters: {fileID: 11400000, guid: 69eb6705935b049b8a2cb4377c81941f,
+    type: 2}

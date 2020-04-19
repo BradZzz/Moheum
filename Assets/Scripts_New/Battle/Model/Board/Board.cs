@@ -44,5 +44,10 @@ namespace Battle.Model.RuntimeBoard
     private EndGameBoardMechanics ProcessEndGameBoardMechanics { get; }
     private StartGameBoardMechanics ProcessStartGameBoardMechanics { get; }
     private SwapBoardMechanics ProcessSwapBoardMechanics { get; }
+
+    public IRuntimeJewel[,] GetMap()
+    {
+      return jewelMap;
+    }
   }
 }

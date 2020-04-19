@@ -6,7 +6,9 @@ namespace Battle.UI.Board.Utils
 {
   public interface IUiBoardPositioner
   {
-    int GetMarginWidth();
-    int GetMarginHeight();
+    float GetMarginWidth();
+    float GetMarginHeight();
+    float GetOffsetWidth();
+    float GetOffsetHeight();
   }
 }

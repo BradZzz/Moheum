@@ -7,7 +7,12 @@ namespace Battle.Model.Jewel
 {
     public class RuntimeJewel : IRuntimeJewel
     {
-        public IJewelData Data => throw new System.NotImplementedException();
+        public RuntimeJewel()
+        {
+
+        }
+
+        public IJewelData Data => new JewelData();
 
         public void DoEnable(bool enabled, IEffectable item)
         {

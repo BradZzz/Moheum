@@ -220,6 +220,7 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelComponent\UiJewelStateMachine\States\UiJewelIdle.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelComponent\UiJewelStateMachine\UiJewelBoardFsm.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelData\UiJewelData.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelParameters\UIJewelComponentUtility.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelParameters\UiJewelParameters.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelPool.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiController.cs" />

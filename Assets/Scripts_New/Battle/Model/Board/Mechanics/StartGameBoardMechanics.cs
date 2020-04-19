@@ -13,7 +13,10 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     public StartGameBoardMechanics(IRuntimeBoard board) : base(board)
     {
       GameEvents.Instance.AddListener(this);
+      runtimeboard = board;
     }
+
+    private IRuntimeBoard runtimeboard;
 
     public void OnStartGame(IPlayer starter)
     {
@@ -25,6 +28,10 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     /// </summary>
     public void Execute()
     {
+      IRuntimeJewel[,] jewelMap = runtimeboard.GetMap();
+      int width = jewelMap.GetLength(0);
+      int height = jewelMap.GetLength(1);
+
       //if (Game.IsGameStarted) return;
 
       //Game.IsGameStarted = true;
@@ -36,9 +43,14 @@ namespace Battle.UI.RuntimeBoard.Mechanics
 
       // Draw the initial jewels the board needs here!
       // The position relates to the offset position from center
-      OnDrawJewel(null, new Vector2(-1, -1));
-      OnDrawJewel(null, new Vector2(-1, 0));
-      OnDrawJewel(null, new Vector2(-1, 1));
+      Vector2 middle = new Vector2((int) width / 2, (int) height / 2);
+      for (int y = 0; y < width; y++)
+      {
+        for (int x = 0; x < height; x++)
+        {
+          OnDrawJewel(new RuntimeJewel(), new Vector2(x - middle.x, y - middle.y));
+        }
+      }
     }
 
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using Battle.UI.Board;
 using Battle.UI.Jewel.UiJewelData;
+using Battle.UI.Jewel.UiJewelParameters;
 using Battle.UI.Jewel.UiJewelStateMachine;
 using Battle.UI.Utils;
 using Battle.UI.Utils.Tools.UiTransform;
@@ -37,6 +38,8 @@ namespace Battle.UI.Jewel
 
       //fsm
       Fsm = new UiJewelBoardFsm(MainCamera, jewelConfigParameters, this);
+
+      UIJewelComponentUtility.Format(this, jewelConfigParameters);
     }
 
     /// <summary>

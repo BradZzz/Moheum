@@ -2,7 +2,7 @@
 
 namespace Battle.UI.Jewel.UiJewelParameters
 {
-  [CreateAssetMenu(menuName = "Parameters/Card")]
+  [CreateAssetMenu(menuName = "Parameters/Jewel")]
   public class UiJewelParameters : ScriptableObject
   {
     //--------------------------------------------------------------------------------------------------------------
@@ -163,6 +163,14 @@ namespace Battle.UI.Jewel.UiJewelParameters
 
     //--------------------------------------------------------------------------------------------------------------
 
+    [Header("Scale")]
+    [SerializeField]
+    [Range(0, 2)]
+    [Tooltip("Scale when discard the card")]
+    private float jewelScale;
+
+    public float JewelScale => jewelScale;
+
     [Button]
     public void SetDefaults()
     {
@@ -183,6 +191,8 @@ namespace Battle.UI.Jewel.UiJewelParameters
 
       startSizeWhenDraw = 0.05f;
       discardedSize = 0.5f;
+
+      jewelScale = .8f;
     }
   }
 }
