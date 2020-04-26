@@ -59,6 +59,8 @@ namespace Battle.UI.Board
 
       Jewels.Add(jewel);
       jewel.transform.SetParent(transform);
+      //Debug.Log("AddJewel");
+      //jewel.Renderer.sprite = jewel.Data.Artwork;
       jewel.Initialize();
       NotifyPileChange();
       jewel.Draw();

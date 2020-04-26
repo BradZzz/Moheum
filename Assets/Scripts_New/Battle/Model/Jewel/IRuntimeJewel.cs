@@ -5,6 +5,6 @@ namespace Battle.Model.Jewel
 {
     public interface IRuntimeJewel : IEffectable, IEnableable, IRemovable, ISwappable
     {
-        IJewelData Data { get; }
+        IJewelData Data { get; set; }
     }
 }

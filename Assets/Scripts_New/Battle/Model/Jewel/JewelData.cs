@@ -22,7 +22,6 @@ namespace Battle.Model.Jewel
         public string Description => description;
         public string Lore => lore;
         public Sprite Artwork => artwork;
-        //public RelicRarityType RType => rType;
-        //public EffectsSet Effects => effects;
-    }
+
+  }
 }

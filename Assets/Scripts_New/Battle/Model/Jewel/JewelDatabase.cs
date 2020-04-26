@@ -18,7 +18,7 @@ namespace Battle.Model.Jewel
 
         public JewelData Get(JewelID id)
         {
-            return Jewels?.Find(relic => relic.JewelID == id);
+            return Jewels?.Find(jewel => jewel.JewelID == id);
         }
 
         public List<JewelData> GetFullList()

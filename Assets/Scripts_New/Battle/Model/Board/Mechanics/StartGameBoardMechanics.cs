@@ -41,6 +41,10 @@ namespace Battle.UI.RuntimeBoard.Mechanics
 
       //OnGameStarted(Game.TurnLogic.StarterPlayer);
 
+      //This needs to be pulled in from another file
+      JewelDatabase db = JewelDatabase.Instance;
+      List<JewelData> jewels = db.GetFullList();
+
       // Draw the initial jewels the board needs here!
       // The position relates to the offset position from center
       Vector2 middle = new Vector2((int) width / 2, (int) height / 2);
@@ -48,7 +52,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       {
         for (int x = 0; x < height; x++)
         {
-          OnDrawJewel(new RuntimeJewel(), new Vector2(x - middle.x, y - middle.y));
+          OnDrawJewel(new RuntimeJewel(jewels[Random.Range(0, jewels.Count)]), new Vector2(x - middle.x, y - middle.y));
         }
       }
     }

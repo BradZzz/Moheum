@@ -7,12 +7,12 @@ namespace Battle.Model.Jewel
 {
     public class RuntimeJewel : IRuntimeJewel
     {
-        public RuntimeJewel()
+        public RuntimeJewel(IJewelData data)
         {
-
+          Data = data;
         }
 
-        public IJewelData Data => new JewelData();
+        public IJewelData Data { get; set; }
 
         public void DoEnable(bool enabled, IEffectable item)
         {

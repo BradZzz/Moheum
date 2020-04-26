@@ -19,7 +19,7 @@ namespace Battle.UI.Jewel.UiJewelData
 
   //--------------------------------------------------------------------------------------------------------------
 
-  public class UiJewelDataComponent : MonoBehaviour, IUiJewelData
+  public class UIJewelDataComponent : MonoBehaviour, IUiJewelData
   {
     /// <summary>
     ///     Set a jewel.
@@ -37,7 +37,7 @@ namespace Battle.UI.Jewel.UiJewelData
     public IJewelData StaticData => RuntimeData.Data;
 
     /// <summary>
-    ///     Fired when a jewel model is assigned to this card.
+    ///     Fired when a jewel model is assigned to this uijewel.
     /// </summary>
     public Action<IJewelData> OnSetData { get; set; } = data => { };
 

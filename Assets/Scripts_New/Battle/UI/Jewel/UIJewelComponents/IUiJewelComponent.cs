@@ -1,4 +1,7 @@
-﻿using Battle.UI.Utils;
+﻿using Battle.Model.Jewel;
+using Battle.UI.Jewel.UiJewelComponent;
+using Battle.UI.Jewel.UiJewelData;
+using Battle.UI.Utils;
 using UnityEngine;
 
 namespace Battle.UI.Jewel
@@ -8,6 +11,9 @@ namespace Battle.UI.Jewel
   /// </summary>
   public interface IUiJewelComponents
   {
+    IUiJewelData UIRuntimeData { get; set; }
+    IUIJewelSprite UIJewelSprite { get; set; }
+
     Camera MainCamera { get; }
     MeshRenderer[] MRenderers { get; }
     MeshRenderer MRenderer { get; }
@@ -19,5 +25,9 @@ namespace Battle.UI.Jewel
     MonoBehaviour MonoBehavior { get; }
     GameObject gameObject { get; }
     Transform transform { get; }
+
+    IUiJewelTransform UIJewelTransform { get; }
+
+    void SetData(IJewelData data);
   }
 }

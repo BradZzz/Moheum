@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Extensions;
 using System.Linq;
 using Battle.Model.Jewel;
+using Battle.UI.Jewel;
 
 namespace Battle.UI.Board.Utils
 {
@@ -45,10 +46,13 @@ namespace Battle.UI.Board.Utils
     public void Draw(IRuntimeJewel jewel, Vector2 pos)
     {
       Debug.Log("Draw");
-      Debug.Log(UiJewelPool.Instance);
+      //Debug.Log(UiJewelPool.Instance);
       var uiJewel = UiJewelPool.Instance.Get(jewel);
       Debug.Log("UiPlayerBoardUtils uiJewel");
-      Debug.Log(uiJewel);
+      //Debug.Log(uiJewel);
+      UIJewelComponent comp = uiJewel.MonoBehavior.GetComponent<UIJewelComponent>();
+      comp.UIRuntimeData.OnSetData(jewel.Data);
+      //JewelData jd = uiJewel.MonoBehavior.AddComponent<JewelData>() as JewelData;
       uiJewel.MonoBehavior.name = "Jewel_" + Count++;
       //Offset jewel position from center
       Vector3 uiPos = BoardPos.GetNextJewelPosition(pos, deckPosition.position);

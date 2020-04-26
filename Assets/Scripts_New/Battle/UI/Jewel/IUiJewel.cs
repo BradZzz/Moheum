@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Jewel;
 using Battle.UI.Board;
 using Battle.UI.Jewel.UiJewelData;
 using Battle.UI.Utils.Tools.UiTransform;
@@ -9,9 +10,8 @@ using UnityEngine;
 namespace Battle.UI.Jewel
 {
     public interface IUiJewel : IStateMachineHandler, IUiJewelComponents, IUiMotion
-  {
-      IUiJewelData Data { get; }
-      IUiBoard Board { get; }
+    {
+      IJewelData Data { get;  }
       bool IsInitialized { get; }
       bool IsDragging { get; }
       bool IsHovering { get; }

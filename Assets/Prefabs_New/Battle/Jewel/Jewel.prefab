@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6870127437593023513}
   - component: {fileID: 6870127437593023512}
   - component: {fileID: 954818898280014116}
+  - component: {fileID: -4777611224723305177}
   m_Layer: 0
   m_Name: Jewel
   m_TagString: Untagged
@@ -96,3 +97,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jewelConfigParameters: {fileID: 11400000, guid: 69eb6705935b049b8a2cb4377c81941f,
     type: 2}
+--- !u!114 &-4777611224723305177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6870127437593023518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bcc028bd7be42dcb540e23269d3700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -51,7 +51,9 @@ namespace Battle.Model.Jewel
         public IUiJewel Get(IRuntimeJewel jewel)
         {
             var obj = Get<IUiJewel>();
-            //obj.Data.SetData(jewel);
+            obj.SetData(jewel.Data);
+
+              //.Data.SetData(jewel);
             //busyObjects[prefabModel].Add(pooledObj);
 
             //pooledObj.SetActive(true);

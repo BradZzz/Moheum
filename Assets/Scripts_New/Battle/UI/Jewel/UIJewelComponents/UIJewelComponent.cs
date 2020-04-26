@@ -1,4 +1,6 @@
-﻿using Battle.UI.Board;
+﻿using Battle.Model.Jewel;
+using Battle.UI.Board;
+using Battle.UI.Jewel.UiJewelComponent;
 using Battle.UI.Jewel.UiJewelData;
 using Battle.UI.Jewel.UiJewelParameters;
 using Battle.UI.Jewel.UiJewelStateMachine;
@@ -21,7 +23,8 @@ namespace Battle.UI.Jewel
     private void Awake()
     {
       //data
-      Data = GetComponent<IUiJewelData>();
+      //Data = GetComponent<IJewelData>();
+      UIRuntimeData = GetComponent<IUiJewelData>();
 
       //components
       MyTransform = transform;
@@ -40,6 +43,11 @@ namespace Battle.UI.Jewel
       Fsm = new UiJewelBoardFsm(MainCamera, jewelConfigParameters, this);
 
       UIJewelComponentUtility.Format(this, jewelConfigParameters);
+
+      //UIJewelSprite = new UIJewelSprite(MyRenderer, RuntimeData);
+      //UIRuntimeData.OnSetData += UIJewelSprite.Execute;
+
+      //Debug.Log("UIJewelComponent");
     }
 
     /// <summary>
@@ -76,20 +84,18 @@ namespace Battle.UI.Jewel
     Collider IUiJewelComponents.Collider => MyCollider;
     Rigidbody IUiJewelComponents.Rigidbody => MyRigidbody;
     IMouseInput IUiJewelComponents.Input => MyInput;
-    IUiBoard IUiJewel.Board => Board;
     public string Name => gameObject.name;
     [SerializeField] public Battle.UI.Jewel.UiJewelParameters.UiJewelParameters jewelConfigParameters;
     private UiJewelBoardFsm Fsm { get; set; }
     private Transform MyTransform { get; set; }
     private Collider MyCollider { get; set; }
     private SpriteRenderer[] MyRenderers { get; set; }
-    private SpriteRenderer MyRenderer { get; set; }
+    public SpriteRenderer MyRenderer { get; set; }
     private MeshRenderer[] MyMRenderers { get; set; }
     private MeshRenderer MyMRenderer { get; set; }
     private Rigidbody MyRigidbody { get; set; }
     private IMouseInput MyInput { get; set; }
     private IUiBoard Board { get; set; }
-    public IUiJewelData Data { get; private set; }
     public MonoBehaviour MonoBehavior => this;
     public Camera MainCamera => Camera.main;
     //public bool IsDragging => Fsm.IsCurrent<UiCardDrag>();
@@ -99,6 +105,12 @@ namespace Battle.UI.Jewel
     public bool IsHovering => false;
     public bool IsDisabled => false;
     public bool IsInitialized { get; private set; }
+    //public IJewelData RuntimeData { get; set; }
+    public IUiJewelData UIRuntimeData { get; set; }
+    public IUIJewelSprite UIJewelSprite { get; set; }
+    public IUiJewelTransform UIJewelTransform { get; set; }
+    public IJewelData Data { get; set; }
+    public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     #endregion
 
@@ -155,6 +167,13 @@ namespace Battle.UI.Jewel
     public void Target()
     {
       Fsm.Target();
+    }
+
+    public void SetData(IJewelData data)
+    {
+      Data = data;
+      UIJewelSprite = new UIJewelSprite(MyRenderer, Data);
+      UIJewelTransform = new UIJewelTransform(MyTransform, Data);
     }
 
     #endregion
