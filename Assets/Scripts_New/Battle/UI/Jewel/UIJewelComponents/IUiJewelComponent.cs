@@ -1,11 +1,11 @@
 ﻿using System;
 using Battle.Model.Jewel;
-using Battle.UI.Jewel.UiJewelComponent;
+using Battle.UI.Jewel.Listener;
 using Battle.UI.Jewel.UiJewelData;
 using Battle.UI.Utils;
 using UnityEngine;
 
-namespace Battle.UI.Jewel
+namespace Battle.UI.Jewel.Component
 {
   /// <summary>
   ///     Main components of an UI card.
@@ -26,6 +26,8 @@ namespace Battle.UI.Jewel
     MonoBehaviour MonoBehavior { get; }
     GameObject gameObject { get; }
     Transform transform { get; }
+
+    IUiJewelClickListener ClickListener { get; }
 
     IUiJewelTransform UIJewelTransform { get; }
 

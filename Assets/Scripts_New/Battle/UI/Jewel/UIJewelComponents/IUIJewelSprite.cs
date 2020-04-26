@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Battle.Model.Jewel;
 using UnityEngine;
 
-namespace Battle.UI.Jewel.UiJewelComponent
+namespace Battle.UI.Jewel.Component
 {
   public interface IUIJewelSprite
   {

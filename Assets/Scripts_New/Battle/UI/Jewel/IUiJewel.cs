@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.Model.Jewel;
 using Battle.UI.Board;
+using Battle.UI.Jewel.Component;
 using Battle.UI.Jewel.UiJewelData;
 using Battle.UI.Utils.Tools.UiTransform;
 using Patterns.StateMachine;

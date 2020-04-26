@@ -2,14 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Battle.Model.Jewel;
-using Battle.UI.Jewel.UiJewelComponent;
 using UnityEngine;
 
-namespace Battle.UI.Jewel.UiJewelComponent
+namespace Battle.UI.Jewel.Component
 {
   public class UIJewelTransform : IUiJewelTransform
   {
-    public UIJewelTransform(UIJewelComponent parent, Transform transform)
+    public UIJewelTransform(IUiJewelComponents parent, Transform transform)
     {
       parent.SetData += Execute;
       this.transform = transform;

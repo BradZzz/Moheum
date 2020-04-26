@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Battle.Model.Jewel;
 using UnityEngine;
 
-namespace Battle.UI.Jewel.UiJewelComponent
+namespace Battle.UI.Jewel.Component
 {
   public class UIJewelSprite : IUIJewelSprite
   {
-    public UIJewelSprite (UIJewelComponent parent, SpriteRenderer sprRend)
+    public UIJewelSprite (IUiJewelComponents parent, SpriteRenderer sprRend)
     {
       parent.SetData += Execute;
       SprRend = sprRend;

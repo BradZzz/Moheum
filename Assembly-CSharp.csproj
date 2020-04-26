@@ -214,6 +214,8 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\UiBoardPositioner.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\UiPlayerBoardUtils.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\IUiJewel.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\Listeners\IUiJewelClickListener.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\Listeners\UiJewelClickListener.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\IUIJewelSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\IUiJewelComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\IUiJewelTransform.cs" />

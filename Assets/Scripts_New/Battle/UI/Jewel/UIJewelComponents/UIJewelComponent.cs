@@ -1,7 +1,7 @@
 ﻿using System;
 using Battle.Model.Jewel;
 using Battle.UI.Board;
-using Battle.UI.Jewel.UiJewelComponent;
+using Battle.UI.Jewel.Listener;
 using Battle.UI.Jewel.UiJewelData;
 using Battle.UI.Jewel.UiJewelParameters;
 using Battle.UI.Jewel.UiJewelStateMachine;
@@ -9,13 +9,13 @@ using Battle.UI.Utils;
 using Battle.UI.Utils.Tools.UiTransform;
 using UnityEngine;
 
-namespace Battle.UI.Jewel
+namespace Battle.UI.Jewel.Component
 {
   //[RequireComponent(typeof(Collider))]
   //[RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
-  public class UIJewelComponent : MonoBehaviour, IUiJewel
+  public class UiJewelComponent : MonoBehaviour, IUiJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -36,6 +36,7 @@ namespace Battle.UI.Jewel
       MyRenderer = GetComponent<SpriteRenderer>();
       MyMRenderers = GetComponentsInChildren<MeshRenderer>();
       MyMRenderer = GetComponent<MeshRenderer>();
+      MyClickListener = GetComponent<IUiJewelClickListener>();
 
       //transform
       Motion = new UiMotion(this);
@@ -47,12 +48,8 @@ namespace Battle.UI.Jewel
 
       UIJewelSprite = new UIJewelSprite(this, MyRenderer);
       UIJewelTransform = new UIJewelTransform(this, MyTransform);
-
-      //SetData += OnSetData;
-      //UIJewelSprite = new UIJewelSprite(MyRenderer, RuntimeData);
-      //UIRuntimeData.OnSetData += UIJewelSprite.Execute;
-
-      //Debug.Log("UIJewelComponent");
+      //MyClickListener.Init(this);
+      //MyClickListener
     }
 
     /// <summary>
@@ -119,6 +116,9 @@ namespace Battle.UI.Jewel
 
     public Action<IJewelData> SetData { get; set; }
 
+    private IUiJewelClickListener MyClickListener { get; set; }
+    public IUiJewelClickListener ClickListener => MyClickListener;
+
     #endregion
 
     //--------------------------------------------------------------------------------------------------------------
@@ -180,8 +180,6 @@ namespace Battle.UI.Jewel
     {
       Data = data;
       SetData.Invoke(Data);
-      //UIJewelSprite = new UIJewelSprite(MyRenderer, Data);
-      //UIJewelTransform = new UIJewelTransform(MyTransform, Data);
     }
 
     #endregion

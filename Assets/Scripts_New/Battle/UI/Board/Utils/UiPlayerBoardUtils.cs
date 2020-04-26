@@ -7,6 +7,7 @@ using Extensions;
 using System.Linq;
 using Battle.Model.Jewel;
 using Battle.UI.Jewel;
+using Battle.UI.Jewel.Component;
 
 namespace Battle.UI.Board.Utils
 {
@@ -50,7 +51,7 @@ namespace Battle.UI.Board.Utils
       var uiJewel = UiJewelPool.Instance.Get(jewel);
       Debug.Log("UiPlayerBoardUtils uiJewel");
       //Debug.Log(uiJewel);
-      UIJewelComponent comp = uiJewel.MonoBehavior.GetComponent<UIJewelComponent>();
+      IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
       comp.UIRuntimeData.OnSetData(jewel.Data);
       //JewelData jd = uiJewel.MonoBehavior.AddComponent<JewelData>() as JewelData;
       uiJewel.MonoBehavior.name = "Jewel_" + Count++;
