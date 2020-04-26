@@ -48,7 +48,7 @@ namespace Battle.UI.Jewel
       UIJewelSprite = new UIJewelSprite(this, MyRenderer);
       UIJewelTransform = new UIJewelTransform(this, MyTransform);
 
-      SetData += OnSetData;
+      //SetData += OnSetData;
       //UIJewelSprite = new UIJewelSprite(MyRenderer, RuntimeData);
       //UIRuntimeData.OnSetData += UIJewelSprite.Execute;
 
@@ -179,6 +179,7 @@ namespace Battle.UI.Jewel
     public void OnSetData(IJewelData data)
     {
       Data = data;
+      SetData.Invoke(Data);
       //UIJewelSprite = new UIJewelSprite(MyRenderer, Data);
       //UIJewelTransform = new UIJewelTransform(MyTransform, Data);
     }
