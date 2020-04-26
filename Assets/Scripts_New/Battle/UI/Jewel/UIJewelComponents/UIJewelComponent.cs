@@ -1,4 +1,5 @@
-﻿using Battle.Model.Jewel;
+﻿using System;
+using Battle.Model.Jewel;
 using Battle.UI.Board;
 using Battle.UI.Jewel.UiJewelComponent;
 using Battle.UI.Jewel.UiJewelData;
@@ -44,6 +45,10 @@ namespace Battle.UI.Jewel
 
       UIJewelComponentUtility.Format(this, jewelConfigParameters);
 
+      UIJewelSprite = new UIJewelSprite(this, MyRenderer);
+      UIJewelTransform = new UIJewelTransform(this, MyTransform);
+
+      SetData += OnSetData;
       //UIJewelSprite = new UIJewelSprite(MyRenderer, RuntimeData);
       //UIRuntimeData.OnSetData += UIJewelSprite.Execute;
 
@@ -112,6 +117,8 @@ namespace Battle.UI.Jewel
     public IJewelData Data { get; set; }
     public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
+    public Action<IJewelData> SetData { get; set; }
+
     #endregion
 
     //--------------------------------------------------------------------------------------------------------------
@@ -169,11 +176,11 @@ namespace Battle.UI.Jewel
       Fsm.Target();
     }
 
-    public void SetData(IJewelData data)
+    public void OnSetData(IJewelData data)
     {
       Data = data;
-      UIJewelSprite = new UIJewelSprite(MyRenderer, Data);
-      UIJewelTransform = new UIJewelTransform(MyTransform, Data);
+      //UIJewelSprite = new UIJewelSprite(MyRenderer, Data);
+      //UIJewelTransform = new UIJewelTransform(MyTransform, Data);
     }
 
     #endregion

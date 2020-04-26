@@ -1,4 +1,5 @@
-﻿using Battle.Model.Jewel;
+﻿using System;
+using Battle.Model.Jewel;
 using Battle.UI.Jewel.UiJewelComponent;
 using Battle.UI.Jewel.UiJewelData;
 using Battle.UI.Utils;
@@ -28,6 +29,7 @@ namespace Battle.UI.Jewel
 
     IUiJewelTransform UIJewelTransform { get; }
 
-    void SetData(IJewelData data);
+    Action<IJewelData> SetData { get; set; }
+    //void SetData(IJewelData data);
   }
 }

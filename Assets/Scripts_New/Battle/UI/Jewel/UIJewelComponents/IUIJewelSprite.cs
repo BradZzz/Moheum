@@ -8,6 +8,6 @@ namespace Battle.UI.Jewel.UiJewelComponent
 {
   public interface IUIJewelSprite
   {
-    Action<IJewelData> Execute();
+    void Execute(IJewelData jewelData);
   }
 }

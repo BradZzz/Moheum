@@ -8,6 +8,6 @@ namespace Battle.UI.Jewel.UiJewelComponent
 {
   public interface IUiJewelTransform
   {
-    Action<IJewelData> Execute();
+    void Execute(IJewelData jewelData);
   }
 }

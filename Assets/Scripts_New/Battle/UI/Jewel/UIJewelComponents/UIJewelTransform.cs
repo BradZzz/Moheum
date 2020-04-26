@@ -5,24 +5,24 @@ using Battle.Model.Jewel;
 using Battle.UI.Jewel.UiJewelComponent;
 using UnityEngine;
 
-public class UIJewelTransform : IUiJewelTransform
+namespace Battle.UI.Jewel.UiJewelComponent
 {
-  public UIJewelTransform(Transform transform, IJewelData data)
+  public class UIJewelTransform : IUiJewelTransform
   {
-    this.data = data;
-    this.transform = transform;
-    Execute();
-  }
-
-  Transform transform;
-  IJewelData data;
-
-  public Action<IJewelData> Execute()
-  {
-    if (data.JewelID == JewelID.wrath)
+    public UIJewelTransform(UIJewelComponent parent, Transform transform)
     {
-      transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+      parent.SetData += Execute;
+      this.transform = transform;
     }
-    return null;
+
+    Transform transform;
+
+    public void Execute(IJewelData data)
+    {
+      if (data.JewelID == JewelID.wrath)
+      {
+        transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+      }
+    }
   }
 }
