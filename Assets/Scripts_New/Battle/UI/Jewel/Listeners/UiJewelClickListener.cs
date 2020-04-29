@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.UI.Jewel.Component;
 using UnityEngine;
@@ -11,14 +12,14 @@ namespace Battle.UI.Jewel.Listener
     //// Start is called before the first frame update
     void Awake()
     {
-      Parent = GetComponent<IUiJewelComponents>();
+      Parent = GetComponent<IUiJewel>();
       Parent.SetData += Execute;
     }
 
-    private IUiJewelComponents Parent;
-    private IJewelData data;
+    private IUiJewel Parent;
+    private IRuntimeJewel data;
 
-    public void Execute(IJewelData jewelData)
+    public void Execute(IRuntimeJewel jewelData)
     {
       data = jewelData;
     }
@@ -26,7 +27,8 @@ namespace Battle.UI.Jewel.Listener
     void OnMouseDown()
     {
       Debug.Log("Click");
-      Debug.Log(data.Name);
+      Debug.Log(data.Data.Name);
+      GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(data));
     }
   }
 }

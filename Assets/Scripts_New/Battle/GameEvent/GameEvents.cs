@@ -85,6 +85,16 @@ namespace Battle.GameEvent
     void OnDraw(IRuntimeJewel jewel, Vector2 pos);
   }
 
+  public interface ISelectJewel : ISubject
+  {
+    void OnSelect(IRuntimeJewel jewel);
+  }
+
+  public interface IPostSelectJewel : ISubject
+  {
+    void OnPostSelect(IRuntimeJewel jewel);
+  }
+
   ///// <summary>
   /////     Broadcast of Jewel Swap to Listeners
   ///// </summary>

@@ -27,11 +27,13 @@ namespace Battle.Model.RuntimeBoard
 
       ProcessCascadeBoardMechanics = new CascadeBoardMechanics(this);
       ProcessEndGameBoardMechanics = new EndGameBoardMechanics(this);
+      ProcessSelectBoardMechanics = new SelectBoardMechanics(this);
       ProcessStartGameBoardMechanics = new StartGameBoardMechanics(this);
       ProcessSwapBoardMechanics = new SwapBoardMechanics(this);
 
       Mechanics.Add(ProcessCascadeBoardMechanics);
       Mechanics.Add(ProcessEndGameBoardMechanics);
+      Mechanics.Add(ProcessSelectBoardMechanics);
       Mechanics.Add(ProcessStartGameBoardMechanics);
       Mechanics.Add(ProcessSwapBoardMechanics);
     }
@@ -39,15 +41,26 @@ namespace Battle.Model.RuntimeBoard
     private Battle.Configurations.Configurations configuration { get; }
     private IRuntimeJewel[,] jewelMap;
 
-    public List<BaseBoardMechanics> Mechanics { get; set; } = new List<BaseBoardMechanics>();
+    private List<BaseBoardMechanics> Mechanics { get; set; } = new List<BaseBoardMechanics>();
     private CascadeBoardMechanics ProcessCascadeBoardMechanics { get; }
     private EndGameBoardMechanics ProcessEndGameBoardMechanics { get; }
     private StartGameBoardMechanics ProcessStartGameBoardMechanics { get; }
+    private SelectBoardMechanics ProcessSelectBoardMechanics { get; }
     private SwapBoardMechanics ProcessSwapBoardMechanics { get; }
 
     public IRuntimeJewel[,] GetMap()
     {
       return jewelMap;
+    }
+
+    public List<BaseBoardMechanics> GetMechanics()
+    {
+      return Mechanics;
+    }
+
+    public void SetJewel(IRuntimeJewel jewel, int x, int y)
+    {
+      jewelMap[x, y] = jewel;
     }
   }
 }

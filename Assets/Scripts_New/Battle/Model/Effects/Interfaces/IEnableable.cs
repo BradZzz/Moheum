@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Battle.Model.Effects.Interfaces
 {
-    public interface IEnableable
+    public interface IEnableable : IEffectable
     {
-        void DoEnable(bool enabled, IEffectable item);
+        void DoEnable(bool enabled, IEffectable jewel);
     }
 }

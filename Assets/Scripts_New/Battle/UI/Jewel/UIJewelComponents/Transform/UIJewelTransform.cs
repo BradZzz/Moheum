@@ -8,17 +8,17 @@ namespace Battle.UI.Jewel.Component
 {
   public class UIJewelTransform : IUiJewelTransform
   {
-    public UIJewelTransform(IUiJewelComponents parent, Transform transform)
+    public UIJewelTransform(IUiJewelComponents parent)
     {
       parent.SetData += Execute;
-      this.transform = transform;
+      this.transform = parent.transform;
     }
 
     Transform transform;
 
-    public void Execute(IJewelData data)
+    public void Execute(IRuntimeJewel data)
     {
-      if (data.JewelID == JewelID.wrath)
+      if (data.Data.JewelID == JewelID.wrath)
       {
         transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
       }

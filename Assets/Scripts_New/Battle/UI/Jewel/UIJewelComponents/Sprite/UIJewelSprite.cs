@@ -8,15 +8,15 @@ namespace Battle.UI.Jewel.Component
 {
   public class UIJewelSprite : IUIJewelSprite
   {
-    public UIJewelSprite (IUiJewelComponents parent, SpriteRenderer sprRend)
+    public UIJewelSprite (IUiJewelComponents parent)
     {
       parent.SetData += Execute;
-      SprRend = sprRend;
+      SprRend = parent.Renderer;
     }
 
     private SpriteRenderer SprRend;
 
-    public void Execute(IJewelData jewelData)
+    public void Execute(IRuntimeJewel jewelData)
     {
       Debug.Log("Action<IJewelData>");
       Debug.Log(jewelData);
@@ -25,7 +25,7 @@ namespace Battle.UI.Jewel.Component
       {
         Debug.Log(jewelData);
         Debug.Log(SprRend);
-        SprRend.sprite = jewelData.Artwork;
+        SprRend.sprite = jewelData.Data.Artwork;
       }
     }
   }

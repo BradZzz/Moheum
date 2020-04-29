@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard;
 using Patterns;
 using UnityEngine;
 
@@ -48,11 +49,13 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       // Draw the initial jewels the board needs here!
       // The position relates to the offset position from center
       Vector2 middle = new Vector2((int) width / 2, (int) height / 2);
-      for (int y = 0; y < width; y++)
+      for (int x = 0; x < jewelMap.GetLength(0); x++)
       {
-        for (int x = 0; x < height; x++)
+        for (int y = 0; y < jewelMap.GetLength(1); y++)
         {
-          OnDrawJewel(new RuntimeJewel(jewels[Random.Range(0, jewels.Count)]), new Vector2(x - middle.x, y - middle.y));
+          IRuntimeJewel thisJewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)]);
+          runtimeboard.SetJewel(thisJewel, x, y);
+          OnDrawJewel(thisJewel, new Vector2(x - middle.x, y - middle.y));
         }
       }
     }

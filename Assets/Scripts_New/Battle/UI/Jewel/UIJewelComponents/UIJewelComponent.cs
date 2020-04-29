@@ -1,4 +1,5 @@
 ﻿using System;
+using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.UI.Board;
 using Battle.UI.Jewel.Listener;
@@ -15,7 +16,7 @@ namespace Battle.UI.Jewel.Component
   //[RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
-  public class UiJewelComponent : MonoBehaviour, IUiJewel
+  public class UiJewelComponent : UiListener, IUiJewel, IPostSelectJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -46,8 +47,9 @@ namespace Battle.UI.Jewel.Component
 
       UIJewelComponentUtility.Format(this, jewelConfigParameters);
 
-      UIJewelSprite = new UIJewelSprite(this, MyRenderer);
-      UIJewelTransform = new UIJewelTransform(this, MyTransform);
+      UIJewelSprite = new UIJewelSprite(this);
+      UIJewelTransform = new UIJewelTransform(this);
+      UiJewelOpacity = new UiJewelOpacity(this);
       //MyClickListener.Init(this);
       //MyClickListener
     }
@@ -111,10 +113,12 @@ namespace Battle.UI.Jewel.Component
     public IUiJewelData UIRuntimeData { get; set; }
     public IUIJewelSprite UIJewelSprite { get; set; }
     public IUiJewelTransform UIJewelTransform { get; set; }
-    public IJewelData Data { get; set; }
-    public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public IUiJewelOpacity UiJewelOpacity { get; set; }
+    public IRuntimeJewel Data { get; set; }
+    //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    public Action<IJewelData> SetData { get; set; }
+    public Action<IRuntimeJewel> SetData { get; set; }
+    public Action<IRuntimeJewel> OnPostSelect { get; set; }
 
     private IUiJewelClickListener MyClickListener { get; set; }
     public IUiJewelClickListener ClickListener => MyClickListener;
@@ -176,10 +180,15 @@ namespace Battle.UI.Jewel.Component
       Fsm.Target();
     }
 
-    public void OnSetData(IJewelData data)
+    public void OnSetData(IRuntimeJewel data)
     {
       Data = data;
       SetData.Invoke(Data);
+    }
+
+    void IPostSelectJewel.OnPostSelect(IRuntimeJewel jewel)
+    {
+      OnPostSelect.Invoke(jewel);
     }
 
     #endregion

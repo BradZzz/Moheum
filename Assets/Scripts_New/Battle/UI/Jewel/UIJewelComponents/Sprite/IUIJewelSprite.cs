@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace Battle.UI.Jewel.Component
 {
-  public interface IUiJewelTransform
+  public interface IUIJewelSprite
   {
-    void Execute(IJewelData jewelData);
+    void Execute(IRuntimeJewel jewelData);
   }
 }

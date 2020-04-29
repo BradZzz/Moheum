@@ -8,6 +8,6 @@ namespace Battle.UI.Jewel.Listener
 {
   public interface IUiJewelClickListener
   {
-    void Execute(IJewelData data);
+    void Execute(IRuntimeJewel data);
   }
 }

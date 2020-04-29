@@ -12,7 +12,7 @@ namespace Battle.UI.Jewel
 {
     public interface IUiJewel : IStateMachineHandler, IUiJewelComponents, IUiMotion
     {
-      IJewelData Data { get;  }
+      IRuntimeJewel Data { get;  }
       bool IsInitialized { get; }
       bool IsDragging { get; }
       bool IsHovering { get; }

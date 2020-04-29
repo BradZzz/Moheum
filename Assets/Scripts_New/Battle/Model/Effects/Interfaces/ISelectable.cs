@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Battle.Model.Effects.Interfaces
 {
-    public interface IRemovable : IEffectable
-  {
-        void DoRemove(IEffectable jewel);
+    public interface ISelectable : IEffectable
+    {
+        void DoSelect(IEffectable jewel);
     }
 }
