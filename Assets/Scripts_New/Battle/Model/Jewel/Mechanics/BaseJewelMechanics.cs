@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Battle.UI.ModelJewel.Mechanics
 {
-  public class BaseJewelMechanics : MonoBehaviour
+  public class BaseJewelMechanics
   {
     /// <summary>
     ///     Player reference.

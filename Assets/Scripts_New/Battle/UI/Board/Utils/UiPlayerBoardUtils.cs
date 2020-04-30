@@ -8,11 +8,23 @@ using System.Linq;
 using Battle.Model.Jewel;
 using Battle.UI.Jewel;
 using Battle.UI.Jewel.Component;
+using System.Collections.Generic;
 
 namespace Battle.UI.Board.Utils
 {
   public class UiPlayerBoardUtils : MonoBehaviour, IUiPlayerBoardUtils
   {
+    class JewelQueue {
+      public JewelQueue(IRuntimeJewel Jewel, Vector2 Pos)
+      {
+        jewel = Jewel;
+        pos = Pos;
+      }
+
+      public IRuntimeJewel jewel;
+      public Vector2 pos;
+    }
+
     //--------------------------------------------------------------------------------------------------------------
 
     #region Fields
@@ -27,6 +39,13 @@ namespace Battle.UI.Board.Utils
 
     private IUiBoard PlayerBoard { get; set; }
 
+    private Queue<JewelQueue> JewelsToFall;
+
+    private Coroutine JewelsFalling;
+
+    private float JEWELFALLSPEED = .01f;
+    private float JEWELFALLDELAY = .01f;
+
     #endregion
 
     //--------------------------------------------------------------------------------------------------------------
@@ -35,43 +54,70 @@ namespace Battle.UI.Board.Utils
     {
       PlayerBoard = transform.parent.GetComponentInChildren<IUiBoard>();
       BoardPos = new UiBoardPositioner();
+      JewelsToFall = new Queue<JewelQueue>();
     }
 
     private void Start()
     {
-      //Draw(null);
     }
 
     //--------------------------------------------------------------------------------------------------------------
 
     public void Draw(IRuntimeJewel jewel, Vector2 pos)
     {
-      Debug.Log("Draw");
-      //Debug.Log(UiJewelPool.Instance);
-      var uiJewel = UiJewelPool.Instance.Get(jewel);
-      Debug.Log("UiPlayerBoardUtils uiJewel");
-      //Debug.Log(uiJewel);
+      Debug.Log("UiPlayerBoardUtils Draw");
+      JewelsToFall.Enqueue(new JewelQueue(jewel, pos));
+      if (JewelsFalling == null)
+      {
+        JewelsFalling = StartCoroutine(CascadeJewelFromQueue());
+      }
+    }
+
+    private IEnumerator CascadeJewelFromQueue()
+    {
+      JewelQueue jq = JewelsToFall.Dequeue();
+      var uiJewel = UiJewelPool.Instance.Get(jq.jewel);
       IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
-      comp.UIRuntimeData.OnSetData(jewel.Data);
-      //JewelData jd = uiJewel.MonoBehavior.AddComponent<JewelData>() as JewelData;
+      comp.UIRuntimeData.OnSetData(jq.jewel.Data);
       uiJewel.MonoBehavior.name = "Jewel_" + Count++;
-      //Offset jewel position from center
-      Vector3 uiPos = BoardPos.GetNextJewelPosition(pos, deckPosition.position);
-      uiJewel.transform.position = uiPos;
+
+      Vector3 uiPos = BoardPos.GetNextJewelPosition(jq.pos, deckPosition.position);
+      Vector3 topBoard = new Vector3(uiPos.x, BoardPos.GetBoardTopPos().y, uiPos.z);
       PlayerBoard.AddJewel(uiJewel);
+
+      uiJewel.transform.position = topBoard;
+
+      int count = 0;
+      float diff = Math.Abs(uiPos.y - topBoard.y);
+      while (uiJewel.transform.position != uiPos && count < diff)
+      {
+        uiJewel.transform.position = Vector3.Lerp(topBoard, uiPos, (float) count / diff);
+        // If the diff is smaller, the jewels need to fall faster
+        yield return new WaitForSeconds(JEWELFALLSPEED);
+        count++;
+      }
+
+      uiJewel.transform.position = uiPos;
+      //PlayerBoard.AddJewel(uiJewel);
+
+      yield return new WaitForSeconds(JEWELFALLDELAY);
+      if (JewelsToFall.Count > 0)
+      {
+        JewelsFalling = StartCoroutine(CascadeJewelFromQueue());
+      }
     }
 
-    public void Discard(IRuntimeJewel jewel)
-    {
-      var uiJewel = PlayerBoard.GetJewel(jewel);
-      PlayerBoard.DiscardJewel(uiJewel);
-    }
+    //public void Discard(IRuntimeJewel jewel)
+    //{
+    //  var uiJewel = PlayerBoard.GetJewel(jewel);
+    //  PlayerBoard.DiscardJewel(uiJewel);
+    //}
 
-    public void PlayCard(IRuntimeJewel jewel)
-    {
-      var uiJewel = PlayerBoard.GetJewel(jewel);
-      PlayerBoard.PlayJewel(uiJewel);
-    }
+    //public void PlayCard(IRuntimeJewel jewel)
+    //{
+    //  var uiJewel = PlayerBoard.GetBoardData().GetJewel(jewel);
+    //  PlayerBoard.PlayJewel(uiJewel);
+    //}
 
     //--------------------------------------------------------------------------------------------------------------
 

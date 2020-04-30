@@ -33,6 +33,12 @@ namespace Battle.UI.Board.Utils
       return MARGIN_HEIGHT;
     }
 
+    public Vector2 GetBoardTopPos()
+    {
+      Vector2 jewelPos = new Vector2(0, 5);
+      return jewelPos;
+    }
+
     public Vector2 GetNextJewelPosition(Vector2 pos, Vector2 center)
     {
       Vector2 jewelPos = new Vector3(center.x + OFFSET_WIDTH + pos.x * MARGIN_WIDTH, center.y + OFFSET_HEIGHT + pos.y * MARGIN_HEIGHT);

@@ -8,8 +8,8 @@ namespace Battle.UI.Board.Utils
   public interface IUiPlayerBoardUtils
   {
     void Draw(IRuntimeJewel jewel, Vector2 pos);
-    void Discard(IRuntimeJewel jewel);
-    void PlayCard(IRuntimeJewel jewel);
+    //void Discard(IRuntimeJewel jewel);
+    //void PlayCard(IRuntimeJewel jewel);
   }
 }
 

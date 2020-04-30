@@ -5,13 +5,12 @@ using Battle.UI.ModelJewel.Mechanics;
 
 namespace Battle.Model.Jewel
 {
-    public interface IRuntimeJewel : IEffectable, ISelectable
-    {
+    public interface IRuntimeJewel : IEffectable, ISelectable, IUnSelectable
+  {
         IJewelData Data { get; }
         bool IsSelected { get; set; }
 
-        SelectJewelMechanics SelectJewelMechanic { get; }
-
         Action<IRuntimeJewel> OnSelect { get; set; }
+        Action<IRuntimeJewel> OnUnSelect { get; set; }
     }
 }

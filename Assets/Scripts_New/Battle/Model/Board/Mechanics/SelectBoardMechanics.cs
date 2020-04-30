@@ -21,7 +21,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     public void OnSelect(IRuntimeJewel jewel)
     {
       // Look through all jewels
-      IRuntimeJewel[,] jewels = GameBoard.GetMap();
+      IRuntimeJewel[,] jewels = GameBoard.GetBoardData().GetMap();
 
       for (int x = 0; x < jewels.GetLength(0); x++)
         for (int y = 0; y < jewels.GetLength(1); y++)

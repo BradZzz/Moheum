@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.Model.Game.Mechanics;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard;
 using Battle.Model.TurnLogic;
 
 namespace Battle.Model.Game
@@ -28,6 +29,8 @@ namespace Battle.Model.Game
         int TurnTime { get; set; }
 
         int TotalTime { get; set; }
+
+        IRuntimeBoard GameBoard { get; }
 
         void PreStartGame();
 

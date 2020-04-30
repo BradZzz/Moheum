@@ -8,9 +8,9 @@ namespace Battle.UI.Board
 {
   public interface IUiGemPile
   {
-    Action<IUiJewel[]> OnPileChanged { get; set; }
+    //Action<IUiJewel[]> OnPileChanged { get; set; }
     void AddJewel(IUiJewel uiJewel);
-    void RemoveJewel(IUiJewel uiJewel);
-    void Restart();
+    //void RemoveJewel(IUiJewel uiJewel);
+    //void Restart();
   }
 }

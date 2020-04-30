@@ -980,6 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404834786}
   - component: {fileID: 1404834787}
+  - component: {fileID: 1404834788}
   m_Layer: 0
   m_Name: BoardController
   m_TagString: Untagged
@@ -1014,6 +1015,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckPosition: {fileID: 1380057379}
+--- !u!114 &1404834788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404834785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8890ff9934fde4d348046bac9665a64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDontDestroyOnLoad: 0
+  isSilent: 1
 --- !u!1 &1452291990
 GameObject:
   m_ObjectHideFlags: 0

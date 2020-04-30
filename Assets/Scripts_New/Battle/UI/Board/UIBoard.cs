@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Battle.Controller;
 using Battle.Model.Jewel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Data;
 using Battle.UI.Jewel;
 using Battle.UI.Player;
 using UnityEngine;
@@ -26,109 +28,16 @@ namespace Battle.UI.Board
       //  team.OnCharacterSelected += (charac) => { if (charac.IsUser) DisableCards(); };
       //}
       //TargetResolver.OnTargetsResolve += (card) => EnableCards();
+      //jewels = new List<IUiJewel>();
     }
 
-    private IUiPlayer Controller { get; set; }
+    //private List<IUiJewel> jewels;
 
-    // Add actions here whenever these actions happen to cascade
-    public Action<IUiJewel> OnJewelPlayed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public Action<IUiJewel> OnJewelSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public Action<IUiJewel> OnJewelDiscarded { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    //public List<IUiJewel> Jewels => jewels;
 
-    List<IUiJewel> IUiBoard.Jewels => throw new NotImplementedException();
-
-    Action<IUiJewel> IUiBoard.OnJewelPlayed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    Action<IUiJewel> IUiBoard.OnJewelSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    Action<IUiJewel> IUiBoard.OnJewelDiscarded { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-    public void DisableJewels()
-    {
-      throw new NotImplementedException();
-    }
-
-    public void DiscardJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    public void EnableJewels()
-    {
-      throw new NotImplementedException();
-    }
-
-    public IUiJewel GetJewel(IRuntimeJewel card)
-    {
-      throw new NotImplementedException();
-    }
-
-    public void PlayJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    public void PlaySelected()
-    {
-      throw new NotImplementedException();
-    }
-
-    public void SelectJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    public void Unselect()
-    {
-      throw new NotImplementedException();
-    }
-
-    public void UnselectJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.PlaySelected()
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.Unselect()
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.PlayJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.SelectJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.DiscardJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.UnselectJewel(IUiJewel uiCard)
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.EnableJewels()
-    {
-      throw new NotImplementedException();
-    }
-
-    void IUiBoard.DisableJewels()
-    {
-      throw new NotImplementedException();
-    }
-
-    IUiJewel IUiBoard.GetJewel(IRuntimeJewel card)
-    {
-      throw new NotImplementedException();
-    }
+    //public IBoardData GetBoardData()
+    //{
+    //  return GameData.Instance.RuntimeGame.GameBoard.GetBoardData();
+    //}
   }
 }

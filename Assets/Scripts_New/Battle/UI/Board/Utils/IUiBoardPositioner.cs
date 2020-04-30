@@ -10,5 +10,8 @@ namespace Battle.UI.Board.Utils
     float GetMarginHeight();
     float GetOffsetWidth();
     float GetOffsetHeight();
+
+    Vector2 GetBoardTopPos();
+    Vector2 GetNextJewelPosition(Vector2 pos, Vector2 center);
   }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Battle.UI.RuntimeBoard.Mechanics
 {
-  public class BaseBoardMechanics : MonoBehaviour
+  public class BaseBoardMechanics
   {
     /// <summary>
     ///     Player reference.

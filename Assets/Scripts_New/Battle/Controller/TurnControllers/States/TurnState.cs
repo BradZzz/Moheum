@@ -129,10 +129,10 @@ namespace Battle.Controller.TurnControllers.States
             GameData.RuntimeGame.FinishCurrentPlayerTurn();
         }
 
-        public void Swap(SwapMechanics.RuntimeSwapData swapData)
-        {
-            GameData.RuntimeGame.Swap(swapData);
-        }
+        //public void Swap(SwapMechanics.RuntimeSwapData swapData)
+        //{
+        //    GameData.RuntimeGame.Swap(swapData);
+        //}
 
         //----------------------------------------------------------------------------------------------------------
 

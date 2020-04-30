@@ -22,6 +22,7 @@ namespace Battle.UI.Jewel.Component
     SpriteRenderer Renderer { get; }
     Collider Collider { get; }
     Rigidbody Rigidbody { get; }
+    BoxCollider2D BoxCollider { get; }
     IMouseInput Input { get; }
     MonoBehaviour MonoBehavior { get; }
     GameObject gameObject { get; }

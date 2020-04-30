@@ -29,35 +29,28 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     /// </summary>
     public void Execute()
     {
-      IRuntimeJewel[,] jewelMap = runtimeboard.GetMap();
-      int width = jewelMap.GetLength(0);
-      int height = jewelMap.GetLength(1);
+      //IRuntimeJewel[,] jewelMap = runtimeboard.GetBoardData().GetMap();
+      //int width = jewelMap.GetLength(0);
+      //int height = jewelMap.GetLength(1);
 
-      //if (Game.IsGameStarted) return;
+      ////This needs to be pulled in from another file
+      //JewelDatabase db = JewelDatabase.Instance;
+      //List<JewelData> jewels = db.GetFullList();
 
-      //Game.IsGameStarted = true;
-
-      ////calculus of the starting player
-      //Game.TurnLogic.DecideStarterPlayer();
-
-      //OnGameStarted(Game.TurnLogic.StarterPlayer);
-
-      //This needs to be pulled in from another file
-      JewelDatabase db = JewelDatabase.Instance;
-      List<JewelData> jewels = db.GetFullList();
-
-      // Draw the initial jewels the board needs here!
-      // The position relates to the offset position from center
-      Vector2 middle = new Vector2((int) width / 2, (int) height / 2);
-      for (int x = 0; x < jewelMap.GetLength(0); x++)
-      {
-        for (int y = 0; y < jewelMap.GetLength(1); y++)
-        {
-          IRuntimeJewel thisJewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)]);
-          runtimeboard.SetJewel(thisJewel, x, y);
-          OnDrawJewel(thisJewel, new Vector2(x - middle.x, y - middle.y));
-        }
-      }
+      //// Draw the initial jewels the board needs here!
+      //// The position relates to the offset position from center
+      //Vector2 middle = new Vector2((int) width / 2, (int) height / 2);
+      //for (int x = 0; x < width; x++)
+      //{
+      //  for (int y = 0; y < height; y++)
+      //  {
+      //    IRuntimeJewel thisJewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)]);
+      //    // Sets the jewel's position in the data map. This needs to be somewhere else
+      //    runtimeboard.GetBoardData().SetJewel(thisJewel, new Vector2(x, y));
+      //    // Sets the jewel's position on the board
+      //    OnDrawJewel(thisJewel, new Vector2(x - middle.x, y - middle.y));
+      //  }
+      //}
     }
 
     /// <summary>
@@ -66,7 +59,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     /// <param name="starterPlayer"></param>
     private void OnDrawJewel(IRuntimeJewel jewel, Vector2 pos)
     {
-      GameEvents.Instance.Notify<IBoardDrawJewel>(i => i.OnDraw(jewel, pos));
+      //GameEvents.Instance.Notify<IBoardDrawJewel>(i => i.OnDraw(jewel, pos));
     }
   }
 }

@@ -8,10 +8,11 @@ using UnityEngine;
 
 namespace Battle.UI.Board
 {
-  public class UiBoardDrawListener : UiListener, IBoardDrawJewel
+  public class UiBoardDrawListener : UiListener, IBoardDrawJewel, ICascadeJewel
   {
     void Awake()
     {
+      Debug.Log("UiBoardDrawListener Awake");
       BoardUtils = transform.parent.GetComponentInChildren<IUiPlayerBoardUtils>();
     }
 
@@ -19,6 +20,13 @@ namespace Battle.UI.Board
 
     public void OnDraw(IRuntimeJewel jewel, Vector2 pos)
     {
+      Debug.Log("UiBoardDrawListener OnDraw");
+      //BoardUtils.Draw(jewel, pos);
+    }
+
+    public void OnJewelFall(IRuntimeJewel jewel, Vector2 pos)
+    {
+      Debug.Log("UiBoardDrawListener OnJewelFall");
       BoardUtils.Draw(jewel, pos);
     }
   }

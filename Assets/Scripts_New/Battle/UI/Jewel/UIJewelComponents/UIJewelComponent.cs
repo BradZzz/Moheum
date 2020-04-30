@@ -12,8 +12,8 @@ using UnityEngine;
 
 namespace Battle.UI.Jewel.Component
 {
-  //[RequireComponent(typeof(Collider))]
-  //[RequireComponent(typeof(Rigidbody))]
+  [RequireComponent(typeof(Collider))]
+  [RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
   public class UiJewelComponent : UiListener, IUiJewel, IPostSelectJewel
@@ -38,6 +38,7 @@ namespace Battle.UI.Jewel.Component
       MyMRenderers = GetComponentsInChildren<MeshRenderer>();
       MyMRenderer = GetComponent<MeshRenderer>();
       MyClickListener = GetComponent<IUiJewelClickListener>();
+      MyBoxCollider = GetComponent<BoxCollider2D>();
 
       //transform
       Motion = new UiMotion(this);
@@ -50,6 +51,7 @@ namespace Battle.UI.Jewel.Component
       UIJewelSprite = new UIJewelSprite(this);
       UIJewelTransform = new UIJewelTransform(this);
       UiJewelOpacity = new UiJewelOpacity(this);
+      UiJewelBoxCollider = new UIJewelBoxCollider(this);
       //MyClickListener.Init(this);
       //MyClickListener
     }
@@ -87,6 +89,7 @@ namespace Battle.UI.Jewel.Component
     MeshRenderer IUiJewelComponents.MRenderer => MyMRenderer;
     Collider IUiJewelComponents.Collider => MyCollider;
     Rigidbody IUiJewelComponents.Rigidbody => MyRigidbody;
+    BoxCollider2D IUiJewelComponents.BoxCollider => MyBoxCollider;
     IMouseInput IUiJewelComponents.Input => MyInput;
     public string Name => gameObject.name;
     [SerializeField] public Battle.UI.Jewel.UiJewelParameters.UiJewelParameters jewelConfigParameters;
@@ -98,6 +101,7 @@ namespace Battle.UI.Jewel.Component
     private MeshRenderer[] MyMRenderers { get; set; }
     private MeshRenderer MyMRenderer { get; set; }
     private Rigidbody MyRigidbody { get; set; }
+    private BoxCollider2D MyBoxCollider { get; set; }
     private IMouseInput MyInput { get; set; }
     private IUiBoard Board { get; set; }
     public MonoBehaviour MonoBehavior => this;
@@ -114,6 +118,7 @@ namespace Battle.UI.Jewel.Component
     public IUIJewelSprite UIJewelSprite { get; set; }
     public IUiJewelTransform UIJewelTransform { get; set; }
     public IUiJewelOpacity UiJewelOpacity { get; set; }
+    public IUIJewelBoxCollider UiJewelBoxCollider { get; set; }
     public IRuntimeJewel Data { get; set; }
     //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 

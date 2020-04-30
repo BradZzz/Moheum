@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Data;
 using Battle.UI.RuntimeBoard.Mechanics;
 using Patterns;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace Battle.Model.RuntimeBoard
        */
 
       this.configuration = configuration;
-      jewelMap = new IRuntimeJewel[configuration.boardConfigs.width, configuration.boardConfigs.height];
+      boardData = new BoardData(configuration);
 
       ProcessCascadeBoardMechanics = new CascadeBoardMechanics(this);
       ProcessEndGameBoardMechanics = new EndGameBoardMechanics(this);
@@ -39,7 +40,7 @@ namespace Battle.Model.RuntimeBoard
     }
 
     private Battle.Configurations.Configurations configuration { get; }
-    private IRuntimeJewel[,] jewelMap;
+    private BoardData boardData;
 
     private List<BaseBoardMechanics> Mechanics { get; set; } = new List<BaseBoardMechanics>();
     private CascadeBoardMechanics ProcessCascadeBoardMechanics { get; }
@@ -48,19 +49,14 @@ namespace Battle.Model.RuntimeBoard
     private SelectBoardMechanics ProcessSelectBoardMechanics { get; }
     private SwapBoardMechanics ProcessSwapBoardMechanics { get; }
 
-    public IRuntimeJewel[,] GetMap()
+    public BoardData GetBoardData()
     {
-      return jewelMap;
+      return boardData;
     }
 
     public List<BaseBoardMechanics> GetMechanics()
     {
       return Mechanics;
-    }
-
-    public void SetJewel(IRuntimeJewel jewel, int x, int y)
-    {
-      jewelMap[x, y] = jewel;
     }
   }
 }

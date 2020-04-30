@@ -12,6 +12,6 @@ namespace Battle.Controller.TurnControllers
         IPlayer Player { get; }
         bool PassTurn();
         //Add in ability to swap
-        void Swap(SwapMechanics.RuntimeSwapData swapData);
+        //void Swap(SwapMechanics.RuntimeSwapData swapData);
     }
 }

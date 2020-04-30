@@ -53,12 +53,13 @@ namespace Battle.Model.Game
     public bool IsTurnInProgress { get; set; }
     public int TurnTime { get; set; }
     public int TotalTime { get; set; }
-    public IRuntimeBoard gameBoard { get; set; }
+    public IRuntimeBoard GameBoard => gameBoard;
     public Battle.Configurations.Configurations Configurations { get; }
 
     #region Processes
 
     public List<BaseGameMechanics> Mechanics { get; set; } = new List<BaseGameMechanics>();
+    private IRuntimeBoard gameBoard;
     public ITurnLogic TurnLogic { get; set; }
     private PreStartGameMechanics ProcessPreStartGame { get; }
     private StartGameMechanics ProcessStartGame { get; }

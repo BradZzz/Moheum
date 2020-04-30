@@ -90,9 +90,19 @@ namespace Battle.GameEvent
     void OnSelect(IRuntimeJewel jewel);
   }
 
+  public interface IUnselectAll : ISubject
+  {
+    void OnUnselectAll ();
+  }
+
   public interface IPostSelectJewel : ISubject
   {
     void OnPostSelect(IRuntimeJewel jewel);
+  }
+
+  public interface ICascadeJewel : ISubject
+  {
+    void OnJewelFall(IRuntimeJewel jewel, Vector2 pos);
   }
 
   ///// <summary>
