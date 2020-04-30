@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Battle.UI.Board
 {
-  public class UiBoardDrawListener : UiListener, IBoardDrawJewel, ICascadeJewel
+  public class UiBoardDrawListener : UiListener, ICascadeJewel
   {
     void Awake()
     {
@@ -18,11 +18,11 @@ namespace Battle.UI.Board
 
     private IUiPlayerBoardUtils BoardUtils { get; set; }
 
-    public void OnDraw(IRuntimeJewel jewel, Vector2 pos)
-    {
-      Debug.Log("UiBoardDrawListener OnDraw");
-      //BoardUtils.Draw(jewel, pos);
-    }
+    //public void OnDraw(IRuntimeJewel jewel, Vector2 pos)
+    //{
+    //  Debug.Log("UiBoardDrawListener OnDraw");
+    //  //BoardUtils.Draw(jewel, pos);
+    //}
 
     public void OnJewelFall(IRuntimeJewel jewel, Vector2 pos)
     {

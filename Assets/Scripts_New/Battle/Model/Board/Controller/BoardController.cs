@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Battle.Model.RuntimeBoard.Controller
 {
-  public class BoardController : SingletonMB<BoardController>, IBoardController, IListener, IStartGame
+  public class BoardController : SingletonMB<BoardController>, IBoardController, IListener, IStartGame, IEvaluateBoard
   {
     /// <summary>
     ///     State machine that holds the board logic.
@@ -53,6 +53,12 @@ namespace Battle.Model.RuntimeBoard.Controller
        */
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<CascadeBoardState>();
+    }
+
+    public void OnBoardEvaluateCheck()
+    {
+      BoardBasedLogic.PopState();
+      BoardBasedLogic.PushState<EvaluateBoardState>();
     }
   }
 }

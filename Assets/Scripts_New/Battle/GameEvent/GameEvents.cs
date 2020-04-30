@@ -95,6 +95,9 @@ namespace Battle.GameEvent
     void OnUnselectAll ();
   }
 
+  /*
+   * Update the UI with the data from the jewel that was just selected
+   */
   public interface IPostSelectJewel : ISubject
   {
     void OnPostSelect(IRuntimeJewel jewel);
@@ -103,6 +106,14 @@ namespace Battle.GameEvent
   public interface ICascadeJewel : ISubject
   {
     void OnJewelFall(IRuntimeJewel jewel, Vector2 pos);
+  }
+
+  /*
+   * Board Checks for next state
+   */
+  public interface IEvaluateBoard : ISubject
+  {
+    void OnBoardEvaluateCheck();
   }
 
   ///// <summary>

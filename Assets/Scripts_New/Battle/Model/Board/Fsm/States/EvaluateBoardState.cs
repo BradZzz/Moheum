@@ -11,9 +11,18 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
   public class EvaluateBoardState : BaseBoardState
   {
-    public EvaluateBoardState(BoardBasedFsm fsm, IBoardData boardData) : base(fsm, boardData)
+    public EvaluateBoardState(BoardBasedFsm Fsm, IBoardData BoardData) : base(Fsm, BoardData)
     {
+      boardData = BoardData;
+    }
 
+    private IBoardData boardData;
+
+    public override void OnEnterState()
+    {
+      base.OnEnterState();
+
+      Debug.Log("Evaluate Board State!");
     }
   }
 }

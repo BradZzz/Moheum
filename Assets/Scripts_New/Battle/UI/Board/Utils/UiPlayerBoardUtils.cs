@@ -9,9 +9,13 @@ using Battle.Model.Jewel;
 using Battle.UI.Jewel;
 using Battle.UI.Jewel.Component;
 using System.Collections.Generic;
+using Battle.GameEvent;
 
 namespace Battle.UI.Board.Utils
 {
+  /*
+   * Handles the jewel falling code
+   */
   public class UiPlayerBoardUtils : MonoBehaviour, IUiPlayerBoardUtils
   {
     class JewelQueue {
@@ -81,10 +85,10 @@ namespace Battle.UI.Board.Utils
       comp.UIRuntimeData.OnSetData(jq.jewel.Data);
       uiJewel.MonoBehavior.name = "Jewel_" + Count++;
 
-      Vector3 uiPos = BoardPos.GetNextJewelPosition(jq.pos, deckPosition.position);
+      Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.pos);
+      Vector3 uiPos = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
       Vector3 topBoard = new Vector3(uiPos.x, BoardPos.GetBoardTopPos().y, uiPos.z);
       PlayerBoard.AddJewel(uiJewel);
-
       uiJewel.transform.position = topBoard;
 
       int count = 0;
@@ -96,15 +100,21 @@ namespace Battle.UI.Board.Utils
         yield return new WaitForSeconds(JEWELFALLSPEED);
         count++;
       }
-
       uiJewel.transform.position = uiPos;
-      //PlayerBoard.AddJewel(uiJewel);
-
       yield return new WaitForSeconds(JEWELFALLDELAY);
       if (JewelsToFall.Count > 0)
       {
         JewelsFalling = StartCoroutine(CascadeJewelFromQueue());
+      } else
+      {
+        // Send a signal to the board fsm to move to evaluateBoardState
+        OnDoneCascade();
       }
+    }
+
+    private void OnDoneCascade()
+    {
+      GameEvents.Instance.Notify<IEvaluateBoard>(i => i.OnBoardEvaluateCheck());
     }
 
     //public void Discard(IRuntimeJewel jewel)
@@ -121,15 +131,15 @@ namespace Battle.UI.Board.Utils
 
     //--------------------------------------------------------------------------------------------------------------
 
-    private void Update()
-    {
-      if (Input.GetKeyDown(KeyCode.Escape)) Restart();
-    }
+    //private void Update()
+    //{
+    //  if (Input.GetKeyDown(KeyCode.Escape)) Restart();
+    //}
 
-    public void Restart()
-    {
-      SceneManager.LoadScene(0);
-    }
+    //public void Restart()
+    //{
+    //  SceneManager.LoadScene(0);
+    //}
 
     //--------------------------------------------------------------------------------------------------------------
   }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Controller;
 using Battle.Model.Jewel;
 using UnityEngine;
 
@@ -37,6 +38,16 @@ namespace Battle.UI.Board.Utils
     {
       Vector2 jewelPos = new Vector2(0, 5);
       return jewelPos;
+    }
+
+    public Vector2 OffsetJewelByPosition(Vector2 pos)
+    {
+      IRuntimeJewel[,] jewelMap = GameData.Instance.RuntimeGame.GameBoard.GetBoardData().GetMap();
+      int width = jewelMap.GetLength(0);
+      int height = jewelMap.GetLength(1);
+
+      Vector2 middle = new Vector2((int)width / 2, (int)height / 2);
+      return new Vector2(pos.x - middle.x, pos.y - middle.y);
     }
 
     public Vector2 GetNextJewelPosition(Vector2 pos, Vector2 center)
