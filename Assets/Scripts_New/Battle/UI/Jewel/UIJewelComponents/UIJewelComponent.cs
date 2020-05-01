@@ -16,7 +16,7 @@ namespace Battle.UI.Jewel.Component
   [RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
-  public class UiJewelComponent : UiListener, IUiJewel, IPostSelectJewel
+  public class UiJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IRemoveJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -194,6 +194,12 @@ namespace Battle.UI.Jewel.Component
     void IPostSelectJewel.OnPostSelect(IRuntimeJewel jewel)
     {
       OnPostSelect.Invoke(jewel);
+    }
+
+    public void OnRemoveJewel(IRuntimeJewel jewel, Vector2 pos)
+    {
+      // R3emove jewel from UI
+      throw new NotImplementedException();
     }
 
     #endregion
