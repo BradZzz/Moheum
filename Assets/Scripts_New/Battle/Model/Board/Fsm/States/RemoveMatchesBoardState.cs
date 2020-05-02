@@ -20,9 +20,9 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private IBoardData boardData;
 
-    public void OnRemoveJewel(IRuntimeJewel jewel, Vector2 pos)
+    public void OnRemoveJewel(IRuntimeJewel jewel)
     {
-      boardData.SetJewel(null, pos);
+      boardData.SetJewel(null, jewel.Pos);
     }
   }
 }

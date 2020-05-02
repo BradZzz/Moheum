@@ -33,7 +33,8 @@ namespace Battle.Model.RuntimeBoard.Fsm
       {
         for (int y = 0; y < height; y++)
         {
-          OnCascadeJewel(new RuntimeJewel(jewels[Random.Range(0, jewels.Count)]), new Vector2(x, y));
+          RuntimeJewel jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], new Vector2(x, y));
+          OnCascadeJewel(jewel, jewel.Pos);
         }
       }
     }
@@ -45,7 +46,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
     private void OnCascadeJewel(IRuntimeJewel jewel, Vector2 pos)
     {
       boardData.SetJewel(jewel, new Vector2(pos.x, pos.y));
-      GameEvents.Instance.Notify<ICascadeJewel>(i => i.OnJewelFall(jewel, pos));
+      GameEvents.Instance.Notify<ICascadeJewel>(i => i.OnJewelFall(jewel));
     }
   }
 }

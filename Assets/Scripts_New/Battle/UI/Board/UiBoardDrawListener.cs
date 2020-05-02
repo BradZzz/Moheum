@@ -24,10 +24,10 @@ namespace Battle.UI.Board
     //  //BoardUtils.Draw(jewel, pos);
     //}
 
-    public void OnJewelFall(IRuntimeJewel jewel, Vector2 pos)
+    public void OnJewelFall(IRuntimeJewel jewel)
     {
       Debug.Log("UiBoardDrawListener OnJewelFall");
-      BoardUtils.Draw(jewel, pos);
+      BoardUtils.Draw(jewel);
     }
   }
 }

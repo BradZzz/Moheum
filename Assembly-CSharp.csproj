@@ -239,6 +239,8 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\Listeners\UiJewelClickListener.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\BoxCollider\IUIJewelBoxCollider.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\BoxCollider\UIJewelBoxCollider.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Destroy\IUIJewelDestroy.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Destroy\UIJewelDestroy.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\IUiJewelComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Opacity\IUiJewelOpacity.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Opacity\UiJewelOpacity.cs" />

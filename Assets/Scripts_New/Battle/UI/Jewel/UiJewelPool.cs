@@ -70,7 +70,7 @@ namespace Battle.Model.Jewel
 
         protected override void OnRelease(GameObject prefabModel)
         {
-            var cardUi = prefabModel.GetComponent<IUiJewel>();
+            //var cardUi = prefabModel.GetComponent<IUiJewel>();
             //cardUi.Restart();
             base.OnRelease(prefabModel);
         }

@@ -52,6 +52,7 @@ namespace Battle.UI.Jewel.Component
       UIJewelTransform = new UIJewelTransform(this);
       UiJewelOpacity = new UiJewelOpacity(this);
       UiJewelBoxCollider = new UIJewelBoxCollider(this);
+      UiJewelDestroy = new UIJewelDestroy(this);
       //MyClickListener.Init(this);
       //MyClickListener
     }
@@ -119,10 +120,12 @@ namespace Battle.UI.Jewel.Component
     public IUiJewelTransform UIJewelTransform { get; set; }
     public IUiJewelOpacity UiJewelOpacity { get; set; }
     public IUIJewelBoxCollider UiJewelBoxCollider { get; set; }
+    public IUIJewelDestroy UiJewelDestroy { get; set; }
     public IRuntimeJewel Data { get; set; }
     //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public Action<IRuntimeJewel> SetData { get; set; }
+    public Action<IRuntimeJewel> OnRemove { get; set; }
     public Action<IRuntimeJewel> OnPostSelect { get; set; }
 
     private IUiJewelClickListener MyClickListener { get; set; }
@@ -196,10 +199,9 @@ namespace Battle.UI.Jewel.Component
       OnPostSelect.Invoke(jewel);
     }
 
-    public void OnRemoveJewel(IRuntimeJewel jewel, Vector2 pos)
+    public void OnRemoveJewel(IRuntimeJewel jewel)
     {
-      // R3emove jewel from UI
-      throw new NotImplementedException();
+      OnRemove.Invoke(jewel);
     }
 
     #endregion

@@ -9,9 +9,10 @@ namespace Battle.Model.Jewel
 {
     public class RuntimeJewel : IRuntimeJewel
     {
-        public RuntimeJewel(IJewelData data)
+        public RuntimeJewel(IJewelData Data, Vector2 Pos)
         {
-          this.data = data;
+          data = Data;
+          pos = Pos;
           IsSelected = false;
 
           selectJewelMechanic = new SelectJewelMechanics(this);
@@ -24,12 +25,14 @@ namespace Battle.Model.Jewel
         private JewelFallMechanics jewelFallMechanics;
 
         private IJewelData data;
+        private Vector2 pos;
 
         public SelectJewelMechanics SelectJewelMechanic => selectJewelMechanic;
         public UnselectJewelMechanics UnselectJewelMechanic => unSelectJewelMechanic;
         public JewelFallMechanics JewelFallMechanics => jewelFallMechanics;
 
         public IJewelData Data => data;
+        public Vector2 Pos => pos;
         public bool IsSelected { get; set; }
 
         public Action<IRuntimeJewel> OnSelect { get; set; }

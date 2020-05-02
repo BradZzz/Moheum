@@ -67,10 +67,10 @@ namespace Battle.UI.Board.Utils
 
     //--------------------------------------------------------------------------------------------------------------
 
-    public void Draw(IRuntimeJewel jewel, Vector2 pos)
+    public void Draw(IRuntimeJewel jewel)
     {
       Debug.Log("UiPlayerBoardUtils Draw");
-      JewelsToFall.Enqueue(new JewelQueue(jewel, pos));
+      JewelsToFall.Enqueue(new JewelQueue(jewel, jewel.Pos));
       if (JewelsFalling == null)
       {
         JewelsFalling = StartCoroutine(CascadeJewelFromQueue());

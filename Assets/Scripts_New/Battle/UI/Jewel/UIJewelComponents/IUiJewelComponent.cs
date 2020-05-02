@@ -33,6 +33,7 @@ namespace Battle.UI.Jewel.Component
     IUiJewelTransform UIJewelTransform { get; }
 
     Action<IRuntimeJewel> SetData { get; set; }
+    Action<IRuntimeJewel> OnRemove { get; set; }
     Action<IRuntimeJewel> OnPostSelect { get; set; }
     //void SetData(IJewelData data);
   }
