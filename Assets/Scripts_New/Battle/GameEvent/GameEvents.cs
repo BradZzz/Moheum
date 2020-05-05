@@ -108,14 +108,31 @@ namespace Battle.GameEvent
     void OnRemoveJewel(IRuntimeJewel jewel);
   }
 
+  // Send to initial board mechanic
   public interface ICascadeJewel : ISubject
   {
     void OnJewelFall(IRuntimeJewel jewel);
   }
 
+  // 
+  public interface IPositionJewel : ISubject
+  {
+    void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to);
+  }
+
   /*
    * Board Checks for next state
    */
+  public interface ICascadeBoard : ISubject
+  {
+    void OnBoardCascadeCheck();
+  }
+
+  public interface ICleanBoard : ISubject
+  {
+    void OnBoardCleanCheck();
+  }
+
   public interface IEvaluateBoard : ISubject
   {
     void OnBoardEvaluateCheck();

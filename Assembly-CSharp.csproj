@@ -244,6 +244,8 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\IUiJewelComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Opacity\IUiJewelOpacity.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Opacity\UiJewelOpacity.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Position\IUIJewelPosition.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Position\UIJewelPosition.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Sprite\IUIJewelSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Sprite\UIJewelSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Transform\IUiJewelTransform.cs" />

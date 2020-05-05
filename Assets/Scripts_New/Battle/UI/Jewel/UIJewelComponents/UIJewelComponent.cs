@@ -53,6 +53,7 @@ namespace Battle.UI.Jewel.Component
       UiJewelOpacity = new UiJewelOpacity(this);
       UiJewelBoxCollider = new UIJewelBoxCollider(this);
       UiJewelDestroy = new UIJewelDestroy(this);
+      UiJewelPosition = new UIJewelPosition(this);
       //MyClickListener.Init(this);
       //MyClickListener
     }
@@ -121,6 +122,7 @@ namespace Battle.UI.Jewel.Component
     public IUiJewelOpacity UiJewelOpacity { get; set; }
     public IUIJewelBoxCollider UiJewelBoxCollider { get; set; }
     public IUIJewelDestroy UiJewelDestroy { get; set; }
+    public IUIJewelPosition UiJewelPosition { get; set; }
     public IRuntimeJewel Data { get; set; }
     //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 

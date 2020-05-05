@@ -22,7 +22,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     public void OnRemoveJewel(IRuntimeJewel jewel)
     {
-      boardData.SetJewel(null, jewel.Pos);
+      //boardData.SetJewel(null, jewel.Pos);
     }
   }
 }

@@ -18,17 +18,6 @@ namespace Battle.UI.Board.Utils
    */
   public class UiPlayerBoardUtils : MonoBehaviour, IUiPlayerBoardUtils
   {
-    class JewelQueue {
-      public JewelQueue(IRuntimeJewel Jewel, Vector2 Pos)
-      {
-        jewel = Jewel;
-        pos = Pos;
-      }
-
-      public IRuntimeJewel jewel;
-      public Vector2 pos;
-    }
-
     //--------------------------------------------------------------------------------------------------------------
 
     #region Fields
@@ -43,11 +32,10 @@ namespace Battle.UI.Board.Utils
 
     private IUiBoard PlayerBoard { get; set; }
 
-    private Queue<JewelQueue> JewelsToFall;
+    private Queue<IRuntimeJewel> JewelsToFall;
 
     private Coroutine JewelsFalling;
 
-    private float JEWELFALLSPEED = .01f;
     private float JEWELFALLDELAY = .01f;
 
     #endregion
@@ -58,7 +46,7 @@ namespace Battle.UI.Board.Utils
     {
       PlayerBoard = transform.parent.GetComponentInChildren<IUiBoard>();
       BoardPos = new UiBoardPositioner();
-      JewelsToFall = new Queue<JewelQueue>();
+      JewelsToFall = new Queue<IRuntimeJewel>();
     }
 
     private void Start()
@@ -70,7 +58,7 @@ namespace Battle.UI.Board.Utils
     public void Draw(IRuntimeJewel jewel)
     {
       Debug.Log("UiPlayerBoardUtils Draw");
-      JewelsToFall.Enqueue(new JewelQueue(jewel, jewel.Pos));
+      JewelsToFall.Enqueue(jewel);
       if (JewelsFalling == null)
       {
         JewelsFalling = StartCoroutine(CascadeJewelFromQueue());
@@ -79,29 +67,29 @@ namespace Battle.UI.Board.Utils
 
     private IEnumerator CascadeJewelFromQueue()
     {
-      JewelQueue jq = JewelsToFall.Dequeue();
-      var uiJewel = UiJewelPool.Instance.Get(jq.jewel);
-      IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
-      comp.UIRuntimeData.OnSetData(jq.jewel.Data);
-      uiJewel.MonoBehavior.name = "Jewel_" + Count++;
+      IRuntimeJewel jq = JewelsToFall.Dequeue();
 
-      Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.pos);
-      Vector3 uiPos = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
-      Vector3 topBoard = new Vector3(uiPos.x, BoardPos.GetBoardTopPos().y, uiPos.z);
-      PlayerBoard.AddJewel(uiJewel);
-      uiJewel.transform.position = topBoard;
-
-      int count = 0;
-      float diff = Math.Abs(uiPos.y - topBoard.y);
-      while (uiJewel.transform.position != uiPos && count < diff)
+      if (jq.IsNew())
       {
-        uiJewel.transform.position = Vector3.Lerp(topBoard, uiPos, (float) count / diff);
-        // If the diff is smaller, the jewels need to fall faster
-        yield return new WaitForSeconds(JEWELFALLSPEED);
-        count++;
+        var uiJewel = UiJewelPool.Instance.Get(jq);
+        IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
+        comp.UIRuntimeData.OnSetData(jq.Data);
+        uiJewel.MonoBehavior.name = "Jewel_" + Count++;
+
+        PlayerBoard.AddJewel(uiJewel);
       }
-      uiJewel.transform.position = uiPos;
+
+      Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.Pos);
+      Vector3 to = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
+      Vector3 from = new Vector3(to.x, jq.IsNew() ? BoardPos.GetBoardTopPos().y : jq.LastPos.y, to.z);
+
+      if (jq.IsNew() || jq.LastPos.y != jq.Pos.y)
+      {
+        OnNotifyPositionChange(jq, from, to);
+      }
+
       yield return new WaitForSeconds(JEWELFALLDELAY);
+
       if (JewelsToFall.Count > 0)
       {
         JewelsFalling = StartCoroutine(CascadeJewelFromQueue());
@@ -112,8 +100,14 @@ namespace Battle.UI.Board.Utils
       }
     }
 
+    private void OnNotifyPositionChange(IRuntimeJewel jewel, Vector3 from, Vector3 to)
+    {
+      GameEvents.Instance.Notify<IPositionJewel>(i => i.OnJewelPosition(jewel, from, to));
+    }
+
     private void OnDoneCascade()
     {
+      JewelsFalling = null;
       GameEvents.Instance.Notify<IEvaluateBoard>(i => i.OnBoardEvaluateCheck());
     }
 

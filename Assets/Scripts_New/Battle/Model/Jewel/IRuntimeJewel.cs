@@ -9,10 +9,14 @@ namespace Battle.Model.Jewel
     public interface IRuntimeJewel : IEffectable, ISelectable, IUnSelectable
   {
         Vector2 Pos { get; }
+        Vector2 LastPos { get; }
         IJewelData Data { get; }
         bool IsSelected { get; set; }
 
         Action<IRuntimeJewel> OnSelect { get; set; }
         Action<IRuntimeJewel> OnUnSelect { get; set; }
+
+        void RotatePos(Vector2 Pos);
+        bool IsNew();
     }
 }
