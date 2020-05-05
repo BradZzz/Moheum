@@ -13,7 +13,11 @@ namespace Battle.UI.Jewel.Listener
     void Awake()
     {
       Parent = GetComponent<IUiJewel>();
-      Parent.SetData += Execute;
+    }
+
+    void Start()
+    {
+      Parent.UIRuntimeData.OnSetData += Execute;
     }
 
     private IUiJewel Parent;

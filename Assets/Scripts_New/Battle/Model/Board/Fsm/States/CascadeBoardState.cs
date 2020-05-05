@@ -34,16 +34,17 @@ namespace Battle.Model.RuntimeBoard.Fsm
       {
         for (int y = 0; y < height; y++)
         {
-          IRuntimeJewel jewel = FindNextJewel(jewelMap, new Vector2(x, y));
+          Vector2 pos = new Vector2(x, y);
+          IRuntimeJewel jewel = FindNextJewel(jewelMap, pos);
           if (jewel == null)
           {
-            jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], new Vector2(x, y));
+            jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], pos);
           } else
           {
-            jewel.RotatePos(new Vector2(x,y));
+            jewel.RotatePos(pos);
           }
           // Place Jewel On Board
-          SetJewelData(jewel, jewel.Pos);
+          SetJewelData(jewel, pos);
           // Update UI
           OnCascadeJewel(jewel);
           // Update temp buffer
@@ -55,18 +56,18 @@ namespace Battle.Model.RuntimeBoard.Fsm
     private IRuntimeJewel FindNextJewel(IRuntimeJewel[,] jewelMap, Vector2 currentPos)
     {
       int height = jewelMap.GetLength(1);
-      int row = (int) currentPos.x;
-      while (row < height - 1 && jewelMap[row, (int)currentPos.y] == null)
+      int row = (int) currentPos.y;
+      while (row < height - 1 && jewelMap[(int)currentPos.x, row] == null)
       {
         row++;
       }
-      return jewelMap[row, (int)currentPos.y];
+      return jewelMap[(int)currentPos.x, row];
     }
 
     // Update
     private void SetJewelData(IRuntimeJewel jewel, Vector2 pos)
     {
-      boardData.SetJewel(jewel, new Vector2(pos.x, pos.y));
+      boardData.SetJewel(jewel, pos);
     }
     // Notify
     private void OnCascadeJewel(IRuntimeJewel jewel)

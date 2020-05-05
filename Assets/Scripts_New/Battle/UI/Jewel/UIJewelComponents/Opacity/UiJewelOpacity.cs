@@ -11,7 +11,7 @@ namespace Battle.UI.Jewel.Component
     // Link back to the jewel info and set darker when clicked
     public UiJewelOpacity(IUiJewel JewelComponent)
     {
-      JewelComponent.SetData += Execute;
+      JewelComponent.UIRuntimeData.OnSetData += Execute;
       JewelComponent.OnPostSelect += OnPostSelect;
       renderer = JewelComponent.Renderer;
     }

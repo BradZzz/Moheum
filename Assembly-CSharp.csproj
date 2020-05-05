@@ -250,7 +250,7 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Sprite\UIJewelSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Transform\IUiJewelTransform.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Transform\UIJewelTransform.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\UiJewelComponent.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\UIJewelComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelData\UIJewelDataComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelFsm\UiJewelStateMachine\States\UiBaseJewelState.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelFsm\UiJewelStateMachine\States\UiJewelIdle.cs" />

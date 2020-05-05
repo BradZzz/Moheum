@@ -8,14 +8,13 @@ using UnityEngine;
 
 namespace Battle.UI.Jewel.Component
 {
-  public class UIJewelPosition : IListener, IUIJewelPosition
+  public class UIJewelPosition : IUIJewelPosition
   {
     private float JEWELFALLSPEED = .01f;
 
     public UIJewelPosition(IUiJewelComponents Parent)
     {
-      GameEvents.Instance.AddListener(this);
-      Parent.SetData += Execute;
+      Parent.UIRuntimeData.OnSetData += Execute;
       parent = Parent;
       transform = Parent.transform;
     }
@@ -40,7 +39,7 @@ namespace Battle.UI.Jewel.Component
 
     private IEnumerator CascadeJewelFromPosition(Vector3 from, Vector3 to)
     {
-      transform.position = from;
+      //transform.position = from;
 
       int count = 0;
       float diff = Math.Abs(to.y - from.y);

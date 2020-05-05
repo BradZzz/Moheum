@@ -69,26 +69,30 @@ namespace Battle.UI.Board.Utils
     {
       IRuntimeJewel jq = JewelsToFall.Dequeue();
 
+      Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.Pos);
+      Vector3 to = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
+      Vector3 from = new Vector3(to.x, BoardPos.GetBoardTopPos().y, to.z);
+
       if (jq.IsNew())
       {
         var uiJewel = UiJewelPool.Instance.Get(jq);
         IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
-        comp.UIRuntimeData.OnSetData(jq.Data);
+        comp.UIRuntimeData.OnSetData(jq);
         uiJewel.MonoBehavior.name = "Jewel_" + Count++;
-
+        uiJewel.transform.position = from;
         PlayerBoard.AddJewel(uiJewel);
       }
 
-      Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.Pos);
-      Vector3 to = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
-      Vector3 from = new Vector3(to.x, jq.IsNew() ? BoardPos.GetBoardTopPos().y : jq.LastPos.y, to.z);
+      yield return new WaitForSeconds(JEWELFALLDELAY);
 
       if (jq.IsNew() || jq.LastPos.y != jq.Pos.y)
       {
+        if (!jq.IsNew() && jq.LastPos.y != jq.Pos.y)
+        {
+          Debug.Log("Move");
+        }
         OnNotifyPositionChange(jq, from, to);
       }
-
-      yield return new WaitForSeconds(JEWELFALLDELAY);
 
       if (JewelsToFall.Count > 0)
       {

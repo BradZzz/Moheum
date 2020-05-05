@@ -10,7 +10,7 @@ namespace Battle.UI.Jewel.Component
   {
     public UIJewelBoxCollider(IUiJewelComponents parent)
     {
-      parent.SetData += Execute;
+      parent.UIRuntimeData.OnSetData += Execute;
       this.collider = parent.BoxCollider;
     }
 

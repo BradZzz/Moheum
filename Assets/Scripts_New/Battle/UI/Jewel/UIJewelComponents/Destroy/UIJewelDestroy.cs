@@ -9,7 +9,7 @@ namespace Battle.UI.Jewel.Component
   {
     public UIJewelDestroy(IUiJewelComponents Parent)
     {
-      Parent.SetData += ExecuteData;
+      Parent.UIRuntimeData.OnSetData += ExecuteData;
       Parent.OnRemove += ExecuteDestroy;
       parent = Parent;
     }

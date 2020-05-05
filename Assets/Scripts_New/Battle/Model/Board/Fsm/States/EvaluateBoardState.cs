@@ -80,16 +80,10 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private List<IRuntimeJewel> EvaluateBuffer(List<IRuntimeJewel> buffer, IRuntimeJewel nextJewel)
     {
-      Debug.Log(buffer);
-      Debug.Log(nextJewel);
-      Debug.Log(nextJewel == null);
-      Debug.Log(nextJewel != null);
-
       if (buffer.Count == 0 || nextJewel.Data.JewelID != buffer[0].Data.JewelID)
       {
         if (buffer.Count >= 3)
         {
-          Debug.Log("Buffer full");
           foreach (IRuntimeJewel buff in buffer)
           {
             AddToRemoveBuff(buff);

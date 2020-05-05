@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4777611224723305177}
   - component: {fileID: 5283972552143590795}
   - component: {fileID: -1345597442862101768}
-  - component: {fileID: 4115487577716451167}
+  - component: {fileID: 6373221092439564687}
   m_Layer: 0
   m_Name: Jewel
   m_TagString: Untagged
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6eea43627f945e8ad14f07f4628b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4115487577716451167
+--- !u!114 &6373221092439564687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

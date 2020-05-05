@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace Battle.UI.Jewel.Component
 {
-  public interface IUIJewelPosition : IPositionJewel
+  public interface IUIJewelPosition
   {
     void Execute(IRuntimeJewel jewelData);
+    void OnJewelPosition(IRuntimeJewel Jewel, Vector3 from, Vector3 to);
   }
 }

@@ -10,7 +10,7 @@ namespace Battle.UI.Jewel.Component
   {
     public UIJewelTransform(IUiJewelComponents parent)
     {
-      parent.SetData += Execute;
+      parent.UIRuntimeData.OnSetData += Execute;
       this.transform = parent.transform;
     }
 

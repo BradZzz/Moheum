@@ -50,10 +50,14 @@ namespace Battle.Model.Jewel
         public void RotatePos(Vector2 Pos)
         {
             Debug.Log("RotatePos");
+
             lastPos = pos;
             pos = Pos;
-        }
 
+            //Debug.Log("lastPos: " + lastPos.ToString());
+            //Debug.Log("pos: " + pos.ToString());
+        }
+     
         public void DoSelect(IEffectable jewel)
         {
             Debug.Log("DoSelect");

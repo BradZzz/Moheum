@@ -12,11 +12,11 @@ using UnityEngine;
 
 namespace Battle.UI.Jewel.Component
 {
-  [RequireComponent(typeof(Collider))]
-  [RequireComponent(typeof(Rigidbody))]
+  //[RequireComponent(typeof(Collider))]
+  //[RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
-  public class UiJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IRemoveJewel
+  public class UIJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IRemoveJewel, IPositionJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -24,6 +24,7 @@ namespace Battle.UI.Jewel.Component
 
     private void Awake()
     {
+      Debug.Log("UIJewelComponent Awake");
       //data
       //Data = GetComponent<IJewelData>();
       UIRuntimeData = GetComponent<IUiJewelData>();
@@ -126,7 +127,7 @@ namespace Battle.UI.Jewel.Component
     public IRuntimeJewel Data { get; set; }
     //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    public Action<IRuntimeJewel> SetData { get; set; }
+    //public Action<IRuntimeJewel> SetData { get; set; }
     public Action<IRuntimeJewel> OnRemove { get; set; }
     public Action<IRuntimeJewel> OnPostSelect { get; set; }
 
@@ -190,11 +191,11 @@ namespace Battle.UI.Jewel.Component
       Fsm.Target();
     }
 
-    public void OnSetData(IRuntimeJewel data)
-    {
-      Data = data;
-      SetData.Invoke(Data);
-    }
+    //public void OnSetData(IRuntimeJewel data)
+    //{
+    //  Data = data;
+    //  SetData.Invoke(Data);
+    //}
 
     void IPostSelectJewel.OnPostSelect(IRuntimeJewel jewel)
     {
@@ -204,6 +205,12 @@ namespace Battle.UI.Jewel.Component
     public void OnRemoveJewel(IRuntimeJewel jewel)
     {
       OnRemove.Invoke(jewel);
+    }
+
+    public void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to)
+    {
+      Debug.Log(UIRuntimeData.RuntimeData);
+      UiJewelPosition.OnJewelPosition(jewel, from, to);
     }
 
     #endregion
