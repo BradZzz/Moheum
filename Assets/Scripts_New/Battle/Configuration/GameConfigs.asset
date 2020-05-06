@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb4d92e76de74af0b875d6bf81e4b1a, type: 3}
   m_Name: GameConfigs
   m_EditorClassIdentifier: 
+  boardConfigs:
+    width: 10
+    height: 10
   GameStart:
     FirstPlayer: 3
     PreGameEvent: 0.01

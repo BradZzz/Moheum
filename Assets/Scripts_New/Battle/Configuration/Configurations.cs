@@ -42,8 +42,8 @@ namespace Battle.Configurations
       //[Range(0, 10)] public int startingMana = 5;
       //[Range(1, 13)] public int maxTeam = 9;
 
-      [Range(8, 20)] public int width = 10;
-      [Range(8, 20)] public int height = 10;
+      [Range(6, 20)] public int width = 10;
+      [Range(6, 20)] public int height = 10;
     }
 
     ////----------------------------------------------------------------------------------------------------------
