@@ -43,6 +43,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
         {
           EvaluateBuffer(buffer, jewelMap[x, y]);
         }
+        EvaluateBuffer(buffer, null);
         buffer.Clear();
       }
 
@@ -53,6 +54,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
         {
           EvaluateBuffer(buffer, jewelMap[x, y]);
         }
+        EvaluateBuffer(buffer, null);
         buffer.Clear();
       }
       foreach (var jewel in toRemoveBuff)
@@ -80,7 +82,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private List<IRuntimeJewel> EvaluateBuffer(List<IRuntimeJewel> buffer, IRuntimeJewel nextJewel)
     {
-      if (buffer.Count == 0 || nextJewel.Data.JewelID != buffer[0].Data.JewelID)
+      if (nextJewel == null || buffer.Count == 0 || nextJewel.Data.JewelID != buffer[0].Data.JewelID)
       {
         if (buffer.Count >= 3)
         {
