@@ -18,13 +18,8 @@ namespace Battle.UI.Jewel.Component
 
     public void Execute(IRuntimeJewel jewelData)
     {
-      Debug.Log("Action<IJewelData>");
-      Debug.Log(jewelData);
-      Debug.Log(SprRend);
       if (SprRend != null && jewelData != null)
       {
-        Debug.Log(jewelData);
-        Debug.Log(SprRend);
         SprRend.sprite = jewelData.Data.Artwork;
       }
     }

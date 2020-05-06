@@ -29,7 +29,7 @@ namespace Battle.UI.Jewel.Component
 
     public void OnPostSelect(IRuntimeJewel jewel)
     {
-      if (jewel == Jewel)
+      if (jewel.JewelID == Jewel.JewelID)
       {
         Debug.Log("OnSelect UiJewelOpacity");
         if (jewel.IsSelected) {

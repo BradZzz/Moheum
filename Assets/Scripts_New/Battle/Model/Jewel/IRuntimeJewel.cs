@@ -11,6 +11,7 @@ namespace Battle.Model.Jewel
         Vector2 Pos { get; }
         Vector2 LastPos { get; }
         IJewelData Data { get; }
+        string JewelID { get; }
         bool IsSelected { get; set; }
 
         Action<IRuntimeJewel> OnSelect { get; set; }

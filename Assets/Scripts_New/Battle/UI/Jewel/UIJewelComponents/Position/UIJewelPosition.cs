@@ -30,9 +30,15 @@ namespace Battle.UI.Jewel.Component
 
     public void OnJewelPosition(IRuntimeJewel Jewel, Vector3 from, Vector3 to)
     {
-      if (jewel == Jewel)
+      if (jewel.JewelID == Jewel.JewelID)
       {
         Debug.Log("OnJewelPosition");
+        Debug.Log(jewel.JewelID);
+        Debug.Log(jewel.Pos.ToString());
+        Debug.Log(jewel.LastPos.ToString());
+        Debug.Log(from.ToString());
+        Debug.Log(to.ToString());
+        Debug.Log("Transform Before: " + transform.position.ToString());
         parent.MonoBehavior.StartCoroutine(CascadeJewelFromPosition(from, to));
       }
     }
@@ -51,6 +57,7 @@ namespace Battle.UI.Jewel.Component
         count++;
       }
       transform.position = to;
+      Debug.Log("Transform After: " + transform.position.ToString());
     }
   }
 }

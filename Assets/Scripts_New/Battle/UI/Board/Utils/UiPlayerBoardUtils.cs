@@ -78,7 +78,7 @@ namespace Battle.UI.Board.Utils
         var uiJewel = UiJewelPool.Instance.Get(jq);
         IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
         comp.UIRuntimeData.OnSetData(jq);
-        uiJewel.MonoBehavior.name = "Jewel_" + Count++;
+        uiJewel.MonoBehavior.name = jq.JewelID;
         uiJewel.transform.position = from;
         PlayerBoard.AddJewel(uiJewel);
       }
@@ -90,6 +90,11 @@ namespace Battle.UI.Board.Utils
         if (!jq.IsNew() && jq.LastPos.y != jq.Pos.y)
         {
           Debug.Log("Move");
+          Debug.Log(jq.LastPos.ToString());
+          Debug.Log(jq.Pos.ToString());
+          Debug.Log(from.ToString());
+          Debug.Log(to.ToString());
+          Debug.Log(jq.JewelID);
         }
         OnNotifyPositionChange(jq, from, to);
       }

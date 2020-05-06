@@ -9,8 +9,9 @@ namespace Battle.Model.Jewel
 {
     public class RuntimeJewel : IRuntimeJewel
     {
-        public RuntimeJewel(IJewelData Data, Vector2 Pos)
+        public RuntimeJewel(IJewelData Data, Vector2 Pos, string JewelID)
         {
+          jewelID = JewelID;
           data = Data;
           pos = Pos;
           lastPos = new Vector2(-1,-1);
@@ -25,6 +26,7 @@ namespace Battle.Model.Jewel
         private UnselectJewelMechanics unSelectJewelMechanic;
         private JewelFallMechanics jewelFallMechanics;
 
+        private string jewelID;
         private IJewelData data;
         private Vector2 lastPos;
         private Vector2 pos;
@@ -33,6 +35,7 @@ namespace Battle.Model.Jewel
         public UnselectJewelMechanics UnselectJewelMechanic => unSelectJewelMechanic;
         public JewelFallMechanics JewelFallMechanics => jewelFallMechanics;
 
+        public string JewelID => jewelID;
         public IJewelData Data => data;
         public Vector2 LastPos => lastPos;
         public Vector2 Pos => pos;
@@ -53,9 +56,6 @@ namespace Battle.Model.Jewel
 
             lastPos = pos;
             pos = Pos;
-
-            //Debug.Log("lastPos: " + lastPos.ToString());
-            //Debug.Log("pos: " + pos.ToString());
         }
      
         public void DoSelect(IEffectable jewel)

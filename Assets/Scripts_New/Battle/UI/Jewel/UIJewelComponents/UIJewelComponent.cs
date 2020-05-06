@@ -209,7 +209,6 @@ namespace Battle.UI.Jewel.Component
 
     public void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to)
     {
-      Debug.Log(UIRuntimeData.RuntimeData);
       UiJewelPosition.OnJewelPosition(jewel, from, to);
     }
 

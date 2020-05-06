@@ -20,6 +20,8 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private IBoardData boardData;
 
+    private int Count { get; set; }
+
     public override void OnEnterState()
     {
       base.OnEnterState();
@@ -38,10 +40,11 @@ namespace Battle.Model.RuntimeBoard.Fsm
           IRuntimeJewel jewel = FindNextJewel(jewelMap, pos);
           if (jewel == null)
           {
-            jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], pos);
+            jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], pos, "Jewel_" + Count++);
           } else
           {
             jewel.RotatePos(pos);
+            jewelMap[(int)jewel.LastPos.x, (int)jewel.LastPos.y] = null;
           }
           // Place Jewel On Board
           SetJewelData(jewel, pos);
