@@ -69,9 +69,17 @@ namespace Battle.UI.Board.Utils
     {
       IRuntimeJewel jq = JewelsToFall.Dequeue();
 
-      Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.Pos);
-      Vector3 to = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
-      Vector3 from = new Vector3(to.x, BoardPos.GetBoardTopPos().y, to.z);
+      Vector2 BoardTo = BoardPos.OffsetJewelByPosition(jq.Pos);
+      Vector2 BoardFrom = BoardPos.OffsetJewelByPosition(jq.LastPos);
+
+      Vector3 to = BoardPos.GetNextJewelPosition(BoardTo, deckPosition.position);
+      Vector3 from = jq.IsNew() ? new Vector3(to.x, BoardPos.GetBoardTopPos().y, to.z)
+        : new Vector3(to.x, BoardPos.GetNextJewelPosition(BoardFrom, deckPosition.position).y, to.z);
+
+
+      //Vector2 boardPos = BoardPos.OffsetJewelByPosition(jq.Pos);
+      //Vector3 to = BoardPos.GetNextJewelPosition(boardPos, deckPosition.position);
+      //Vector3 from = new Vector3(to.x, BoardPos.GetBoardTopPos().y, to.z);
 
       if (jq.IsNew())
       {
@@ -87,15 +95,6 @@ namespace Battle.UI.Board.Utils
 
       if (jq.IsNew() || jq.LastPos.y != jq.Pos.y)
       {
-        if (!jq.IsNew() && jq.LastPos.y != jq.Pos.y)
-        {
-          Debug.Log("Move");
-          Debug.Log(jq.LastPos.ToString());
-          Debug.Log(jq.Pos.ToString());
-          Debug.Log(from.ToString());
-          Debug.Log(to.ToString());
-          Debug.Log(jq.JewelID);
-        }
         OnNotifyPositionChange(jq, from, to);
       }
 
@@ -104,7 +103,6 @@ namespace Battle.UI.Board.Utils
         JewelsFalling = StartCoroutine(CascadeJewelFromQueue());
       } else
       {
-        // Send a signal to the board fsm to move to evaluateBoardState
         OnDoneCascade();
       }
     }

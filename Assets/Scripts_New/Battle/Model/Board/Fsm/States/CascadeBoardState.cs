@@ -43,7 +43,9 @@ namespace Battle.Model.RuntimeBoard.Fsm
             jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], pos, "Jewel_" + Count++);
           } else
           {
+            // Rotate gem's position
             jewel.RotatePos(pos);
+            // Remove old jewel position from buffer
             jewelMap[(int)jewel.LastPos.x, (int)jewel.LastPos.y] = null;
           }
           // Place Jewel On Board

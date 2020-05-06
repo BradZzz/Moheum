@@ -9,18 +9,6 @@ namespace Battle.UI.Jewel.Listener
 {
   public class UiJewelClickListener : MonoBehaviour, IUiJewelClickListener
   {
-    //// Start is called before the first frame update
-    void Awake()
-    {
-      Parent = GetComponent<IUiJewel>();
-    }
-
-    void Start()
-    {
-      Parent.UIRuntimeData.OnSetData += Execute;
-    }
-
-    private IUiJewel Parent;
     private IRuntimeJewel data;
 
     public void Execute(IRuntimeJewel jewelData)
@@ -30,8 +18,8 @@ namespace Battle.UI.Jewel.Listener
 
     void OnMouseDown()
     {
-      Debug.Log("Click");
-      Debug.Log(data.Data.Name);
+      Debug.Log("Clicked Data: ");
+      Debug.Log(data);
       GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(data));
     }
   }

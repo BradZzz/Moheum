@@ -60,11 +60,18 @@ namespace Battle.Model.Jewel
      
         public void DoSelect(IEffectable jewel)
         {
-            Debug.Log("DoSelect");
-            if (this == (RuntimeJewel) jewel)
+            RuntimeJewel thisJewel = ((RuntimeJewel)jewel);
+            if (thisJewel == null)
             {
+              //Debug.Log("thisJewel null");
+            }
+            else
+            {
+              if (this.JewelID == thisJewel.JewelID)
+              {
                 Debug.Log("Jewel Selected!");
                 OnSelect.Invoke(this);
+              }
             }
         }
 

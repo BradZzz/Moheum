@@ -40,6 +40,7 @@ namespace Battle.UI.Jewel.Component
       MyMRenderer = GetComponent<MeshRenderer>();
       MyClickListener = GetComponent<IUiJewelClickListener>();
       MyBoxCollider = GetComponent<BoxCollider2D>();
+      UiJewelClickListener = GetComponent<IUiJewelClickListener>();
 
       //transform
       Motion = new UiMotion(this);
@@ -57,6 +58,8 @@ namespace Battle.UI.Jewel.Component
       UiJewelPosition = new UIJewelPosition(this);
       //MyClickListener.Init(this);
       //MyClickListener
+
+      UIRuntimeData.OnSetData += UiJewelClickListener.Execute;
     }
 
     /// <summary>
@@ -124,6 +127,7 @@ namespace Battle.UI.Jewel.Component
     public IUIJewelBoxCollider UiJewelBoxCollider { get; set; }
     public IUIJewelDestroy UiJewelDestroy { get; set; }
     public IUIJewelPosition UiJewelPosition { get; set; }
+    public IUiJewelClickListener UiJewelClickListener { get; set; }
     public IRuntimeJewel Data { get; set; }
     //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
