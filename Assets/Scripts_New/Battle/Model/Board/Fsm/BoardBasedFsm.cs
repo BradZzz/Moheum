@@ -26,7 +26,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
       var cascade = new CascadeBoardState(this, boardData);
       var clean = new CleanBoardState(this, boardData);
       var evaluate = new EvaluateBoardState(this, boardData);
-      var remove = new RemoveMatchesBoardState(this, boardData);
+      var remove = new RemoveSelectedBoardState(this, boardData);
       var selected = new SelectedBoardState(this, boardData);
       var swap = new SwapBoardState(this, boardData);
 

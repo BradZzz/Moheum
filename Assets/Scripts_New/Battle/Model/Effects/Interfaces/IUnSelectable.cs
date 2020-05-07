@@ -6,6 +6,6 @@ namespace Battle.Model.Effects.Interfaces
 {
     public interface IUnSelectable : IEffectable
     {
-        void DoUnselect(IEffectable jewel);
+        void DoUnselect();
     }
 }

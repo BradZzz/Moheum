@@ -25,10 +25,14 @@ namespace Battle.UI.RuntimeBoard.Mechanics
 
       for (int x = 0; x < jewels.GetLength(0); x++)
         for (int y = 0; y < jewels.GetLength(1); y++)
-          jewels[x, y].DoSelect(jewel);
+          if(jewels[x, y].JewelID == jewel.JewelID)
+            jewels[x, y].DoSelect();
 
       // Send postclick event listener
-      GameEvents.Instance.Notify<IPostSelectJewel>(i => i.OnPostSelect(jewel));
+      //GameEvents.Instance.Notify<IPostSelectJewel>(i => i.OnPostSelect(jewel));
+
+      // Right here is where I need to look through all the jewels and see if two jewels are clicked
+      GameEvents.Instance.Notify<ISwapBoard>(i => i.OnBoardSwapCheck());
     }
   }
 }

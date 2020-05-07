@@ -6,6 +6,6 @@ namespace Battle.Model.Effects.Interfaces
 {
     public interface IRemovable : IEffectable
   {
-        void DoRemove(IEffectable jewel);
+        void DoRemove();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Effects.Interfaces;
 using Battle.UI.ModelJewel.Mechanics;
 using UnityEngine;
@@ -58,46 +59,38 @@ namespace Battle.Model.Jewel
             pos = Pos;
         }
      
-        public void DoSelect(IEffectable jewel)
+        public void DoSelect()
         {
-            RuntimeJewel thisJewel = ((RuntimeJewel)jewel);
-            if (thisJewel == null)
-            {
-              //Debug.Log("thisJewel null");
-            }
-            else
-            {
-              if (this.JewelID == thisJewel.JewelID)
-              {
-                Debug.Log("Jewel Selected!");
-                OnSelect.Invoke(this);
-              }
-            }
+          Debug.Log("Jewel Selected!");
+          OnSelect.Invoke(this);
+          PostSelect();
         }
 
-        public void DoUnselect(IEffectable jewel)
+        private void PostSelect()
         {
-            Debug.Log("DoSelect");
-            if (this == (RuntimeJewel)jewel)
-            {
-                Debug.Log("Jewel Selected!");
-                OnUnSelect.Invoke(this);
-            }
+          GameEvents.Instance.Notify<IPostSelectJewel>(i => i.OnPostSelect(this));
         }
 
-    //public void DoEnable(bool enabled, IEffectable jewel)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+        public void DoUnselect()
+        {
+          Debug.Log("Jewel Unselected!");
+          OnUnSelect.Invoke(this);
+          PostSelect();
+        }
 
-    //public void DoRemove(IEffectable jewel)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+      //public void DoEnable(bool enabled, IEffectable jewel)
+      //{
+      //    throw new System.NotImplementedException();
+      //}
 
-    //public void DoSwap(IEffectable jewel1, IEffectable jewel2)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+      //public void DoRemove(IEffectable jewel)
+      //{
+      //    throw new System.NotImplementedException();
+      //}
+
+      //public void DoSwap(IEffectable jewel1, IEffectable jewel2)
+      //{
+      //    throw new System.NotImplementedException();
+      //}
   }
 }

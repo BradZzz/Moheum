@@ -6,6 +6,6 @@ namespace Battle.Model.Effects.Interfaces
 {
     public interface IEnableable : IEffectable
     {
-        void DoEnable(bool enabled, IEffectable jewel);
+        void DoEnable(bool enabled);
     }
 }

@@ -90,6 +90,11 @@ namespace Battle.GameEvent
     void OnSelect(IRuntimeJewel jewel);
   }
 
+  //public interface IEvaluateSelectJewel : ISubject
+  //{
+  //  void OnEvaluateSelect(IRuntimeJewel jewel);
+  //}
+
   public interface IUnselectAll : ISubject
   {
     void OnUnselectAll ();
@@ -114,6 +119,11 @@ namespace Battle.GameEvent
     void OnJewelFall(IRuntimeJewel jewel);
   }
 
+  public interface IRepositionJewel : ISubject
+  {
+    void OnJewelReposition(IRuntimeJewel jewel);
+  }
+
   // 
   public interface IPositionJewel : ISubject
   {
@@ -136,6 +146,21 @@ namespace Battle.GameEvent
   public interface IEvaluateBoard : ISubject
   {
     void OnBoardEvaluateCheck();
+  }
+
+  public interface IRemoveSelectedBoard : ISubject
+  {
+    void OnBoardRemoveSelectedCheck();
+  }
+
+  public interface ISelectedBoard : ISubject
+  {
+    void OnBoardSelectedCheck();
+  }
+
+  public interface ISwapBoard : ISubject
+  {
+    void OnBoardSwapCheck();
   }
 
   ///// <summary>

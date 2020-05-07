@@ -7,7 +7,14 @@ namespace Battle.UI.Board.Utils
 {
   public interface IUiPlayerBoardUtils
   {
-    void Draw(IRuntimeJewel jewel);
+    MonoBehaviour MBehaviour { get; }
+    Transform DeckPosition { get; }
+    float JEWELFALLDELAY { get; }
+    IUiBoard PlayerBoard { get; }
+
+    void CascadeJewelBoard(IRuntimeJewel jewel);
+    void SwapJewelBoard(IRuntimeJewel jewel);
+
     //void Discard(IRuntimeJewel jewel);
     //void PlayCard(IRuntimeJewel jewel);
   }

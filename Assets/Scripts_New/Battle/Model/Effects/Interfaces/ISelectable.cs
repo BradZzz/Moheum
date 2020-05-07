@@ -6,6 +6,6 @@ namespace Battle.Model.Effects.Interfaces
 {
     public interface ISelectable : IEffectable
     {
-        void DoSelect(IEffectable jewel);
+        void DoSelect();
     }
 }
