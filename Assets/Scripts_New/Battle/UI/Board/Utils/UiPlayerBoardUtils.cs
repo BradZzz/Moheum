@@ -38,13 +38,15 @@ namespace Battle.UI.Board.Utils
 
     private MonoBehaviour mBehaviour;
     private float jEWELFALLDELAY = .01f;
-    private float jEWELPOSITIONDELAY = 1f;
+    private float jEWELPOSITIONDELAY = .1f;
+    private float jEWELPOSITIONUNSELECTDELAY = .5f;
 
     public Transform DeckPosition => deckPosition;
     public MonoBehaviour MBehaviour => mBehaviour;
     public IUiBoard PlayerBoard => playerBoard;
     public float JEWELFALLDELAY => jEWELFALLDELAY;
     public float JEWELPOSITIONDELAY => jEWELPOSITIONDELAY;
+    public float JEWELPOSITIONUNSELECTDELAY => jEWELPOSITIONUNSELECTDELAY;
 
     private CascadePositoner cascadePos;
     private SwapPositioner swapPos;

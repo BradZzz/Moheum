@@ -10,6 +10,7 @@ namespace Battle.UI.Board.Utils
     MonoBehaviour MBehaviour { get; }
     Transform DeckPosition { get; }
     float JEWELPOSITIONDELAY { get; }
+    float JEWELPOSITIONUNSELECTDELAY { get; }
     float JEWELFALLDELAY { get; }
     IUiBoard PlayerBoard { get; }
 

@@ -54,6 +54,11 @@ namespace Battle.Model.RuntimeBoard.Controller
       OnBoardCascadeCheck();
     }
 
+    public bool CanManipulate()
+    {
+      return BoardBasedLogic.IsCurrent<CleanBoardState>();
+    }
+
     public void OnBoardCascadeCheck()
     {
       BoardBasedLogic.PopState();
