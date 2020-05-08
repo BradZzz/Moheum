@@ -38,11 +38,13 @@ namespace Battle.UI.Board.Utils
 
     private MonoBehaviour mBehaviour;
     private float jEWELFALLDELAY = .01f;
+    private float jEWELPOSITIONDELAY = 1f;
 
     public Transform DeckPosition => deckPosition;
     public MonoBehaviour MBehaviour => mBehaviour;
     public IUiBoard PlayerBoard => playerBoard;
     public float JEWELFALLDELAY => jEWELFALLDELAY;
+    public float JEWELPOSITIONDELAY => jEWELPOSITIONDELAY;
 
     private CascadePositoner cascadePos;
     private SwapPositioner swapPos;
@@ -69,12 +71,13 @@ namespace Battle.UI.Board.Utils
     //--------------------------------------------------------------------------------------------------------------
     public void CascadeJewelBoard(IRuntimeJewel jewel)
     {
+      Debug.Log("CascadeJewelBoard: " + jewel.JewelID);
       cascadePos.StartReposition(jewel);
     }
 
-    public void SwapJewelBoard(IRuntimeJewel jewel)
+    public void SwapJewelBoard(IRuntimeJewel jewel, IRuntimeJewel jewel2)
     {
-      swapPos.StartReposition(jewel);
+      swapPos.StartReposition(jewel, jewel2);
     }
 
 

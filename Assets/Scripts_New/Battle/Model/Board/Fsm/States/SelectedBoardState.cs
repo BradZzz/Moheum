@@ -14,9 +14,9 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
   public class SelectedBoardState : BaseBoardState
   {
-    public SelectedBoardState(BoardBasedFsm fsm, IBoardData boardData) : base(fsm, boardData)
+    public SelectedBoardState(BoardBasedFsm Fsm, IBoardData BoardData) : base(Fsm, BoardData)
     {
-
+      boardData = BoardData;
     }
 
     private IBoardData boardData;
@@ -41,7 +41,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
       else if (jewelsClicked.Count == 2 && WillCauseMatch(jewels, jewelsClicked[0], jewelsClicked[1]))
       {
         // If the two jewels will cause a match, swap the jewels, then swap to evaluate board state
-        GameEvents.Instance.Notify<IEvaluateBoard>(i => i.OnBoardEvaluateCheck());
+        GameEvents.Instance.Notify<ISwapBoard>(i => i.OnBoardSwapCheck());
       }
       else
       {

@@ -16,7 +16,11 @@ namespace Battle.Model.RuntimeBoard.Data
 
     public IRuntimeJewel[,] GetMap()
     {
-      return jewelMap;
+      IRuntimeJewel[,] jewels = new IRuntimeJewel[jewelMap.GetLength(0), jewelMap.GetLength(1)];
+      for (int x = 0; x < jewelMap.GetLength(0); x++)
+        for (int y = 0; y < jewelMap.GetLength(1); y++)
+          jewels[x, y] = jewelMap[x, y];
+      return jewels;
     }
 
     public void SetJewel(IRuntimeJewel jewel, Vector2 pos)

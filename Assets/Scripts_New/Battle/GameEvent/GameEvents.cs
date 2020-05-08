@@ -119,9 +119,9 @@ namespace Battle.GameEvent
     void OnJewelFall(IRuntimeJewel jewel);
   }
 
-  public interface IRepositionJewel : ISubject
+  public interface ISwapJewel : ISubject
   {
-    void OnJewelReposition(IRuntimeJewel jewel);
+    void OnJewelSwap(IRuntimeJewel jewel, IRuntimeJewel jewel2);
   }
 
   // 

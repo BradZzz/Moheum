@@ -32,12 +32,12 @@ namespace Battle.Model.RuntimeBoard.Fsm
           if (jewels[x, y].IsSelected)
             jewels[x, y].DoUnselect();
 
-      OnCleanBoardState();
+      OnEvaluateBoardState();
     }
 
-    private void OnCleanBoardState()
+    private void OnEvaluateBoardState()
     {
-      GameEvents.Instance.Notify<ICleanBoard>(i => i.OnBoardCleanCheck());
+      GameEvents.Instance.Notify<IEvaluateBoard>(i => i.OnBoardEvaluateCheck());
     }
   }
 }

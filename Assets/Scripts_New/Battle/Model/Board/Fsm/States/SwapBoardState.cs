@@ -35,17 +35,19 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
       if (jewelsClicked.Count == 2)
       {
-        jewelsClicked[0].RotatePos(jewelsClicked[1].Pos);
-        jewelsClicked[1].RotatePos(jewelsClicked[0].LastPos);
+        Vector2 pos1 = jewelsClicked[0].Pos;
+        Vector2 pos2 = jewelsClicked[1].Pos;
+
+        jewelsClicked[0].RotatePos(pos2);
+        jewelsClicked[1].RotatePos(pos1);
 
         SetJewelData(jewelsClicked[0], jewelsClicked[0].Pos);
         SetJewelData(jewelsClicked[1], jewelsClicked[1].Pos);
 
-        OnRepositionJewel(jewelsClicked[0]);
-        OnRepositionJewel(jewelsClicked[1]);
+        OnSwapJewel(jewelsClicked[0], jewelsClicked[1]);
       }
 
-      GameEvents.Instance.Notify<IEvaluateBoard>(i => i.OnBoardEvaluateCheck());
+      OnSwapFinished();
     }
 
     private void SetJewelData(IRuntimeJewel jewel, Vector2 pos)
@@ -53,9 +55,14 @@ namespace Battle.Model.RuntimeBoard.Fsm
       boardData.SetJewel(jewel, pos);
     }
 
-    private void OnRepositionJewel(IRuntimeJewel jewel)
+    private void OnSwapJewel(IRuntimeJewel jewel, IRuntimeJewel jewel2)
     {
-      GameEvents.Instance.Notify<IRepositionJewel>(i => i.OnJewelReposition(jewel));
+      GameEvents.Instance.Notify<ISwapJewel>(i => i.OnJewelSwap(jewel, jewel2));
+    }
+
+    private void OnSwapFinished()
+    {
+      //GameEvents.Instance.Notify<IRemoveSelectedBoard>(i => i.OnBoardRemoveSelectedCheck());
     }
   }
 }
