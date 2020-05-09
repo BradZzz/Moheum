@@ -260,9 +260,14 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelParameters\UIJewelComponentUtility.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelParameters\UiJewelParameters.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UiJewelPool.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\IUiHudTurnController.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\IUiPlayerHUD.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\UiHudTurnController.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\UiPlayerHUD.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiController.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiPlayer.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiPlayerController.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\UiPlayer.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\UIAnimation\UiAnimationQueue.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Utils\Tools\UiTransform\IUiMotion.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Utils\Tools\UiTransform\UiMotion.cs" />

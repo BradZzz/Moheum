@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Controller;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.Model.RuntimeBoard.Data;
@@ -52,6 +53,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private void OnCleanBoardState()
     {
+      //GameEvents.Instance.Notify<IFinishPlayerTurn>(i => i.OnFinishPlayerTurn(GameData.Instance.RuntimeGame.));
       GameEvents.Instance.Notify<ICleanBoard>(i => i.OnBoardCleanCheck());
     }
 

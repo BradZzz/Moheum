@@ -69,16 +69,6 @@ namespace Battle.Model.Player
           FinishTurnMechanics.FinishTurn();
         }
 
-        public void Swap(IRuntimeJewel jewel, IRuntimeJewel jewel2)
-        {
-          var swapData = new SwapMechanics.RuntimeSwapData()
-          {
-            Swapper = jewel,
-            Swappee = jewel2
-          };
-          SwapMechanics.Execute(swapData);
-        }
-
         #endregion
 
         ////----------------------------------------------------------------------------------------------------------

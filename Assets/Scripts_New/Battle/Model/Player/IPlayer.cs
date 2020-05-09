@@ -14,7 +14,6 @@ namespace Battle.Model.Player
         //ITeam Team { get; }
         void StartTurn();
         void FinishTurn();
-        void Swap(IRuntimeJewel jewel, IRuntimeJewel jewel2);
         bool IsUser { get; }
     }
 }

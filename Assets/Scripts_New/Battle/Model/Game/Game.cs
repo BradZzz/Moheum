@@ -39,6 +39,7 @@ namespace Battle.Model.Game
       AddMechanic(ProcessSwap);
       AddMechanic(ProcessFinishGame);
       Logger.Log<Game>("Game Created", "blue");
+      Debug.Log("Game Created!");
     }
 
     #endregion
