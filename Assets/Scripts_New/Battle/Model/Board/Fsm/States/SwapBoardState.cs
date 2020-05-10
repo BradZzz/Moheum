@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Controller;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.Model.RuntimeBoard.Data;
@@ -44,10 +45,16 @@ namespace Battle.Model.RuntimeBoard.Fsm
         SetJewelData(jewelsClicked[0], jewelsClicked[0].Pos);
         SetJewelData(jewelsClicked[1], jewelsClicked[1].Pos);
 
+        MarkPlayerSwap();
         OnSwapJewel(jewelsClicked[0], jewelsClicked[1]);
       }
 
-      OnSwapFinished();
+      //OnSwapFinished();
+    }
+
+    private void MarkPlayerSwap()
+    {
+      GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.SwapTurn();
     }
 
     private void SetJewelData(IRuntimeJewel jewel, Vector2 pos)

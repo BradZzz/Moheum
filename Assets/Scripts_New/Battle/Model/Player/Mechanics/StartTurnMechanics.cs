@@ -7,10 +7,12 @@ namespace Battle.Model.Player.Mechanics
   /// </summary>
   public class StartTurnMechanics : BasePlayerMechanics
   {
-    public StartTurnMechanics(IPlayer player) : base(player)
+    public StartTurnMechanics(IPlayer Player) : base(Player)
     {
-
+      player = Player;
     }
+
+    private IPlayer player;
 
     public void StartTurn()
     {
@@ -28,6 +30,7 @@ namespace Battle.Model.Player.Mechanics
       //  foreach (var mem in members)
       //    mem.StartPlayerTurn();
       Debug.Log("StartTurn");
+      player.HasSwapped = false;
     }
   }
 }

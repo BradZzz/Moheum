@@ -13,7 +13,9 @@ namespace Battle.Model.Player
         //Player spells and 
         //ITeam Team { get; }
         void StartTurn();
+        void SwapTurn();
         void FinishTurn();
         bool IsUser { get; }
+        bool HasSwapped { get; set; }
     }
 }

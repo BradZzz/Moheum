@@ -26,6 +26,9 @@ namespace Battle.UI.Jewel.Listener
       if (BoardController.Instance.CanManipulate())
       {
         GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(data));
+      } else
+      {
+        Debug.Log("Board State Not Clean!");
       }
     }
   }

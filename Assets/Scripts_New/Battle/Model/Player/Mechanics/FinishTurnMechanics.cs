@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Battle.Controller;
+using UnityEngine;
 
 namespace Battle.Model.Player.Mechanics
 {
@@ -7,10 +8,12 @@ namespace Battle.Model.Player.Mechanics
   /// </summary>
   public class FinishTurnMechanics : BasePlayerMechanics
   {
-    public FinishTurnMechanics(IPlayer player) : base(player)
+    public FinishTurnMechanics(IPlayer Player) : base(Player)
     {
-
+      player = Player;
     }
+
+    private IPlayer player;
 
     public void FinishTurn()
     {
@@ -23,6 +26,7 @@ namespace Battle.Model.Player.Mechanics
       //foreach (var mem in members)
       //  mem.FinishPlayerTurn();
       Debug.Log("FinishTurn");
+      GameController.Instance.GetPlayerController(player.Seat).PassTurn();
     }
 
     //private void DiscardAll()

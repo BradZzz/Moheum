@@ -53,7 +53,6 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private void OnCleanBoardState()
     {
-      //GameEvents.Instance.Notify<IFinishPlayerTurn>(i => i.OnFinishPlayerTurn(GameData.Instance.RuntimeGame.));
       GameEvents.Instance.Notify<ICleanBoard>(i => i.OnBoardCleanCheck());
     }
 

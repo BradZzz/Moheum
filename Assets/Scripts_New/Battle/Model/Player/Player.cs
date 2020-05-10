@@ -35,13 +35,14 @@ namespace Battle.Model.Player
             //PlayCardMechanics = new PlayCardMechanics(this);
             StartTurnMechanics = new StartTurnMechanics(this);
             FinishTurnMechanics = new FinishTurnMechanics(this);
+            SwapTurnMechanics = new SwapTurnMechanics(this);
             //SpawnMechanics = new SpawnMechanics(this);
             //ManaMechanics = new ManaMechanics(this);
             //PowerMechanic = new PowerMechanic(this);
             //GoldMechanic = new GoldMechanic(this);
 
-            #endregion
-         }
+          #endregion
+        }
 
         //----------------------------------------------------------------------------------------------------------
 
@@ -57,11 +58,20 @@ namespace Battle.Model.Player
 
         public StartTurnMechanics StartTurnMechanics { get; }
 
+        public SwapTurnMechanics SwapTurnMechanics { get; }
+
         public FinishTurnMechanics FinishTurnMechanics { get; }
+
+        public bool HasSwapped { get; set; }
 
         public void StartTurn()
         {
           StartTurnMechanics.StartTurn();
+        }
+
+        public void SwapTurn()
+        {
+          SwapTurnMechanics.SwappedOnTurn();
         }
 
         public void FinishTurn()

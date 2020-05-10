@@ -1,5 +1,6 @@
 ﻿using Battle.GameEvent;
 using Battle.Model.Player;
+using UnityEngine;
 
 namespace Battle.Model.Game.Mechanics
 {
@@ -29,7 +30,15 @@ namespace Battle.Model.Game.Mechanics
       Game.TurnLogic.UpdateCurrentPlayer();
       Game.TurnLogic.CurrentPlayer.StartTurn();
 
+      // Confirm board init
+      InitBoard();
+      // Send out ui notifications
       OnStartedCurrentPlayerTurn(Game.TurnLogic.CurrentPlayer);
+    }
+
+    private void InitBoard()
+    {
+      GameEvents.Instance.Notify<ICascadeBoard>(i => i.OnBoardCascadeCheck());
     }
 
     /// <summary>
@@ -38,6 +47,7 @@ namespace Battle.Model.Game.Mechanics
     /// <param name="currentPlayer"></param>
     private void OnStartedCurrentPlayerTurn(IPlayer currentPlayer)
     {
+      //Debug.Log("OnStartedCurrentPlayerTurn");
       GameEvents.Instance.Notify<IStartPlayerTurn>(i => i.OnStartPlayerTurn(currentPlayer));
     }
   }

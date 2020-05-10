@@ -37,7 +37,7 @@ namespace Battle.Model.RuntimeBoard.Controller
     {
       Debug.Log("OnStartGame");
       BoardBasedLogic = new BoardBasedFsm(this, GameData.Instance.RuntimeGame.GameBoard.GetBoardData());
-      OnTurnStart();
+      //OnTurnStart();
     }
 
     public void OnTurnStart()
@@ -51,7 +51,7 @@ namespace Battle.Model.RuntimeBoard.Controller
        * CasecadeBoardState
        * CleanBoardState
        */
-      OnBoardCascadeCheck();
+      //OnBoardCascadeCheck();
     }
 
     public bool CanManipulate()
