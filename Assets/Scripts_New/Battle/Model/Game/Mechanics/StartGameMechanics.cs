@@ -37,7 +37,6 @@ namespace Battle.Model.Game.Mechanics
     /// <param name="starterPlayer"></param>
     private void OnGameStarted(IPlayer starterPlayer)
     {
-      Debug.Log("OnGameStarted");
       GameEvents.Instance.Notify<IStartGame>(i => i.OnStartGame(starterPlayer));
     }
   }

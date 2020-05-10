@@ -20,7 +20,6 @@ namespace Battle.UI.Board
 
     public void OnJewelFall(IRuntimeJewel jewel)
     {
-      Debug.Log("ICascadeJewel");
       BoardUtils.CascadeJewelBoard(jewel);
     }
 

@@ -189,6 +189,7 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\SwapBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\UnselectBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Utils\FindMatchesUtil.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Board\Utils\SwapChoices.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Effects\Interfaces\IEffectable.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Effects\Interfaces\IEnableable.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Effects\Interfaces\IRemovable.cs" />

@@ -73,7 +73,6 @@ namespace Battle.UI.Board.Utils
     //--------------------------------------------------------------------------------------------------------------
     public void CascadeJewelBoard(IRuntimeJewel jewel)
     {
-      Debug.Log("CascadeJewelBoard: " + jewel.JewelID);
       cascadePos.StartReposition(jewel);
     }
 

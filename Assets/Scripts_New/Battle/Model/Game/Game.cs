@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Controller;
+using Battle.GameEvent;
 using Battle.Model.Game.Mechanics;
+using Battle.Model.Jewel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard;
+using Battle.Model.RuntimeBoard.Controller;
+using Battle.Model.RuntimeBoard.Utils;
 using Battle.Model.TurnLogic;
 using UnityEngine;
 
@@ -110,33 +115,35 @@ namespace Battle.Model.Game
 
     public IEnumerator ExecuteAiTurn(PlayerSeat seat)
     {
-      //bool GetSpace()
-      //{
-      //  Debug.Log("Press C");
-      //  return Input.GetKeyDown(KeyCode.C);
-      //}
-      //var player = TurnLogic.GetPlayer(seat);
-      //var team = player.Team;
-      //var size = team.Size;
+      // Clear board
+      GameEvents.Instance.Notify<IRemoveSelectedBoard>(i => i.OnBoardRemoveSelectedCheck());
 
-      //for (var i = 0; i < size; i++)
-      //{
-      //  var member = team.Members[i];
+      // wait until the board state is clean.
+      while (!BoardController.Instance.CanManipulate()) {}
 
-      //  if (Configurations.PlayerTurn.DebugAiTurn)
-      //  {
-      //    if (i > 0)
-      //    {
-      //      yield return new WaitUntil(GetSpace);
-      //    }
-      //    yield return new WaitForSeconds(0.5f);
-      //  }
+      // look for matches
+      List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(GameBoard.GetBoardData().GetMap());
 
-      //  member.ExecuteTurn();
-      //}
+      if (matchesBuff.Count > 0)
+      {
+        Debug.Log("Swapping: " + matchesBuff[0].jewel1.Pos.ToString() + "<=>" + matchesBuff[0].jewel2.Pos.ToString());
 
-      // AI Turn here!
-      yield return new WaitForSeconds(0.5f);
+        // click first gem
+        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel1));
+        Debug.Log("Click: " + matchesBuff[0].jewel1.Pos.ToString());
+
+        yield return new WaitForSeconds(0.5f);
+        while (!BoardController.Instance.CanManipulate()) { }
+
+        // click second gem
+        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel2));
+        Debug.Log("Click: " + matchesBuff[0].jewel2.Pos.ToString());
+      }
+      else
+      {
+        Debug.Log("Nothing in buffer. Reshuffle the board!");
+      }
+      
     }
 
     #endregion

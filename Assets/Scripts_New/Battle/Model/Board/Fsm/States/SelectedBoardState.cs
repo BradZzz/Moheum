@@ -38,7 +38,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
         // Clean Board state
         GameEvents.Instance.Notify<ICleanBoard>(i => i.OnBoardCleanCheck());
       }
-      else if (jewelsClicked.Count == 2 && WillCauseMatch(jewels, jewelsClicked[0], jewelsClicked[1]))
+      else if (jewelsClicked.Count == 2 && FindMatchesUtil.WillCauseMatch(jewels, jewelsClicked[0], jewelsClicked[1]))
       {
         // If the two jewels will cause a match, swap the jewels, then swap to evaluate board state
         GameEvents.Instance.Notify<ISwapBoard>(i => i.OnBoardSwapCheck());
@@ -48,13 +48,6 @@ namespace Battle.Model.RuntimeBoard.Fsm
         // Remove all selected board state
         GameEvents.Instance.Notify<IRemoveSelectedBoard>(i => i.OnBoardRemoveSelectedCheck());
       }
-    }
-
-    private bool WillCauseMatch(IRuntimeJewel[,] jewels, IRuntimeJewel swap1, IRuntimeJewel swap2)
-    {
-      jewels[(int)swap1.Pos.x, (int)swap1.Pos.y] = swap2;
-      jewels[(int)swap2.Pos.x, (int)swap2.Pos.y] = swap1;
-      return FindMatchesUtil.FindMatches(jewels).Count > 0;
     }
   }
 }

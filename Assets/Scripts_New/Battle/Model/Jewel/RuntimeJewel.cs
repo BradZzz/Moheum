@@ -53,8 +53,6 @@ namespace Battle.Model.Jewel
 
         public void RotatePos(Vector2 Pos)
         {
-            Debug.Log("RotatePos");
-
             lastPos = pos;
             pos = Pos;
         }
