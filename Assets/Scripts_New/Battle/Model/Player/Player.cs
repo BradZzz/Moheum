@@ -13,35 +13,15 @@ namespace Battle.Model.Player
     /// </summary>
     public class Player : IPlayer
     {
-        public Player(PlayerSeat seat, Battle.Configurations.Configurations configurations = null)
+        public Player(PlayerSeat seat, IRoster Roster, Battle.Configurations.Configurations configurations = null)
         {
             Configurations = configurations;
             Seat = seat;
+            roster = Roster;
 
-            //Hand = new Collection<IRuntimeJewel>();
-
-            //if (teamData != null)
-            //    Team = new Team(this, teamData);
-
-            //if (deckData != null)
-            //    Library = new Library(this, deckData, Configurations);
-
-            //Graveyard = new Graveyard(this);
-
-            #region Mechanics
-
-            //DrawMechanics = new DrawMechanics(this);
-            //DiscardMechanics = new DiscardMechanics(this);
-            //PlayCardMechanics = new PlayCardMechanics(this);
             StartTurnMechanics = new StartTurnMechanics(this);
             FinishTurnMechanics = new FinishTurnMechanics(this);
             SwapTurnMechanics = new SwapTurnMechanics(this);
-            //SpawnMechanics = new SpawnMechanics(this);
-            //ManaMechanics = new ManaMechanics(this);
-            //PowerMechanic = new PowerMechanic(this);
-            //GoldMechanic = new GoldMechanic(this);
-
-          #endregion
         }
 
         //----------------------------------------------------------------------------------------------------------
@@ -64,6 +44,10 @@ namespace Battle.Model.Player
 
         public bool HasSwapped { get; set; }
 
+        public IRoster Roster => roster;
+
+        private IRoster roster;
+
         public void StartTurn()
         {
           StartTurnMechanics.StartTurn();
@@ -79,53 +63,6 @@ namespace Battle.Model.Player
           FinishTurnMechanics.FinishTurn();
         }
 
-        #endregion
-
-        ////----------------------------------------------------------------------------------------------------------
-
-        //#region Play
-
-        //void IPlayer.Swap(IRuntimeJewel jewel, IRuntimeJewel jewel2);
-        //{
-        //    if (card.IsPower)
-        //        PowerMechanic.AddPower(card);
-
-        //    return public void StartTurn()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void FinishTurn()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //PlayCardMechanics.Play(card);
-        //}
-
-        //public bool CanSwap(IRuntimeJewel card)
-        //{
-        //    return PlayCardMechanics.CanPlay(card);
-        //}
-
-        //#endregion
-
-        ////----------------------------------------------------------------------------------------------------------
-
-        //#region Turn
-
-        //void IPlayer.FinishTurn()
-        //{
-        //    FinishTurnMechanics.FinishTurn();
-        //}
-
-        //void IPlayer.StartTurn()
-        //{
-        //    StartTurnMechanics.StartTurn();
-        //}
-
-        //#endregion
-
-        ////----------------------------------------------------------------------------------------------------------        
+        #endregion 
     }
 }

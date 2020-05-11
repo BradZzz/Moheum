@@ -11,7 +11,7 @@ namespace Battle.Model.Player
         //Collection<IRuntimeJewel> Hand { get; }
         PlayerSeat Seat { get; }
         //Player spells and 
-        //ITeam Team { get; }
+        IRoster Roster { get; }
         void StartTurn();
         void SwapTurn();
         void FinishTurn();
