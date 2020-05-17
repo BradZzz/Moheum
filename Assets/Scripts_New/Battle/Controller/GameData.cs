@@ -94,8 +94,9 @@ namespace Battle.Controller
           sampleAbilityComponents.Add(sampleComponent1);
           sampleAbilityComponents.Add(sampleComponent2);
           Ability sampleAbility = new Ability("Zap", sampleAbilityComponents, new AbilityEffect());
-          RuntimeAbility sampleRuntimeAbility = new RuntimeAbility(sampleAbility);
-          List<IRuntimeAbility> sampleMoheAbilities = new List<IRuntimeAbility>() { sampleRuntimeAbility };
+          
+          //RuntimeAbility sampleRuntimeAbility = new RuntimeAbility(sampleAbility);
+          List<IAbility> sampleMoheAbilities = new List<IAbility>() { sampleAbility };
           MoheStats sampleMoheStats = new MoheStats(10, 1, 1, 1, 1, 1, 1, 1);
           Mohe sampleMohe = new Mohe(sampleMoheData, sampleMoheAbilities, sampleMoheStats);
           RuntimeMoheData sampleRuntimeMohe = new RuntimeMoheData(sampleMohe);

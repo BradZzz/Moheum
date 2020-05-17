@@ -6,7 +6,7 @@ namespace Battle.Model.MoheModel
 {
   public class Mohe : IMohe
   {
-    public Mohe (IMoheData Data, List<IRuntimeAbility> Abilities, IMoheStats Stats)
+    public Mohe (IMoheData Data, List<IAbility> Abilities, IMoheStats Stats)
     {
       data = Data;
       abilities = Abilities;
@@ -14,11 +14,11 @@ namespace Battle.Model.MoheModel
     }
 
     public IMoheData Data => data;
-    public List<IRuntimeAbility> Abilities => abilities;
+    public List<IAbility> Abilities => abilities;
     public IMoheStats Stats => stats;
 
     private IMoheData data;
-    private List<IRuntimeAbility> abilities;
+    private List<IAbility> abilities;
     private IMoheStats stats;
   }
 }

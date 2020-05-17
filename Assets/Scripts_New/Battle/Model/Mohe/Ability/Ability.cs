@@ -14,7 +14,7 @@ namespace Battle.Model.MoheModel
       effect = Effect;
     }
 
-    public string Name => Name;
+    public string Name => name;
     public List<IAbilityComponent> AbilityComponents => abilityComponents;
     public IAbilityEffect Effect => effect;
 

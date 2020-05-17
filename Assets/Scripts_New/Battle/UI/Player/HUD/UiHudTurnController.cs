@@ -9,7 +9,7 @@ namespace Battle.UI.Player
   {
     private void Awake()
     {
-      UiPlayerHUD = GetComponentInParent<IUiPlayerHUD>();
+      UiPlayerHUD = transform.parent.GetComponentInParent<IUiPlayerHUD>();
       Image = GetComponent<Image>();
     }
 
@@ -26,9 +26,11 @@ namespace Battle.UI.Player
       if (UiPlayerHUD.IsPlayerTurn)
       {
         Image.sprite = IsTurnSprite;
+        Image.color = Color.white;
       } else
       {
         Image.sprite = IsNotTurnSprite;
+        Image.color = new Color(1,182f/255f,182f/255f);
       }
     }
   }

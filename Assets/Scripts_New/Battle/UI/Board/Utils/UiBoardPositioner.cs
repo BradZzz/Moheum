@@ -11,8 +11,8 @@ namespace Battle.UI.Board.Utils
     private static float OFFSET_WIDTH = .5f;
     private static float OFFSET_HEIGHT = .5f;
 
-    private static float MARGIN_WIDTH = .9f;
-    private static float MARGIN_HEIGHT = .9f;
+    private static float MARGIN_WIDTH = .84f;
+    private static float MARGIN_HEIGHT = .84f;
 
     public float GetOffsetWidth()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 using Patterns;
 using Battle.Model.Jewel;
 using Battle.Model.Player;
+using Battle.UI.Player;
 
 namespace Battle.GameEvent
 {
@@ -163,29 +164,14 @@ namespace Battle.GameEvent
     void OnBoardSwapCheck();
   }
 
-  ///// <summary>
-  /////     Broadcast of Jewel Swap to Listeners
-  ///// </summary>
-  //public interface IOnSwapJewels : ISubject
-  //{
-  //    void IOnSwapJewels(IRuntimeJewel jewel1, IRuntimeJewel jewel2);
-  //}
+  /*
+   * Player UI Nav
+   */
 
-  ///// <summary>
-  /////     Broadcast of Jewel Click to Listeners
-  ///// </summary>
-  //public interface IOnClickJewel : ISubject
-  //{
-  //    void IOnClickJewel(IRuntimeJewel jewel);
-  //}
-
-  ///// <summary>
-  /////     Broadcast of Jewel Destroy to Listeners
-  ///// </summary>
-  //public interface IOnDestroyJewel : ISubject
-  //{
-  //    void IOnDestroyJewel(IRuntimeJewel jewel);
-  //}
+  public interface IPlayerNav : ISubject
+  {
+    void OnPlayerNav(NavID nav);
+  }
 
   #endregion
 }

@@ -6,7 +6,7 @@ namespace Battle.Model.MoheModel
 {
   public interface IMohe
   {
-    List<IRuntimeAbility> Abilities { get; }
+    List<IAbility> Abilities { get; }
     IMoheData Data { get; }
     // Current Stats
     IMoheStats Stats { get; }
