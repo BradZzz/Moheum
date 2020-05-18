@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Battle.UI.Utils;
 using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public class UiNavButtons : MonoBehaviour, IUiNavButtons
+  public class UiNavButtons : UiListener, IUiNavButtons
   {
     void Awake()
     {
@@ -21,10 +23,15 @@ namespace Battle.UI.Player
 
     public List<IUiNavButton> Buttons => buttons;
     public NavID Current => current;
+    public Action<NavID> OnNavigate { get; set; }
 
     public void OnPlayerNav(NavID nav)
     {
       current = nav;
+      Debug.Log(OnNavigate);
+      Debug.Log(nav);
+      if (OnNavigate != null)
+        OnNavigate.Invoke(Current);
     }
   }
 }

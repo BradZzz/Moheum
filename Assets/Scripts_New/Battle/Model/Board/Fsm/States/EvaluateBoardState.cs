@@ -29,7 +29,6 @@ namespace Battle.Model.RuntimeBoard.Fsm
       //Logger.Log<EvaluateBoardState>("OnEnterState");
       base.OnEnterState();
 
-      Debug.Log("EvaluateBoardState");
       // Bring in board data
       IRuntimeJewel[,] jewelMap = boardData.GetMap();
       List<IRuntimeJewel> toRemoveBuff = FindMatchesUtil.FindMatches(boardData.GetMap());

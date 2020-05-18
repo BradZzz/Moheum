@@ -24,7 +24,6 @@ namespace Battle.UI.Jewel.Component
 
     private void Awake()
     {
-      Debug.Log("UIJewelComponent Awake");
       //data
       //Data = GetComponent<IJewelData>();
       UIRuntimeData = GetComponent<IUiJewelData>();

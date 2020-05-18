@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public class UiAttackActionButton : MonoBehaviour, IUiActionButton
+  public class UiAttackActionButton : UiBaseActionButton
   {
-    public void Populate(int pos)
+    public override void Populate(int pos)
     {
       headerTxt = transform.Find("HeaderTxt").GetComponent<TextMeshProUGUI>();
       descTxt = transform.Find("DescTxt").GetComponent<TextMeshProUGUI>();

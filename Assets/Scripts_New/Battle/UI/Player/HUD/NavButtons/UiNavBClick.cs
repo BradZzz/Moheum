@@ -12,7 +12,7 @@ namespace Battle.UI.Player
       parent = GetComponent<IUiNavButton>();
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
       GameEvents.Instance.Notify<IPlayerNav>(i => i.OnPlayerNav(parent.NavID));
     }

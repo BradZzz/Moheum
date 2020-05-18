@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public class UiFleeActionButton : MonoBehaviour, IUiActionButton
+  public class UiFleeActionButton : UiBaseActionButton
   {
-    public void Populate(int pos)
+    public override void Populate(int pos)
     {
-      throw new System.NotImplementedException();
+
     }
   }
 }

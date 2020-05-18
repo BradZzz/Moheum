@@ -6,6 +6,8 @@ namespace Battle.UI.Player
 {
   public interface IUiActionButton
   {
+    MonoBehaviour MBehaviour { get; }
+
     void Populate(int pos);
   }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Battle.GameEvent;
 using UnityEngine;
@@ -9,5 +10,7 @@ namespace Battle.UI.Player
   {
     NavID Current { get; }
     List<IUiNavButton> Buttons { get; }
+
+    Action<NavID> OnNavigate { get; set; }
   }
 }
