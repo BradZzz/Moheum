@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.UI.Player
 {
   public class UiItemActionPooler : PrefabPooler<UiItemActionPooler>
   {
-    public IUiActionButton Get(int idx)
+    public IUiActionButton Get(PlayerSeat seat, int idx)
     {
       var obj = Get<IUiActionButton>();
-      obj.Populate(idx);
+      if (!obj.Populate(seat, idx))
+        return null;
       return obj;
     }
 

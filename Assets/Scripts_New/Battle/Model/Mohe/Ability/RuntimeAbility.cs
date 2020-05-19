@@ -10,6 +10,7 @@ namespace Battle.Model.MoheModel
     public RuntimeAbility(IAbility ability)
     {
       name = ability.Name;
+      desc = ability.Desc;
       effect = ability.Effect;
       abilityComponents = new List<IRuntimeAbilityComponent>();
       foreach (IAbilityComponent comp in ability.AbilityComponents)
@@ -19,10 +20,12 @@ namespace Battle.Model.MoheModel
     }
 
     public string Name => name;
+    public string Desc => desc;
     public List<IRuntimeAbilityComponent> AbilityComponents => abilityComponents;
     public IAbilityEffect Effect => effect;
 
     private string name;
+    private string desc;
     private List<IRuntimeAbilityComponent> abilityComponents;
     private IAbilityEffect effect;
 

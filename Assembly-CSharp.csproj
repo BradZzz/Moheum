@@ -290,6 +290,7 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\AttackAction\UiAttackCost.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\IUiActionButton.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\IUiActionButtons.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\Poolers\UiAtkActionCostPooler.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\Poolers\UiAtkActionPooler.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\Poolers\UiFleeActionPooler.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\Poolers\UiItemActionPooler.cs" />

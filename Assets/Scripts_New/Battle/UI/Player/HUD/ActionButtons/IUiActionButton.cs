@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.UI.Player
@@ -8,6 +9,6 @@ namespace Battle.UI.Player
   {
     MonoBehaviour MBehaviour { get; }
 
-    void Populate(int pos);
+    bool Populate(PlayerSeat seat, int pos);
   }
 }

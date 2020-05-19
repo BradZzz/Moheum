@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public class UiMoheActionPooler : PrefabPooler<UiMoheActionPooler>
+  public class UiAtkActionCostPooler : PrefabPooler<UiAtkActionCostPooler>
   {
-    public IUiActionButton Get(PlayerSeat seat, int idx)
+    public IUiAttackCost Get(IRuntimeAbilityComponent runtimeAbility)
     {
-      var obj = Get<IUiActionButton>();
-      if (!obj.Populate(seat, idx))
+      var obj = Get<IUiAttackCost>();
+      if (!obj.Populate(runtimeAbility))
         return null;
       return obj;
     }

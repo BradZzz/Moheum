@@ -22,6 +22,11 @@ namespace Battle.Model.Player
     private int currentIdx;
     private List<IRuntimeMoheData> moheRoster;
 
+    public IRuntimeMoheData CurrentMohe()
+    {
+      return MoheRoster[CurrentIdx];
+    }
+
     // Set current roster position
     public void SetRoster(int idx)
     {

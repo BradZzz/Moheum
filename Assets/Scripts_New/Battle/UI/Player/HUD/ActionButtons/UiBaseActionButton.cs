@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Player;
 using Battle.UI.Player;
 using UnityEngine;
 
@@ -14,5 +15,5 @@ public abstract class UiBaseActionButton : MonoBehaviour, IUiActionButton
 
   public MonoBehaviour MBehaviour => monoBehaviour;
 
-  public abstract void Populate(int pos);
+  public abstract bool Populate(PlayerSeat seat, int pos);
 }

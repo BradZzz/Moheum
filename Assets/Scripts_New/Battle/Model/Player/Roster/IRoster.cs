@@ -16,5 +16,7 @@ namespace Battle.Model.Player
     void AutoRoster();
     // Check if all Mohe are dead
     bool AllVanquished();
+    // Current Mohe
+    IRuntimeMoheData CurrentMohe();
   }
 }

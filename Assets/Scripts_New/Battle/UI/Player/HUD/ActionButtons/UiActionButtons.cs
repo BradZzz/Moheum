@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.UI.Player
@@ -9,6 +10,7 @@ namespace Battle.UI.Player
     void Awake()
     {
       actionButtons = new List<IUiActionButton>();
+      playerHUD = GetComponentInParent<IUiPlayerHUD>();
 
       navButtons = transform.parent.GetComponentInChildren<IUiNavButtons>();
       navButtons.OnNavigate += NavigateActions;
@@ -22,13 +24,17 @@ namespace Battle.UI.Player
     }
 
     private IUiNavButtons navButtons;
+    private IUiPlayerHUD playerHUD;
     private List<IUiActionButton> actionButtons;
 
     public IUiNavButtons NavButtons => navButtons;
+    public IUiPlayerHUD PlayerHUD => playerHUD;
     public List<IUiActionButton> ActionButtons => actionButtons;
 
     public void NavigateActions(NavID nav)
     {
+      PlayerSeat seat = playerHUD.Seat;
+
       // Clear the currrent buttons
       foreach (Transform t in transform)
       {
@@ -41,20 +47,23 @@ namespace Battle.UI.Player
         switch (nav)
         {
           case NavID.Attack:
-            action = UiAtkActionPooler.Instance.Get(i);
+            action = UiAtkActionPooler.Instance.Get(seat, i);
             break;
           case NavID.Item:
-            action = UiItemActionPooler.Instance.Get(i);
+            action = UiItemActionPooler.Instance.Get(seat, i);
             break;
           case NavID.Mohe:
-            action = UiMoheActionPooler.Instance.Get(i);
+            action = UiMoheActionPooler.Instance.Get(seat, i);
             break;
           case NavID.Run:
-            action = UiFleeActionPooler.Instance.Get(i);
+            action = UiFleeActionPooler.Instance.Get(seat, i);
             break;
           default:
-            action = UiAtkActionPooler.Instance.Get(i);
+            action = UiAtkActionPooler.Instance.Get(seat, i);
             break;
+        }
+        if (action == null) {
+          break;
         }
         action.MBehaviour.transform.parent = transform;
         action.MBehaviour.transform.localScale = Vector3.one;

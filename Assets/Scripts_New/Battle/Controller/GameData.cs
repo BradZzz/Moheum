@@ -93,7 +93,7 @@ namespace Battle.Controller
           AbilityComponent sampleComponent2 = new AbilityComponent(Model.Jewel.JewelID.envy, 3);
           sampleAbilityComponents.Add(sampleComponent1);
           sampleAbilityComponents.Add(sampleComponent2);
-          Ability sampleAbility = new Ability("Zap", sampleAbilityComponents, new AbilityEffect());
+          Ability sampleAbility = new Ability("Zap", "A => Pop 2", sampleAbilityComponents, new AbilityEffect());
           
           //RuntimeAbility sampleRuntimeAbility = new RuntimeAbility(sampleAbility);
           List<IAbility> sampleMoheAbilities = new List<IAbility>() { sampleAbility };
