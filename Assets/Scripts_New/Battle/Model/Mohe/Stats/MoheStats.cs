@@ -28,14 +28,21 @@ namespace Battle.Model.MoheModel
 
     public int Health => health;
 
+    [SerializeField]
     private int envy;
+    [SerializeField]
     private int wrath;
+    [SerializeField]
     private int greed;
+    [SerializeField]
     private int gluttony;
+    [SerializeField]
     private int pride;
+    [SerializeField]
     private int lust;
+    [SerializeField]
     private int sloth;
-
+    [SerializeField]
     private int health;
   }
 }

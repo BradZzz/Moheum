@@ -232,6 +232,8 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\IRuntimeMoheData.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mohe.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\MoheData.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\MoheDatabase.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\MoheID.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\RuntimeMoheData.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Stats\IMoheNature.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Stats\IMoheStats.cs" />
@@ -336,6 +338,7 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Utils\Tools\UiTransform\UiMotionScale.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Utils\UIListener.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Utils\UiMouseInputProvider.cs" />
+    <Compile Include="Assets\Scripts_New\Map\Model\Area\AreaID.cs" />
     <Compile Include="Assets\Scripts_New\Utils\Attributes\ButtonAttribute.cs" />
     <Compile Include="Assets\Scripts_New\Utils\Extensions\Component\ComponentExtensions.cs" />
     <Compile Include="Assets\Scripts_New\Utils\Extensions\GameObject\GameObjectExtensions.cs" />

@@ -9,7 +9,7 @@ namespace Battle.Model.Jewel
     public class JewelData : ScriptableObject, IJewelData
     {
         [SerializeField] private JewelID jewelID;
-        [SerializeField] private string relicName;
+        [SerializeField] private string jewelName;
         [TextArea] [SerializeField] private string description;
         [TextArea] [SerializeField] private string lore;
         [SerializeField] private Sprite artwork;
@@ -18,10 +18,10 @@ namespace Battle.Model.Jewel
 
         //--------------------------------------------------------------------------------------------------------------
         public JewelID JewelID => jewelID;
-        public string Name => relicName;
+        public string Name => jewelName;
         public string Description => description;
         public string Lore => lore;
         public Sprite Artwork => artwork;
 
-  }
+    }
 }

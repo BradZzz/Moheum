@@ -6,9 +6,18 @@ namespace Battle.Model.MoheModel
 {
   public interface IMoheData
   {
+    MoheID MoheID { get; }
     string Name { get; }
-    Sprite Image { get; }
+    string Description { get; }
+    Sprite Artwork { get; }
 
-    IMoheNature Nature { get; }
+    MoheData.MoheStatData BaseStatsLow { get; }
+    MoheData.MoheStatData BaseStatsHigh { get; }
+    MoheData.MoheStatData LvlUpStatsLow { get; }
+    MoheData.MoheStatData LvlUpStatsHigh { get; }
+
+    /*
+     * Need to add abilities here
+     */
   }
 }

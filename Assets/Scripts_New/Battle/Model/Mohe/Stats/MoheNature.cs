@@ -4,24 +4,34 @@ using UnityEngine;
 
 namespace Battle.Model.MoheModel
 {
-  public class MoheNature : IMoheNature
+  public class MoheNature
   {
-    public MoheNature()
-    {
-
-    }
+    //public MoheNature(MoheStats BaseStatsLow, MoheStats BaseStatsHigh, MoheStats LvlUpStatsLow, MoheStats LvlUpStatsHigh)
+    //{
+    //  baseStatsLow = BaseStatsLow;
+    //  baseStatsHigh = BaseStatsHigh;
+    //  lvlUpStatsLow = LvlUpStatsLow;
+    //  lvlUpStatsHigh = LvlUpStatsHigh;
+    //}
     /*
      * Base Stats
      * How the Mohe levels up
      */
-    public IMoheStats BaseStatsLow => baseStatsLow;
-    public IMoheStats BaseStatsHigh => baseStatsHigh;
-    public IMoheStats LvlUpStatsLow => lvlUpStatsLow;
-    public IMoheStats LvlUpStatsHigh => lvlUpStatsHigh;
+    //public MoheStats BaseStatsLow => baseStatsLow;
+    //public MoheStats BaseStatsHigh => baseStatsHigh;
+    //public MoheStats LvlUpStatsLow => lvlUpStatsLow;
+    //public MoheStats LvlUpStatsHigh => lvlUpStatsHigh;
 
-    private IMoheStats baseStatsLow;
-    private IMoheStats baseStatsHigh;
-    private IMoheStats lvlUpStatsLow;
-    private IMoheStats lvlUpStatsHigh;
+    [SerializeField]
+    public int textToggle;
+
+    //[SerializeField] private int testCost;
+    //[SerializeField] private MoheStats baseStatsLow;
+    //[SerializeField]
+    //private MoheStats baseStatsHigh;
+    //[SerializeField]
+    //private MoheStats lvlUpStatsLow;
+    //[SerializeField]
+    //private MoheStats lvlUpStatsHigh;
   }
 }

@@ -1,24 +1,69 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Battle.Model.MoheModel
 {
-  public class MoheData : IMoheData
+  [CreateAssetMenu(menuName = "Data/Mohe")]
+  public class MoheData : ScriptableObject, IMoheData
   {
-    public MoheData(string Name, Sprite Image, IMoheNature Nature)
+    [SerializeField] private MoheID moheID;
+    [SerializeField] private string moheName;
+    [TextArea] [SerializeField] private string description;
+    [SerializeField] private Sprite artwork;
+    [SerializeField] private MoheNature nature;
+
+    //--------------------------------------------------------------------------------------------------------------
+    public MoheID MoheID => moheID;
+    public string Name => moheName;
+    public string Description => description;
+    public Sprite Artwork => artwork;
+
+    public MoheStatData BaseStatsLow => baseStatsLow;
+    public MoheStatData BaseStatsHigh => baseStatsHigh;
+    public MoheStatData LvlUpStatsLow => lvlUpStatsLow;
+    public MoheStatData LvlUpStatsHigh => lvlUpStatsHigh;
+
+    [SerializeField] private MoheStatData baseStatsLow = new MoheStatData();
+    [SerializeField] private MoheStatData baseStatsHigh = new MoheStatData();
+    [SerializeField] private MoheStatData lvlUpStatsLow = new MoheStatData();
+    [SerializeField] private MoheStatData lvlUpStatsHigh = new MoheStatData();
+
+    [Serializable]
+    public class MoheStatData
     {
-      name = Name;
-      image = Image;
-      nature = Nature;
+      [Tooltip("Envy Stat")]
+      [Range(0f, 10f)]
+      public float envy;
+
+      [Tooltip("Wrath Stat")]
+      [Range(0f, 10f)]
+      public float wrath;
+
+      [Tooltip("Greed Stat")]
+      [Range(0f, 10f)]
+      public float greed;
+
+      [Tooltip("Gluttony Stat")]
+      [Range(0f, 10f)]
+      public float gluttony;
+
+      [Tooltip("Pride Stat")]
+      [Range(0f, 10f)]
+      public float pride;
+
+      [Tooltip("Lust Stat")]
+      [Range(0f, 10f)]
+      public float lust;
+
+      [Tooltip("Sloth Stat")]
+      [Range(0f, 10f)]
+      public float sloth;
+
+      [Tooltip("Health Stat")]
+      [Range(0f, 10f)]
+      public float health;
     }
-
-    public string Name => name;
-    public Sprite Image => image;
-    public IMoheNature Nature => nature;
-
-    private string name;
-    private Sprite image;
-    private IMoheNature nature;
   }
 }

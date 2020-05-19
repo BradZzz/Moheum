@@ -6,10 +6,10 @@ namespace Battle.Model.MoheModel
 {
   public interface IMoheNature
   {
-    IMoheStats BaseStatsLow { get; }
-    IMoheStats BaseStatsHigh { get; }
+    MoheStats BaseStatsLow { get; }
+    MoheStats BaseStatsHigh { get; }
 
-    IMoheStats LvlUpStatsLow { get; }
-    IMoheStats LvlUpStatsHigh { get; }
+    MoheStats LvlUpStatsLow { get; }
+    MoheStats LvlUpStatsHigh { get; }
   }
 }

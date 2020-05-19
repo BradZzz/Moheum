@@ -86,23 +86,24 @@ namespace Battle.Controller
 
         public IRoster CreateTestRoster()
         {
-          MoheNature sampleMoheNature = new MoheNature();
-          MoheData sampleMoheData = new MoheData("Mahlmaul", null, sampleMoheNature);
-          List<IAbilityComponent> sampleAbilityComponents = new List<IAbilityComponent>();
-          AbilityComponent sampleComponent1 = new AbilityComponent(Model.Jewel.JewelID.pride, 2);
-          AbilityComponent sampleComponent2 = new AbilityComponent(Model.Jewel.JewelID.envy, 3);
-          sampleAbilityComponents.Add(sampleComponent1);
-          sampleAbilityComponents.Add(sampleComponent2);
-          Ability sampleAbility = new Ability("Zap", "A => Pop 2", sampleAbilityComponents, new AbilityEffect());
-          
-          //RuntimeAbility sampleRuntimeAbility = new RuntimeAbility(sampleAbility);
-          List<IAbility> sampleMoheAbilities = new List<IAbility>() { sampleAbility };
-          MoheStats sampleMoheStats = new MoheStats(10, 1, 1, 1, 1, 1, 1, 1);
-          Mohe sampleMohe = new Mohe(sampleMoheData, sampleMoheAbilities, sampleMoheStats);
-          RuntimeMoheData sampleRuntimeMohe = new RuntimeMoheData(sampleMohe);
-          List<IRuntimeMoheData> moheList = new List<IRuntimeMoheData>();
-          moheList.Add(sampleRuntimeMohe);
-          return new Roster(moheList);
+            //MoheNature sampleMoheNature = new MoheNature();
+            //MoheData sampleMoheData = new MoheData("Mahlmaul", null, sampleMoheNature);
+            //List<IAbilityComponent> sampleAbilityComponents = new List<IAbilityComponent>();
+            //AbilityComponent sampleComponent1 = new AbilityComponent(Model.Jewel.JewelID.pride, 2);
+            //AbilityComponent sampleComponent2 = new AbilityComponent(Model.Jewel.JewelID.envy, 3);
+            //sampleAbilityComponents.Add(sampleComponent1);
+            //sampleAbilityComponents.Add(sampleComponent2);
+            //Ability sampleAbility = new Ability("Zap", "A => Pop 2", sampleAbilityComponents, new AbilityEffect());
+
+            ////RuntimeAbility sampleRuntimeAbility = new RuntimeAbility(sampleAbility);
+            //List<IAbility> sampleMoheAbilities = new List<IAbility>() { sampleAbility };
+            //MoheStats sampleMoheStats = new MoheStats(10, 1, 1, 1, 1, 1, 1, 1);
+            //Mohe sampleMohe = new Mohe(sampleMoheData, sampleMoheAbilities, sampleMoheStats);
+            //RuntimeMoheData sampleRuntimeMohe = new RuntimeMoheData(sampleMohe);
+            //List<IRuntimeMoheData> moheList = new List<IRuntimeMoheData>();
+            //moheList.Add(sampleRuntimeMohe);
+            //return new Roster(moheList);
+            return null;
         }
 
         /// <summary>
