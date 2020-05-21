@@ -29,8 +29,8 @@ namespace Battle.UI.Player
         return false;
 
       //Populate headers and desc
-      headerTxt.text = moheData.Abilities[pos].Name;
-      descTxt.text = moheData.Abilities[pos].Desc;
+      headerTxt.text = moheData.Abilities[pos].Ability.AbilityName;
+      descTxt.text = moheData.Abilities[pos].Ability.Description;
 
       Transform costParent = transform.Find("Cost");
 

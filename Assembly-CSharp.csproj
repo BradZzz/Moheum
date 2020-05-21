@@ -218,7 +218,17 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\RuntimeJewel.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Ability.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\AbilityComponent.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\AbilityDatabase.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\AbilityEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\AbilityData.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\AbilityID.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\Effect\BaseEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\Effect\DestroyEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\Effect\HealEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\Effect\IEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\Effect\PopEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\Effect\TransformEffect.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Data\IAbilityData.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\IAbility.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\IAbilityComponent.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\IAbilityEffect.cs" />

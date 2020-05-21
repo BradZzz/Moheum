@@ -12,6 +12,8 @@ namespace Battle.Model.Jewel
         gluttony,
         pride,
         lust,
-        sloth
+        sloth,
+        any,
+        none
     }
 }

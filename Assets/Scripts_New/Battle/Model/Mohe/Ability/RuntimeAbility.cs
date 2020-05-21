@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Battle.Model.Jewel;
 using UnityEngine;
@@ -7,27 +8,21 @@ namespace Battle.Model.MoheModel
 {
   public class RuntimeAbility : IRuntimeAbility
   {
-    public RuntimeAbility(IAbility ability)
+    public RuntimeAbility(AbilityData Ability)
     {
-      name = ability.Name;
-      desc = ability.Desc;
-      effect = ability.Effect;
+      ability = Ability;
       abilityComponents = new List<IRuntimeAbilityComponent>();
-      foreach (IAbilityComponent comp in ability.AbilityComponents)
+      foreach (AbilityData.AbilityCostData comp in ability.abilityCost)
       {
         abilityComponents.Add(new RuntimeAbilityComponent(comp));
       }
     }
 
-    public string Name => name;
-    public string Desc => desc;
-    public List<IRuntimeAbilityComponent> AbilityComponents => abilityComponents;
-    public IAbilityEffect Effect => effect;
-
-    private string name;
-    private string desc;
+    private AbilityData ability;
     private List<IRuntimeAbilityComponent> abilityComponents;
-    private IAbilityEffect effect;
+
+    public AbilityData Ability => ability;
+    public List<IRuntimeAbilityComponent> AbilityComponents => abilityComponents;
 
     public void PowerAbility(JewelID jewel, int amount)
     {

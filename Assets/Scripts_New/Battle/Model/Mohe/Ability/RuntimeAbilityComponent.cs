@@ -7,11 +7,11 @@ namespace Battle.Model.MoheModel
 {
   public class RuntimeAbilityComponent : IRuntimeAbilityComponent
   {
-    public RuntimeAbilityComponent(IAbilityComponent AbilityComponent)
+    public RuntimeAbilityComponent(AbilityData.AbilityCostData AbilityCostData)
     {
-      jewelType = AbilityComponent.JewelType;
+      jewelType = AbilityCostData.jewel;
       has = 0;
-      needs = AbilityComponent.Needs;
+      needs = AbilityCostData.amount;
     }
 
     public JewelID JewelType => jewelType;

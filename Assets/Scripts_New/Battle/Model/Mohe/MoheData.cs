@@ -12,7 +12,6 @@ namespace Battle.Model.MoheModel
     [SerializeField] private string moheName;
     [TextArea] [SerializeField] private string description;
     [SerializeField] private Sprite artwork;
-    [SerializeField] private MoheNature nature;
 
     //--------------------------------------------------------------------------------------------------------------
     public MoheID MoheID => moheID;
@@ -64,6 +63,19 @@ namespace Battle.Model.MoheModel
       [Tooltip("Health Stat")]
       [Range(0f, 10f)]
       public float health;
+    }
+
+    [SerializeField] private List<MoheAbilityLevelData> abilities = new List<MoheAbilityLevelData>();
+
+    [Serializable]
+    public class MoheAbilityLevelData
+    {
+      [Tooltip("Sloth Stat")]
+      [Range(0, 100)]
+      public int lvl;
+
+      [Tooltip("Health Stat")]
+      public AbilityData ability;
     }
   }
 }

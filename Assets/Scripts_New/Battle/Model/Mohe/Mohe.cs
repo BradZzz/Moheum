@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Battle.Model.MoheModel.MoheData;
 
 namespace Battle.Model.MoheModel
 {
+  [Serializable]
   public class Mohe : IMohe
   {
-    public Mohe (IMoheData Data, List<IAbility> Abilities, IMoheStats Stats)
+    public Mohe (IMoheData Data, List<AbilityID> Abilities, MoheData.MoheStatData Stats)
     {
       data = Data;
       abilities = Abilities;
@@ -14,11 +17,11 @@ namespace Battle.Model.MoheModel
     }
 
     public IMoheData Data => data;
-    public List<IAbility> Abilities => abilities;
-    public IMoheStats Stats => stats;
+    public List<AbilityID> Abilities => abilities;
+    public MoheData.MoheStatData Stats => stats;
 
     private IMoheData data;
-    private List<IAbility> abilities;
-    private IMoheStats stats;
+    private List<AbilityID> abilities;
+    private MoheData.MoheStatData stats;
   }
 }

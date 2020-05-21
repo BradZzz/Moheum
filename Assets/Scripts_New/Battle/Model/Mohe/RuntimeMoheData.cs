@@ -15,11 +15,13 @@ namespace Battle.Model.MoheModel
     {
       baseMohe = Mohe;
 
-      health = baseMohe.Stats.Health;
+      health = (int) baseMohe.Stats.health;
       abilities = new List<IRuntimeAbility>();
-      foreach (IAbility abil in baseMohe.Abilities)
+      List<AbilityData> db = AbilityDatabase.Instance.GetFullList();
+      foreach (AbilityID abil in baseMohe.Abilities)
       {
-        abilities.Add(new RuntimeAbility(abil));
+        if (db?.Find(ability => ability.AbilityID == abil))
+          abilities.Add(new RuntimeAbility(db?.Find(ability => ability.AbilityID == abil)));
       }
     }
 

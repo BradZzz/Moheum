@@ -28,6 +28,7 @@ namespace Battle.Model.Jewel
         private JewelFallMechanics jewelFallMechanics;
 
         private string jewelID;
+        
         private IJewelData data;
         private Vector2 lastPos;
         private Vector2 pos;
