@@ -23,7 +23,7 @@ namespace Battle.UI.Jewel.Listener
       Debug.Log("Clicked Data: ");
       Debug.Log(data);
       // Need to check to make sure the board state is ready and the current player isn't ai
-      if (BoardController.Instance.CanManipulate() && GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.IsUser)
+      if (BoardController.Instance.CanClickJewel() && GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.IsUser)
       {
         GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(data));
       } else

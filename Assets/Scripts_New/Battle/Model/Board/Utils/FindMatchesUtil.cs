@@ -7,6 +7,22 @@ namespace Battle.Model.RuntimeBoard.Utils
 {
   public class FindMatchesUtil
   {
+    public static bool ContainsNullJewel(IRuntimeJewel[,] jewelMap)
+    {
+      int width = jewelMap.GetLength(0);
+      int height = jewelMap.GetLength(1);
+
+      for (int y = 0; y < height; y++)
+      {
+        for (int x = 0; x < width - 1; x++)
+        {
+          if (jewelMap[x, y] == null)
+            return true;
+        }
+      }
+      return false;
+    }
+
     public static List<SwapChoices> FindBestMatches(IRuntimeJewel[,] jewelMap)
     {
       int width = jewelMap.GetLength(0);

@@ -12,12 +12,12 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
   public class CleanBoardState : BaseBoardState
   {
-    public CleanBoardState(BoardBasedFsm Fsm, IBoardData BoardData) : base(Fsm, BoardData)
+    public CleanBoardState(BoardBasedFsm Fsm, IRuntimeBoard Board) : base(Fsm, Board)
     {
-      boardData = BoardData;
+      board = Board;
     }
 
-    private IBoardData boardData;
+    private IRuntimeBoard board;
 
     public override void OnEnterState()
     {

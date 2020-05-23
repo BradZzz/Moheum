@@ -1,4 +1,5 @@
 ﻿using System;
+using Battle.Controller;
 using Battle.Model.Game.Mechanics;
 using Battle.Model.Jewel;
 using Battle.Model.Player.Mechanics;
@@ -22,6 +23,8 @@ namespace Battle.Model.Player
             StartTurnMechanics = new StartTurnMechanics(this);
             FinishTurnMechanics = new FinishTurnMechanics(this);
             SwapTurnMechanics = new SwapTurnMechanics(this);
+            ChargeAbilityMechanics = new ChargeAbilityMechanics(this);
+            UseAbilityMechanics = new UseAbilityMechanics(this);
         }
 
         //----------------------------------------------------------------------------------------------------------
@@ -39,6 +42,10 @@ namespace Battle.Model.Player
         public StartTurnMechanics StartTurnMechanics { get; }
 
         public SwapTurnMechanics SwapTurnMechanics { get; }
+
+        public ChargeAbilityMechanics ChargeAbilityMechanics { get; }
+
+        public UseAbilityMechanics UseAbilityMechanics { get; }
 
         public FinishTurnMechanics FinishTurnMechanics { get; }
 

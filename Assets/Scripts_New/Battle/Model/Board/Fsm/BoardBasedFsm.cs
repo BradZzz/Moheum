@@ -9,10 +9,10 @@ namespace Battle.Model.RuntimeBoard.Fsm
 {
   public class BoardBasedFsm : BaseStateMachine
   {
-    public BoardBasedFsm(IBoardController Handler, IBoardData BoardData) : base(Handler)
+    public BoardBasedFsm(IBoardController Handler, IRuntimeBoard Board) : base(Handler)
     {
       handler = Handler;
-      boardData = BoardData;
+      board = Board;
       Initialize();
     }
 
@@ -23,12 +23,14 @@ namespace Battle.Model.RuntimeBoard.Fsm
        * Register States Here
        */
       //create states
-      var cascade = new CascadeBoardState(this, boardData);
-      var clean = new CleanBoardState(this, boardData);
-      var evaluate = new EvaluateBoardState(this, boardData);
-      var remove = new RemoveSelectedBoardState(this, boardData);
-      var selected = new SelectedBoardState(this, boardData);
-      var swap = new SwapBoardState(this, boardData);
+      var cascade = new CascadeBoardState(this, board);
+      var clean = new CleanBoardState(this, board);
+      var evaluate = new EvaluateBoardState(this, board);
+      var remove = new RemoveSelectedBoardState(this, board);
+      var selected = new SelectedBoardState(this, board);
+      var swap = new SwapBoardState(this, board);
+      var action = new ActionBoardState(this, board);
+      var preaction = new PreActionBoardState(this, board);
 
       //register all states
       RegisterState(cascade);
@@ -37,12 +39,14 @@ namespace Battle.Model.RuntimeBoard.Fsm
       RegisterState(remove);
       RegisterState(selected);
       RegisterState(swap);
+      RegisterState(action);
+      RegisterState(preaction);
     }
 
     public new IBoardController Handler => handler;
-    public IBoardData BoardData => boardData;
+    public IRuntimeBoard Board => board;
 
     private IBoardController handler;
-    private IBoardData boardData;
+    private IRuntimeBoard board;
   }
 }

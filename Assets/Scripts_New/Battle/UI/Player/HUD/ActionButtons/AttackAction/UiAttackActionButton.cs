@@ -1,20 +1,46 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Battle.Controller;
+using Battle.GameEvent;
 using Battle.Model.Game;
 using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiAttackActionButton : UiBaseActionButton
+  public class UiAttackActionButton : UiBaseActionButton, IUiAtkActionButton
   {
-    public List<IUiAttackCost> CostPanels;
+    private List<IUiAttackCost> CostPanels;
 
-    public override bool Populate(PlayerSeat seat, int pos)
+    private TextMeshProUGUI headerTxt;
+    private TextMeshProUGUI descTxt;
+
+    private PlayerSeat seat;
+    private IRuntimeAbility ability;
+
+    private IUiAttackActionActive atkActionOutline;
+
+    //public TextMeshProUGUI HeaderTxt => headerTxt;
+    //public TextMeshProUGUI DescTxt => descTxt;
+
+    public Action<bool> OnToggle { get; set; }
+
+    void Start()
     {
+      base.Start();
+
+      Outline outty = GetComponent<Outline>();
+      atkActionOutline = new UiAttackActionActive(this, outty);
+    }
+
+    public override bool Populate(PlayerSeat Seat, int pos)
+    {
+      seat = Seat;
+
       CostPanels = new List<IUiAttackCost>();
 
       headerTxt = transform.Find("HeaderTxt").GetComponent<TextMeshProUGUI>();
@@ -29,8 +55,9 @@ namespace Battle.UI.Player
         return false;
 
       //Populate headers and desc
-      headerTxt.text = moheData.Abilities[pos].Ability.AbilityName;
-      descTxt.text = moheData.Abilities[pos].Ability.Description;
+      ability = moheData.Abilities[pos];
+      headerTxt.text = ability.Ability.AbilityName;
+      descTxt.text = ability.Ability.Description;
 
       Transform costParent = transform.Find("Cost");
 
@@ -39,9 +66,9 @@ namespace Battle.UI.Player
         Destroy(t.gameObject);
       }
 
-      for (int i = 0; i < moheData.Abilities[pos].AbilityComponents.Count; i++)
+      for (int i = 0; i < ability.AbilityComponents.Count; i++)
       {
-        IUiAttackCost cost = UiAtkActionCostPooler.Instance.Get(moheData.Abilities[pos].AbilityComponents[i]);
+        IUiAttackCost cost = UiAtkActionCostPooler.Instance.Get(seat, ability, i);
         cost.MBehaviour.transform.parent = costParent;
         cost.MBehaviour.transform.localScale = Vector3.one;
         CostPanels.Add(cost);
@@ -50,10 +77,29 @@ namespace Battle.UI.Player
       return true;
     }
 
-    private TextMeshProUGUI headerTxt;
-    private TextMeshProUGUI descTxt;
+    public void OnClick()
+    {
+      if (ability != null)
+      {
+        GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, ability.Ability.AbilityID));
+      }
+    }
 
-    public TextMeshProUGUI HeaderTxt => headerTxt;
-    public TextMeshProUGUI DescTxt => descTxt;
+    public void OnSelectAtkActionButton(PlayerSeat Seat, AbilityID Id)
+    {
+      if (Seat == seat && ability != null && Id == ability.Ability.AbilityID && ability.AbilityCharged())
+      {
+        OnToggle.Invoke(!atkActionOutline.Active);
+        GameEvents.Instance.Notify<IActionBoard>(i => i.OnBoardActionCheck(seat, atkActionOutline.Active ? ability : null));
+      } else
+      {
+        OnToggle.Invoke(false);
+      }
+    }
+
+    public void OnResetAtkActionButton()
+    {
+      OnToggle.Invoke(false);
+    }
   }
 }

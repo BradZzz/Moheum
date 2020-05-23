@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using Battle.Model.Player;
 using Battle.UI.Player;
+using Battle.UI.Utils;
 using UnityEngine;
 
-public abstract class UiBaseActionButton : MonoBehaviour, IUiActionButton
+public abstract class UiBaseActionButton : UiListener, IUiActionButton
 {
   void Awake()
   {

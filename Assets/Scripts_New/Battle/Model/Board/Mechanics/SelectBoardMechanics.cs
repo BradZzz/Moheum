@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.Model.RuntimeBoard;
+using Battle.Model.RuntimeBoard.Controller;
 using Patterns;
 using UnityEngine;
 
@@ -20,21 +21,19 @@ namespace Battle.UI.RuntimeBoard.Mechanics
 
     public void OnSelect(IRuntimeJewel jewel)
     {
-      // Look through all jewels
-      //IRuntimeJewel[,] jewels = GameBoard.GetBoardData().GetMap();
+      // Check to see if an action is about to be run
+      if (BoardController.Instance.IsWaitingForAction())
+      {
+        GameEvents.Instance.Notify<IInvokeActionBoard>(i => i.OnInvokeBoardActionCheck(jewel));
+      }
+      else
+      {
+        // Select jewel
+        jewel.DoSelect();
 
-      //for (int x = 0; x < jewels.GetLength(0); x++)
-      //  for (int y = 0; y < jewels.GetLength(1); y++)
-      //    if(jewels[x, y].JewelID == jewel.JewelID)
-      //      jewels[x, y].DoSelect();
-
-      jewel.DoSelect();
-
-      // Send postclick event listener
-      //GameEvents.Instance.Notify<IPostSelectJewel>(i => i.OnPostSelect(jewel));
-
-      // Right here is where I need to look through all the jewels and see if two jewels are clicked
-      GameEvents.Instance.Notify<ISelectedBoard>(i => i.OnBoardSelectedCheck());
+        // Right here is where I need to look through all the jewels and see if two jewels are clicked
+        GameEvents.Instance.Notify<ISelectedBoard>(i => i.OnBoardSelectedCheck());
+      }
     }
   }
 }

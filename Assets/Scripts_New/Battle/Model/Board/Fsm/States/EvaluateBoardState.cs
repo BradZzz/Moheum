@@ -15,12 +15,12 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
   public class EvaluateBoardState : BaseBoardState
   {
-    public EvaluateBoardState(BoardBasedFsm Fsm, IBoardData BoardData) : base(Fsm, BoardData)
+    public EvaluateBoardState(BoardBasedFsm Fsm, IRuntimeBoard Board) : base(Fsm, Board)
     {
-      boardData = BoardData;
+      board = Board;
     }
 
-    private IBoardData boardData;
+    private IRuntimeBoard board;
     //private List<IRuntimeJewel> toRemoveBuff = new List<IRuntimeJewel>();
 
     public override void OnEnterState()
@@ -30,13 +30,13 @@ namespace Battle.Model.RuntimeBoard.Fsm
       base.OnEnterState();
 
       // Bring in board data
-      IRuntimeJewel[,] jewelMap = boardData.GetMap();
-      List<IRuntimeJewel> toRemoveBuff = FindMatchesUtil.FindMatches(boardData.GetMap());
+      IRuntimeJewel[,] jewelMap = board.GetBoardData().GetMap();
+      List<IRuntimeJewel> toRemoveBuff = FindMatchesUtil.FindMatches(board.GetBoardData().GetMap());
       foreach (var jewel in toRemoveBuff)
       {
         OnRemove(jewel);
       }
-      if (toRemoveBuff.Count > 0)
+      if (toRemoveBuff.Count > 0 || FindMatchesUtil.ContainsNullJewel(board.GetBoardData().GetMap()))
       {
         OnCascadeState();
       } else
@@ -58,7 +58,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
     private void OnRemove(IRuntimeJewel jewel)
     {
       // The jewel has to be removed from the data here so that the cascade works properly
-      boardData.SetJewel(null, jewel.Pos);
+      board.GetBoardData().SetJewel(null, jewel.Pos);
       // Notify UI that the jewel needs to be removed
       GameEvents.Instance.Notify<IRemoveJewel>(i => i.OnRemoveJewel(jewel));
     }

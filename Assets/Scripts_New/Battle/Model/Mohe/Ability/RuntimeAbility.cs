@@ -32,6 +32,14 @@ namespace Battle.Model.MoheModel
       }
     }
 
+    public void ResetAbility()
+    {
+      foreach (IRuntimeAbilityComponent comp in abilityComponents)
+      {
+        comp.ResetComponent();
+      }
+    }
+
     public bool AbilityCharged()
     {
       bool charged = true;

@@ -15,17 +15,17 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
   public class SwapBoardState : BaseBoardState
   {
-    public SwapBoardState(BoardBasedFsm Fsm, IBoardData BoardData) : base(Fsm, BoardData)
+    public SwapBoardState(BoardBasedFsm Fsm, IRuntimeBoard Board) : base(Fsm, Board)
     {
-      boardData = BoardData;
+      board = Board;
     }
 
-    private IBoardData boardData;
+    private IRuntimeBoard board;
 
     public override void OnEnterState()
     {
       // Look through all jewels
-      IRuntimeJewel[,] jewels = boardData.GetMap();
+      IRuntimeJewel[,] jewels = board.GetBoardData().GetMap();
 
       // Right here is where I need to look through all the jewels and see if two jewels are clicked
       List<IRuntimeJewel> jewelsClicked = new List<IRuntimeJewel>();
@@ -59,7 +59,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private void SetJewelData(IRuntimeJewel jewel, Vector2 pos)
     {
-      boardData.SetJewel(jewel, pos);
+      board.GetBoardData().SetJewel(jewel, pos);
     }
 
     private void OnSwapJewel(IRuntimeJewel jewel, IRuntimeJewel jewel2)

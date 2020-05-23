@@ -5,6 +5,7 @@ using Patterns;
 using Battle.Model.Jewel;
 using Battle.Model.Player;
 using Battle.UI.Player;
+using Battle.Model.MoheModel;
 
 namespace Battle.GameEvent
 {
@@ -125,10 +126,19 @@ namespace Battle.GameEvent
     void OnJewelSwap(IRuntimeJewel jewel, IRuntimeJewel jewel2);
   }
 
-  // 
   public interface IPositionJewel : ISubject
   {
     void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to);
+  }
+
+  public interface IActionBoard : ISubject
+  {
+    void OnBoardActionCheck(PlayerSeat seat, IRuntimeAbility ability);
+  }
+
+  public interface IInvokeActionBoard : ISubject
+  {
+    void OnInvokeBoardActionCheck(IRuntimeJewel jewel);
   }
 
   /*
@@ -147,6 +157,16 @@ namespace Battle.GameEvent
   public interface IEvaluateBoard : ISubject
   {
     void OnBoardEvaluateCheck();
+  }
+
+  public interface IPreActionBoard : ISubject
+  {
+    void OnPreActionCheck();
+  }
+
+  public interface IPostActionBoard : ISubject
+  {
+    void OnPostActionCheck();
   }
 
   public interface IRemoveSelectedBoard : ISubject
@@ -171,6 +191,21 @@ namespace Battle.GameEvent
   public interface IPlayerNav : ISubject
   {
     void OnPlayerNav(NavID nav);
+  }
+
+  public interface ISelectAtkActionButton : ISubject
+  {
+    void OnSelectAtkActionButton(PlayerSeat seat, AbilityID id);
+  }
+
+  public interface IResetAtkActionButtons : ISubject
+  {
+    void OnResetAtkActionButton();
+  }
+
+  public interface IPlayerUpdateRuntime : ISubject
+  {
+    void OnPlayerUpdateRuntime();
   }
 
   #endregion

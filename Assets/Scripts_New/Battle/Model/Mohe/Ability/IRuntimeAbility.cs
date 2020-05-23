@@ -12,5 +12,6 @@ namespace Battle.Model.MoheModel
 
     void PowerAbility(JewelID jewel, int amount);
     bool AbilityCharged();
+    void ResetAbility();
   }
 }

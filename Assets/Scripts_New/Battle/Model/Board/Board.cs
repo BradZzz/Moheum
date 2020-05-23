@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard.Data;
 using Battle.UI.RuntimeBoard.Mechanics;
@@ -31,12 +33,18 @@ namespace Battle.Model.RuntimeBoard
       ProcessSelectBoardMechanics = new SelectBoardMechanics(this);
       ProcessStartGameBoardMechanics = new StartGameBoardMechanics(this);
       ProcessSwapBoardMechanics = new SwapBoardMechanics(this);
+      UnselectBoardMechanics = new UnselectBoardMechanics(this);
+      ActivateAbilityMechanics = new ActivateAbilityMechanics(this);
+      InvokeActivateAbilityMechanics = new InvokeActivateAbilityMechanics(this);
 
       Mechanics.Add(ProcessCascadeBoardMechanics);
       Mechanics.Add(ProcessEndGameBoardMechanics);
       Mechanics.Add(ProcessSelectBoardMechanics);
       Mechanics.Add(ProcessStartGameBoardMechanics);
       Mechanics.Add(ProcessSwapBoardMechanics);
+      Mechanics.Add(UnselectBoardMechanics);
+      Mechanics.Add(ActivateAbilityMechanics);
+      Mechanics.Add(InvokeActivateAbilityMechanics);
     }
 
     private Battle.Configurations.Configurations configuration { get; }
@@ -48,6 +56,12 @@ namespace Battle.Model.RuntimeBoard
     private StartGameBoardMechanics ProcessStartGameBoardMechanics { get; }
     private SelectBoardMechanics ProcessSelectBoardMechanics { get; }
     private SwapBoardMechanics ProcessSwapBoardMechanics { get; }
+    private UnselectBoardMechanics UnselectBoardMechanics { get; }
+    private ActivateAbilityMechanics ActivateAbilityMechanics { get; }
+    private InvokeActivateAbilityMechanics InvokeActivateAbilityMechanics { get; }
+
+    public Func<IRuntimeJewel, bool> OnInvokeActionEffect { get; set; }
+    public Action OnCleanAbility { get; set; }
 
     public BoardData GetBoardData()
     {

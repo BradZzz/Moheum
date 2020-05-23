@@ -7,7 +7,8 @@ using UnityEngine;
 namespace Battle.Model.RuntimeBoard.Controller
 {
   public interface IBoardController : IStateMachineHandler, IStartGame, ICascadeBoard,
-    ICleanBoard, IEvaluateBoard, IRemoveSelectedBoard, ISelectedBoard, ISwapBoard
+    ICleanBoard, IEvaluateBoard, IRemoveSelectedBoard, ISelectedBoard, ISwapBoard, IPreActionBoard,
+    IPostActionBoard
   {
     MonoBehaviour MonoBehaviour { get; }
   }

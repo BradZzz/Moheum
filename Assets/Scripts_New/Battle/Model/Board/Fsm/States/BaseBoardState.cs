@@ -11,18 +11,18 @@ namespace Battle.Model.RuntimeBoard.Fsm
 {
   public abstract class BaseBoardState : IState, IListener, IStartGame
   {
-    protected BaseBoardState(BoardBasedFsm fsm, IBoardData boardData)
+    protected BaseBoardState(BoardBasedFsm Fsm, IRuntimeBoard Board)
     {
-      Fsm = fsm;
-      BoardData = boardData;
+      fsm = Fsm;
+      board = Board;
 
       //Subscribe game events 
       GameEvents.Instance.AddListener(this);
       IsInitialized = true;
     }
 
-    private BoardBasedFsm Fsm;
-    private IBoardData BoardData;
+    private BoardBasedFsm fsm;
+    private IRuntimeBoard board;
 
     public bool IsInitialized { get; }
 
@@ -50,8 +50,8 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     protected virtual void OnNextState(BaseBoardState nextState)
     {
-      Fsm.PopState();
-      Fsm.PushState(nextState);
+      fsm.PopState();
+      fsm.PushState(nextState);
     }
 
     public void OnStartGame(IPlayer starter)

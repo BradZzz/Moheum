@@ -13,12 +13,12 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
   public class CascadeBoardState : BaseBoardState
   {
-    public CascadeBoardState(BoardBasedFsm Fsm, IBoardData BoardData) : base(Fsm, BoardData)
+    public CascadeBoardState(BoardBasedFsm Fsm, IRuntimeBoard Board) : base(Fsm, Board)
     {
-      boardData = BoardData;
+      board = Board;
     }
 
-    private IBoardData boardData;
+    private IRuntimeBoard board;
 
     private int Count { get; set; }
 
@@ -28,7 +28,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
       Debug.Log("CascadeBoardState");
       List<JewelData> jewels = JewelDatabase.Instance.GetFullList();
-      IRuntimeJewel[,] jewelMap = boardData.GetMap();
+      IRuntimeJewel[,] jewelMap = board.GetBoardData().GetMap();
       int width = jewelMap.GetLength(0);
       int height = jewelMap.GetLength(1);
 
@@ -72,7 +72,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
     // Update
     private void SetJewelData(IRuntimeJewel jewel, Vector2 pos)
     {
-      boardData.SetJewel(jewel, pos);
+      board.GetBoardData().SetJewel(jewel, pos);
     }
     // Notify
     private void OnCascadeJewel(IRuntimeJewel jewel)

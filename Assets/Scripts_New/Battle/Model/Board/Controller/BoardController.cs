@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Battle.Controller;
 using Battle.GameEvent;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard.Fsm;
 using Patterns;
@@ -36,7 +37,7 @@ namespace Battle.Model.RuntimeBoard.Controller
     public void OnStartGame(IPlayer starter)
     {
       Debug.Log("OnStartGame");
-      BoardBasedLogic = new BoardBasedFsm(this, GameData.Instance.RuntimeGame.GameBoard.GetBoardData());
+      BoardBasedLogic = new BoardBasedFsm(this, GameData.Instance.RuntimeGame.GameBoard);
       //OnTurnStart();
     }
 
@@ -50,6 +51,7 @@ namespace Battle.Model.RuntimeBoard.Controller
        * RemoveMatchesBoardState
        * CasecadeBoardState
        * CleanBoardState
+       * ActionBoardState
        */
       //OnBoardCascadeCheck();
     }
@@ -57,6 +59,16 @@ namespace Battle.Model.RuntimeBoard.Controller
     public bool CanManipulate()
     {
       return BoardBasedLogic.IsCurrent<CleanBoardState>();
+    }
+
+    public bool CanClickJewel()
+    {
+      return CanManipulate() || IsWaitingForAction();
+    }
+
+    public bool IsWaitingForAction()
+    {
+      return BoardBasedLogic.IsCurrent<PreActionBoardState>();
     }
 
     public void OnBoardCascadeCheck()
@@ -93,6 +105,18 @@ namespace Battle.Model.RuntimeBoard.Controller
     {
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<SwapBoardState>();
+    }
+
+    public void OnPreActionCheck()
+    {
+      BoardBasedLogic.PopState();
+      BoardBasedLogic.PushState<PreActionBoardState>();
+    }
+
+    public void OnPostActionCheck()
+    {
+      BoardBasedLogic.PopState();
+      BoardBasedLogic.PushState<ActionBoardState>();
     }
   }
 }

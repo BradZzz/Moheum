@@ -8,10 +8,10 @@ namespace Battle.UI.Player
 {
   public class UiAtkActionCostPooler : PrefabPooler<UiAtkActionCostPooler>
   {
-    public IUiAttackCost Get(IRuntimeAbilityComponent runtimeAbility)
+    public IUiAttackCost Get(PlayerSeat seat, IRuntimeAbility ability, int componentIdx)
     {
       var obj = Get<IUiAttackCost>();
-      if (!obj.Populate(runtimeAbility))
+      if (!obj.Populate(seat, ability, componentIdx))
         return null;
       return obj;
     }
