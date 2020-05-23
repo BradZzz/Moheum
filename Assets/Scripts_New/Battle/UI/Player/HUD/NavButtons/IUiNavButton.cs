@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,5 +10,6 @@ namespace Battle.UI.Player
   {
     Image Image { get; }
     NavID NavID { get; }
+    PlayerSeat Seat { get; }
   }
 }

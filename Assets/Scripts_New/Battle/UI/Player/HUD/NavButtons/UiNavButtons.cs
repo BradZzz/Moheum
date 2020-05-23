@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Player;
 using Battle.UI.Utils;
 using UnityEngine;
 
@@ -16,22 +17,28 @@ namespace Battle.UI.Player
       {
         buttons.Add(transform.GetChild(i).GetComponent<IUiNavButton>());
       }
+      seat = transform.parent.GetComponent<IUiPlayerHUD>().Seat;
+      Debug.Log("Awake: " + Seat);
     }
 
     private List<IUiNavButton> buttons;
     private NavID current;
+    private PlayerSeat seat;
 
     public List<IUiNavButton> Buttons => buttons;
     public NavID Current => current;
+    public PlayerSeat Seat => seat;
+
     public Action<NavID> OnNavigate { get; set; }
 
-    public void OnPlayerNav(NavID nav)
+    public void OnPlayerNav(PlayerSeat Seat, NavID Nav)
     {
-      current = nav;
-      Debug.Log(OnNavigate);
-      Debug.Log(nav);
-      if (OnNavigate != null)
-        OnNavigate.Invoke(Current);
+      if (Seat == seat)
+      {
+        Debug.Log("OnPlayerNav: " + Seat);
+        current = Nav;
+        OnNavigate?.Invoke(Current);
+      }
     }
   }
 }

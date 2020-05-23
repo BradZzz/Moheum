@@ -64,6 +64,19 @@ namespace Battle.UI.Board.Utils
       }
       else
       {
+        yield return new WaitForSeconds(.2f);
+        CheckEndCascade();
+      }
+    }
+
+    private void CheckEndCascade()
+    {
+      if (JewelsToFall.Count > 0)
+      {
+        JewelsFalling = utils.MBehaviour.StartCoroutine(CascadeJewelFromQueue());
+      }
+      else
+      {
         OnDoneCascade();
       }
     }

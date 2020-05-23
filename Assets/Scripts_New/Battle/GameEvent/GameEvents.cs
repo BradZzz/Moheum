@@ -190,7 +190,7 @@ namespace Battle.GameEvent
 
   public interface IPlayerNav : ISubject
   {
-    void OnPlayerNav(NavID nav);
+    void OnPlayerNav(PlayerSeat seat, NavID nav);
   }
 
   public interface ISelectAtkActionButton : ISubject
