@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Battle.Controller;
 using Battle.GameEvent;
 using Battle.Model.Game.Mechanics;
 using Battle.Model.Jewel;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard;
 using Battle.Model.RuntimeBoard.Controller;
@@ -121,8 +123,31 @@ namespace Battle.Model.Game
       // wait until the board state is clean.
       while (!BoardController.Instance.CanManipulate()) {}
 
+      List<JewelID> prefJewels = new List<JewelID>() { JewelID.wrath };
+
+      // Look through all of the current mohe's abilities
+      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
+
+      // If there are any abilities that are uncharged, add to abilities buffer
+      foreach (var abl in mohe.Abilities)
+      {
+        foreach(var comp in abl.AbilityComponents)
+        {
+          if (comp.Has < comp.Needs && !prefJewels.Contains(comp.JewelType))
+          {
+            prefJewels.Add(comp.JewelType);
+          }
+        }
+      }
+
       // look for matches
-      List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(GameBoard.GetBoardData().GetMap());
+      List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(GameBoard.GetBoardData().GetMap(), prefJewels);
+
+      matchesBuff = matchesBuff.OrderByDescending(m => m.matches).ToList();
+      //foreach (var match in matchesBuff)
+      //{
+      //  Debug.Log("matchesBuff: " + match.jewel1.Pos.ToString() + ":" + match.jewel2.Pos.ToString() + " = " + match.matches.ToString());
+      //}
 
       if (matchesBuff.Count > 0)
       {

@@ -18,17 +18,17 @@ namespace Battle.Model.RuntimeBoard.Utils
         {
           if (jewelMap[x, y] == null)
             return true;
-          GameObject UIJewel = GameObject.Find(jewelMap[x, y].JewelID);
-          if (UIJewel == null)
-            return true;
-          Debug.Log(jewelMap[x, y].JewelID + ": " + x.ToString() + "|" + y.ToString() + " : " + jewelMap[x, y].Pos.ToString());
+          //GameObject UIJewel = GameObject.Find(jewelMap[x, y].JewelID);
+          //if (UIJewel == null)
+          //  return true;
+          //Debug.Log(jewelMap[x, y].JewelID + ": " + x.ToString() + "|" + y.ToString() + " : " + jewelMap[x, y].Pos.ToString());
         }
 
       }
       return false;
     }
 
-    public static List<SwapChoices> FindBestMatches(IRuntimeJewel[,] jewelMap)
+    public static List<SwapChoices> FindBestMatches(IRuntimeJewel[,] jewelMap, List<JewelID> prefJewels = null)
     {
       int width = jewelMap.GetLength(0);
       int height = jewelMap.GetLength(1);
@@ -43,7 +43,7 @@ namespace Battle.Model.RuntimeBoard.Utils
           IRuntimeJewel j1 = jewelMap[x, y];
           IRuntimeJewel j2 = jewelMap[x + 1, y];
 
-          int matchcount = WillCauseMatchCount(jewelMap, j1, j2);
+          int matchcount = WillCauseMatchCount(jewelMap, j1, j2, prefJewels);
           if (matchcount > 0)
           {
             options.Add(new SwapChoices(j1, j2, matchcount));
@@ -59,7 +59,7 @@ namespace Battle.Model.RuntimeBoard.Utils
           IRuntimeJewel j1 = jewelMap[x, y];
           IRuntimeJewel j2 = jewelMap[x, y + 1];
 
-          int matchcount = WillCauseMatchCount(jewelMap, j1, j2);
+          int matchcount = WillCauseMatchCount(jewelMap, j1, j2, prefJewels);
           if (matchcount > 0)
           {
             options.Add(new SwapChoices(j1, j2, matchcount));
@@ -79,11 +79,27 @@ namespace Battle.Model.RuntimeBoard.Utils
       return foundMatches;
     }
 
-    public static int WillCauseMatchCount(IRuntimeJewel[,] jewels, IRuntimeJewel swap1, IRuntimeJewel swap2)
+    public static int WillCauseMatchCount(IRuntimeJewel[,] jewels, IRuntimeJewel swap1, IRuntimeJewel swap2, List<JewelID> prefJewels = null)
     {
       jewels[(int)swap1.Pos.x, (int)swap1.Pos.y] = swap2;
       jewels[(int)swap2.Pos.x, (int)swap2.Pos.y] = swap1;
-      int MatchCount = FindMatchesUtil.FindMatches(jewels).Count;
+      int MatchCount = 0;
+      List<IRuntimeJewel> foundMatches = FindMatchesUtil.FindMatches(jewels);
+      if (prefJewels!= null)
+      {
+        List<JewelID> matchesPref = new List<JewelID>();
+        foreach (IRuntimeJewel jwl in foundMatches)
+        {
+          if (prefJewels.Contains(jwl.Data.JewelID) && !matchesPref.Contains(jwl.Data.JewelID))
+          {
+            matchesPref.Add(jwl.Data.JewelID);
+          }
+        }
+        MatchCount = foundMatches.Count + matchesPref.Count;
+      } else
+      {
+        MatchCount = foundMatches.Count;
+      }
       jewels[(int)swap1.Pos.x, (int)swap1.Pos.y] = swap1;
       jewels[(int)swap2.Pos.x, (int)swap2.Pos.y] = swap2;
       return MatchCount;
