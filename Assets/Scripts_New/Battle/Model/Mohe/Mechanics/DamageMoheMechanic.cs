@@ -26,12 +26,12 @@ namespace Battle.Model.MoheModel.Mechanics
       }
     }
 
-    public void OnTakeMoheDamage(string moheInstanceID, int dmg)
+    public void OnMoheTakeDamage(string moheInstanceID, int dmg)
     {
       if (moheInstanceID == mohe.InstanceID)
       {
         Debug.Log("Mohe damaged: " + moheInstanceID + " : " + mohe.BaseMohe.Data.MoheID);
-        mohe.Health -= dmg;
+        Execute(dmg);
         //Update UI
         GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
       }

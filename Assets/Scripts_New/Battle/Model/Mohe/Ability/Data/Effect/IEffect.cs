@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Battle.Model.Jewel;
+using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.Model.MoheModel
@@ -11,6 +12,7 @@ namespace Battle.Model.MoheModel
 
     int MinAmt { get; }
     int MaxAmt { get; }
+    PlayerSeat EffectPlayer { get; }
 
     bool Execute(IRuntimeJewel TriggerJewel);
   }

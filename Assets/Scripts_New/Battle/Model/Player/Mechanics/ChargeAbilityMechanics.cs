@@ -28,7 +28,7 @@ namespace Battle.Model.Player.Mechanics
         {
           string id = GameController.Instance.GetOpponentPlayersController(player.Seat)
             .Player.Roster.CurrentMohe().InstanceID;
-          GameEvents.Instance.Notify<IMoheTakeDamage>(i => i.OnTakeMoheDamage(id, 1));
+          GameEvents.Instance.Notify<IMoheTakeDamage>(i => i.OnMoheTakeDamage(id, 1));
         }
         Notify();
       }

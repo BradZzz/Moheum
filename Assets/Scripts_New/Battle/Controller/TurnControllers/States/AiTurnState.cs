@@ -135,18 +135,18 @@ namespace Battle.Controller.TurnControllers.States
       {
         // click on the ability
         GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, abilityBuff[0].Ability.AbilityID));
-        Debug.Log("AI clicked on ability");
+        //Debug.Log("AI clicked on ability");
 
         yield return new WaitForSeconds(1f);
         while (!BoardController.Instance.CanClickJewel()) { }
 
         IRuntimeJewel jwl = AiModule.GetAbilityJewels(seat, abilityBuff[0])[0];
         GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(jwl));
-        Debug.Log("AI clicked on jewel");
+        //Debug.Log("AI clicked on jewel");
         yield return new WaitForSeconds(2f);
       }
       //while (!BoardController.Instance.CanManipulate()) { }
-      Debug.Log("AI ready to perform next action!");
+      //Debug.Log("AI ready to perform next action!");
       Fsm.Handler.MonoBehaviour.StartCoroutine(ExecuteAiTurn(seat));
     }
 
