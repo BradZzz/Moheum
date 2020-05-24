@@ -14,6 +14,7 @@ namespace Battle.Model.MoheModel
     List<IRuntimeAbility> Abilities { get; }
 
     void PopulateAbilities(JewelID jewel, int amount);
+    bool UseableAbility();
     bool MoheDead();
   }
 }

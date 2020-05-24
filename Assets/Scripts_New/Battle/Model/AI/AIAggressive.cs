@@ -1,6 +1,12 @@
-﻿using Battle.Model.Game;
+﻿using Battle.Controller;
+using Battle.GameEvent;
+using Battle.Model.Game;
 using Battle.Model.Game.Mechanics;
+using Battle.Model.Jewel;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Controller;
+using Battle.Model.RuntimeBoard.Utils;
 using Extensions;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,43 +19,78 @@ namespace Battle.Model.AI
   /// </summary>
   public class AiAggressive : AiBase
   {
-    public AiAggressive(IPlayer player, IPrimitiveGame game) : base(player, game)
+    public AiAggressive(IPlayer Player, IPrimitiveGame Game) : base(Player, Game)
     {
+      player = Player;
+      game = Game;
     }
 
-    public override SwapMechanics.RuntimeSwapData[] GetSwapMoves()
+    private IPlayer player;
+    private IPrimitiveGame game;
+
+    private IPlayer Player => player;
+    private IPrimitiveGame Game => game;
+
+    public override List<SwapChoices> GetSwapMoves(PlayerSeat seat)
     {
-      return GetAllSwapMoves();
+      List<JewelID> prefJewels = new List<JewelID>() { JewelID.wrath };
+
+      // Look through all of the current mohe's abilities
+      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
+
+      // If there are any abilities that are uncharged, add to abilities buffer
+      foreach (var abl in mohe.Abilities)
+      {
+        foreach (var comp in abl.AbilityComponents)
+        {
+          if (comp.Has < comp.Needs && !prefJewels.Contains(comp.JewelType))
+          {
+            prefJewels.Add(comp.JewelType);
+          }
+        }
+      }
+
+      // look for matches
+      List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(game.GameBoard.GetBoardData().GetMap(), prefJewels);
+
+      return matchesBuff.OrderByDescending(m => m.matches).ToList();
     }
 
-    protected SwapMechanics.RuntimeSwapData[] GetAllSwapMoves()
+    public override List<IRuntimeAbility> GetAbilityMoves(PlayerSeat seat)
     {
-      //var playerTeam = Player.Team.Members;
-      //var enemyTeam = Enemy.Team.Members;
-      //var allAttacks = new List<AttackMechanics.RuntimeAttackData>();
+      List<IRuntimeAbility> abilityChoices = new List<IRuntimeAbility>();
 
-      //foreach (var agressor in playerTeam)
-      //{
-      //  var possibilities = new List<AttackMechanics.RuntimeAttackData>();
+      // Look through all of the current mohe's abilities
+      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
 
-      //  foreach (var defender in enemyTeam)
-      //  {
-      //    if (Enemy.Team.HasTaunt && !defender.Attributes.HasTaunt)
-      //      continue;
+      // If there are any abilities that are uncharged, add to abilities buffer
+      foreach (var abl in mohe.Abilities)
+      {
+        if (abl.AbilityCharged() && GetAbilityJewel(seat, abl).Count() > 0)
+        {
+          abilityChoices.Add(abl);
+        }
+      }
+      return abilityChoices;
+    }
 
-      //    var attack = new AttackMechanics.RuntimeAttackData()
-      //    {
-      //      Agressor = agressor,
-      //      Blocker = defender
-      //    };
+    public override List<IRuntimeJewel> GetAbilityJewel(PlayerSeat seat, IRuntimeAbility ability)
+    {
+      List<IRuntimeJewel> abilityJewels = new List<IRuntimeJewel>();
+      IRuntimeJewel[,] jwlMap = game.GameBoard.GetBoardData().GetMap();
+      int width = jwlMap.GetLength(0);
+      int height = jwlMap.GetLength(1);
 
-      //    possibilities.Add(attack);
-      //  }
+      for (int x = 0; x < width; x++)
+      {
+        for (int y = 0; y < height; y++)
+        {
+          if (jwlMap[x,y].Data.JewelID == ability.Ability.AfterEffect.Jewel || ability.Ability.AfterEffect.Jewel == JewelID.any)
+            abilityJewels.Add(jwlMap[x, y]);
+        }
+      }
 
-      //  allAttacks.Add(possibilities.ToList().RandomItem());
-      //}
-      //return allAttacks.ToArray();
-      return null;
+      return abilityJewels;
     }
   }
 }

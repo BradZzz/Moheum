@@ -61,6 +61,18 @@ namespace Battle.Model.MoheModel
       }
     }
 
+    public bool UseableAbility()
+    {
+      foreach (IRuntimeAbility abil in abilities)
+      {
+        if (abil.AbilityCharged())
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
     public bool MoheDead()
     {
       return Health <= 0;

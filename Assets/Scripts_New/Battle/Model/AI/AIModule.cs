@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Battle.Model.Game;
 using Battle.Model.Game.Mechanics;
+using Battle.Model.Jewel;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Utils;
 using Extensions;
 using UnityEngine;
 
@@ -77,13 +80,39 @@ namespace Battle.Model.AI
     ///     Returns the best move according to the current ai submodule.
     /// </summary>
     /// <returns></returns>
-    public SwapMechanics.RuntimeSwapData[] GetBestMove()
+    public List<SwapChoices> GetBestMove(PlayerSeat seat)
     {
       if (!subModules.ContainsKey(CurrentAi))
         throw new ArgumentOutOfRangeException(
             CurrentAi + " is not registered as a valid archetype in this module.");
 
-      return subModules[CurrentAi].GetSwapMoves();
+      return subModules[CurrentAi].GetSwapMoves(seat);
+    }
+
+    /// <summary>
+    ///     Returns the best ability according to the current ai submodule.
+    /// </summary>
+    /// <returns></returns>
+    public List<IRuntimeAbility> GetBestAbility(PlayerSeat seat)
+    {
+      if (!subModules.ContainsKey(CurrentAi))
+        throw new ArgumentOutOfRangeException(
+            CurrentAi + " is not registered as a valid archetype in this module.");
+
+      return subModules[CurrentAi].GetAbilityMoves(seat);
+    }
+
+    /// <summary>
+    ///     Returns the best ability according to the current ai submodule.
+    /// </summary>
+    /// <returns></returns>
+    public List<IRuntimeJewel> GetAbilityJewels(PlayerSeat seat, IRuntimeAbility ability)
+    {
+      if (!subModules.ContainsKey(CurrentAi))
+        throw new ArgumentOutOfRangeException(
+            CurrentAi + " is not registered as a valid archetype in this module.");
+
+      return subModules[CurrentAi].GetAbilityJewel(seat, ability);
     }
 
     /// <summary>

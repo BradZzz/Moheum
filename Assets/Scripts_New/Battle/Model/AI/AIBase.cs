@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Battle.Model.Game;
 using Battle.Model.Game.Mechanics;
+using Battle.Model.Jewel;
+using Battle.Model.MoheModel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Utils;
 using Extensions;
 using UnityEngine;
 
@@ -39,8 +42,9 @@ namespace Battle.Model.AI
 
     //----------------------------------------------------------------------------------------------------------
 
-    public abstract SwapMechanics.RuntimeSwapData[] GetSwapMoves();
-
+    public abstract List<SwapChoices> GetSwapMoves(PlayerSeat seat);
+    public abstract List<IRuntimeAbility> GetAbilityMoves(PlayerSeat seat);
+    public abstract List<IRuntimeJewel> GetAbilityJewel(PlayerSeat seat, IRuntimeAbility ability);
 
     //----------------------------------------------------------------------------------------------------------
   }

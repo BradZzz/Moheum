@@ -1,5 +1,13 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Battle.GameEvent;
 using Battle.Model.AI;
+using Battle.Model.Jewel;
+using Battle.Model.MoheModel;
+using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Controller;
+using Battle.Model.RuntimeBoard.Utils;
 using UnityEngine;
 
 namespace Battle.Controller.TurnControllers.States
@@ -41,7 +49,7 @@ namespace Battle.Controller.TurnControllers.States
       //call do turn routine
       Fsm.Handler.MonoBehaviour.StartCoroutine(AiDoTurn());
       //call finish turn routine
-      AiFinishTurnRoutine = Fsm.Handler.MonoBehaviour.StartCoroutine(AiFinishTurn(AiFinishTurnDelay));
+      //AiFinishTurnRoutine = Fsm.Handler.MonoBehaviour.StartCoroutine(AiFinishTurn(AiFinishTurnDelay));
     }
 
     protected override void RestartTimeouts()
@@ -69,7 +77,74 @@ namespace Battle.Controller.TurnControllers.States
       if (!IsAi)
         yield break;
 
-      Fsm.Handler.MonoBehaviour.StartCoroutine(GameData.RuntimeGame.ExecuteAiTurn(Seat));
+      //Fsm.Handler.MonoBehaviour.StartCoroutine(GameData.RuntimeGame.ExecuteAiTurn(Seat));
+      Fsm.Handler.MonoBehaviour.StartCoroutine(ExecuteAiTurn(Seat));
+    }
+
+    public IEnumerator ExecuteAiTurn(PlayerSeat seat)
+    {
+      // Clear board
+      GameEvents.Instance.Notify<IRemoveSelectedBoard>(i => i.OnBoardRemoveSelectedCheck());
+
+      // wait until the board state is clean.
+      while (!BoardController.Instance.CanManipulate()) { }
+
+      // Check to see if the computer can use any abilities
+      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
+
+      if (mohe.UseableAbility())
+      {
+        Fsm.Handler.MonoBehaviour.StartCoroutine(ExecuteAiAbility(Seat));
+      }
+      else
+      {
+        Fsm.Handler.MonoBehaviour.StartCoroutine(ExecuteAiSwap(Seat));
+      }
+
+      yield return null;
+    }
+
+    public IEnumerator ExecuteAiSwap(PlayerSeat seat)
+    {
+      List<SwapChoices> matchesBuff = AiModule.GetBestMove(seat);
+      if (matchesBuff.Count > 0)
+      {
+        // click first gem
+        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel1));
+
+        yield return new WaitForSeconds(0.5f);
+        while (!BoardController.Instance.CanManipulate()) { }
+
+        // click second gem
+        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel2));
+        AiFinishTurnRoutine = Fsm.Handler.MonoBehaviour.StartCoroutine(AiFinishTurn(AiFinishTurnDelay));
+      }
+      else
+      {
+        GameEvents.Instance.Notify<IResetBoard>(i => i.OnBoardResetCheck());
+      }
+    }
+
+    public IEnumerator ExecuteAiAbility(PlayerSeat seat)
+    {
+      List<IRuntimeAbility> abilityBuff = AiModule.GetBestAbility(seat);
+      if (abilityBuff.Count > 0)
+      {
+        // click on the ability
+        GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, abilityBuff[0].Ability.AbilityID));
+        Debug.Log("AI clicked on ability");
+
+        yield return new WaitForSeconds(2f);
+        //while (!BoardController.Instance.CanClickJewel()) { }
+
+        IRuntimeJewel jwl = AiModule.GetAbilityJewels(seat, abilityBuff[0])[0];
+        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(jwl));
+        Debug.Log("AI clicked on jewel");
+        yield return new WaitForSeconds(2f);
+      }
+      //while (!BoardController.Instance.CanManipulate()) { }
+      Debug.Log("AI ready to perform next action!");
+      Fsm.Handler.MonoBehaviour.StartCoroutine(ExecuteAiTurn(seat));
     }
 
     private IEnumerator AiFinishTurn(float delay)
