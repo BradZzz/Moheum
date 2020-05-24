@@ -7,9 +7,6 @@ namespace Battle.UI.ModelJewel.Mechanics
 {
   public class BaseJewelMechanics
   {
-    /// <summary>
-    ///     Player reference.
-    /// </summary>
     protected IRuntimeJewel Jewel { get; }
 
     protected BaseJewelMechanics(IRuntimeJewel jewel)

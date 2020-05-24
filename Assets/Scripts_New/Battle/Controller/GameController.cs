@@ -79,6 +79,17 @@ namespace Battle.Controller
             return TurnBasedLogic.GetPlayerController(seat);
         }
 
+        public IPlayerTurn GetOpponentPlayersController(PlayerSeat Seat)
+        {
+          if (Seat == PlayerSeat.Left)
+          {
+            return TurnBasedLogic.GetPlayerController(PlayerSeat.Right);
+          } else
+          {
+            return TurnBasedLogic.GetPlayerController(PlayerSeat.Left);
+          }
+        }
+
         /// <summary>
         ///     Start the battle. Called only once after being initialized by the Bootstrapper.
         /// </summary>

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiHudTurnController : MonoBehaviour
+  public class UiHudTurnController : MonoBehaviour, IUiHudTurnController
   {
     private void Awake()
     {

@@ -13,22 +13,6 @@ namespace Battle.UI.Board
 {
   public interface IUiBoard : IUiGemPile
   {
-    //IBoardData GetBoardData();
-
-    //List<IUiJewel> Jewels { get; }
-
-    //Action<IUiJewel> OnJewelPlayed { get; set; }
-    //Action<IUiJewel> OnJewelSelected { get; set; }
-    //Action<IUiJewel> OnJewelDiscarded { get; set; }
-
-    //void PlaySelected();
-    //void Unselect();
-    //void PlayJewel(IUiJewel uiCard);
-    //void SelectJewel(IUiJewel uiCard);
-    //void DiscardJewel(IUiJewel uiCard);
-    //void UnselectJewel(IUiJewel uiCard);
-    //void EnableJewels();
-    //void DisableJewels();
-    //IUiJewel GetJewel(IRuntimeJewel card);
+    Transform Transform { get; }
   }
 }

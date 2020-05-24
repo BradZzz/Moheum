@@ -82,29 +82,14 @@ namespace Battle.GameEvent
     void OnTickTime(int time, IPlayer player);
   }
 
-  public interface IBoardDrawJewel : ISubject
-  {
-    void OnDraw(IRuntimeJewel jewel, Vector2 pos);
-  }
-
+  /*
+   * Jewel Events
+   */
   public interface ISelectJewel : ISubject
   {
     void OnSelect(IRuntimeJewel jewel);
   }
 
-  //public interface IEvaluateSelectJewel : ISubject
-  //{
-  //  void OnEvaluateSelect(IRuntimeJewel jewel);
-  //}
-
-  public interface IUnselectAll : ISubject
-  {
-    void OnUnselectAll ();
-  }
-
-  /*
-   * Update the UI with the data from the jewel that was just selected
-   */
   public interface IPostSelectJewel : ISubject
   {
     void OnPostSelect(IRuntimeJewel jewel);
@@ -115,7 +100,6 @@ namespace Battle.GameEvent
     void OnRemoveJewel(IRuntimeJewel jewel);
   }
 
-  // Send to initial board mechanic
   public interface ICascadeJewel : ISubject
   {
     void OnJewelFall(IRuntimeJewel jewel);
@@ -131,6 +115,10 @@ namespace Battle.GameEvent
     void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to);
   }
 
+  /*
+   * Board Mechanics
+   */
+
   public interface IActionBoard : ISubject
   {
     void OnBoardActionCheck(PlayerSeat seat, IRuntimeAbility ability);
@@ -141,8 +129,13 @@ namespace Battle.GameEvent
     void OnInvokeBoardActionCheck(IRuntimeJewel jewel);
   }
 
+  public interface IUnselectAll : ISubject
+  {
+    void OnUnselectAll();
+  }
+
   /*
-   * Board Checks for next state
+   * Board States
    */
   public interface ICascadeBoard : ISubject
   {
@@ -174,6 +167,11 @@ namespace Battle.GameEvent
     void OnBoardRemoveSelectedCheck();
   }
 
+  public interface IResetBoard : ISubject
+  {
+    void OnBoardResetCheck();
+  }
+
   public interface ISelectedBoard : ISubject
   {
     void OnBoardSelectedCheck();
@@ -182,6 +180,15 @@ namespace Battle.GameEvent
   public interface ISwapBoard : ISubject
   {
     void OnBoardSwapCheck();
+  }
+
+  /*
+   * Mohe Mechanics
+   */
+
+  public interface IMoheTakeDamage : ISubject
+  {
+    void OnTakeMoheDamage(string moheInstanceID, int dmg);
   }
 
   /*

@@ -26,11 +26,13 @@ namespace Battle.Model.RuntimeBoard.Fsm
     {
       base.OnEnterState();
 
-      Debug.Log("CascadeBoardState");
+      //Debug.Log("CascadeBoardState");
       List<JewelData> jewels = JewelDatabase.Instance.GetFullList();
+      List<IRuntimeJewel> readyJewels = new List<IRuntimeJewel>();
       IRuntimeJewel[,] jewelMap = board.GetBoardData().GetMap();
       int width = jewelMap.GetLength(0);
       int height = jewelMap.GetLength(1);
+
 
       for (int x = 0; x < width; x++)
       {
@@ -38,7 +40,8 @@ namespace Battle.Model.RuntimeBoard.Fsm
         {
           Vector2 pos = new Vector2(x, y);
           IRuntimeJewel jewel = FindNextJewel(jewelMap, pos);
-          if (jewel == null)
+          GameObject UIJewel = jewel == null ? null : GameObject.Find(jewel.JewelID);
+          if (jewel == null || UIJewel == null)
           {
             jewel = new RuntimeJewel(jewels[Random.Range(0, jewels.Count)], pos, "Jewel_" + Count++);
           } else
@@ -51,10 +54,16 @@ namespace Battle.Model.RuntimeBoard.Fsm
           // Place Jewel On Board
           SetJewelData(jewel, pos);
           // Update UI
-          OnCascadeJewel(jewel);
+          readyJewels.Add(jewel);
           // Update temp buffer
           jewelMap[x, y] = jewel;
         }
+      }
+
+      // Update UI
+      foreach (IRuntimeJewel jwl in readyJewels)
+      {
+        OnCascadeJewel(jwl);
       }
     }
 

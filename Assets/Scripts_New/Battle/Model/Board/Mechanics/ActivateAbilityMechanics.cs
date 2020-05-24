@@ -26,7 +26,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     {
       board.OnInvokeActionEffect = null;
       board.OnCleanAbility = null;
-      if (ability.Ability.AfterEffect != null)
+      if (ability != null && ability.Ability.AfterEffect != null)
       {
         board.OnInvokeActionEffect += ability.Ability.AfterEffect.Execute;
         board.OnCleanAbility += ability.ResetAbility;

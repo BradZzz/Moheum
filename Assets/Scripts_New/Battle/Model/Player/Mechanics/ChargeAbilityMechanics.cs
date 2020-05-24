@@ -24,6 +24,12 @@ namespace Battle.Model.Player.Mechanics
       if (GameController.Instance.GetPlayerController(player.Seat).IsMyTurn)
       {
         ChargeAbility(jewel.Data.JewelID);
+        if (jewel.Data.JewelID == JewelID.wrath)
+        {
+          string id = GameController.Instance.GetOpponentPlayersController(player.Seat)
+            .Player.Roster.CurrentMohe().InstanceID;
+          GameEvents.Instance.Notify<IMoheTakeDamage>(i => i.OnTakeMoheDamage(id, 1));
+        }
         Notify();
       }
     }

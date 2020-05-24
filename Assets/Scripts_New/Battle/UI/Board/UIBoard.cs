@@ -29,7 +29,10 @@ namespace Battle.UI.Board
       //}
       //TargetResolver.OnTargetsResolve += (card) => EnableCards();
       //jewels = new List<IUiJewel>();
+
     }
+
+    public Transform Transform => transform;
 
     //private List<IUiJewel> jewels;
 

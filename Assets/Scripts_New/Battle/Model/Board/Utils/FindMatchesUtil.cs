@@ -14,11 +14,16 @@ namespace Battle.Model.RuntimeBoard.Utils
 
       for (int y = 0; y < height; y++)
       {
-        for (int x = 0; x < width - 1; x++)
+        for (int x = 0; x < width; x++)
         {
           if (jewelMap[x, y] == null)
             return true;
+          GameObject UIJewel = GameObject.Find(jewelMap[x, y].JewelID);
+          if (UIJewel == null)
+            return true;
+          Debug.Log(jewelMap[x, y].JewelID + ": " + x.ToString() + "|" + y.ToString() + " : " + jewelMap[x, y].Pos.ToString());
         }
+
       }
       return false;
     }

@@ -142,6 +142,7 @@ namespace Battle.Model.Game
       else
       {
         Debug.Log("Nothing in buffer. Reshuffle the board!");
+        GameEvents.Instance.Notify<IResetBoard>(i => i.OnBoardResetCheck());
       }
       
     }

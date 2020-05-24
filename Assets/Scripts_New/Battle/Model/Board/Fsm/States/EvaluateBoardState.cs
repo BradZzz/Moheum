@@ -31,7 +31,13 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
       // Bring in board data
       IRuntimeJewel[,] jewelMap = board.GetBoardData().GetMap();
-      List<IRuntimeJewel> toRemoveBuff = FindMatchesUtil.FindMatches(board.GetBoardData().GetMap());
+      if (FindMatchesUtil.FindBestMatches(jewelMap).Count == 0)
+      {
+        OnResetState();
+        return;
+      }
+
+      List<IRuntimeJewel> toRemoveBuff = FindMatchesUtil.FindMatches(jewelMap);
       foreach (var jewel in toRemoveBuff)
       {
         OnRemove(jewel);
@@ -43,6 +49,11 @@ namespace Battle.Model.RuntimeBoard.Fsm
       {
         OnCleanBoardState();
       }
+    }
+
+    private void OnResetState()
+    {
+      GameEvents.Instance.Notify<IResetBoard>(i => i.OnBoardResetCheck());
     }
 
     private void OnCascadeState()

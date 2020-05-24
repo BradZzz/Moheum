@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public class UiRoster : MonoBehaviour, IUiRoster
+  public interface IUiMoheHealth
   {
 
   }

@@ -20,8 +20,6 @@ namespace Battle.UI.Jewel.Listener
 
     void OnMouseDown()
     {
-      Debug.Log("Clicked Data: ");
-      Debug.Log(data);
       // Need to check to make sure the board state is ready and the current player isn't ai
       if (BoardController.Instance.CanClickJewel() && GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.IsUser)
       {

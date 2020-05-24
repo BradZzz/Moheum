@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Jewel;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ namespace Battle.Model.MoheModel
 {
   public interface IRuntimeMoheData
   {
-    int Health { get; }
+    string InstanceID { get; }
+    int Health { get; set; }
     IMohe BaseMohe { get; }
     List<IRuntimeAbility> Abilities { get; }
 

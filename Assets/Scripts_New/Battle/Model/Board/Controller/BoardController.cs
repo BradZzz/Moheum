@@ -73,50 +73,64 @@ namespace Battle.Model.RuntimeBoard.Controller
 
     public void OnBoardCascadeCheck()
     {
+      Debug.Log("CascadeBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<CascadeBoardState>();
     }
 
     public void OnBoardCleanCheck()
     {
+      Debug.Log("CleanBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<CleanBoardState>();
     }
 
     public void OnBoardEvaluateCheck()
     {
+      Debug.Log("EvaluateBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<EvaluateBoardState>();
     }
 
     public void OnBoardRemoveSelectedCheck()
     {
+      Debug.Log("RemoveSelectedBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<RemoveSelectedBoardState>();
     }
 
     public void OnBoardSelectedCheck()
     {
+      Debug.Log("SelectedBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<SelectedBoardState>();
     }
 
     public void OnBoardSwapCheck()
     {
+      Debug.Log("SwapBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<SwapBoardState>();
     }
 
     public void OnPreActionCheck()
     {
+      Debug.Log("PreActionBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<PreActionBoardState>();
     }
 
     public void OnPostActionCheck()
     {
+      Debug.Log("ActionBoardState");
       BoardBasedLogic.PopState();
       BoardBasedLogic.PushState<ActionBoardState>();
+    }
+
+    public void OnBoardResetCheck()
+    {
+      BoardBasedLogic.PopState();
+      BoardBasedLogic.PushState<ResetBoardState>();
     }
   }
 }

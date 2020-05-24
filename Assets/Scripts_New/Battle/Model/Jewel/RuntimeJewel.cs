@@ -60,7 +60,6 @@ namespace Battle.Model.Jewel
      
         public void DoSelect()
         {
-          Debug.Log("Jewel Selected!");
           OnSelect.Invoke(this);
           PostSelect();
         }
@@ -72,7 +71,6 @@ namespace Battle.Model.Jewel
 
         public void DoUnselect()
         {
-          Debug.Log("Jewel Unselected!");
           OnUnSelect.Invoke(this);
           PostSelect();
         }

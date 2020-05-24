@@ -180,6 +180,7 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\EvaluateBoardState.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\PreActionBoardState.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\RemoveSelectedBoardState.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\ResetBoardState.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\SelectedBoardState.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\SwapBoardState.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\IRuntimeBoard.cs" />
@@ -244,6 +245,14 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\IMohe.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\IMoheData.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\IRuntimeMoheData.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\BaseMoheMechanics.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\DamageMoheMechanic.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\DeathMoheMechanic.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\GainExpMoheMechanic.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\GainLvlMoheMechanic.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\GainStatusMoheMehanic.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\HealMoheMechanic.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mechanics\LoseStatusMoheMechanic.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Mohe.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\MoheData.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\MoheDatabase.cs" />
@@ -321,9 +330,11 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\UiFleeActionButton.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\UiItemActionButton.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\UiMoheActionButton.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\IUiHudTurnController.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\IUiPlayerHUD.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\IUiRoster.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\InfoPanel\IUiHudTurnController.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\InfoPanel\IUiMoheHealth.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\InfoPanel\UiHudTurnController.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\InfoPanel\UiMoheHealth.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\MoheInfoPane\IUiExpSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\MoheInfoPane\IUiHealthSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\MoheInfoPane\IUiInfoPanel.cs" />
@@ -341,9 +352,7 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\NavButtons\UiNavBSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\NavButtons\UiNavButton.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\NavButtons\UiNavButtons.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\UiHudTurnController.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\UiPlayerHUD.cs" />
-    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\UiRoster.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiController.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiPlayer.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiPlayerController.cs" />

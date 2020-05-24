@@ -619,6 +619,24 @@ MonoBehaviour:
   isSilent: 1
   modelsPooled:
   - {fileID: 1947157012458348745, guid: 30f915b7486c14a3288dbab15f42367d, type: 3}
+--- !u!1 &1100484290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 965623409231843849, guid: 1e4f139941c3243dbbc0c4818b31387a,
+    type: 3}
+  m_PrefabInstance: {fileID: 965623408720546581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100484294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100484290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16deb0249056488ab00ffc65f3cca2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189525076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1320,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8aabaa40ddce4af39694ed860d97e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1796714427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3290351446689447344, guid: dd63639ac11a641fa90aad148dd23921,
+    type: 3}
+  m_PrefabInstance: {fileID: 8471149345672491020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796714431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796714427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16deb0249056488ab00ffc65f3cca2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1853504367
@@ -2088,6 +2124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 965623409231843851, guid: 1e4f139941c3243dbbc0c4818b31387a,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 965623409293230678, guid: 1e4f139941c3243dbbc0c4818b31387a,
         type: 3}
