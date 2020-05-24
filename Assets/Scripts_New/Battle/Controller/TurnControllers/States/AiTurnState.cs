@@ -117,6 +117,9 @@ namespace Battle.Controller.TurnControllers.States
 
         // click second gem
         GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel2));
+
+        //while (!BoardController.Instance.CanManipulate()) { }
+
         AiFinishTurnRoutine = Fsm.Handler.MonoBehaviour.StartCoroutine(AiFinishTurn(AiFinishTurnDelay));
       }
       else
@@ -134,8 +137,8 @@ namespace Battle.Controller.TurnControllers.States
         GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, abilityBuff[0].Ability.AbilityID));
         Debug.Log("AI clicked on ability");
 
-        yield return new WaitForSeconds(2f);
-        //while (!BoardController.Instance.CanClickJewel()) { }
+        yield return new WaitForSeconds(1f);
+        while (!BoardController.Instance.CanClickJewel()) { }
 
         IRuntimeJewel jwl = AiModule.GetAbilityJewels(seat, abilityBuff[0])[0];
         GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(jwl));
