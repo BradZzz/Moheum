@@ -19,5 +19,6 @@ namespace Battle.Model.Jewel
 
         void RotatePos(Vector2 Pos);
         bool IsNew();
+        void TransformJewel(IJewelData Data);
     }
 }

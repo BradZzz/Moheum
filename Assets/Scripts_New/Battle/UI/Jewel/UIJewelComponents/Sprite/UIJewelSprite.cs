@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Jewel;
 using UnityEngine;
 
@@ -8,13 +9,15 @@ namespace Battle.UI.Jewel.Component
 {
   public class UIJewelSprite : IUIJewelSprite
   {
-    public UIJewelSprite (IUiJewelComponents parent)
+    public UIJewelSprite (IUiJewelComponents Parent)
     {
-      parent.UIRuntimeData.OnSetData += Execute;
-      SprRend = parent.Renderer;
+      Parent.UIRuntimeData.OnSetData += Execute;
+      SprRend = Parent.Renderer;
+      parent = Parent;
     }
 
     private SpriteRenderer SprRend;
+    private IUiJewelComponents parent;
 
     public void Execute(IRuntimeJewel jewelData)
     {

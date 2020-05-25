@@ -32,7 +32,7 @@ namespace Battle.Model.MoheModel
       {
         for (int y = 0; y < height; y++)
         {
-          if (board[x, y].Data.JewelID == Jewel || TriggerJewel.Data.JewelID == JewelID.any)
+          if (board[x, y].Data.JewelID == Jewel || Jewel == JewelID.any)
           {
             matching.Add(board[x, y]);
           }
@@ -51,7 +51,7 @@ namespace Battle.Model.MoheModel
       // Destroy jewels in list
       foreach(IRuntimeJewel jwl in matching)
       {
-        GameData.Instance.RuntimeGame.GameBoard.GetBoardData().SetJewel(null, jwl.Pos);
+        //GameData.Instance.RuntimeGame.GameBoard.GetBoardData().SetJewel(null, jwl.Pos);
         GameEvents.Instance.Notify<IRemoveJewel>(i => i.OnRemoveJewel(jwl));
       }
 

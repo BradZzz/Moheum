@@ -100,6 +100,16 @@ namespace Battle.GameEvent
     void OnRemoveJewel(IRuntimeJewel jewel);
   }
 
+  public interface ITransformJewel : ISubject
+  {
+    void OnTransformJewel(IRuntimeJewel jewel, JewelID transformType);
+  }
+
+  public interface IPostTransformJewel : ISubject
+  {
+    void OnPostTransformJewel(IRuntimeJewel jewel);
+  }
+
   public interface ICascadeJewel : ISubject
   {
     void OnJewelFall(IRuntimeJewel jewel);

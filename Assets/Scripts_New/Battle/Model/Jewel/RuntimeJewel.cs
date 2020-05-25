@@ -52,6 +52,11 @@ namespace Battle.Model.Jewel
             return (int) lastPos.x == -1 && (int) lastPos.y == -1;
         }
 
+        public void TransformJewel(IJewelData Data)
+        {
+            data = Data;
+        }
+
         public void RotatePos(Vector2 Pos)
         {
             lastPos = pos;

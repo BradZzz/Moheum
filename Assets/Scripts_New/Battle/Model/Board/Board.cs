@@ -36,6 +36,7 @@ namespace Battle.Model.RuntimeBoard
       UnselectBoardMechanics = new UnselectBoardMechanics(this);
       ActivateAbilityMechanics = new ActivateAbilityMechanics(this);
       InvokeActivateAbilityMechanics = new InvokeActivateAbilityMechanics(this);
+      RemoveJewelBoardMechanics = new RemoveJewelBoardMechanics(this);
 
       Mechanics.Add(ProcessCascadeBoardMechanics);
       Mechanics.Add(ProcessEndGameBoardMechanics);
@@ -45,6 +46,7 @@ namespace Battle.Model.RuntimeBoard
       Mechanics.Add(UnselectBoardMechanics);
       Mechanics.Add(ActivateAbilityMechanics);
       Mechanics.Add(InvokeActivateAbilityMechanics);
+      Mechanics.Add(RemoveJewelBoardMechanics);
     }
 
     private Battle.Configurations.Configurations configuration { get; }
@@ -59,6 +61,7 @@ namespace Battle.Model.RuntimeBoard
     private UnselectBoardMechanics UnselectBoardMechanics { get; }
     private ActivateAbilityMechanics ActivateAbilityMechanics { get; }
     private InvokeActivateAbilityMechanics InvokeActivateAbilityMechanics { get; }
+    private RemoveJewelBoardMechanics RemoveJewelBoardMechanics { get; }
 
     public Func<IRuntimeJewel, bool> OnInvokeActionEffect { get; set; }
     public Action OnCleanAbility { get; set; }

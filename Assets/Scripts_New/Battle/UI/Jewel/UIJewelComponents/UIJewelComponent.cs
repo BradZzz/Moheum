@@ -16,7 +16,7 @@ namespace Battle.UI.Jewel.Component
   //[RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
-  public class UIJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IRemoveJewel, IPositionJewel
+  public class UIJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IRemoveJewel, IPositionJewel, ITransformJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -213,6 +213,25 @@ namespace Battle.UI.Jewel.Component
     public void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to)
     {
       UiJewelPosition.OnJewelPosition(jewel, from, to);
+    }
+
+    public void OnPostTransformJewel(IRuntimeJewel jewel)
+    {
+      if (UIRuntimeData.RuntimeData.JewelID == jewel.JewelID)
+      {
+        UIRuntimeData.OnSetData?.Invoke(jewel);
+      }
+    }
+
+    public void OnTransformJewel(IRuntimeJewel jewel, JewelID transformType)
+    {
+      if (UIRuntimeData.RuntimeData.JewelID == jewel.JewelID)
+      {
+        JewelData data = JewelDatabase.Instance.Get(transformType);
+        IRuntimeJewel jwl = UIRuntimeData.RuntimeData;
+        jwl.TransformJewel(data);
+        UIRuntimeData.OnSetData?.Invoke(jwl);
+      }
     }
 
     #endregion

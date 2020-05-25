@@ -189,6 +189,7 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\CascadeBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\EndGameBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\InvokeActivateAbilityMechanics.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\RemoveJewelBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\SelectBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\StartGameBoardMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Mechanics\SwapBoardMechanics.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\Mechanics\BaseJewelMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\Mechanics\JewelFallMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\Mechanics\SelectJewelMechanics.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\Mechanics\TransformJewelMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\Mechanics\UnselectJewelMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Jewel\RuntimeJewel.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Mohe\Ability\Ability.cs" />
