@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Battle.Controller;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
+using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.Model.MoheModel
@@ -12,8 +13,8 @@ namespace Battle.Model.MoheModel
   {
     public override bool Execute(IRuntimeJewel TriggerJewel)
     {
-      //heal
-      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(EffectPlayer).Player.Roster.CurrentMohe();
+      PlayerSeat pSeat = EffectPlayer == PlayerEffectSeat.Active ? GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.Seat : GameData.Instance.RuntimeGame.TurnLogic.NextPlayer.Seat;
+      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(pSeat).Player.Roster.CurrentMohe();
       GameEvents.Instance.Notify<IMoheHeal>(i => i.OnMoheHeal( mohe.InstanceID, (int) Random.Range(MinAmt, MaxAmt)));
 
       return true;

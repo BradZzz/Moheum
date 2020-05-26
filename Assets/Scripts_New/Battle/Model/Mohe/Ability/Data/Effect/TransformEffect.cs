@@ -12,6 +12,8 @@ namespace Battle.Model.MoheModel
   [CreateAssetMenu(menuName = "Effect/Transform")]
   public class TransformEffect : BaseEffect
   {
+    public JewelID TransformJewel;
+
     public override bool Execute(IRuntimeJewel TriggerJewel)
     {
       // Get gameboard
@@ -45,7 +47,7 @@ namespace Battle.Model.MoheModel
       // Destroy jewels in list
       foreach (IRuntimeJewel jwl in matching)
       {
-        GameEvents.Instance.Notify<ITransformJewel>(i => i.OnTransformJewel(jwl, Jewel));
+        GameEvents.Instance.Notify<ITransformJewel>(i => i.OnTransformJewel(jwl, TransformJewel));
       }
 
       return true;

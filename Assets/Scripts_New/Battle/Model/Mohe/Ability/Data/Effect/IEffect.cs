@@ -12,7 +12,7 @@ namespace Battle.Model.MoheModel
 
     int MinAmt { get; }
     int MaxAmt { get; }
-    PlayerSeat EffectPlayer { get; }
+    PlayerEffectSeat EffectPlayer { get; }
 
     bool Execute(IRuntimeJewel TriggerJewel);
   }

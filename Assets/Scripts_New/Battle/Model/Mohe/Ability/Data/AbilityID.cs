@@ -8,6 +8,7 @@ namespace Battle.Model.MoheModel
   {
     Bubble,
     Gust,
-    Spark
+    Spark,
+    Wish
   }
 }

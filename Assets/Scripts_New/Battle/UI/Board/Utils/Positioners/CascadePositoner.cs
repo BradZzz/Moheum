@@ -45,7 +45,7 @@ namespace Battle.UI.Board.Utils
       {
         var uiJewel = UiJewelPool.Instance.Get(jq);
         IUiJewelComponents comp = uiJewel.MonoBehavior.GetComponent<IUiJewelComponents>();
-        comp.UIRuntimeData.OnSetData(jq);
+        //comp.UIRuntimeData.OnSetData(jq);
         uiJewel.MonoBehavior.name = jq.JewelID;
         uiJewel.transform.position = from;
         utils.PlayerBoard.AddJewel(uiJewel);

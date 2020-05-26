@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8386e4efd65642a4b51c53ab3aef97c, type: 3}
+  m_Name: Bubble
+  m_EditorClassIdentifier: 
+  abilityID: 0
+  abilityName: Bubble
+  description: 'Pop(1-2) Blue '
+  triggerJewel: 7
+  afterEffect: {fileID: 11400000, guid: 26c3e35edb79b43b7ba5098c4c394792, type: 2}
+  abilityCost:
+  - jewel: 3
+    amount: 1
+  - jewel: 0
+    amount: 3

@@ -59,6 +59,7 @@ namespace Battle.UI.Jewel.Component
       //MyClickListener
 
       UIRuntimeData.OnSetData += UiJewelClickListener.Execute;
+      UIRuntimeData.OnSetData += (IRuntimeJewel jwl) => { Debug.Log("Jwl OnSetData:" + jwl.Data.JewelID); };
     }
 
     /// <summary>
@@ -225,7 +226,10 @@ namespace Battle.UI.Jewel.Component
 
     public void OnTransformJewel(IRuntimeJewel jewel, JewelID transformType)
     {
-      if (UIRuntimeData.RuntimeData.JewelID == jewel.JewelID)
+      Debug.Log("OnTransformJewel");
+      Debug.Log(UIRuntimeData);
+      Debug.Log(jewel);
+      if (UIRuntimeData.RuntimeData != null && UIRuntimeData.RuntimeData.JewelID == jewel.JewelID)
       {
         JewelData data = JewelDatabase.Instance.Get(transformType);
         IRuntimeJewel jwl = UIRuntimeData.RuntimeData;

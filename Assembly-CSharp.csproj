@@ -272,6 +272,7 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\SwapTurnMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\UseAbilityMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Player.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Player\PlayerEffectSeat.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\PlayerSeat.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Roster\IRoster.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Roster\Roster.cs" />

@@ -31,9 +31,9 @@ namespace Battle.Model.MoheModel
 
       int width = board.GetLength(0);
       int height = board.GetLength(1);
-      for (int x = (int) TriggerJewel.Pos.x - radius; x < (int)TriggerJewel.Pos.x + radius; x++)
+      for (int x = (int) TriggerJewel.Pos.x - radius; x <= (int)TriggerJewel.Pos.x + radius; x++)
       {
-        for (int y = (int)TriggerJewel.Pos.y + radius; y < (int)TriggerJewel.Pos.y + radius; y++)
+        for (int y = (int)TriggerJewel.Pos.y - radius; y <= (int)TriggerJewel.Pos.y + radius; y++)
         {
           if (x >= 0 && x < width && y >= 0 && y < height)
           {
