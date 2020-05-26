@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Battle.GameEvent;
+using Patterns;
 using UnityEngine;
 
 namespace Battle.Model.MoheModel.Mechanics
 {
-  public class HealMoheMechanic : BaseMoheMechanics, IMoheHeal
+  public class HealMoheMechanic : BaseMoheMechanics, IListener, IMoheHeal
   {
     public HealMoheMechanic(IRuntimeMoheData Mohe) : base(Mohe)
     {
+      GameEvents.Instance.AddListener(this);
       mohe = Mohe;
     }
 

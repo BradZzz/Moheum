@@ -89,7 +89,7 @@ namespace Battle.Controller
             MoheData mData = MoheDatabase.Instance.Get(MoheID.Beanlock);
             MoheData.MoheStatData stats = new MoheData.MoheStatData();
             stats.health = 10;
-            Mohe sampleMohe = new Mohe(mData, new List<AbilityID>() { AbilityID.Spark, AbilityID.Bubble, AbilityID.Gust }, stats);
+            Mohe sampleMohe = new Mohe(mData, new List<AbilityID>() { AbilityID.Wish }, stats);
             RuntimeMoheData sampleRuntimeMohe = new RuntimeMoheData(sampleMohe, seat, 1);
             List<IRuntimeMoheData> moheList = new List<IRuntimeMoheData>();
             moheList.Add(sampleRuntimeMohe);
