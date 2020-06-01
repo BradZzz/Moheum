@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public interface IUiAttackActionActive
+  public interface IUiActionActive
   {
     Outline Outline { get; }
     bool Active { get; }

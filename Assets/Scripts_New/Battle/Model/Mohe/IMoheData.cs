@@ -16,6 +16,8 @@ namespace Battle.Model.MoheModel
     MoheData.MoheStatData LvlUpStatsLow { get; }
     MoheData.MoheStatData LvlUpStatsHigh { get; }
 
+    MoheExperienceGain ExperienceType { get; }
+
     /*
      * Need to add abilities here
      */

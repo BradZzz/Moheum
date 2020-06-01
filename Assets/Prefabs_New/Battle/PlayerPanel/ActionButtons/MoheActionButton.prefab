@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 7801297694063820610}
   - component: {fileID: 3841288763313810131}
   - component: {fileID: 2770164090218268364}
+  - component: {fileID: 3095806176824092133}
   m_Layer: 5
   m_Name: ExpBarImg
   m_TagString: Untagged
@@ -228,6 +229,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3095806176824092133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673020878473894275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707e38235a6db4ca2a600adbc10a83a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947157012458348745
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +253,7 @@ GameObject:
   - component: {fileID: 1768178258393707854}
   - component: {fileID: 7551031892708758987}
   - component: {fileID: 1749820885189982412}
+  - component: {fileID: 3828181963162713745}
   m_Layer: 5
   m_Name: MoheActionButton
   m_TagString: Untagged
@@ -274,7 +288,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1768178258393707854
 CanvasRenderer:
@@ -324,6 +338,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dece4ffcfcaaf40d1988c1a55516fb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3828181963162713745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947157012458348745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0, b: 0.019607844, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2467717105646669561
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +836,7 @@ GameObject:
   - component: {fileID: 5052717073583632204}
   - component: {fileID: 6381912244619569624}
   - component: {fileID: 931049388251852410}
+  - component: {fileID: 2539883330961689775}
   m_Layer: 5
   m_Name: HealthBarImg
   m_TagString: Untagged
@@ -869,6 +899,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2539883330961689775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312370708878975873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1c993cac3ec4c3187142b4501fba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6668791016931406927
 GameObject:
   m_ObjectHideFlags: 0

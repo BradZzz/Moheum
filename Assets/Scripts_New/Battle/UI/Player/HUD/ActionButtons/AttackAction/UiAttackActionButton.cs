@@ -22,23 +22,16 @@ namespace Battle.UI.Player
     private PlayerSeat seat;
     private IRuntimeAbility ability;
 
-    private IUiAttackActionActive atkActionOutline;
+    private IUiActionActive actionOutline;
 
     //public TextMeshProUGUI HeaderTxt => headerTxt;
     //public TextMeshProUGUI DescTxt => descTxt;
 
-    public Action<bool> OnToggle { get; set; }
-
-    void Start()
-    {
-      base.Start();
-
-      Outline outty = GetComponent<Outline>();
-      atkActionOutline = new UiAttackActionActive(this, outty);
-    }
-
     public override bool Populate(PlayerSeat Seat, int pos)
     {
+      Outline outty = GetComponent<Outline>();
+      actionOutline = new UiActionActive(this, outty);
+
       seat = Seat;
 
       CostPanels = new List<IUiAttackCost>();
@@ -89,8 +82,8 @@ namespace Battle.UI.Player
     {
       if (Seat == seat && ability != null && Id == ability.Ability.AbilityID && ability.AbilityCharged())
       {
-        OnToggle.Invoke(!atkActionOutline.Active);
-        GameEvents.Instance.Notify<IActionBoard>(i => i.OnBoardActionCheck(seat, atkActionOutline.Active ? ability : null));
+        OnToggle.Invoke(!actionOutline.Active);
+        GameEvents.Instance.Notify<IActionBoard>(i => i.OnBoardActionCheck(seat, actionOutline.Active ? ability : null));
       } else
       {
         OnToggle.Invoke(false);

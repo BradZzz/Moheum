@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiAttackActionActive : IUiAttackActionActive
+  public class UiActionActive : IUiActionActive
   {
     private Outline outline;
 
     public Outline Outline => outline;
     public bool Active => Outline.enabled;
 
-    public UiAttackActionActive(IUiAtkActionButton parent, Outline Outline)
+    public UiActionActive(UiBaseActionButton parent, Outline Outline)
     {
       outline = Outline;
       outline.enabled = false;

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Battle.GameEvent;
 using UnityEngine;
 
-public interface IUiAtkActionButton : ISelectAtkActionButton, IResetAtkActionButtons
+namespace Battle.UI.Player
 {
-    Action<bool> OnToggle { get; set; }
+  public interface IUiAtkActionButton : ISelectAtkActionButton, IResetAtkActionButtons
+  {
+  }
 }

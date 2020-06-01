@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Battle.Model.Jewel;
+using Battle.Model.MoheModel.ExpTypes;
 using Battle.Model.MoheModel.Mechanics;
 using Battle.Model.Player;
 using UnityEngine;
@@ -17,8 +18,10 @@ namespace Battle.Model.MoheModel
     {
       baseMohe = Mohe;
 
+      baseExpType = BaseExpType.TranslateType(baseMohe.Data.ExperienceType);
       instanceID = baseMohe.Data.MoheID.ToString() + seat + idx.ToString();
       Health = (int)baseMohe.Stats.health;
+      Exp = 0;
       abilities = new List<IRuntimeAbility>();
       List<AbilityData> db = AbilityDatabase.Instance.GetFullList();
       foreach (AbilityID abil in baseMohe.Abilities)
@@ -38,12 +41,15 @@ namespace Battle.Model.MoheModel
 
     public string InstanceID => instanceID;
     public int Health { get; set; }
+    public int Exp { get; set; }
     public IMohe BaseMohe => baseMohe;
+    public BaseExpType BaseExpType => baseExpType;
     public List<IRuntimeAbility> Abilities => abilities;
 
     private string instanceID;
     private IMohe baseMohe;
     private List<IRuntimeAbility> abilities;
+    private BaseExpType baseExpType;
 
     private DamageMoheMechanic DamageMoheMechanic;
     private DeathMoheMechanic DeathMoheMechanics;

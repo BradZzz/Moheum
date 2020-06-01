@@ -23,11 +23,13 @@ namespace Battle.Model.MoheModel
     public MoheStatData BaseStatsHigh => baseStatsHigh;
     public MoheStatData LvlUpStatsLow => lvlUpStatsLow;
     public MoheStatData LvlUpStatsHigh => lvlUpStatsHigh;
+    public MoheExperienceGain ExperienceType => experienceType;
 
     [SerializeField] private MoheStatData baseStatsLow = new MoheStatData();
     [SerializeField] private MoheStatData baseStatsHigh = new MoheStatData();
     [SerializeField] private MoheStatData lvlUpStatsLow = new MoheStatData();
     [SerializeField] private MoheStatData lvlUpStatsHigh = new MoheStatData();
+    [SerializeField] private MoheExperienceGain experienceType;
 
     [Serializable]
     public class MoheStatData
@@ -70,7 +72,7 @@ namespace Battle.Model.MoheModel
     [Serializable]
     public class MoheAbilityLevelData
     {
-      [Tooltip("Sloth Stat")]
+      [Tooltip("When Mohe Aquires")]
       [Range(0, 100)]
       public int lvl;
 

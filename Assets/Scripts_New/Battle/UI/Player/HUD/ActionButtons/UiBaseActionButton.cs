@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Battle.Model.Player;
 using Battle.UI.Player;
@@ -15,6 +16,8 @@ public abstract class UiBaseActionButton : UiListener, IUiActionButton
   private MonoBehaviour monoBehaviour;
 
   public MonoBehaviour MBehaviour => monoBehaviour;
+
+  public Action<bool> OnToggle { get; set; }
 
   public abstract bool Populate(PlayerSeat seat, int pos);
 }
