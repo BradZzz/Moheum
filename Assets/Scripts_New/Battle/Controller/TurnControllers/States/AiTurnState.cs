@@ -8,6 +8,7 @@ using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard.Controller;
 using Battle.Model.RuntimeBoard.Utils;
+using Battle.UI.Player;
 using UnityEngine;
 
 namespace Battle.Controller.TurnControllers.States
@@ -133,6 +134,14 @@ namespace Battle.Controller.TurnControllers.States
       List<IRuntimeAbility> abilityBuff = AiModule.GetBestAbility(seat);
       if (abilityBuff.Count > 0)
       {
+        GameObject GO = GameObject.FindGameObjectsWithTag("UiPanel").Where((go) => go.GetComponent<IUiPlayerHUD>().Seat == seat).ToList()[0];
+        // Check for nav
+        if (GO.GetComponent<IUiPlayerHUD>().UINavButtons.Current != NavID.Attack) {
+          // click on the ability
+          GameEvents.Instance.Notify<IPlayerNav>(i => i.OnPlayerNav(seat, NavID.Attack));
+          yield return new WaitForSeconds(1f);
+        }
+
         // click on the ability
         GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, abilityBuff[0].Ability.AbilityID));
         //Debug.Log("AI clicked on ability");

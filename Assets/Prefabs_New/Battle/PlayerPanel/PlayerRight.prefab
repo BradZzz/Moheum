@@ -1344,9 +1344,9 @@ GameObject:
   - component: {fileID: 965623408024038206}
   - component: {fileID: 965623408024038181}
   - component: {fileID: 965623408024038202}
-  - component: {fileID: 965623408024038203}
   - component: {fileID: 965623408024038200}
   - component: {fileID: 965623408024038201}
+  - component: {fileID: 1601872224701024139}
   m_Layer: 5
   m_Name: PlayerRoster
   m_TagString: Untagged
@@ -1413,18 +1413,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &965623408024038203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965623408024038207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7fa432715594af6be33b7db09cc53f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &965623408024038200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,6 +1453,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &1601872224701024139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965623408024038207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc42e3faca6e04989ba760f89bfb0718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &965623408049873797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,7 +3458,6 @@ GameObject:
   - component: {fileID: 965623408633882424}
   - component: {fileID: 965623408633882407}
   - component: {fileID: 965623408633882404}
-  - component: {fileID: 965623408633882405}
   - component: {fileID: 965623408633882426}
   - component: {fileID: 965623408633882427}
   m_Layer: 5
@@ -3529,18 +3528,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &965623408633882405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965623408633882425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965c282aed07a43e0852be45597cc885, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &965623408633882426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5450,6 +5437,7 @@ GameObject:
   - component: {fileID: 965623409231843848}
   - component: {fileID: 965623409231843850}
   - component: {fileID: 965623409231843851}
+  - component: {fileID: 4788462584250643391}
   m_Layer: 5
   m_Name: HealthBarImg
   m_TagString: Untagged
@@ -5512,6 +5500,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4788462584250643391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965623409231843849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16deb0249056488ab00ffc65f3cca2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &965623409233342464
 GameObject:
   m_ObjectHideFlags: 0

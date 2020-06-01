@@ -355,6 +355,8 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\NavButtons\UiNavBSprite.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\NavButtons\UiNavButton.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\NavButtons\UiNavButtons.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\RosterPanel\IUiPlayerRoster.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\RosterPanel\UiPlayerRoster.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\UiPlayerHUD.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiController.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Player\IUiPlayer.cs" />
