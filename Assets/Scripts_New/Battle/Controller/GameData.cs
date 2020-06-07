@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Battle.Model.Game;
 using Battle.Model.MoheModel;
 using Battle.Model.Player;
@@ -84,15 +85,22 @@ namespace Battle.Controller
             RuntimeGame = null;
         }
 
+        public IRuntimeMoheData CreateTestMohe(MoheID moheID, PlayerSeat seat)
+        {
+          MoheData mData = MoheDatabase.Instance.Get(moheID);
+          MoheData.MoheStatData stats = new MoheData.MoheStatData();
+          stats.health = 10;
+          Mohe sampleMohe = new Mohe(mData, mData.Abilities.Select(ability => ability.ability.AbilityID).ToList(), stats);
+          RuntimeMoheData sampleRuntimeMohe = new RuntimeMoheData(sampleMohe, seat, 1);
+          return sampleRuntimeMohe;
+        }
+
         public IRoster CreateTestRoster(PlayerSeat seat)
         {
-            MoheData mData = MoheDatabase.Instance.Get(MoheID.Beanlock);
-            MoheData.MoheStatData stats = new MoheData.MoheStatData();
-            stats.health = 10;
-            Mohe sampleMohe = new Mohe(mData, new List<AbilityID>() { AbilityID.Wish }, stats);
-            RuntimeMoheData sampleRuntimeMohe = new RuntimeMoheData(sampleMohe, seat, 1);
-            List<IRuntimeMoheData> moheList = new List<IRuntimeMoheData>();
-            moheList.Add(sampleRuntimeMohe);
+            List<IRuntimeMoheData> moheList = new List<IRuntimeMoheData>() {
+              CreateTestMohe(MoheID.Beanlock, seat),
+              CreateTestMohe(MoheID.SunSlime, seat)
+            };
             return new Roster(moheList);
         }
 

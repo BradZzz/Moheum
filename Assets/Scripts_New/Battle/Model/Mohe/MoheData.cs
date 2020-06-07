@@ -24,6 +24,7 @@ namespace Battle.Model.MoheModel
     public MoheStatData LvlUpStatsLow => lvlUpStatsLow;
     public MoheStatData LvlUpStatsHigh => lvlUpStatsHigh;
     public MoheExperienceGain ExperienceType => experienceType;
+    public List<MoheAbilityLevelData> Abilities => abilities;
 
     [SerializeField] private MoheStatData baseStatsLow = new MoheStatData();
     [SerializeField] private MoheStatData baseStatsHigh = new MoheStatData();

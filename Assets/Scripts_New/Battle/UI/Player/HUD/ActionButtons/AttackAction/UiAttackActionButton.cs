@@ -62,7 +62,7 @@ namespace Battle.UI.Player
       for (int i = 0; i < ability.AbilityComponents.Count; i++)
       {
         IUiAttackCost cost = UiAtkActionCostPooler.Instance.Get(seat, ability, i);
-        cost.MBehaviour.transform.parent = costParent;
+        cost.MBehaviour.transform.SetParent(costParent);
         cost.MBehaviour.transform.localScale = Vector3.one;
         CostPanels.Add(cost);
       }

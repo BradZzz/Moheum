@@ -18,6 +18,8 @@ namespace Battle.Model.MoheModel
 
     MoheExperienceGain ExperienceType { get; }
 
+    List<MoheData.MoheAbilityLevelData> Abilities { get; }
+
     /*
      * Need to add abilities here
      */

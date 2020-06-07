@@ -65,7 +65,7 @@ namespace Battle.UI.Player
         if (action == null) {
           break;
         }
-        action.MBehaviour.transform.parent = transform;
+        action.MBehaviour.transform.SetParent(transform);
         action.MBehaviour.transform.localScale = Vector3.one;
         ActionButtons.Add(action);
       }

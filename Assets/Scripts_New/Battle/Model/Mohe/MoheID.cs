@@ -4,5 +4,6 @@ using UnityEngine;
 
 public enum MoheID
 {
-  Beanlock
+  Beanlock,
+  SunSlime
 }

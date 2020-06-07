@@ -16,7 +16,7 @@ namespace Extensions
         /// <param name="children">Game objects to make children.</param>
         public static void AddChildren(this Transform transform, GameObject[] children)
         {
-            Array.ForEach(children, child => child.transform.parent = transform);
+            Array.ForEach(children, child => child.transform.SetParent(transform));
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace Extensions
         /// <param name="children">Components of game objects to make children.</param>
         public static void AddChildren(this Transform transform, Component[] children)
         {
-            Array.ForEach(children, child => child.transform.parent = transform);
+            Array.ForEach(children, child => child.transform.SetParent(transform));
         }
 
         /// <summary>

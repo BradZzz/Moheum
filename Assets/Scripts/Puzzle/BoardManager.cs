@@ -89,7 +89,7 @@ public class BoardManager : MonoBehaviour
         GameObject newTile = Instantiate(tile, new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0), tile.transform.rotation);
         tiles[x, y] = newTile;
 
-        newTile.transform.parent = transform;
+        newTile.transform.SetParent(transform);
         List<TileMeta.GemType> possibleGems = new List<TileMeta.GemType>(gemTypes);
         List<Sprite> possibleCharacters = new List<Sprite>(characters);
 
