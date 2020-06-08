@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Player;
 using Battle.UI.Utils;
 using UnityEngine;
@@ -19,6 +20,12 @@ namespace Battle.UI.Player
       }
       seat = transform.parent.GetComponent<IUiPlayerHUD>().Seat;
       Debug.Log("Awake: " + Seat);
+    }
+
+    void Start()
+    {
+      base.Start();
+      GameEvents.Instance.Notify<IPlayerNav>(i => i.OnPlayerNav(seat, NavID.Attack));
     }
 
     private List<IUiNavButton> buttons;

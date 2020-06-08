@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Battle.Controller;
+using Battle.GameEvent;
 using Battle.Model.MoheModel;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Controller;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiMoheActionButton : UiBaseActionButton
+  public class UiMoheActionButton : UiBaseActionButton, ISelectMoheActionButton, IResetMoheActionButtons
   {
     private TextMeshProUGUI headerTxt;
     private TextMeshProUGUI lvlTxt;
@@ -18,6 +20,9 @@ namespace Battle.UI.Player
 
     private IUiActionActive actionOutline;
     private PlayerSeat seat;
+    private IRuntimeMoheData moheData;
+    private IPlayer contPlayer;
+    private bool waitingForSwap;
 
     public override bool Populate(PlayerSeat Seat, int pos)
     {
@@ -26,13 +31,13 @@ namespace Battle.UI.Player
 
       seat = Seat;
 
-      IPlayer contPlayer = GameData.Instance.RuntimeGame.Players.Find(player => player.Seat == seat);
+      contPlayer = GameData.Instance.RuntimeGame.Players.Find(player => player.Seat == seat);
       IRoster pRoster = contPlayer.Roster;
 
       if (pRoster.MoheRoster.Count <= pos)
         return false;
 
-      IRuntimeMoheData moheData = pRoster.MoheRoster[pos];
+      moheData = pRoster.MoheRoster[pos];
 
       headerTxt = transform.Find("HeaderTxt").GetComponent<TextMeshProUGUI>();
       lvlTxt = transform.Find("LvlTxt").GetComponent<TextMeshProUGUI>();
@@ -46,7 +51,46 @@ namespace Battle.UI.Player
 
       moheImage.sprite = moheData.BaseMohe.Data.Artwork;
 
+      OnToggle += OnSetSwap;
+
       return true;
+    }
+
+    public void OnClick()
+    {
+      if (moheData != null && !moheData.MoheDead() && GameData.Instance.RuntimeGame.TurnLogic.IsMyTurn(contPlayer) && BoardController.Instance.CanClickJewel())
+      {
+        GameEvents.Instance.Notify<ISelectMoheActionButton>(i => i.OnSelectMoheActionButton(seat, moheData.InstanceID));
+      }
+    }
+
+    public void OnSelectMoheActionButton(PlayerSeat Seat, string instanceId)
+    {
+      if (Seat == seat && moheData!= null && moheData.InstanceID == instanceId)
+      {
+        if (!waitingForSwap)
+        {
+          OnToggle.Invoke(true);
+        } else
+        {
+          OnToggle.Invoke(false);
+          GameEvents.Instance.Notify<IMoheSwap>(i => i.OnMoheSwap(seat, moheData.InstanceID));
+        }
+      }
+      else
+      {
+        OnToggle.Invoke(false);
+      }
+    }
+
+    public void OnResetMoheActionButton()
+    {
+      OnToggle.Invoke(false);
+    }
+
+    public void OnSetSwap(bool swap)
+    {
+      waitingForSwap = swap;
     }
   }
 }

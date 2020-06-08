@@ -23,6 +23,7 @@ namespace Battle.Model.Player
             StartTurnMechanics = new StartTurnMechanics(this);
             FinishTurnMechanics = new FinishTurnMechanics(this);
             SwapTurnMechanics = new SwapTurnMechanics(this);
+            SwapMoheMechanics = new SwapMoheMechanics(this);
             ChargeAbilityMechanics = new ChargeAbilityMechanics(this);
             UseAbilityMechanics = new UseAbilityMechanics(this);
         }
@@ -37,16 +38,12 @@ namespace Battle.Model.Player
 
         #region Mechanics
 
-        public SwapMechanics SwapMechanics { get; }
-
+        //public SwapMechanics SwapMechanics { get; }
         public StartTurnMechanics StartTurnMechanics { get; }
-
         public SwapTurnMechanics SwapTurnMechanics { get; }
-
         public ChargeAbilityMechanics ChargeAbilityMechanics { get; }
-
+        public SwapMoheMechanics SwapMoheMechanics { get; }
         public UseAbilityMechanics UseAbilityMechanics { get; }
-
         public FinishTurnMechanics FinishTurnMechanics { get; }
 
         public bool HasSwapped { get; set; }

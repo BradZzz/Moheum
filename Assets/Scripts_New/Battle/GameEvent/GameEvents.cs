@@ -196,6 +196,11 @@ namespace Battle.GameEvent
    * Mohe Mechanics
    */
 
+  public interface IMoheSwap : ISubject
+  {
+    void OnMoheSwap(PlayerSeat seat, string moheInstanceID);
+  }
+
   public interface IMoheTakeDamage : ISubject
   {
     void OnMoheTakeDamage(string moheInstanceID, int dmg);
@@ -215,6 +220,16 @@ namespace Battle.GameEvent
     void OnPlayerNav(PlayerSeat seat, NavID nav);
   }
 
+  public interface IPlayerUpdateRuntime : ISubject
+  {
+    void OnPlayerUpdateRuntime();
+  }
+
+  /*
+   * Action Buttons
+   */
+
+  // Attack
   public interface ISelectAtkActionButton : ISubject
   {
     void OnSelectAtkActionButton(PlayerSeat seat, AbilityID id);
@@ -225,9 +240,15 @@ namespace Battle.GameEvent
     void OnResetAtkActionButton();
   }
 
-  public interface IPlayerUpdateRuntime : ISubject
+  // Mohe
+  public interface ISelectMoheActionButton : ISubject
   {
-    void OnPlayerUpdateRuntime();
+    void OnSelectMoheActionButton(PlayerSeat seat, string instanceId);
+  }
+
+  public interface IResetMoheActionButtons : ISubject
+  {
+    void OnResetMoheActionButton();
   }
 
   #endregion

@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiMoheHealth : UiListener, IUiMoheHealth, IPlayerUpdateRuntime
+  public class UiMoheExp : UiListener, IUiMoheExp, IPlayerUpdateRuntime
   {
-    private void Awake()
+    // Start is called before the first frame update
+    void Awake()
     {
       UiPlayerHUD = transform.parent.GetComponentInParent<IUiPlayerHUD>();
       Image = GetComponent<Image>();
@@ -18,7 +19,6 @@ namespace Battle.UI.Player
 
     public void OnPlayerUpdateRuntime()
     {
-      Debug.Log("UiMoheHealth OnPlayerUpdateRuntime!");
       Refresh();
     }
 
@@ -29,9 +29,10 @@ namespace Battle.UI.Player
 
     private void Refresh()
     {
-      int currentHealth = UiPlayerHUD.PlayerController.Player.Roster.CurrentMohe().Health;
-      int maxHealth = (int) UiPlayerHUD.PlayerController.Player.Roster.CurrentMohe().BaseMohe.Stats.health;
-      float fill = currentHealth / (float)maxHealth;
+      int currentExp = UiPlayerHUD.PlayerController.Player.Roster.CurrentMohe().Exp;
+      int thisLevel = (int)UiPlayerHUD.PlayerController.Player.Roster.CurrentMohe().BaseExpType.IntFromLastLevel(currentExp);
+      int nextLevel = (int)UiPlayerHUD.PlayerController.Player.Roster.CurrentMohe().BaseExpType.IntToNextLevel(currentExp);
+      float fill = thisLevel / (float)nextLevel;
 
       //Debug.Log("Refresh Health: " + currentHealth.ToString() + " : " + maxHealth.ToString() + " : " + fill.ToString());
 

@@ -72,7 +72,7 @@ namespace Battle.UI.Player
 
     public void OnClick()
     {
-      if (ability != null)
+      if (ability != null && ability.AbilityCharged())
       {
         GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, ability.Ability.AbilityID));
       }
@@ -80,7 +80,7 @@ namespace Battle.UI.Player
 
     public void OnSelectAtkActionButton(PlayerSeat Seat, AbilityID Id)
     {
-      if (Seat == seat && ability != null && Id == ability.Ability.AbilityID && ability.AbilityCharged())
+      if (Seat == seat && ability != null && Id == ability.Ability.AbilityID)
       {
         OnToggle.Invoke(!actionOutline.Active);
         GameEvents.Instance.Notify<IActionBoard>(i => i.OnBoardActionCheck(seat, actionOutline.Active ? ability : null));
