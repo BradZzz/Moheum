@@ -276,6 +276,7 @@
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\BasePlayerMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\ChargeAbilityMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\FinishTurnMechanics.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\GainJewelBonusMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\StartTurnMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\SwapMoheMechanics.cs" />
     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\SwapTurnMechanics.cs" />

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Battle.Controller;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
@@ -37,12 +38,19 @@ namespace Battle.Model.RuntimeBoard.Fsm
         return;
       }
 
-      List<IRuntimeJewel> toRemoveBuff = FindMatchesUtil.FindMatches(jewelMap);
-      foreach (var jewel in toRemoveBuff)
+      List<List<IRuntimeJewel>> toRemoveBuffs = FindMatchesUtil.FindMatchesBuffer(jewelMap);
+      foreach (var toRemoveBuff in toRemoveBuffs)
       {
-        OnRemove(jewel);
+        if (toRemoveBuff.Count > 3)
+        {
+          OnBonus(toRemoveBuff.Select((jewel) => { return jewel.Data.JewelID; }).ToList());
+        }
+        foreach (var jewel in toRemoveBuff)
+        {
+          OnRemove(jewel);
+        }
       }
-      if (toRemoveBuff.Count > 0 || FindMatchesUtil.ContainsNullJewel(board.GetBoardData().GetMap()))
+      if (toRemoveBuffs.Count > 0 || FindMatchesUtil.ContainsNullJewel(board.GetBoardData().GetMap()))
       {
         OnCascadeState();
       } else
@@ -68,10 +76,12 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private void OnRemove(IRuntimeJewel jewel)
     {
-      // The jewel has to be removed from the data here so that the cascade works properly
-      //board.GetBoardData().SetJewel(null, jewel.Pos);
-      // Notify UI that the jewel needs to be removed
       GameEvents.Instance.Notify<IRemoveJewel>(i => i.OnRemoveJewel(jewel));
+    }
+
+    private void OnBonus(List<JewelID> jewels)
+    {
+      GameEvents.Instance.Notify<IGainJewelBonus>(i => i.OnGainBonusJewel(jewels));
     }
   }
 }

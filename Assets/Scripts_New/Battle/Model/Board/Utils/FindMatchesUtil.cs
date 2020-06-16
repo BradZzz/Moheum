@@ -137,6 +137,38 @@ namespace Battle.Model.RuntimeBoard.Utils
       return toRemoveBuff;
     }
 
+    public static List<List<IRuntimeJewel>> FindMatchesBuffer(IRuntimeJewel[,] jewelMap)
+    {
+      int width = jewelMap.GetLength(0);
+      int height = jewelMap.GetLength(1);
+
+      List<IRuntimeJewel> buffer = new List<IRuntimeJewel>();
+      List<List<IRuntimeJewel>> toRemoveBuff = new List<List<IRuntimeJewel>>();
+
+      // Look at all the rows and remove gems that are in the buffer more than 3
+      for (int y = 0; y < height; y++)
+      {
+        for (int x = 0; x < width; x++)
+        {
+          EvaluateBuffer(buffer, toRemoveBuff, jewelMap[x, y]);
+        }
+        EvaluateBuffer(buffer, toRemoveBuff, null);
+        buffer.Clear();
+      }
+
+      // Look at all the columns and remove gems that are in the buffer more than 3
+      for (int x = 0; x < width; x++)
+      {
+        for (int y = 0; y < height; y++)
+        {
+          EvaluateBuffer(buffer, toRemoveBuff, jewelMap[x, y]);
+        }
+        EvaluateBuffer(buffer, toRemoveBuff, null);
+        buffer.Clear();
+      }
+      return toRemoveBuff;
+    }
+
     private static void EvaluateBuffer(List<IRuntimeJewel> buffer, List<IRuntimeJewel> toRemoveBuffer, IRuntimeJewel nextJewel)
     {
       if (nextJewel == null || buffer.Count == 0 || nextJewel.Data.JewelID != buffer[0].Data.JewelID)
@@ -147,6 +179,22 @@ namespace Battle.Model.RuntimeBoard.Utils
           {
             toRemoveBuffer.Add(buff);
           }
+        }
+        buffer.Clear();
+      }
+      if (nextJewel != null)
+      {
+        buffer.Add(nextJewel);
+      }
+    }
+
+    private static void EvaluateBuffer(List<IRuntimeJewel> buffer, List<List<IRuntimeJewel>> toRemoveBuffer, IRuntimeJewel nextJewel)
+    {
+      if (nextJewel == null || buffer.Count == 0 || nextJewel.Data.JewelID != buffer[0].Data.JewelID)
+      {
+        if (buffer.Count >= 3)
+        {
+          toRemoveBuffer.Add(new List<IRuntimeJewel>(buffer));
         }
         buffer.Clear();
       }

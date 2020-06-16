@@ -26,6 +26,7 @@ namespace Battle.Model.Player
             SwapMoheMechanics = new SwapMoheMechanics(this);
             ChargeAbilityMechanics = new ChargeAbilityMechanics(this);
             UseAbilityMechanics = new UseAbilityMechanics(this);
+            GainJewelBonusMechanics = new GainJewelBonusMechanics(this);
         }
 
         //----------------------------------------------------------------------------------------------------------
@@ -45,6 +46,7 @@ namespace Battle.Model.Player
         public SwapMoheMechanics SwapMoheMechanics { get; }
         public UseAbilityMechanics UseAbilityMechanics { get; }
         public FinishTurnMechanics FinishTurnMechanics { get; }
+        public GainJewelBonusMechanics GainJewelBonusMechanics { get; }
 
         public bool HasSwapped { get; set; }
 
