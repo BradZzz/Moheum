@@ -42,8 +42,10 @@ namespace Battle.Model.Game
 
         void Tick();
 
-        void Swap(SwapMechanics.RuntimeSwapData data);
+        //void Swap(SwapMechanics.RuntimeSwapData data);
 
-        IEnumerator ExecuteAiTurn(PlayerSeat seat);
+        //IEnumerator ExecuteAiSwap(PlayerSeat seat);
+
+        //public IEnumerator ExecuteAiAction(PlayerSeat seat);
     }
 }

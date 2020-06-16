@@ -226,9 +226,9 @@ namespace Battle.UI.Jewel.Component
 
     public void OnTransformJewel(IRuntimeJewel jewel, JewelID transformType)
     {
-      Debug.Log("OnTransformJewel");
-      Debug.Log(UIRuntimeData);
-      Debug.Log(jewel);
+      //Debug.Log("OnTransformJewel");
+      //Debug.Log(UIRuntimeData);
+      //Debug.Log(jewel);
       if (UIRuntimeData.RuntimeData != null && UIRuntimeData.RuntimeData.JewelID == jewel.JewelID)
       {
         JewelData data = JewelDatabase.Instance.Get(transformType);

@@ -17,7 +17,7 @@ namespace Battle.Model.Player
     // Set roster to next available Mohe
     void AutoRoster();
     // Check if all Mohe are dead
-    bool AllVanquished();
+    bool AllVanquished { get; }
     // Current Mohe
     IRuntimeMoheData CurrentMohe();
   }

@@ -206,6 +206,11 @@ namespace Battle.GameEvent
     void OnMoheTakeDamage(string moheInstanceID, int dmg);
   }
 
+  public interface IMoheDeath : ISubject
+  {
+    void OnMoheDeath(string moheInstanceID);
+  }
+
   public interface IMoheHeal : ISubject
   {
     void OnMoheHeal(string moheInstanceID, int heal);

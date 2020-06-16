@@ -18,8 +18,9 @@ namespace Battle.Model.MoheModel
     {
       baseMohe = Mohe;
 
+      playerSeat = seat;
       baseExpType = BaseExpType.TranslateType(baseMohe.Data.ExperienceType);
-      instanceID = baseMohe.Data.MoheID.ToString() + seat + idx.ToString();
+      instanceID = baseMohe.Data.MoheID.ToString() + playerSeat + idx.ToString();
       Health = (int)baseMohe.Stats.health;
       Exp = 0;
       abilities = new List<IRuntimeAbility>();
@@ -45,11 +46,13 @@ namespace Battle.Model.MoheModel
     public IMohe BaseMohe => baseMohe;
     public BaseExpType BaseExpType => baseExpType;
     public List<IRuntimeAbility> Abilities => abilities;
+    public PlayerSeat PlayerSeat => playerSeat;
 
     private string instanceID;
     private IMohe baseMohe;
     private List<IRuntimeAbility> abilities;
     private BaseExpType baseExpType;
+    private PlayerSeat playerSeat;
 
     private DamageMoheMechanic DamageMoheMechanic;
     private DeathMoheMechanic DeathMoheMechanics;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
 using Battle.Model.MoheModel.ExpTypes;
+using Battle.Model.Player;
 using UnityEngine;
 
 namespace Battle.Model.MoheModel
@@ -15,6 +16,7 @@ namespace Battle.Model.MoheModel
     IMohe BaseMohe { get; }
     List<IRuntimeAbility> Abilities { get; }
     BaseExpType BaseExpType { get; }
+    PlayerSeat PlayerSeat { get; }
 
     void PopulateAbilities(JewelID jewel, int amount);
     bool UseableAbility();

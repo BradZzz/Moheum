@@ -19,6 +19,7 @@ namespace Battle.Model.Player
 
     public int CurrentIdx => currentIdx;
     public List<IRuntimeMoheData> MoheRoster => moheRoster;
+    public bool AllVanquished => allVanquished();
 
     private int currentIdx;
     private List<IRuntimeMoheData> moheRoster;
@@ -31,7 +32,7 @@ namespace Battle.Model.Player
     // Set current roster position
     public void SetRoster(int idx)
     {
-      if (moheRoster.Count > idx && !AllVanquished())
+      if (moheRoster.Count > idx && !AllVanquished)
       {
         if (!moheRoster[idx].MoheDead())
         {
@@ -48,14 +49,14 @@ namespace Battle.Model.Player
 
     public void AutoRoster()
     {
-      if (!AllVanquished())
+      if (!AllVanquished)
       {
         currentIdx = NextAvailableMohe();
       }
     }
 
     // Checks to see if roster is completed
-    public bool AllVanquished()
+    public bool allVanquished()
     {
       bool allVanquished = true;
       foreach (IRuntimeMoheData mohe in MoheRoster)

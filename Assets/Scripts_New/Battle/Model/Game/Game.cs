@@ -105,138 +105,75 @@ namespace Battle.Model.Game
       ProcessFinishPlayerTurn.Execute();
     }
 
+    public void EndGame()
+    {
+      //ProcessFinishGame.Execute();
+    }
+
     public void Tick()
     {
       ProcessTick.Execute();
     }
 
-    public void Swap(SwapMechanics.RuntimeSwapData data)
-    {
-      ProcessSwap.Execute(data);
-    }
+    //public void Swap(SwapMechanics.RuntimeSwapData data)
+    //{
+    //  ProcessSwap.Execute(data);
+    //}
 
-    public IEnumerator ExecuteAiTurn(PlayerSeat seat)
-    {
-      yield return null;
-      //// Clear board
-      //GameEvents.Instance.Notify<IRemoveSelectedBoard>(i => i.OnBoardRemoveSelectedCheck());
+    //public IEnumerator ExecuteAiAction(PlayerSeat seat)
+    //{
+    //  yield return new WaitForSeconds(0.5f);
+    //}
 
-      //// wait until the board state is clean.
-      //while (!BoardController.Instance.CanManipulate()) {}
+    //public IEnumerator ExecuteAiSwap(PlayerSeat seat)
+    //{
+    //  List<JewelID> prefJewels = new List<JewelID>() { JewelID.wrath };
 
-      //// Check to see if the computer can use any abilities
-      //IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
-      //if (mohe.UseableAbility())
-      //{
-      //  //StartCoroutine(GameData.RuntimeGame.ExecuteAiTurn(Seat));
-      //} else
-      //{
-      //  //StartCoroutine(GameData.RuntimeGame.ExecuteAiTurn(Seat));
-      //}
+    //  // Look through all of the current mohe's abilities
+    //  IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
 
-      //List<JewelID> prefJewels = new List<JewelID>() { JewelID.wrath };
+    //  // If there are any abilities that are uncharged, add to abilities buffer
+    //  foreach (var abl in mohe.Abilities)
+    //  {
+    //    foreach (var comp in abl.AbilityComponents)
+    //    {
+    //      if (comp.Has < comp.Needs && !prefJewels.Contains(comp.JewelType))
+    //      {
+    //        prefJewels.Add(comp.JewelType);
+    //      }
+    //    }
+    //  }
 
-      //// Look through all of the current mohe's abilities
-      //IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
+    //  // look for matches
+    //  List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(GameBoard.GetBoardData().GetMap(), prefJewels);
 
-      //// If there are any abilities that are uncharged, add to abilities buffer
-      //foreach (var abl in mohe.Abilities)
-      //{
-      //  foreach(var comp in abl.AbilityComponents)
-      //  {
-      //    if (comp.Has < comp.Needs && !prefJewels.Contains(comp.JewelType))
-      //    {
-      //      prefJewels.Add(comp.JewelType);
-      //    }
-      //  }
-      //}
+    //  matchesBuff = matchesBuff.OrderByDescending(m => m.matches).ToList();
+    //  //foreach (var match in matchesBuff)
+    //  //{
+    //  //  Debug.Log("matchesBuff: " + match.jewel1.Pos.ToString() + ":" + match.jewel2.Pos.ToString() + " = " + match.matches.ToString());
+    //  //}
 
-      //// look for matches
-      //List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(GameBoard.GetBoardData().GetMap(), prefJewels);
+    //  if (matchesBuff.Count > 0)
+    //  {
+    //    Debug.Log("Swapping: " + matchesBuff[0].jewel1.Pos.ToString() + "<=>" + matchesBuff[0].jewel2.Pos.ToString());
 
-      //matchesBuff = matchesBuff.OrderByDescending(m => m.matches).ToList();
-      ////foreach (var match in matchesBuff)
-      ////{
-      ////  Debug.Log("matchesBuff: " + match.jewel1.Pos.ToString() + ":" + match.jewel2.Pos.ToString() + " = " + match.matches.ToString());
-      ////}
+    //    // click first gem
+    //    GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel1));
+    //    Debug.Log("Click: " + matchesBuff[0].jewel1.Pos.ToString());
 
-      //if (matchesBuff.Count > 0)
-      //{
-      //  Debug.Log("Swapping: " + matchesBuff[0].jewel1.Pos.ToString() + "<=>" + matchesBuff[0].jewel2.Pos.ToString());
+    //    yield return new WaitForSeconds(0.5f);
+    //    while (!BoardController.Instance.CanManipulate()) { }
 
-      //  // click first gem
-      //  GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel1));
-      //  Debug.Log("Click: " + matchesBuff[0].jewel1.Pos.ToString());
-
-      //  yield return new WaitForSeconds(0.5f);
-      //  while (!BoardController.Instance.CanManipulate()) { }
-
-      //  // click second gem
-      //  GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel2));
-      //  Debug.Log("Click: " + matchesBuff[0].jewel2.Pos.ToString());
-      //}
-      //else
-      //{
-      //  Debug.Log("Nothing in buffer. Reshuffle the board!");
-      //  GameEvents.Instance.Notify<IResetBoard>(i => i.OnBoardResetCheck());
-      //}
-
-    }
-
-    public IEnumerator ExecuteAiAction(PlayerSeat seat)
-    {
-      yield return new WaitForSeconds(0.5f);
-    }
-
-    public IEnumerator ExecuteAiSwap(PlayerSeat seat)
-    {
-      List<JewelID> prefJewels = new List<JewelID>() { JewelID.wrath };
-
-      // Look through all of the current mohe's abilities
-      IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
-
-      // If there are any abilities that are uncharged, add to abilities buffer
-      foreach (var abl in mohe.Abilities)
-      {
-        foreach (var comp in abl.AbilityComponents)
-        {
-          if (comp.Has < comp.Needs && !prefJewels.Contains(comp.JewelType))
-          {
-            prefJewels.Add(comp.JewelType);
-          }
-        }
-      }
-
-      // look for matches
-      List<SwapChoices> matchesBuff = FindMatchesUtil.FindBestMatches(GameBoard.GetBoardData().GetMap(), prefJewels);
-
-      matchesBuff = matchesBuff.OrderByDescending(m => m.matches).ToList();
-      //foreach (var match in matchesBuff)
-      //{
-      //  Debug.Log("matchesBuff: " + match.jewel1.Pos.ToString() + ":" + match.jewel2.Pos.ToString() + " = " + match.matches.ToString());
-      //}
-
-      if (matchesBuff.Count > 0)
-      {
-        Debug.Log("Swapping: " + matchesBuff[0].jewel1.Pos.ToString() + "<=>" + matchesBuff[0].jewel2.Pos.ToString());
-
-        // click first gem
-        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel1));
-        Debug.Log("Click: " + matchesBuff[0].jewel1.Pos.ToString());
-
-        yield return new WaitForSeconds(0.5f);
-        while (!BoardController.Instance.CanManipulate()) { }
-
-        // click second gem
-        GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel2));
-        Debug.Log("Click: " + matchesBuff[0].jewel2.Pos.ToString());
-      }
-      else
-      {
-        Debug.Log("Nothing in buffer. Reshuffle the board!");
-        GameEvents.Instance.Notify<IResetBoard>(i => i.OnBoardResetCheck());
-      }
-    }
+    //    // click second gem
+    //    GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(matchesBuff[0].jewel2));
+    //    Debug.Log("Click: " + matchesBuff[0].jewel2.Pos.ToString());
+    //  }
+    //  else
+    //  {
+    //    Debug.Log("Nothing in buffer. Reshuffle the board!");
+    //    GameEvents.Instance.Notify<IResetBoard>(i => i.OnBoardResetCheck());
+    //  }
+    //}
 
     #endregion
 

@@ -20,10 +20,16 @@ namespace Battle.Model.MoheModel.Mechanics
     public void Execute(int dmg)
     {
       mohe.Health -= dmg;
-      if (mohe.Health < 0)
+      if (mohe.Health <= 0)
       {
         mohe.Health = 0;
+        //GameEvents.Instance.Notify<IMoheDeath>(i => i.OnMoheDeath(mohe.InstanceID));
       }
+    }
+
+    private void Notify()
+    {
+      GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
     }
 
     public void OnMoheTakeDamage(string moheInstanceID, int dmg)
@@ -33,7 +39,7 @@ namespace Battle.Model.MoheModel.Mechanics
         Debug.Log("Mohe damaged: " + moheInstanceID + " : " + mohe.BaseMohe.Data.MoheID);
         Execute(dmg);
         //Update UI
-        GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
+        Notify();
       }
     }
   }
