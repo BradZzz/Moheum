@@ -4,6 +4,7 @@ using Battle.Controller;
 using Battle.GameEvent;
 using Battle.Model.Game.Mechanics;
 using Battle.Model.Player;
+using Battle.Model.RuntimeBoard.Controller;
 using Battle.UI.UIAnimation;
 using UnityEngine;
 
@@ -180,14 +181,27 @@ namespace Battle.Controller.TurnControllers.States
         protected virtual IEnumerator StartTurn()
         {
             yield return new WaitForSeconds(Configurations.TimeStartTurn);
-            GameData.RuntimeGame.StartCurrentPlayerTurn();
+            //GameEvents.Instance.Notify<ICascadeBoard>(i => i.OnBoardCascadeCheck());
+
+            //while (!BoardController.Instance.CanManipulate()){}
+
+            //GameData.RuntimeGame.StartCurrentPlayerTurn();
+            Fsm.Handler.MonoBehaviour.StartCoroutine(StartPlayerTurn());
 
             //setup tick routine
             TickRoutine = Fsm.Handler.MonoBehaviour.StartCoroutine(TickRoutineAsync());
         }
 
+        private IEnumerator StartPlayerTurn()
+        {
+            while (!BoardController.Instance.CanManipulate()) {
+              yield return new WaitForSeconds(1);
+            }
+            GameData.RuntimeGame.StartCurrentPlayerTurn();
+        }
+
         #endregion
 
-        //----------------------------------------------------------------------------------------------------------
-    }
+    //----------------------------------------------------------------------------------------------------------
+  }
 }

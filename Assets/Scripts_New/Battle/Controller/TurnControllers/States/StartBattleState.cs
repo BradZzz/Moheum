@@ -41,6 +41,7 @@ namespace Battle.Controller.TurnControllers.States
     void IStartGame.OnStartGame(IPlayer starter)
     {
       var nextState = Fsm.GetPlayerController(starter);
+      //Debug.Log("OnStartGame nextState: " + nextState.ToString());
       Fsm.Handler.MonoBehaviour.StartCoroutine(NextStateRoutine(nextState));
     }
 

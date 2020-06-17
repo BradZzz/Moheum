@@ -21,7 +21,7 @@ namespace Battle.Model.Player.Mechanics
 
     public void OnRemoveJewel(IRuntimeJewel jewel)
     {
-      if (GameController.Instance.GetPlayerController(player.Seat).IsMyTurn)
+      if (GameData.Instance.RuntimeGame.IsTurnInProgress && GameController.Instance.GetPlayerController(player.Seat).IsMyTurn)
       {
         ChargeAbility(jewel.Data.JewelID);
         if (jewel.Data.JewelID == JewelID.wrath)

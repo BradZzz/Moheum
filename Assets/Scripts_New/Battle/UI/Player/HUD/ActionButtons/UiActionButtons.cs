@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.GameEvent;
 using Battle.Model.Player;
+using Battle.UI.Utils;
 using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public class UiActionButtons : MonoBehaviour, IUiActionButtons
+  public class UiActionButtons : UiListener, IUiActionButtons, IPlayerUpdateRuntime
   {
     void Awake()
     {
@@ -16,8 +18,9 @@ namespace Battle.UI.Player
       navButtons.OnNavigate += NavigateActions;
     }
 
-    void Start()
+    private void Start()
     {
+      base.Start();
       Debug.Log("UiActionButtons Start");
       Debug.Log(navButtons.OnNavigate);
       NavigateActions(navButtons.Current);
@@ -30,6 +33,11 @@ namespace Battle.UI.Player
     public IUiNavButtons NavButtons => navButtons;
     public IUiPlayerHUD PlayerHUD => playerHUD;
     public List<IUiActionButton> ActionButtons => actionButtons;
+
+    public void OnPlayerUpdateRuntime()
+    {
+      NavigateActions(navButtons.Current);
+    }
 
     public void NavigateActions(NavID nav)
     {

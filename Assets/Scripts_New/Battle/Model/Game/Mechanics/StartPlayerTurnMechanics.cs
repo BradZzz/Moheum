@@ -26,20 +26,24 @@ namespace Battle.Model.Game.Mechanics
         return;
 
 
+      //Game.IsTurnInProgress = true;
+      //Game.TurnLogic.UpdateCurrentPlayer();
+      //Game.TurnLogic.CurrentPlayer.StartTurn();
+
+      // Confirm board init
+      //InitBoard();
+      // Send out ui notifications
       Game.IsTurnInProgress = true;
       Game.TurnLogic.UpdateCurrentPlayer();
       Game.TurnLogic.CurrentPlayer.StartTurn();
 
-      // Confirm board init
-      InitBoard();
-      // Send out ui notifications
       OnStartedCurrentPlayerTurn(Game.TurnLogic.CurrentPlayer);
     }
 
-    private void InitBoard()
-    {
-      GameEvents.Instance.Notify<ICascadeBoard>(i => i.OnBoardCascadeCheck());
-    }
+    //private void InitBoard()
+    //{
+    //  GameEvents.Instance.Notify<ICascadeBoard>(i => i.OnBoardCascadeCheck());
+    //}
 
     /// <summary>
     ///     Dispatch start current player turn to the listeners.
@@ -48,6 +52,9 @@ namespace Battle.Model.Game.Mechanics
     private void OnStartedCurrentPlayerTurn(IPlayer currentPlayer)
     {
       //Debug.Log("OnStartedCurrentPlayerTurn");
+      //Game.IsTurnInProgress = true;
+      //Game.TurnLogic.UpdateCurrentPlayer();
+      //Game.TurnLogic.CurrentPlayer.StartTurn();
       GameEvents.Instance.Notify<IStartPlayerTurn>(i => i.OnStartPlayerTurn(currentPlayer));
     }
   }

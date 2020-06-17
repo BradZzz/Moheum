@@ -37,7 +37,7 @@ namespace Battle.Model.Player.Mechanics
     public void OnGainBonusJewel(List<JewelID> jewels)
     {
       Debug.Log("OnGainBonusJewel");
-      if (GameController.Instance.GetPlayerController(player.Seat).IsMyTurn)
+      if (GameData.Instance.RuntimeGame.IsTurnInProgress && GameController.Instance.GetPlayerController(player.Seat).IsMyTurn)
       {
         ChargeAbilities(jewels.Count == 4 ? 1 : 3);
         Notify();

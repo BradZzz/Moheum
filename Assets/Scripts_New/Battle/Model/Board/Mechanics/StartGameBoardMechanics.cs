@@ -51,6 +51,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       //    OnDrawJewel(thisJewel, new Vector2(x - middle.x, y - middle.y));
       //  }
       //}
+      //GameEvents.Instance.Notify<ICascadeBoard>(i => i.OnBoardCascadeCheck());
     }
 
     /// <summary>

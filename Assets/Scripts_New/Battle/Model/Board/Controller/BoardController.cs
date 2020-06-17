@@ -38,6 +38,7 @@ namespace Battle.Model.RuntimeBoard.Controller
     {
       Debug.Log("OnStartGame");
       BoardBasedLogic = new BoardBasedFsm(this, GameData.Instance.RuntimeGame.GameBoard);
+      OnBoardCascadeCheck();
       //OnTurnStart();
     }
 
