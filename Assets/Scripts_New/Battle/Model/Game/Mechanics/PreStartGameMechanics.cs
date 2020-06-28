@@ -25,6 +25,8 @@ namespace Battle.Model.Game.Mechanics
       //players draw starting cards
       LoadStartingJewels();
 
+      GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
+
       OnGamePreStarted(Game.TurnLogic.Players);
     }
 

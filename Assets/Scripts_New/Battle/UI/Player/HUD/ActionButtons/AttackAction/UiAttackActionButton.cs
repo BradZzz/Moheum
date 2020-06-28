@@ -25,7 +25,8 @@ namespace Battle.UI.Player
     private IUiActionActive actionOutline;
 
     //public TextMeshProUGUI HeaderTxt => headerTxt;
-    //public TextMeshProUGUI DescTxt => descTxt;
+
+    private IPlayer contPlayer;
 
     public override bool Populate(PlayerSeat Seat, int pos)
     {
@@ -72,7 +73,7 @@ namespace Battle.UI.Player
 
     public void OnClick()
     {
-      if (ability != null && ability.AbilityCharged())
+      if (ability != null && ability.AbilityCharged() && GameData.Instance.RuntimeGame.TurnLogic.IsMyTurn(contPlayer))
       {
         GameEvents.Instance.Notify<ISelectAtkActionButton>(i => i.OnSelectAtkActionButton(seat, ability.Ability.AbilityID));
       }
