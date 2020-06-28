@@ -88,10 +88,18 @@ namespace Battle.Controller.TurnControllers.States
       GameEvents.Instance.Notify<IRemoveSelectedBoard>(i => i.OnBoardRemoveSelectedCheck());
 
       // wait until the board state is clean.
-      while (!BoardController.Instance.CanManipulate()) { }
+      int count = 0;
+      while (!BoardController.Instance.CanClickJewel() && count < 20) {
+        yield return new WaitForSeconds(1);
+        Debug.Log("count: " + count.ToString());
+        Debug.Log("state: " + BoardController.Instance.CurrentState.ToString());
+        count++;
+      }
 
       // Check to see if the computer can use any abilities
       IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(seat).Player.Roster.CurrentMohe();
+
+      yield return new WaitForSeconds(.25f);
 
       if (mohe.UseableAbility())
       {

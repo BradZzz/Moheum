@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Battle.GameEvent;
 using Battle.Model.Jewel;
+using Battle.Model.Player;
 using Battle.UI.Jewel;
 using Battle.UI.Utils;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Battle.UI.Board
   /// <summary>
   ///     Pile of jewels. Add or Remove jewels and be notified when changes happen.
   /// </summary>
-  public abstract class UIGemPile : UiListener, IUiGemPile, IRestartGame
+  public abstract class UIGemPile : UiListener, IUiGemPile, IRestartGame, IFinishGame
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -103,7 +104,12 @@ namespace Battle.UI.Board
       OnPileChanged?.Invoke(Jewels.ToArray());
     }
 
-    void IRestartGame.OnRestart()
+    public void OnRestart()
+    {
+      Restart();
+    }
+
+    public void OnFinishGame(IPlayer winner)
     {
       Restart();
     }

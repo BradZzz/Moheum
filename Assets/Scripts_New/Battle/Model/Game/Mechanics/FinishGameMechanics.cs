@@ -1,4 +1,5 @@
 ﻿using System;
+using Battle.GameEvent;
 using Battle.Model.Player;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Battle.Model.Game.Mechanics
     {
     }
 
-    public void Execute(IPlayer winner)
+    public void Execute()
     {
       if (!Game.IsGameStarted)
         return;
@@ -22,26 +23,18 @@ namespace Battle.Model.Game.Mechanics
 
       Game.IsGameFinished = true;
 
-      OnGameFinished(winner);
+      OnGameFinished(CheckWinCondition());
     }
 
-    public void CheckWinCondition()
+    public IPlayer CheckWinCondition()
     {
       var playerLeft = Game.TurnLogic.GetPlayer(PlayerSeat.Left);
       var playerRight = Game.TurnLogic.GetPlayer(PlayerSeat.Right);
 
-      //var captainLeft = playerLeft.Team.Captain?.Attributes?.IsDead;
-      //var captainRight = playerRight.Team.Captain?.Attributes?.IsDead;
+      bool leftHasMohe = !playerLeft.Roster.AllVanquished;
+      bool rightHasMohe = !playerRight.Roster.AllVanquished;
 
-      ////player has privilege when TIE
-      //if (playerRight.Team.IsEmpty || (captainRight.HasValue && captainRight.Value))
-      //  OnGameFinished(playerLeft);
-      //else
-      //if (playerLeft.Team.IsEmpty || (captainLeft.HasValue && captainLeft.Value))
-      //  OnGameFinished(playerRight);
-
-      //Left player wins always
-      OnGameFinished(playerLeft);
+      return rightHasMohe ? playerRight : playerLeft;
     }
 
 
@@ -51,13 +44,14 @@ namespace Battle.Model.Game.Mechanics
     /// <param name="winner"></param>
     private void OnGameFinished(IPlayer winner)
     {
-      //Save game shit here
+      // NotifyUI / Show end of game button
+      GameEvents.Instance.Notify<IFinishGame>(i => i.OnFinishGame(winner));
 
+      // Save Game
       //var gameState = BaseSaver.GetGameData();
       //var playerLeft = Game.TurnLogic.GetPlayer(PlayerSeat.Left);
       //gameState.player.hp = playerLeft.Team.Captain.Attributes.Health;
       //BaseSaver.PutGame(gameState);
-      //GameEvents.Instance.Notify<IFinishGame>(i => i.OnFinishGame(winner));
     }
   }
 }

@@ -64,7 +64,7 @@ namespace Battle.UI.Board.Utils
       }
       else
       {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.4f);
         CheckEndCascade();
       }
     }

@@ -60,6 +60,8 @@ namespace Battle.Model.RuntimeBoard.Fsm
         }
       }
 
+      //board.GetBoardData().PrettyJewelMap();
+
       // Update UI
       foreach (IRuntimeJewel jwl in readyJewels)
       {

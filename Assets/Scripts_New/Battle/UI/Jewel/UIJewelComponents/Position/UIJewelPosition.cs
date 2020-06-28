@@ -50,6 +50,10 @@ namespace Battle.UI.Jewel.Component
         count++;
       }
       transform.position = to;
+      // Need to recenter here if not perfect
+      //Debug.Log("jewel pos: " + jewel.Pos.ToString());
+      //Debug.Log("jewel id: " + jewel.JewelID.ToString());
+      //Debug.Log("To: " + to.ToString());
     }
   }
 }

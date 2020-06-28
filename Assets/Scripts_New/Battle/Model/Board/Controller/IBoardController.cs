@@ -11,5 +11,6 @@ namespace Battle.Model.RuntimeBoard.Controller
     IPostActionBoard, IResetBoard
   {
     MonoBehaviour MonoBehaviour { get; }
+    IState CurrentState { get; }
   }
 }

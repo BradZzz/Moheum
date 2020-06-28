@@ -301,6 +301,13 @@
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\Positioners\SwapPositioner.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\UiBoardPositioner.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Board\Utils\UiPlayerBoardUtils.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\ContinueClick.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\IUIBaseOverlay.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\IUIEndGameOverlay.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\IUIOverrlayController.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\UIBaseOverlay.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\UIEndGameOverlay.cs" />
+    <Compile Include="Assets\Scripts_New\Battle\UI\GameOverlay\UIOverrlayController.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\IUiJewel.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\Listeners\IUiJewelClickListener.cs" />
     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\Listeners\UiJewelClickListener.cs" />

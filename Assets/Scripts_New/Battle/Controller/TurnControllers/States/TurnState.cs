@@ -194,8 +194,10 @@ namespace Battle.Controller.TurnControllers.States
 
         private IEnumerator StartPlayerTurn()
         {
+            //int count = 0;
             while (!BoardController.Instance.CanManipulate()) {
               yield return new WaitForSeconds(1);
+              //Debug.Log("StartPlayerTurn count: " + count.ToString());
             }
             GameData.RuntimeGame.StartCurrentPlayerTurn();
         }

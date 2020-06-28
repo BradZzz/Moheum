@@ -6,6 +6,7 @@ using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard.Fsm;
 using Patterns;
+using Patterns.StateMachine;
 using UnityEngine;
 
 namespace Battle.Model.RuntimeBoard.Controller
@@ -56,6 +57,8 @@ namespace Battle.Model.RuntimeBoard.Controller
        */
       //OnBoardCascadeCheck();
     }
+
+    public IState CurrentState => BoardBasedLogic.PeekState();
 
     public bool CanManipulate()
     {

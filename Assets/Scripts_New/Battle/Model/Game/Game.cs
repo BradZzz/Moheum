@@ -107,7 +107,7 @@ namespace Battle.Model.Game
 
     public void EndGame()
     {
-      //ProcessFinishGame.Execute();
+      ProcessFinishGame.Execute();
     }
 
     public void Tick()

@@ -36,6 +36,8 @@ namespace Battle.Model.Game
 
         void StartGame();
 
+        void EndGame();
+
         void StartCurrentPlayerTurn();
 
         void FinishCurrentPlayerTurn();

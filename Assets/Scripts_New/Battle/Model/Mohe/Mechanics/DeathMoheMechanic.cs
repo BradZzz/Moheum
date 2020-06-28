@@ -30,6 +30,7 @@ namespace Battle.Model.MoheModel.Mechanics
         if (roster.AllVanquished)
         {
           Debug.Log("Move game state ended");
+          GameData.Instance.RuntimeGame.EndGame();
         } else
         {
           // If the player has more mohe, swap in an available mohe for the destroyed one

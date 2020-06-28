@@ -23,6 +23,20 @@ namespace Battle.Model.RuntimeBoard.Data
       return jewels;
     }
 
+    public void PrettyJewelMap()
+    {
+      string buff = "";
+      for (int x = 0; x < jewelMap.GetLength(0); x++)
+      {
+        buff = "";
+        for (int y = 0; y < jewelMap.GetLength(1); y++)
+        {
+          buff += ((int) jewelMap[x, y].Data.JewelID).ToString();
+        }
+        Debug.Log(buff);
+      }
+    }
+
     public void SetJewel(IRuntimeJewel jewel, Vector2 pos)
     {
       jewelMap[(int)pos.x, (int)pos.y] = jewel;
