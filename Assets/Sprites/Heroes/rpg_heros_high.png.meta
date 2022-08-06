@@ -275,6 +275,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -283,12 +285,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -306,9 +308,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
@@ -2136,6 +2141,91 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      rpg_heros_high_81: 21300162
+      rpg_heros_high_22: 21300044
+      rpg_heros_high_46: 21300092
+      rpg_heros_high_4: 21300008
+      rpg_heros_high_21: 21300042
+      rpg_heros_high_38: 21300076
+      rpg_heros_high_57: 21300114
+      rpg_heros_high_79: 21300158
+      rpg_heros_high_61: 21300122
+      rpg_heros_high_14: 21300028
+      rpg_heros_high_47: 21300094
+      rpg_heros_high_52: 21300104
+      rpg_heros_high_26: 21300052
+      rpg_heros_high_35: 21300070
+      rpg_heros_high_53: 21300106
+      rpg_heros_high_18: 21300036
+      rpg_heros_high_37: 21300074
+      rpg_heros_high_45: 21300090
+      rpg_heros_high_13: 21300026
+      rpg_heros_high_63: 21300126
+      rpg_heros_high_40: 21300080
+      rpg_heros_high_2: 21300004
+      rpg_heros_high_32: 21300064
+      rpg_heros_high_70: 21300140
+      rpg_heros_high_82: 21300164
+      rpg_heros_high_75: 21300150
+      rpg_heros_high_60: 21300120
+      rpg_heros_high_72: 21300144
+      rpg_heros_high_83: 21300166
+      rpg_heros_high_9: 21300018
+      rpg_heros_high_28: 21300056
+      rpg_heros_high_8: 21300016
+      rpg_heros_high_15: 21300030
+      rpg_heros_high_58: 21300116
+      rpg_heros_high_73: 21300146
+      rpg_heros_high_44: 21300088
+      rpg_heros_high_19: 21300038
+      rpg_heros_high_43: 21300086
+      rpg_heros_high_49: 21300098
+      rpg_heros_high_42: 21300084
+      rpg_heros_high_69: 21300138
+      rpg_heros_high_78: 21300156
+      rpg_heros_high_27: 21300054
+      rpg_heros_high_31: 21300062
+      rpg_heros_high_7: 21300014
+      rpg_heros_high_34: 21300068
+      rpg_heros_high_54: 21300108
+      rpg_heros_high_76: 21300152
+      rpg_heros_high_11: 21300022
+      rpg_heros_high_56: 21300112
+      rpg_heros_high_41: 21300082
+      rpg_heros_high_64: 21300128
+      rpg_heros_high_74: 21300148
+      rpg_heros_high_16: 21300032
+      rpg_heros_high_55: 21300110
+      rpg_heros_high_59: 21300118
+      rpg_heros_high_23: 21300046
+      rpg_heros_high_6: 21300012
+      rpg_heros_high_66: 21300132
+      rpg_heros_high_25: 21300050
+      rpg_heros_high_65: 21300130
+      rpg_heros_high_80: 21300160
+      rpg_heros_high_0: 21300000
+      rpg_heros_high_12: 21300024
+      rpg_heros_high_10: 21300020
+      rpg_heros_high_62: 21300124
+      rpg_heros_high_36: 21300072
+      rpg_heros_high_17: 21300034
+      rpg_heros_high_1: 21300002
+      rpg_heros_high_3: 21300006
+      rpg_heros_high_33: 21300066
+      rpg_heros_high_39: 21300078
+      rpg_heros_high_67: 21300134
+      rpg_heros_high_24: 21300048
+      rpg_heros_high_29: 21300058
+      rpg_heros_high_71: 21300142
+      rpg_heros_high_48: 21300096
+      rpg_heros_high_5: 21300010
+      rpg_heros_high_20: 21300040
+      rpg_heros_high_68: 21300136
+      rpg_heros_high_30: 21300060
+      rpg_heros_high_51: 21300102
+      rpg_heros_high_50: 21300100
+      rpg_heros_high_77: 21300154
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

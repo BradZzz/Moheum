@@ -338,6 +338,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -346,12 +348,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -369,9 +371,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
@@ -2640,6 +2645,112 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      sheet_white1x_62: 21300124
+      sheet_white1x_83: 21300166
+      sheet_white1x_89: 21300178
+      sheet_white1x_63: 21300126
+      sheet_white1x_6: 21300012
+      sheet_white1x_3: 21300006
+      sheet_white1x_86: 21300172
+      sheet_white1x_52: 21300104
+      sheet_white1x_96: 21300192
+      sheet_white1x_5: 21300010
+      sheet_white1x_73: 21300146
+      sheet_white1x_95: 21300190
+      sheet_white1x_75: 21300150
+      sheet_white1x_101: 21300202
+      sheet_white1x_70: 21300140
+      sheet_white1x_49: 21300098
+      sheet_white1x_24: 21300048
+      sheet_white1x_82: 21300164
+      sheet_white1x_100: 21300200
+      sheet_white1x_8: 21300016
+      sheet_white1x_46: 21300092
+      sheet_white1x_22: 21300044
+      sheet_white1x_56: 21300112
+      sheet_white1x_30: 21300060
+      sheet_white1x_33: 21300066
+      sheet_white1x_7: 21300014
+      sheet_white1x_37: 21300074
+      sheet_white1x_0: 21300000
+      sheet_white1x_21: 21300042
+      sheet_white1x_50: 21300100
+      sheet_white1x_48: 21300096
+      sheet_white1x_17: 21300034
+      sheet_white1x_91: 21300182
+      sheet_white1x_88: 21300176
+      sheet_white1x_34: 21300068
+      sheet_white1x_18: 21300036
+      sheet_white1x_23: 21300046
+      sheet_white1x_32: 21300064
+      sheet_white1x_12: 21300024
+      sheet_white1x_55: 21300110
+      sheet_white1x_45: 21300090
+      sheet_white1x_103: 21300206
+      sheet_white1x_93: 21300186
+      sheet_white1x_41: 21300082
+      sheet_white1x_104: 21300208
+      sheet_white1x_35: 21300070
+      sheet_white1x_69: 21300138
+      sheet_white1x_72: 21300144
+      sheet_white1x_14: 21300028
+      sheet_white1x_58: 21300116
+      sheet_white1x_40: 21300080
+      sheet_white1x_74: 21300148
+      sheet_white1x_13: 21300026
+      sheet_white1x_54: 21300108
+      sheet_white1x_68: 21300136
+      sheet_white1x_60: 21300120
+      sheet_white1x_36: 21300072
+      sheet_white1x_43: 21300086
+      sheet_white1x_53: 21300106
+      sheet_white1x_9: 21300018
+      sheet_white1x_66: 21300132
+      sheet_white1x_90: 21300180
+      sheet_white1x_98: 21300196
+      sheet_white1x_57: 21300114
+      sheet_white1x_16: 21300032
+      sheet_white1x_39: 21300078
+      sheet_white1x_51: 21300102
+      sheet_white1x_2: 21300004
+      sheet_white1x_80: 21300160
+      sheet_white1x_71: 21300142
+      sheet_white1x_19: 21300038
+      sheet_white1x_31: 21300062
+      sheet_white1x_25: 21300050
+      sheet_white1x_67: 21300134
+      sheet_white1x_97: 21300194
+      sheet_white1x_28: 21300056
+      sheet_white1x_79: 21300158
+      sheet_white1x_99: 21300198
+      sheet_white1x_4: 21300008
+      sheet_white1x_10: 21300020
+      sheet_white1x_65: 21300130
+      sheet_white1x_1: 21300002
+      sheet_white1x_87: 21300174
+      sheet_white1x_26: 21300052
+      sheet_white1x_27: 21300054
+      sheet_white1x_11: 21300022
+      sheet_white1x_76: 21300152
+      sheet_white1x_20: 21300040
+      sheet_white1x_78: 21300156
+      sheet_white1x_15: 21300030
+      sheet_white1x_64: 21300128
+      sheet_white1x_38: 21300076
+      sheet_white1x_42: 21300084
+      sheet_white1x_47: 21300094
+      sheet_white1x_84: 21300168
+      sheet_white1x_92: 21300184
+      sheet_white1x_94: 21300188
+      sheet_white1x_81: 21300162
+      sheet_white1x_102: 21300204
+      sheet_white1x_85: 21300170
+      sheet_white1x_61: 21300122
+      sheet_white1x_29: 21300058
+      sheet_white1x_77: 21300154
+      sheet_white1x_44: 21300088
+      sheet_white1x_59: 21300118
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

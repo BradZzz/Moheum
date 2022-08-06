@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IUiBoardPositioner
-{
-    int marginWidth, marginHeight;
-    
-}
+fileFormatVersion: 2
+guid: 873ad23dba5d44f49aecaa324c4b4947
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

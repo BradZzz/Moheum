@@ -266,6 +266,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -274,12 +276,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -297,9 +299,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
@@ -2064,6 +2069,88 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      joystick.png: 21300116
+      download.png: 21300038
+      DPAD_left.png: 21300006
+      DPAD_up.png: 21300010
+      fightJoy_20.png: 21300086
+      fightJoy_28.png: 21300102
+      DPAD.png: 21300000
+      toolFill.png: 21300154
+      toolPencil.png: 21300156
+      deviceTilt_left.png: 21300032
+      fightJoy_03.png: 21300052
+      fightJoy_21.png: 21300088
+      fightJoy_31.png: 21300108
+      mouseMiddle.png: 21300144
+      fightJoy_09.png: 21300064
+      fightJoy_10.png: 21300066
+      fightJoy_19.png: 21300084
+      mouse.png: 21300140
+      fightJoy_30.png: 21300106
+      fightJoy_24.png: 21300094
+      fightFist.png: 21300040
+      joystickR_side.png: 21300124
+      controllerTilt_right.png: 21300024
+      joystickRight.png: 21300128
+      joystickR_top.png: 21300126
+      deviceTilt_right.png: 21300034
+      fightJoy_00.png: 21300046
+      fightJoy_05.png: 21300056
+      flag.png: 21300114
+      fightJoy_07.png: 21300060
+      diamond.png: 21300036
+      toolBrush.png: 21300150
+      DPAD_down.png: 21300004
+      keySmall_3d.png: 21300138
+      fightPlus.png: 21300110
+      fightJoy_04.png: 21300054
+      mouseLeft.png: 21300142
+      fightJoy_06.png: 21300058
+      fightJoy_11.png: 21300068
+      keyLarge_3d.png: 21300134
+      fightJoy_17.png: 21300080
+      fightJoy_13.png: 21300072
+      fightJoy_15.png: 21300076
+      cursor.png: 21300028
+      mouseRight.png: 21300146
+      fightJoy_23.png: 21300092
+      fightJoy_16.png: 21300078
+      figurine.png: 21300112
+      controllerTilt.png: 21300020
+      userRobot.png: 21300160
+      fightJ.png: 21300044
+      joystickL_top.png: 21300120
+      fightJoy_26.png: 21300098
+      deviceTilt.png: 21300030
+      fightJoy_08.png: 21300062
+      controllerTilt_left.png: 21300022
+      fightJoy_12.png: 21300070
+      upload.png: 21300158
+      fightJoy_29.png: 21300104
+      pointer.png: 21300148
+      cpu.png: 21300026
+      joystickLeft.png: 21300122
+      key.png: 21300130
+      DPAD_right.png: 21300008
+      fightJoy_01.png: 21300048
+      fightJoy_22.png: 21300090
+      fightJoy_27.png: 21300100
+      car.png: 21300012
+      coin.png: 21300018
+      fightJoy_02.png: 21300050
+      joystickL_side.png: 21300118
+      DPAD_all.png: 21300002
+      fightJoy_25.png: 21300096
+      keyLarge.png: 21300132
+      keySmall.png: 21300136
+      toolEraser.png: 21300152
+      cloudUpload.png: 21300016
+      fightJoy_14.png: 21300074
+      fightJoy_18.png: 21300082
+      cloud.png: 21300014
+      fightFist_circle.png: 21300042
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -284,6 +284,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -292,12 +294,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -315,9 +317,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
@@ -2208,6 +2213,94 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      buttonRound_beige.png: 21300092
+      buttonSquare_brown.png: 21300108
+      barBack_horizontalMid.png: 21300018
+      buttonSquare_grey_pressed.png: 21300114
+      buttonLong_brown_pressed.png: 21300086
+      barRed_verticalBottom.png: 21300058
+      buttonLong_blue.png: 21300080
+      barYellow_horizontalLeft.png: 21300064
+      cursorGauntlet_blue.png: 21300116
+      cursorSword_silver.png: 21300132
+      buttonLong_grey.png: 21300088
+      iconCircle_beige.png: 21300142
+      arrowSilver_left.png: 21300012
+      barBlue_verticalBottom.png: 21300034
+      cursorHand_beige.png: 21300122
+      barBlue_verticalMid.png: 21300036
+      barBack_verticalMid.png: 21300024
+      iconCross_beige.png: 21300150
+      barGreen_verticalBottom.png: 21300046
+      iconCircle_grey.png: 21300148
+      barGreen_horizontalRight.png: 21300044
+      barGreen_verticalMid.png: 21300048
+      barRed_horizontalMid.png: 21300054
+      cursorSword_bronze.png: 21300128
+      barBack_horizontalRight.png: 21300020
+      barRed_horizontalRight.png: 21300056
+      buttonLong_grey_pressed.png: 21300090
+      barYellow_horizontalMid.png: 21300066
+      iconCheck_bronze.png: 21300138
+      buttonSquare_beige.png: 21300100
+      panelInset_blue.png: 21300162
+      panel_blue.png: 21300170
+      arrowBlue_right.png: 21300006
+      panelInset_beige.png: 21300158
+      barGreen_horizontalLeft.png: 21300040
+      buttonRound_grey.png: 21300098
+      cursorGauntlet_grey.png: 21300120
+      iconCross_grey.png: 21300156
+      panel_beigeLight.png: 21300168
+      buttonSquare_blue_pressed.png: 21300106
+      iconCheck_blue.png: 21300136
+      barGreen_verticalTop.png: 21300050
+      iconCircle_blue.png: 21300144
+      barYellow_verticalMid.png: 21300072
+      barYellow_horizontalRight.png: 21300068
+      barYellow_verticalTop.png: 21300074
+      buttonSquare_grey.png: 21300112
+      iconCheck_beige.png: 21300134
+      arrowBrown_right.png: 21300010
+      iconCircle_brown.png: 21300146
+      buttonLong_blue_pressed.png: 21300082
+      arrowSilver_right.png: 21300014
+      barBlue_verticalTop.png: 21300038
+      buttonSquare_blue.png: 21300104
+      barRed_verticalMid.png: 21300060
+      arrowBeige_left.png: 21300000
+      cursorHand_grey.png: 21300126
+      barBack_verticalTop.png: 21300026
+      panel_brown.png: 21300172
+      panelInset_brown.png: 21300164
+      iconCross_blue.png: 21300152
+      buttonRound_brown.png: 21300096
+      cursorHand_blue.png: 21300124
+      barYellow_verticalBottom.png: 21300070
+      buttonLong_beige.png: 21300076
+      barBack_horizontalLeft.png: 21300016
+      barBack_verticalBottom.png: 21300022
+      iconCheck_grey.png: 21300140
+      arrowBeige_right.png: 21300002
+      barGreen_horizontalMid.png: 21300042
+      buttonLong_brown.png: 21300084
+      barBlue_horizontalBlue.png: 21300028
+      barRed_horizontalLeft.png: 21300052
+      cursorGauntlet_bronze.png: 21300118
+      barBlue_horizontalRight.png: 21300032
+      buttonLong_beige_pressed.png: 21300078
+      panel_beige.png: 21300166
+      arrowBlue_left.png: 21300004
+      cursorSword_gold.png: 21300130
+      buttonSquare_beige_pressed.png: 21300102
+      buttonRound_blue.png: 21300094
+      barBlue_horizontalLeft.png: 21300030
+      arrowBrown_left.png: 21300008
+      buttonSquare_brown_pressed.png: 21300110
+      panelInset_beigeLight.png: 21300160
+      iconCross_brown.png: 21300154
+      barRed_verticalTop.png: 21300062
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

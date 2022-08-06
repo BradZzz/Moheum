@@ -11,8 +11,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e426889b0288e4b339137f12c208730a, type: 3}
   m_Name: Pop(Blue)1-2
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   jewel: 0
-  minAmt: 0
-  maxAmt: 0
+  minAmt: 1
+  maxAmt: 1
   effectPlayer: 0

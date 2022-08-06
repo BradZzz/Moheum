@@ -16,15 +16,15 @@ namespace Battle.Model.AI
   ///     This class holds ai submodules that interact with
   ///     a game and player to accomplish its own goals
   /// </summary>
-  public class AiModule
+  public class AIModule
   {
     //----------------------------------------------------------------------------------------------------------
 
     #region Constructor
 
-    public AiModule(IPlayer player, IPrimitiveGame game)
+    public AIModule(IPlayer player, IPrimitiveGame game)
     {
-      //add all submodules 
+      //add all submodules
       subModules.Add(AiArchetype.Aggressive, GetAi(AiArchetype.Aggressive, player, game));
 
       //define current ai randomly
@@ -58,7 +58,7 @@ namespace Battle.Model.AI
 
     //----------------------------------------------------------------------------------------------------------
 
-    #region Properties and Fields 
+    #region Properties and Fields
 
     /// <summary>
     ///     Register with all the AiConfigs submodules.
@@ -74,7 +74,7 @@ namespace Battle.Model.AI
 
     //----------------------------------------------------------------------------------------------------------
 
-    #region Operations 
+    #region Operations
 
     /// <summary>
     ///     Returns the best move according to the current ai submodule.

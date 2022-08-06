@@ -22,7 +22,7 @@ namespace Battle.Controller.TurnControllers.States
     protected AiTurnState(TurnBasedFsm fsm, IGameData gameData, Battle.Configurations.Configurations configurations) : base(fsm, gameData,
         configurations)
     {
-      AiModule = new AiModule(Player, GameData.RuntimeGame);
+      AIModule = new AIModule(Player, GameData.RuntimeGame);
     }
 
     #endregion
@@ -32,7 +32,7 @@ namespace Battle.Controller.TurnControllers.States
     #region Properties
 
     private Coroutine AiFinishTurnRoutine { get; set; }
-    private AiModule AiModule { get; }
+    private AIModule AIModule { get; }
     protected virtual AiArchetype AiArchetype => Configurations.Ai.TopPlayer.Archetype;
     private float AiFinishTurnDelay => Configurations.AiFinishTurnDelay;
     private float AiDoTurnDelay => Configurations.AiDoTurnDelay;
@@ -45,7 +45,7 @@ namespace Battle.Controller.TurnControllers.States
 
     protected override IEnumerator StartTurn()
     {
-      AiModule.SwapAiToArchetype(AiArchetype);
+      AIModule.SwapAiToArchetype(AiArchetype);
       yield return base.StartTurn();
       //call do turn routine
       Fsm.Handler.MonoBehaviour.StartCoroutine(AiDoTurn());
@@ -115,7 +115,7 @@ namespace Battle.Controller.TurnControllers.States
 
     public IEnumerator ExecuteAiSwap(PlayerSeat seat)
     {
-      List<SwapChoices> matchesBuff = AiModule.GetBestMove(seat);
+      List<SwapChoices> matchesBuff = AIModule.GetBestMove(seat);
       if (matchesBuff.Count > 0)
       {
         // click first gem
@@ -139,7 +139,7 @@ namespace Battle.Controller.TurnControllers.States
 
     public IEnumerator ExecuteAiAbility(PlayerSeat seat)
     {
-      List<IRuntimeAbility> abilityBuff = AiModule.GetBestAbility(seat);
+      List<IRuntimeAbility> abilityBuff = AIModule.GetBestAbility(seat);
       if (abilityBuff.Count > 0)
       {
         GameObject GO = GameObject.FindGameObjectsWithTag("UiPanel").Where((go) => go.GetComponent<IUiPlayerHUD>().Seat == seat).ToList()[0];
@@ -157,7 +157,7 @@ namespace Battle.Controller.TurnControllers.States
         yield return new WaitForSeconds(1f);
         while (!BoardController.Instance.CanClickJewel()) { }
 
-        IRuntimeJewel jwl = AiModule.GetAbilityJewels(seat, abilityBuff[0])[0];
+        IRuntimeJewel jwl = AIModule.GetAbilityJewels(seat, abilityBuff[0])[0];
         GameEvents.Instance.Notify<ISelectJewel>(i => i.OnSelect(jwl));
         //Debug.Log("AI clicked on jewel");
         yield return new WaitForSeconds(2f);

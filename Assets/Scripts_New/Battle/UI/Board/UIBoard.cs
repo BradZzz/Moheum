@@ -11,36 +11,10 @@ using UnityEngine;
 
 namespace Battle.UI.Board
 {
-  public class UiBoard : UIGemPile, IUiBoard
+  public class UIBoard : UIGemPile, IUiBoard
   {
-    protected override void Awake()
-    {
-      base.Awake();
-      //Controller = GetComponent<IUiPlayer>();
-
-      //Draw Jewels here
-
-      //TargetResolver = transform.parent.GetComponentInChildren<ITargetResolver>();
-      //PlayerTeams = transform.parent.parent.GetComponentsInChildren<IUiPlayerTeam>();
-      //foreach (var team in PlayerTeams)
-      //{
-      //  team.OnPileChanged += (characters, capitain) => EnableCards();
-      //  team.OnCharacterSelected += (charac) => { if (charac.IsUser) DisableCards(); };
-      //}
-      //TargetResolver.OnTargetsResolve += (card) => EnableCards();
-      //jewels = new List<IUiJewel>();
-
-    }
-
     public Transform Transform => transform;
 
-    //private List<IUiJewel> jewels;
-
-    //public List<IUiJewel> Jewels => jewels;
-
-    //public IBoardData GetBoardData()
-    //{
-    //  return GameData.Instance.RuntimeGame.GameBoard.GetBoardData();
-    //}
+    protected override void Awake() => base.Awake();
   }
 }
