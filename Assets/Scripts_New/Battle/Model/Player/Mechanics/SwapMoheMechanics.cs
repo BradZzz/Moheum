@@ -23,9 +23,10 @@ namespace Battle.Model.Player.Mechanics
     {
       IPlayer contPlayer = GameData.Instance.RuntimeGame.Players.Find(player => player.Seat == seat);
       IRoster pRoster = contPlayer.Roster;
+      int currentMohePosition = pRoster.CurrentIdx;
       for (int i = 0; i < pRoster.MoheRoster.Count; i++)
       {
-        if (moheInstanceID == pRoster.MoheRoster[i].InstanceID)
+        if (moheInstanceID == pRoster.MoheRoster[i].InstanceID && i != currentMohePosition)
         {
           pRoster.SetRoster(i);
           // End turn since mohe was swapped

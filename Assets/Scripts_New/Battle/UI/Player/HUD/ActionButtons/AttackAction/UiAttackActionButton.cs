@@ -40,7 +40,7 @@ namespace Battle.UI.Player
       headerTxt = transform.Find("HeaderTxt").GetComponent<TextMeshProUGUI>();
       descTxt = transform.Find("DescTxt").GetComponent<TextMeshProUGUI>();
 
-      IPlayer contPlayer = GameData.Instance.RuntimeGame.Players.Find(player => player.Seat == seat);
+      contPlayer = GameData.Instance.RuntimeGame.Players.Find(player => player.Seat == seat);
       IRoster pRoster = contPlayer.Roster;
       IRuntimeMoheData moheData = pRoster.CurrentMohe();
 
