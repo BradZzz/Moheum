@@ -16,7 +16,7 @@ namespace Battle.UI.Jewel.Component
   //[RequireComponent(typeof(Rigidbody))]
   //[RequireComponent(typeof(IMouseInput))]
   //[RequireComponent(typeof(IUiJewelData))]
-  public class UIJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IRemoveJewel, IPositionJewel, ITransformJewel
+  public class UIJewelComponent : UiListener, IUiJewel, IPostSelectJewel, IPreRemoveJewel, IPositionJewel, ITransformJewel, IRemoveJewel
   {
     //--------------------------------------------------------------------------------------------------------------
 
@@ -30,6 +30,7 @@ namespace Battle.UI.Jewel.Component
 
       //components
       MyTransform = transform;
+      UIJewelParticleEffects = GetComponentInChildren<IUIJewelParticleEffect>();
       MyCollider = GetComponent<Collider>();
       MyRigidbody = GetComponent<Rigidbody>();
       MyInput = GetComponent<IMouseInput>();
@@ -55,9 +56,10 @@ namespace Battle.UI.Jewel.Component
       UiJewelBoxCollider = new UIJewelBoxCollider(this);
       UiJewelDestroy = new UIJewelDestroy(this);
       UiJewelPosition = new UIJewelPosition(this);
-      //MyClickListener.Init(this);
-      //MyClickListener
 
+      UIRuntimeData.OnSetData += UIJewelParticleEffects.ExecuteData;
+      OnPreRemove += UIJewelParticleEffects.ExecuteParticleEffects;
+        
       UIRuntimeData.OnSetData += UiJewelClickListener.Execute;
       UIRuntimeData.OnSetData += (IRuntimeJewel jwl) => { Debug.Log("Jwl OnSetData:" + jwl.Data.JewelID); };
     }
@@ -99,11 +101,12 @@ namespace Battle.UI.Jewel.Component
     IMouseInput IUiJewelComponents.Input => MyInput;
     public string Name => gameObject.name;
     [SerializeField] public Battle.UI.Jewel.UiJewelParameters.UiJewelParameters jewelConfigParameters;
+    private IUIJewelParticleEffect UIJewelParticleEffects { get; set; }
     private UiJewelBoardFsm Fsm { get; set; }
     private Transform MyTransform { get; set; }
     private Collider MyCollider { get; set; }
     private SpriteRenderer[] MyRenderers { get; set; }
-    public SpriteRenderer MyRenderer { get; set; }
+    private SpriteRenderer MyRenderer { get; set; }
     private MeshRenderer[] MyMRenderers { get; set; }
     private MeshRenderer MyMRenderer { get; set; }
     private Rigidbody MyRigidbody { get; set; }
@@ -120,6 +123,7 @@ namespace Battle.UI.Jewel.Component
     public bool IsDisabled => false;
     public bool IsInitialized { get; private set; }
     //public IJewelData RuntimeData { get; set; }
+    public GameObject ParticleEffects { get; set; }
     public IUiJewelData UIRuntimeData { get; set; }
     public IUIJewelSprite UIJewelSprite { get; set; }
     public IUiJewelTransform UIJewelTransform { get; set; }
@@ -134,6 +138,7 @@ namespace Battle.UI.Jewel.Component
     //public Action<IRuntimeJewel> SetData { get; set; }
     public Action<IRuntimeJewel> OnRemove { get; set; }
     public Action<IRuntimeJewel> OnPostSelect { get; set; }
+    public Action<IRuntimeJewel> OnPreRemove { get; set; }
 
     private IUiJewelClickListener MyClickListener { get; set; }
     public IUiJewelClickListener ClickListener => MyClickListener;
@@ -206,9 +211,14 @@ namespace Battle.UI.Jewel.Component
       OnPostSelect.Invoke(jewel);
     }
 
+    public void OnPreRemoveJewel(IRuntimeJewel jewel)
+    {
+      OnPreRemove?.Invoke(jewel);
+    }
+    
     public void OnRemoveJewel(IRuntimeJewel jewel)
     {
-      OnRemove.Invoke(jewel);
+      OnRemove?.Invoke(jewel);
     }
 
     public void OnJewelPosition(IRuntimeJewel jewel, Vector3 from, Vector3 to)

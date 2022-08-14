@@ -76,7 +76,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
 
     private void OnRemove(IRuntimeJewel jewel)
     {
-      GameEvents.Instance.Notify<IRemoveJewel>(i => i.OnRemoveJewel(jewel));
+      GameEvents.Instance.Notify<IPreRemoveJewel>(i => i.OnPreRemoveJewel(jewel));
     }
 
     private void OnBonus(List<JewelID> jewels)

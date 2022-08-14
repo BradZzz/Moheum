@@ -508,6 +508,8 @@
      <Compile Include="Assets/Scripts_New/Battle/UI/GameOverlay/IUIBaseOverlay.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Tools/GenericCollection/Collection.cs" />
      <Compile Include="Assets/Scripts_New/Battle/Model/Board/IRuntimeBoard.cs" />
+     <Compile Include="Assets/Scripts_New/Battle/UI/Jewel/UIJewelComponents/ParticleEffects/UIJewelParticleEffect.cs" />
+     <Compile Include="Assets/Scripts_New/Battle/UI/Jewel/UIJewelComponents/ParticleEffects/IUIJewelParticleEffect.cs" />
      <None Include="Assets/TextMesh Pro/Resources/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/Simple Scene Fade Load System/ReadMeFirst.txt" />

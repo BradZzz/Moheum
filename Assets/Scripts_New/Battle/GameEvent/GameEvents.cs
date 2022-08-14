@@ -95,6 +95,11 @@ namespace Battle.GameEvent
     void OnPostSelect(IRuntimeJewel jewel);
   }
 
+  public interface IPreRemoveJewel : ISubject
+  {
+    void OnPreRemoveJewel(IRuntimeJewel jewel);
+  }
+  
   public interface IRemoveJewel : ISubject
   {
     void OnRemoveJewel(IRuntimeJewel jewel);

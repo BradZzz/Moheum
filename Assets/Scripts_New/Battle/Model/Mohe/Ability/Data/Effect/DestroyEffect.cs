@@ -52,7 +52,7 @@ namespace Battle.Model.MoheModel
       foreach(IRuntimeJewel jwl in matching)
       {
         //GameData.Instance.RuntimeGame.GameBoard.GetBoardData().SetJewel(null, jwl.Pos);
-        GameEvents.Instance.Notify<IRemoveJewel>(i => i.OnRemoveJewel(jwl));
+        GameEvents.Instance.Notify<IPreRemoveJewel>(i => i.OnPreRemoveJewel(jwl));
       }
 
       // Notify Evaluate

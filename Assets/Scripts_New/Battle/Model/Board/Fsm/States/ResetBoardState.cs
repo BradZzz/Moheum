@@ -47,7 +47,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
       // The jewel has to be removed from the data here so that the cascade works properly
       //board.GetBoardData().SetJewel(null, jewel.Pos);
       // Notify UI that the jewel needs to be removed
-      GameEvents.Instance.Notify<IRemoveJewel>(i => i.OnRemoveJewel(jewel));
+      GameEvents.Instance.Notify<IPreRemoveJewel>(i => i.OnPreRemoveJewel(jewel));
     }
 
     private void Notify()

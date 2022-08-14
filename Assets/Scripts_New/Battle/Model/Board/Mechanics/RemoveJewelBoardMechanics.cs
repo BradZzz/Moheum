@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Battle.UI.RuntimeBoard.Mechanics
 {
-  public class RemoveJewelBoardMechanics : BaseBoardMechanics, IListener, IRemoveJewel
+  public class RemoveJewelBoardMechanics : BaseBoardMechanics, IListener, IPreRemoveJewel
   {
     public RemoveJewelBoardMechanics(IRuntimeBoard Board) : base(Board)
     {
@@ -18,7 +18,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
 
     IRuntimeBoard board;
 
-    public void OnRemoveJewel(IRuntimeJewel jewel)
+    public void OnPreRemoveJewel(IRuntimeJewel jewel)
     {
       board.GetBoardData().SetJewel(null, jewel.Pos);
     }

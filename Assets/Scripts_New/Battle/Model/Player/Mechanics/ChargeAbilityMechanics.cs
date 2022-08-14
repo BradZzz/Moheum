@@ -9,7 +9,7 @@ namespace Battle.Model.Player.Mechanics
   /// <summary>
   ///     Start turn player mechanics.
   /// </summary>
-  public class ChargeAbilityMechanics : BasePlayerMechanics, IListener, IRemoveJewel
+  public class ChargeAbilityMechanics : BasePlayerMechanics, IListener, IPreRemoveJewel
   {
     public ChargeAbilityMechanics(IPlayer Player) : base(Player)
     {
@@ -19,7 +19,7 @@ namespace Battle.Model.Player.Mechanics
 
     private IPlayer player;
 
-    public void OnRemoveJewel(IRuntimeJewel jewel)
+    public void OnPreRemoveJewel(IRuntimeJewel jewel)
     {
       if (GameData.Instance.RuntimeGame.IsTurnInProgress && GameController.Instance.GetPlayerController(player.Seat).IsMyTurn)
       {
