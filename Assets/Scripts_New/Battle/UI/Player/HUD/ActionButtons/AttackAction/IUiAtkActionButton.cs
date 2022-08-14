@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Battle.UI.Player
 {
-  public interface IUiAtkActionButton : ISelectAtkActionButton, IResetAtkActionButtons
+  public interface IUiAtkActionButton : ISelectAtkActionButton, IResetAtkActionButtons, IUseAtkActionButton
   {
   }
 }

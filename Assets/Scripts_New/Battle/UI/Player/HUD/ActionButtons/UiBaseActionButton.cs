@@ -18,6 +18,8 @@ public abstract class UiBaseActionButton : UiListener, IUiActionButton
   public MonoBehaviour MBehaviour => monoBehaviour;
 
   public Action<bool> OnToggle { get; set; }
+  public Action AfterUseActionEffect { get; set; }
+  public Action OnUse { get; set; }
 
   public abstract bool Populate(PlayerSeat seat, int pos);
 }

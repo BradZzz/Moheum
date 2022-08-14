@@ -30,6 +30,11 @@ namespace Battle.UI.RuntimeBoard.Mechanics
           Notify();
         }
       }
+
+      if (board.OnInvokeActionUIEffect != null)
+      {
+        board.OnInvokeActionUIEffect.Invoke();
+      }
     }
 
     void Notify()

@@ -245,6 +245,11 @@ namespace Battle.GameEvent
     void OnSelectAtkActionButton(PlayerSeat seat, AbilityID id);
   }
 
+  public interface IUseAtkActionButton : ISubject
+  {
+    void OnUseAtkActionButton(PlayerSeat seat, AbilityID id);
+  }
+  
   public interface IResetAtkActionButtons : ISubject
   {
     void OnResetAtkActionButton();

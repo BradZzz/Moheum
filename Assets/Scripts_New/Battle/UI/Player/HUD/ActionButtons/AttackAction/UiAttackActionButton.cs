@@ -30,8 +30,9 @@ namespace Battle.UI.Player
 
     public override bool Populate(PlayerSeat Seat, int pos)
     {
-      Outline outty = GetComponent<Outline>();
-      actionOutline = new UiActionActive(this, outty);
+      Outline outline = GetComponent<Outline>();
+      ParticleSystem particleSystem = MBehaviour.GetComponentInChildren<ParticleSystem>();
+      actionOutline = new UiActionActive(this, outline, particleSystem);
 
       seat = Seat;
 
@@ -94,6 +95,14 @@ namespace Battle.UI.Player
     public void OnResetAtkActionButton()
     {
       OnToggle.Invoke(false);
+    }
+
+    public void OnUseAtkActionButton(PlayerSeat Seat, AbilityID Id)
+    {
+      if (Seat == seat && ability != null && Id == ability.Ability.AbilityID)
+      {
+        AfterUseActionEffect.Invoke();
+      }
     }
   }
 }

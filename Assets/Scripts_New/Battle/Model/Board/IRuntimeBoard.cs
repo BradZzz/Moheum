@@ -11,12 +11,17 @@ using UnityEngine;
 
 namespace Battle.Model.RuntimeBoard
 {
+  public delegate void OnInvokeActionUIEffect();
+  
   public interface IRuntimeBoard
   {
     BoardData GetBoardData();
     List<BaseBoardMechanics> GetMechanics();
 
+    Action OnInvokeActionUIEffect { get; set; }
     Func<IRuntimeJewel,bool> OnInvokeActionEffect { get; set; }
+    
+    
     Action OnCleanAbility { get; set; }
   }
 }

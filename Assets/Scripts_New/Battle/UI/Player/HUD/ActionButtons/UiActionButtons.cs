@@ -36,7 +36,7 @@ namespace Battle.UI.Player
 
     public void OnPlayerUpdateRuntime()
     {
-      NavigateActions(navButtons.Current);
+      //NavigateActions(navButtons.Current);
     }
 
     public void NavigateActions(NavID nav)

@@ -32,7 +32,7 @@ namespace Battle.Model.MoheModel
       public JewelID jewel;
 
       [Tooltip("Amount to charge")]
-      [Range(1, 20)]
+      [Range(0, 20)]
       public int amount;
     }
   }

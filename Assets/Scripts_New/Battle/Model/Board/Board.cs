@@ -75,5 +75,7 @@ namespace Battle.Model.RuntimeBoard
     {
       return Mechanics;
     }
+
+    public Action OnInvokeActionUIEffect { get; set; }
   }
 }

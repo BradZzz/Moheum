@@ -240,6 +240,7 @@
      <Compile Include="Assets/Scripts_New/Battle/Model/Mohe/Ability/RuntimeAbilityComponent.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/Player/HUD/ActionButtons/IUiActionButton.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Tools/Commom/LocalData/FullSerializer/Converters/Unity/UnityEvent_Converter.cs" />
+     <Compile Include="Assets/Scripts_New/Battle/Model/AI/AIModule.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/Jewel/Listeners/UiJewelClickListener.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/GameOverlay/UIOverrlayController.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Tools/Commom/LocalData/FullSerializer/Converters/fsDateConverter.cs" />
@@ -507,7 +508,6 @@
      <Compile Include="Assets/Scripts_New/Battle/UI/GameOverlay/IUIBaseOverlay.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Tools/GenericCollection/Collection.cs" />
      <Compile Include="Assets/Scripts_New/Battle/Model/Board/IRuntimeBoard.cs" />
-     <Compile Include="Assets/Scripts_New/Battle/Model/AI/AIModule.cs" />
      <None Include="Assets/TextMesh Pro/Resources/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/Simple Scene Fade Load System/ReadMeFirst.txt" />

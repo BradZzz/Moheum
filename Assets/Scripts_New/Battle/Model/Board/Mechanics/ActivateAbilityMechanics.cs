@@ -21,16 +21,18 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     }
 
     IRuntimeBoard board;
-
+    
     public void OnBoardActionCheck(PlayerSeat seat, IRuntimeAbility ability)
     {
       board.OnInvokeActionEffect = null;
+      board.OnInvokeActionUIEffect = null;
       board.OnCleanAbility = null;
       if (ability != null && ability.Ability.AfterEffect != null)
       {
         board.OnInvokeActionEffect += ability.Ability.AfterEffect.Execute;
+        board.OnInvokeActionUIEffect += () => { GameEvents.Instance.Notify<IUseAtkActionButton>(i => i.OnUseAtkActionButton(seat,ability.Ability.AbilityID)); };
         board.OnCleanAbility += ability.ResetAbility;
-        NotifyAction();
+        NotifyBoard();
       }
       else
       {
@@ -38,7 +40,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       }
     }
 
-    void NotifyAction()
+    void NotifyBoard()
     {
       Debug.Log("IPreActionBoard");
       GameEvents.Instance.Notify<IPreActionBoard>(i => i.OnPreActionCheck());
