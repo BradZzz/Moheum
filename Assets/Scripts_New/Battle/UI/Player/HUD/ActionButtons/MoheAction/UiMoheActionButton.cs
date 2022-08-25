@@ -28,7 +28,7 @@ namespace Battle.UI.Player
     public override bool Populate(PlayerSeat Seat, int pos)
     {
       Outline outline = GetComponent<Outline>();
-      ParticleSystem particleSystem = GetComponent<ParticleSystem>();
+      ParticleSystem particleSystem = MBehaviour.GetComponentInChildren<ParticleSystem>();
       actionOutline = new UiActionActive(this, outline, particleSystem);
 
       seat = Seat;

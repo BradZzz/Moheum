@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Patterns;
 using UnityEngine;
 
@@ -152,6 +153,7 @@ public class PrefabPooler<T> : SingletonMB<T>
     /// <param name="pooledObj"></param>
     public virtual void ReleasePooledObject(GameObject pooledObj)
     {
+        Debug.Log("ReleasePooledObject");
         if (poolAbleObjects == null)
             Debug.LogError("Nop! PoolAble objects list is not created yet!");
 
@@ -160,16 +162,35 @@ public class PrefabPooler<T> : SingletonMB<T>
 
         pooledObj.SetActive(false);
 
+        bool foundID = false;
         foreach (var model in busyObjects.Keys)
+        {
             if (busyObjects[model].Contains(pooledObj))
             {
                 busyObjects[model].Remove(pooledObj);
                 poolAbleObjects[model].Add(pooledObj);
+                foundID = true;
+                break;
             }
+        }
+        if (!foundID)
+        {
+            Debug.Log("Error. Gameobject not found in pooler");
+        }
 
         pooledObj.transform.parent = transform;
-//        pooledObj.transform.localPosition = Vector3.zero;
+        pooledObj.transform.localPosition = Vector3.zero;
         OnRelease(pooledObj);
+    }
+
+    public virtual bool CheckPooledObject(GameObject pooledObj)
+    {
+        if (poolAbleObjects == null)
+            return false;
+        if (busyObjects == null)
+            return false;
+        
+        return busyObjects.Keys.Any(model => busyObjects[model].Contains(pooledObj));
     }
 
     #endregion

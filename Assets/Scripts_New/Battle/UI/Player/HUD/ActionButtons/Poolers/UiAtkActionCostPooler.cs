@@ -12,7 +12,11 @@ namespace Battle.UI.Player
     {
       var obj = Get<IUiAttackCost>();
       if (!obj.Populate(seat, ability, componentIdx))
+      {
+        //whoops...
+        Instance.ReleasePooledObject(obj.MBehaviour.gameObject);
         return null;
+      }
       return obj;
     }
 

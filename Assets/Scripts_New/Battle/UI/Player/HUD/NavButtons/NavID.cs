@@ -9,6 +9,7 @@ namespace Battle.UI.Player
     Attack,
     Mohe,
     Item,
-    Run
+    Run,
+    None
   }
 }

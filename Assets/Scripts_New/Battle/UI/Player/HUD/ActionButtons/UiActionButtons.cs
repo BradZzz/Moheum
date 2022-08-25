@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Battle.GameEvent;
@@ -14,7 +15,13 @@ namespace Battle.UI.Player
       actionButtons = new List<IUiActionButton>();
       playerHUD = GetComponentInParent<IUiPlayerHUD>();
 
+      foreach (Transform t in transform)
+      {
+        Destroy(t.gameObject);
+      }
+
       navButtons = transform.parent.GetComponentInChildren<IUiNavButtons>();
+      currentNav = NavID.None;
       navButtons.OnNavigate += NavigateActions;
     }
 
@@ -29,6 +36,7 @@ namespace Battle.UI.Player
     private IUiNavButtons navButtons;
     private IUiPlayerHUD playerHUD;
     private List<IUiActionButton> actionButtons;
+    private NavID currentNav;
 
     public IUiNavButtons NavButtons => navButtons;
     public IUiPlayerHUD PlayerHUD => playerHUD;
@@ -36,17 +44,44 @@ namespace Battle.UI.Player
 
     public void OnPlayerUpdateRuntime()
     {
-      //NavigateActions(navButtons.Current);
+      NavigateActions(navButtons.Current);
     }
 
     public void NavigateActions(NavID nav)
     {
-      PlayerSeat seat = playerHUD.Seat;
+      if (nav == currentNav)
+        return;
 
-      // Clear the currrent buttons
-      foreach (Transform t in transform)
+      currentNav = nav;
+      PlayerSeat seat = playerHUD.Seat;
+      // Return the current buttons to the pool
+      int transformChildren = transform.childCount;
+      for(int i = 0; i < transformChildren; i++)
       {
-        Destroy(t.gameObject);
+        Transform t = transform.GetChild(0);
+        
+        /*UiAtkActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        UiItemActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        UiMoheActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        UiFleeActionPooler.Instance.ReleasePooledObject(t.gameObject);*/
+        
+        if (UiAtkActionPooler.Instance.CheckPooledObject(t.gameObject))
+        {
+          UiAtkActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        } else if (UiItemActionPooler.Instance.CheckPooledObject(t.gameObject))
+        {
+          UiItemActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        } else if (UiMoheActionPooler.Instance.CheckPooledObject(t.gameObject))
+        {
+          UiMoheActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        } else if (UiFleeActionPooler.Instance.CheckPooledObject(t.gameObject))
+        {
+          UiFleeActionPooler.Instance.ReleasePooledObject(t.gameObject);
+        }
+        else
+        {
+          Destroy(t.gameObject);
+        }
       }
 
       for (int i = 0; i < 4; i++)
@@ -67,7 +102,7 @@ namespace Battle.UI.Player
             action = UiFleeActionPooler.Instance.Get(seat, i);
             break;
           default:
-            action = UiAtkActionPooler.Instance.Get(seat, i);
+            action = null;
             break;
         }
         if (action == null) {

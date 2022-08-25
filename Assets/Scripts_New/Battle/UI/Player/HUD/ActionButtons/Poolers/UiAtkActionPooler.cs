@@ -11,7 +11,11 @@ namespace Battle.UI.Player
     {
       var obj = Get<IUiActionButton>();
       if (!obj.Populate(seat, idx))
+      {
+        //whoops...
+        Instance.ReleasePooledObject(obj.MBehaviour.gameObject);
         return null;
+      }
       return obj;
     }
 
