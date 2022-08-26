@@ -59,12 +59,6 @@ namespace Battle.UI.Player
       for(int i = 0; i < transformChildren; i++)
       {
         Transform t = transform.GetChild(0);
-        
-        /*UiAtkActionPooler.Instance.ReleasePooledObject(t.gameObject);
-        UiItemActionPooler.Instance.ReleasePooledObject(t.gameObject);
-        UiMoheActionPooler.Instance.ReleasePooledObject(t.gameObject);
-        UiFleeActionPooler.Instance.ReleasePooledObject(t.gameObject);*/
-        
         if (UiAtkActionPooler.Instance.CheckPooledObject(t.gameObject))
         {
           UiAtkActionPooler.Instance.ReleasePooledObject(t.gameObject);

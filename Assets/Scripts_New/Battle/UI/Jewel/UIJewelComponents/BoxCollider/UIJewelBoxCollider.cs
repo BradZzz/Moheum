@@ -18,10 +18,10 @@ namespace Battle.UI.Jewel.Component
 
     public void Execute(IRuntimeJewel data)
     {
-      if (data.Data.JewelID == JewelID.wrath)
+      /*if (data.Data.JewelID == JewelID.wrath)
       {
         collider.size = new Vector3(2.5f, 2.5f, 0);
-      }
+      }*/
     }
   }
 }

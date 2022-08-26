@@ -26,7 +26,8 @@ namespace Battle.UI.Jewel.Component
     {
       if (jewelData == jewel)
       {
-        Object.Destroy(parent.gameObject);
+        UiJewelPool.Instance.ReleasePooledObject(parent.gameObject);
+        //Object.Destroy(parent.gameObject);
       }
     }
   }
