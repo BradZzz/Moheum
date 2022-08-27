@@ -178,7 +178,7 @@ public class PrefabPooler<T> : SingletonMB<T>
             Debug.Log("Error. Gameobject not found in pooler");
         }
 
-        pooledObj.transform.parent = transform;
+        pooledObj.transform.SetParent(transform);
         pooledObj.transform.localPosition = Vector3.zero;
         OnRelease(pooledObj);
     }

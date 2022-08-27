@@ -56,9 +56,18 @@ namespace Battle.UI.Player
 
       Transform costParent = transform.Find("Cost");
 
-      foreach (Transform t in costParent)
+      int transformChildren = costParent.childCount;
+      for(int i = 0; i < transformChildren; i++) 
       {
-        Destroy(t.gameObject);
+        Transform costChild = costParent.GetChild(0);
+        if (UiAtkActionCostPooler.Instance.CheckPooledObject(costChild.gameObject))
+        {
+          UiAtkActionCostPooler.Instance.ReleasePooledObject(costChild.gameObject);
+        }
+        else
+        {
+          Destroy(costChild.gameObject);
+        }
       }
 
       for (int i = 0; i < ability.AbilityComponents.Count; i++)
