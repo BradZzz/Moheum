@@ -31,6 +31,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
       var swap = new SwapBoardState(this, board);
       var action = new ActionBoardState(this, board);
       var preaction = new PreActionBoardState(this, board);
+      var invalid = new InvalidBoardState(this, board);
       var reset = new ResetBoardState(this, board);
 
       //register all states
@@ -42,6 +43,7 @@ namespace Battle.Model.RuntimeBoard.Fsm
       RegisterState(swap);
       RegisterState(action);
       RegisterState(preaction);
+      RegisterState(invalid);
       RegisterState(reset);
     }
 

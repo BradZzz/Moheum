@@ -276,7 +276,6 @@
      <Compile Include="Assets/Scripts_New/Battle/Model/Jewel/Mechanics/TransformJewelMechanics.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Extensions/Transform/TransformExtensions.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
-     <Compile Include="Assets/Scripts_New/Battle/UI/Player/HUD/ActionButtons/UiFleeActionButton.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Patterns/StateMachineMB/StateMB.cs" />
      <Compile Include="Assets/Scripts/Adventure/SignDialog.cs" />
      <Compile Include="Assets/Scripts_New/Battle/Model/Mohe/Mechanics/LoseStatusMoheMechanic.cs" />
@@ -380,7 +379,7 @@
      <Compile Include="Assets/Match 3 Starter/Scripts/Effects/GUISizePingPong.cs" />
      <Compile Include="Assets/Scripts_New/Utils/Patterns/Command/Command.cs" />
      <Compile Include="Assets/Scripts_New/Battle/Model/Player/Mechanics/GainJewelBonusMechanics.cs" />
-     <Compile Include="Assets/Simple Scene Fade Load System/Demo (You don&apos;t have to import this folder)/DemoScript.cs" />
+     <Compile Include="Assets/Simple Scene Fade Load System/Demo (You don't have to import this folder)/DemoScript.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/Utils/Tools/UiTransform/IUiMotion.cs" />
      <Compile Include="Assets/Scripts_New/Battle/Model/Board/Controller/IBoardController.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/Player/HUD/ActionButtons/UiBaseActionButton.cs" />
@@ -510,6 +509,12 @@
      <Compile Include="Assets/Scripts_New/Battle/Model/Board/IRuntimeBoard.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/Jewel/UIJewelComponents/ParticleEffects/UIJewelParticleEffect.cs" />
      <Compile Include="Assets/Scripts_New/Battle/UI/Jewel/UIJewelComponents/ParticleEffects/IUIJewelParticleEffect.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\Controller\TurnControllers\States\ContinueBattleState.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\Controller\TurnControllers\States\FleeingBattleState.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\Model\Board\Fsm\States\InvalidBoardState.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\FleeBattleMechanics.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\FleeAction\IUiFleeActionButton.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\FleeAction\UiFleeActionButton.cs" />
      <None Include="Assets/TextMesh Pro/Resources/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/Simple Scene Fade Load System/ReadMeFirst.txt" />

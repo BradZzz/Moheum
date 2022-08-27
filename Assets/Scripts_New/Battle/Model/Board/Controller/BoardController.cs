@@ -59,10 +59,11 @@ namespace Battle.Model.RuntimeBoard.Controller
     }
 
     public IState CurrentState => BoardBasedLogic.PeekState();
+    public bool BoardInvalidated => BoardBasedLogic.IsCurrent<InvalidBoardState>();
 
     public bool CanManipulate()
     {
-      return BoardBasedLogic.IsCurrent<CleanBoardState>();
+      return !BoardInvalidated && BoardBasedLogic.IsCurrent<CleanBoardState>();
     }
 
     public bool CanClickJewel()
@@ -73,6 +74,13 @@ namespace Battle.Model.RuntimeBoard.Controller
     public bool IsWaitingForAction()
     {
       return BoardBasedLogic.IsCurrent<PreActionBoardState>();
+    }
+    
+    public void OnInvalidateBoardState()
+    {
+      Debug.Log("InvalidBoardState");
+      BoardBasedLogic.PopState();
+      BoardBasedLogic.PushState<InvalidBoardState>();
     }
 
     public void OnBoardCascadeCheck()

@@ -270,6 +270,27 @@ namespace Battle.GameEvent
   {
     void OnResetMoheActionButton();
   }
+  
+  // Flee
+  public interface ISelectFleeButton : ISubject
+  {
+    void OnSelectFleeActionButton(PlayerSeat seat);
+  }
+  
+  public interface IFleeSuccessful : ISubject
+  {
+    void OnFleeSuccess(PlayerSeat seat);
+  }
+  
+  public interface IFleeFailure : ISubject
+  {
+    void OnFleeFailure(PlayerSeat seat);
+  }
+  
+  public interface IFleeBattle : ISubject
+  {
+    void OnFleeBattle(PlayerSeat seat);
+  }
 
   #endregion
 }

@@ -52,12 +52,16 @@ namespace Battle.Controller.TurnControllers
             var top = new TopPlayerState(this, GameData, Configurations);
             var start = new StartBattleState(this, GameData, Configurations);
             var end = new EndBattleState(this, GameData, Configurations);
+            var cont = new ContiueBattleState(this, GameData, Configurations);
+            var flee = new FleeingBattleState(this, GameData, Configurations);
 
             //register all states
             RegisterState(bottom);
             RegisterState(top);
             RegisterState(start);
             RegisterState(end);
+            RegisterState(cont);
+            RegisterState(flee);
         }
 
         /// <summary>
@@ -110,6 +114,25 @@ namespace Battle.Controller.TurnControllers
 
             PopState();
             PushState<StartBattleState>();
+        }
+
+        public bool IsFleeingBattle => IsCurrent<FleeingBattleState>();
+        public void FleeBattle()
+        {
+            if (!IsInitialized)
+                return;
+
+            PopState();
+            PushState<FleeingBattleState>();
+        }
+        
+        public void ContinueBattle()
+        {
+            if (!IsInitialized)
+                return;
+
+            PopState();
+            PushState<ContiueBattleState>();
         }
 
         /// <summary>

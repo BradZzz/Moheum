@@ -29,6 +29,8 @@ namespace Battle.Controller
         /// </summary>
         private TurnBasedFsm TurnBasedLogic { get; set; }
 
+        public bool FleeingBattle => TurnBasedLogic.IsFleeingBattle;
+
         /// <summary>
         ///     Handler for the state machine. Used to dispatch coroutines.
         /// </summary>
@@ -98,6 +100,16 @@ namespace Battle.Controller
         {
             TurnBasedLogic = new TurnBasedFsm(this, Data, configurations);
             TurnBasedLogic.StartBattle();
+        }
+
+        public void FleeBattle()
+        {
+            TurnBasedLogic.FleeBattle();
+        }
+        
+        public void ContinueBattle()
+        {
+            TurnBasedLogic.ContinueBattle();
         }
 
         [Button]
