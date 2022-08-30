@@ -8,7 +8,7 @@ namespace Battle.Model.Item
 {
   public class ItemDatabase : Singleton<ItemDatabase>
   {
-    private const string PathDataBase = "Battle/Item";
+    private const string PathDataBase = "Battle/Items";
     private List<ItemData> Items { get; }
 
     public ItemDatabase()

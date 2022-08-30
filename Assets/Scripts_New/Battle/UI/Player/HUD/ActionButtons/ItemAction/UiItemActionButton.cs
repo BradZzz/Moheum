@@ -20,6 +20,11 @@ namespace Battle.UI.Player
     private IPlayer uiPlayer;
     private IRuntimeItemData item;
 
+    private Image image;
+    private TextMeshProUGUI name;
+    private TextMeshProUGUI description;
+    private TextMeshProUGUI quantity;
+
     public override bool Populate(PlayerSeat Seat, int pos)
     {
       uiPlayer = GameData.Instance.RuntimeGame.Players.Find(player => player.Seat == Seat);
@@ -32,6 +37,16 @@ namespace Battle.UI.Player
       ParticleSystem particleSystem = MBehaviour.GetComponentInChildren<ParticleSystem>();
       actionOutline = new UiActionActive(this, outline, particleSystem);
       item = uiPlayer.Inventory.InventoryList[pos];
+      
+      image = transform.Find("ItemPortrait").GetComponent<Image>();
+      name = transform.Find("HeaderTxt").GetComponent<TextMeshProUGUI>();
+      description = transform.Find("DescTxt").GetComponent<TextMeshProUGUI>();
+      quantity = transform.Find("QuantityTxt").GetComponent<TextMeshProUGUI>();
+
+      image.sprite = item.Item.Data.Artwork;
+      name.text = item.Item.Data.Name;
+      description.text = item.Item.Data.Description;
+      quantity.text = $"x{item.Quantity.ToString()}";
       return true;
     }
 

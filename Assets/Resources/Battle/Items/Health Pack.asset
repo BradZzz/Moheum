@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 1
   itemName: Health Pack
-  description: A small health pack. Heals 10 HP
+  description: Heals 10 HP
   artwork: {fileID: 21300202, guid: c95e5c67f28c748548b531197acf10da, type: 3}
   abilities:
   - ability: {fileID: 11400000, guid: 311e712bad5c845ad9f70555ed702dd1, type: 2}
