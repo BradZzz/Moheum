@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8386e4efd65642a4b51c53ab3aef97c, type: 3}
   m_Name: Spark
   m_EditorClassIdentifier: 
-  abilityID: 2
+  abilityID: 3
   abilityName: Spark
   description: 'Destroy(3-5) Red '
   triggerJewel: 7

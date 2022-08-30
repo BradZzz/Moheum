@@ -47,8 +47,24 @@ namespace Battle.Model.Player.Mechanics
     public void OnFleeFailure(PlayerSeat seat)
     {
       Debug.Log("Flee Failure");
-      // O no! the player didn't escape. swap players and let the enemy attack again
+      // O no! the player didn't escape. swap players and let the other player attack again
       player.SwapTurn();
+      // notify ui
+      Notify();
+      SetBoardState();
+    }
+    
+    private void Notify()
+    {
+      // Update player ui
+      GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
+      // Unselect all action buttons
+      GameEvents.Instance.Notify<IResetFleeActionButtons>(i => i.OnResetFleeActionButton());
+    }
+
+    private void SetBoardState()
+    {
+      GameEvents.Instance.Notify<ICleanBoard>(i => i.OnBoardCleanCheck());
     }
 
     public void OnFleeBattle(PlayerSeat seat)

@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiFleeActionButton : UiBaseActionButton, IUiFleeActionButton, IFleeSuccessful, IFleeFailure
+  public class UiFleeActionButton : UiBaseActionButton, IUiFleeActionButton, IFleeSuccessful, IFleeFailure, IResetFleeActionButtons
   {
     private IUiActionActive actionOutline;
     private PlayerSeat Seat;
@@ -32,11 +32,20 @@ namespace Battle.UI.Player
 
     public void OnClick()
     {
-      // Todo: Event Listener, trying to escape and action
-      Debug.Log("Trying to flee!");
-      if (actionOutline.Active)
-        GameEvents.Instance.Notify<ISelectFleeButton>(i => i.OnSelectFleeActionButton(Seat));
-      OnToggle.Invoke(!actionOutline.Active);
+      if (!GameController.Instance.FleeingBattle && Seat == GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.Seat)
+      {
+        // Todo: Event Listener, trying to escape and action
+        Debug.Log("Trying to flee!");
+        if (actionOutline.Active)
+        {
+          GameEvents.Instance.Notify<ISelectFleeButton>(i => i.OnSelectFleeActionButton(Seat));
+          OnToggle.Invoke(false);
+        }
+        else
+        {
+          OnToggle.Invoke(true);
+        }
+      }
     }
     
     IEnumerator FleeWait()
@@ -53,6 +62,11 @@ namespace Battle.UI.Player
     }
 
     public void OnFleeFailure(PlayerSeat seat)
+    {
+      OnToggle.Invoke(false);
+    }
+
+    public void OnResetFleeActionButton()
     {
       OnToggle.Invoke(false);
     }

@@ -31,6 +31,7 @@ namespace Battle.UI.Player
 
     public void SetActive(bool active)
     {
+      Debug.Log($"Gamepbject: {parent.gameObject.name}, SetActive: {active.ToString()}");
       outline.enabled = active;
     }
 

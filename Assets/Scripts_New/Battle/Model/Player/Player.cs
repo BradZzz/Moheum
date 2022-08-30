@@ -14,11 +14,12 @@ namespace Battle.Model.Player
     /// </summary>
     public class Player : IPlayer
     {
-        public Player(PlayerSeat seat, IRoster Roster, Battle.Configurations.Configurations configurations = null)
+        public Player(PlayerSeat seat, IRoster Roster, IInventory Inventory, Battle.Configurations.Configurations configurations = null)
         {
             Configurations = configurations;
             Seat = seat;
             roster = Roster;
+            inventory = Inventory;
 
             StartTurnMechanics = new StartTurnMechanics(this);
             FinishTurnMechanics = new FinishTurnMechanics(this);
@@ -53,8 +54,10 @@ namespace Battle.Model.Player
         public bool HasSwapped { get; set; }
 
         public IRoster Roster => roster;
-
         private IRoster roster;
+
+        public IInventory Inventory => inventory;
+        private IInventory inventory;
 
         public void StartTurn()
         {

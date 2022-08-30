@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8386e4efd65642a4b51c53ab3aef97c, type: 3}
   m_Name: Gust
   m_EditorClassIdentifier: 
-  abilityID: 1
+  abilityID: 2
   abilityName: Gust
   description: Transform(3-5)R-Y
   triggerJewel: 5

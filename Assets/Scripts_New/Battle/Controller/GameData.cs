@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Battle.Model.Game;
+using Battle.Model.Item;
 using Battle.Model.MoheModel;
 using Battle.Model.Player;
 using Battle.Model.RuntimeBoard;
@@ -103,6 +104,22 @@ namespace Battle.Controller
             };
             return new Roster(moheList);
         }
+        
+        public IRuntimeItemData CreateTestItems(ItemID itemID, int quantity, PlayerSeat seat)
+        {
+            ItemData iData = ItemDatabase.Instance.Get(itemID);
+            IItem item = new Item(iData);
+            RuntimeItemData runtimeItemData = new RuntimeItemData(item, quantity, seat);
+            return runtimeItemData;
+        }
+
+        public IInventory CreateTestInventory(PlayerSeat seat)
+        {
+            List<IRuntimeItemData> inventoryList = new List<IRuntimeItemData>() {
+                CreateTestItems(ItemID.HealthPack, 3, seat)
+            };
+            return new Inventory(inventoryList);
+        }
 
         /// <summary>
         ///     Create a new game data overriding the previous one. Produces Garbage.
@@ -110,10 +127,10 @@ namespace Battle.Controller
         public void CreateGame()
         {
             //create and connect players to their seats
-            var player1 = new Player(configurations.PlayerTurn.UserSeat, CreateTestRoster(configurations.PlayerTurn.UserSeat), configurations: configurations);
+            var player1 = new Player(configurations.PlayerTurn.UserSeat, CreateTestRoster(configurations.PlayerTurn.UserSeat), CreateTestInventory(configurations.PlayerTurn.UserSeat), configurations: configurations);
 
             //if the second player doesn't have a deck, send null
-            var player2 = new Player(PlayerSeat.Right, CreateTestRoster(PlayerSeat.Right), configurations: configurations);
+            var player2 = new Player(PlayerSeat.Right, CreateTestRoster(PlayerSeat.Right), CreateTestInventory(configurations.PlayerTurn.UserSeat), configurations: configurations);
 
             var board = new Board(configurations);
 

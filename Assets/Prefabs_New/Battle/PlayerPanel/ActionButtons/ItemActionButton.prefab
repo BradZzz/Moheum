@@ -449,9 +449,9 @@ GameObject:
   - component: {fileID: 8340260374779436189}
   - component: {fileID: 2886488375972431081}
   - component: {fileID: 3517041018677158240}
-  - component: {fileID: 1586043380367795469}
   - component: {fileID: 4815786900975520922}
   - component: {fileID: -491827972241198063}
+  - component: {fileID: 712981923112941724}
   m_Layer: 5
   m_Name: ItemActionButton
   m_TagString: Untagged
@@ -523,18 +523,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1586043380367795469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4342234232047507305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d6a54cebcab4bca853d4f23582b793, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4815786900975520922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +581,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3517041018677158240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 712981923112941724}
+        m_TargetAssemblyTypeName: Battle.UI.Player.UiItemActionButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &712981923112941724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342234232047507305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b7da66f813499a87bbca1836529be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4836911864184157814
 GameObject:
   m_ObjectHideFlags: 0

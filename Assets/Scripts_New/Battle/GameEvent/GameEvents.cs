@@ -291,6 +291,11 @@ namespace Battle.GameEvent
   {
     void OnFleeBattle(PlayerSeat seat);
   }
+  
+  public interface IResetFleeActionButtons : ISubject
+  {
+    void OnResetFleeActionButton();
+  }
 
   #endregion
 }

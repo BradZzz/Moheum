@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909616adc14a4c50ba0ffb5006c9a4ae, type: 3}
+  m_Name: Health Pack
+  m_EditorClassIdentifier: 
+  itemID: 1
+  itemName: Health Pack
+  description: A small health pack. Heals 10 HP
+  artwork: {fileID: 21300202, guid: c95e5c67f28c748548b531197acf10da, type: 3}
+  abilities:
+  - ability: {fileID: 11400000, guid: 311e712bad5c845ad9f70555ed702dd1, type: 2}

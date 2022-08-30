@@ -12,6 +12,7 @@ namespace Battle.Model.Player
         PlayerSeat Seat { get; }
         //Player spells and 
         IRoster Roster { get; }
+        IInventory Inventory { get; }
         void StartTurn();
         void SwapTurn();
         void FinishTurn();

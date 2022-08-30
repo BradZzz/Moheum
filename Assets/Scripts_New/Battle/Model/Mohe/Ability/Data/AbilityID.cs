@@ -6,9 +6,11 @@ namespace Battle.Model.MoheModel
 {
   public enum AbilityID
   {
+    None,
     Bubble,
     Gust,
     Spark,
-    Wish
+    Wish,
+    MinorHeal
   }
 }
