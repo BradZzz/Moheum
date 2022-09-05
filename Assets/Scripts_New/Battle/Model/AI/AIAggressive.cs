@@ -85,7 +85,13 @@ namespace Battle.Model.AI
       {
         for (int y = 0; y < height; y++)
         {
-          if (jwlMap[x,y].Data.JewelID == ability.Ability.AfterEffect.Jewel || ability.Ability.AfterEffect.Jewel == JewelID.any)
+          List<JewelID> effectJewels = new List<JewelID>();
+          foreach (AbilityData.AbilityCostData abilityCost in ability.Ability.abilityCost)
+          {
+            effectJewels.Add(abilityCost.jewel);
+          }
+            
+          if (effectJewels.Contains(jwlMap[x,y].Data.JewelID) || effectJewels.Contains(JewelID.any))
             abilityJewels.Add(jwlMap[x, y]);
         }
       }

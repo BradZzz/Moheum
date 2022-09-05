@@ -35,18 +35,21 @@ namespace Battle.UI.RuntimeBoard.Mechanics
         bool skipNotifyBoard = true;
         foreach (ItemData.ItemAbilityEffects abilityEffect in item.Item.Data.Abilities)
         {
-          if (abilityEffect.ability != null && abilityEffect.ability.AfterEffect != null)
+          if (abilityEffect.ability != null && abilityEffect.ability.AfterEffects != null)
           {
-            if (abilityEffect.ability.AfterEffect.RequiresPlayerClick)
-              skipNotifyBoard = false;
-            
-            board.OnInvokeActionEffect += abilityEffect.ability.AfterEffect.Execute;
+            foreach (BaseEffect effect in abilityEffect.ability.AfterEffects)
+            {
+              if (effect.RequiresPlayerClick)
+                skipNotifyBoard = false;
+              
+              board.OnInvokeActionEffect += effect.Execute;
+            }
             board.OnInvokeActionUIEffect += () =>{ GameEvents.Instance.Notify<IUseItemActionButton>(i => i.OnUseItemActionButton(item,seat)); };
             board.OnCleanAbility += () => { GameEvents.Instance.Notify<IOnCleanItemAbility>(i => i.OnCleanItemActionButton(item,seat)); };
           }
         }
         // Check to see if there is something that the player needs to click on
-        // If there is, go here
+        // If there is, notify board to wait
         if (skipNotifyBoard)
         {
           ActivateItemWithoutNotifyBoard();
@@ -58,9 +61,7 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       }
       else
       {
-        Debug.Log("Item is not usable");
-        GameEvents.Instance.Notify<IOnCleanItemAbility>(i => i.OnCleanItemActionButton(item,seat));
-        NotifyEvaluate();
+        NotifyEvaluate(item,seat);
       }
     }
 
@@ -76,9 +77,10 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       GameEvents.Instance.Notify<IInvokeActionBoard>(i => i.OnInvokeBoardActionCheck(null));
     }
 
-    void NotifyEvaluate()
+    void NotifyEvaluate(IRuntimeItemData item, PlayerSeat seat)
     {
       Debug.Log("IEvaluateBoard");
+      GameEvents.Instance.Notify<IOnCleanItemAbility>(i => i.OnCleanItemActionButton(item,seat));
       GameEvents.Instance.Notify<IEvaluateBoard>(i => i.OnBoardEvaluateCheck());
     }
   }

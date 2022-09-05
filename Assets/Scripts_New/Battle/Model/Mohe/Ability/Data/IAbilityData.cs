@@ -12,6 +12,6 @@ namespace Battle.Model.MoheModel
     string Description { get; }
 
     JewelID TriggerJewel { get; }
-    BaseEffect AfterEffect { get; }
+    List<BaseEffect> AfterEffects { get; }
   }
 }

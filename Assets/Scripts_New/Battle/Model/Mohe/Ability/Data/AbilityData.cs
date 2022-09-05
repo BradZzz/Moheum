@@ -14,14 +14,16 @@ namespace Battle.Model.MoheModel
     [TextArea] [SerializeField] private string description;
 
     [SerializeField] private JewelID triggerJewel;
-    [SerializeField] private BaseEffect afterEffect;
-
+    //[SerializeField] private BaseEffect afterEffect;
+    [SerializeField] private List<BaseEffect> afterEffect;
+    
     public AbilityID AbilityID => abilityID;
     public string AbilityName => abilityName;
     public string Description => description;
 
     public JewelID TriggerJewel => triggerJewel;
-    public BaseEffect AfterEffect => afterEffect;
+    //public BaseEffect AfterEffect => afterEffect;
+    public List<BaseEffect> AfterEffects => afterEffect;
 
     [SerializeField] public List<AbilityCostData> abilityCost = new List<AbilityCostData>();
 

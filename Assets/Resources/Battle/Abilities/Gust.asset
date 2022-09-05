@@ -16,7 +16,8 @@ MonoBehaviour:
   abilityName: Gust
   description: Transform(3-5)R-Y
   triggerJewel: 5
-  afterEffect: {fileID: 11400000, guid: 839ed74bf9796432cbe1a9940862abe5, type: 2}
+  afterEffect:
+  - {fileID: 11400000, guid: 839ed74bf9796432cbe1a9940862abe5, type: 2}
   abilityCost:
   - jewel: 6
     amount: 1

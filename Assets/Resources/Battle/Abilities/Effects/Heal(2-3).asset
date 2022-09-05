@@ -16,3 +16,4 @@ MonoBehaviour:
   minAmt: 2
   maxAmt: 3
   effectPlayer: 0
+  requiresPlayerClick: 0

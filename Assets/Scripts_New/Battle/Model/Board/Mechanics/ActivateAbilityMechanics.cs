@@ -27,9 +27,12 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       board.OnInvokeActionEffect = null;
       board.OnInvokeActionUIEffect = null;
       board.OnCleanAbility = null;
-      if (ability != null && ability.Ability.AfterEffect != null)
+      if (ability != null && ability.Ability.AfterEffects != null)
       {
-        board.OnInvokeActionEffect += ability.Ability.AfterEffect.Execute;
+        foreach (BaseEffect effect in ability.Ability.AfterEffects)
+        {
+          board.OnInvokeActionEffect += effect.Execute;
+        }
         board.OnInvokeActionUIEffect += () => { GameEvents.Instance.Notify<IUseAtkActionButton>(i => i.OnUseAtkActionButton(seat,ability.Ability.AbilityID)); };
         board.OnCleanAbility += ability.ResetAbility;
         NotifyBoard();

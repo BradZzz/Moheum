@@ -16,7 +16,8 @@ MonoBehaviour:
   abilityName: Bubble
   description: 'Pop(1-2) Blue '
   triggerJewel: 7
-  afterEffect: {fileID: 11400000, guid: 26c3e35edb79b43b7ba5098c4c394792, type: 2}
+  afterEffect:
+  - {fileID: 11400000, guid: 26c3e35edb79b43b7ba5098c4c394792, type: 2}
   abilityCost:
   - jewel: 3
     amount: 1

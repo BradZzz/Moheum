@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sloth
   m_EditorClassIdentifier: 
   jewelID: 6
-  relicName: Vapor
+  jewelName: 
   description: 
   lore: 
-  artwork: {fileID: 21300000, guid: cced376d9736145eca873d67b7f5600d, type: 3}
+  artwork: {fileID: -1808327712, guid: 3d629cd72c3b441b68b1669a5e3e4534, type: 3}

@@ -15,3 +15,5 @@ MonoBehaviour:
   jewel: 5
   minAmt: 3
   maxAmt: 5
+  effectPlayer: 0
+  requiresPlayerClick: 1

@@ -16,7 +16,8 @@ MonoBehaviour:
   abilityName: Spark
   description: 'Destroy(3-5) Red '
   triggerJewel: 7
-  afterEffect: {fileID: 11400000, guid: 945a02038dabd41e38562a7a2d475a7f, type: 2}
+  afterEffect:
+  - {fileID: 11400000, guid: 945a02038dabd41e38562a7a2d475a7f, type: 2}
   abilityCost:
   - jewel: 5
     amount: 2
