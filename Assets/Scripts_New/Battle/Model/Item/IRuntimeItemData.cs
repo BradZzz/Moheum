@@ -11,10 +11,13 @@ namespace Battle.Model.Item
 {
   public interface IRuntimeItemData
   {
+    string InstanceID { get; }
     IItem Item { get; }
     int Quantity { get;  }
     PlayerSeat PlayerSeat { get; }
     
     bool UsableItem();
+    
+    bool UseItem();
   }
 }

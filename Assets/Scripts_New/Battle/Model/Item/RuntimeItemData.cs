@@ -17,10 +17,14 @@ namespace Battle.Model.Item
      */
     public RuntimeItemData(IItem Item, int Quantity, PlayerSeat Seat)
     {
+        instanceID = $"{Item.Data.ItemID.ToString()}:{playerSeat}";
         item = Item;
         quantity = Quantity;
         playerSeat = Seat;
     }
+
+    public string InstanceID => instanceID;
+    private string instanceID;
 
     public IItem Item => item;
     private IItem item;

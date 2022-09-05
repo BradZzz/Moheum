@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 namespace Battle.UI.Player
 {
-  public class UiItemActionButton : UiBaseActionButton, IUiItemActionButton
+  public class UiItemActionButton : UiBaseActionButton, IUiItemActionButton, IUseItemActionButton, IOnCleanItemAbility, IPlayerUpdateRuntime
   {
     private IUiActionActive actionOutline;
     private PlayerSeat Seat;
@@ -43,10 +43,7 @@ namespace Battle.UI.Player
       description = transform.Find("DescTxt").GetComponent<TextMeshProUGUI>();
       quantity = transform.Find("QuantityTxt").GetComponent<TextMeshProUGUI>();
 
-      image.sprite = item.Item.Data.Artwork;
-      name.text = item.Item.Data.Name;
-      description.text = item.Item.Data.Description;
-      quantity.text = $"x{item.Quantity.ToString()}";
+      OnPlayerUpdateRuntime();
       return true;
     }
 
@@ -54,6 +51,35 @@ namespace Battle.UI.Player
     {
       Debug.Log("Item clicked");
       OnToggle.Invoke(!actionOutline.Active);
+      GameEvents.Instance.Notify<ISelectItemButton>(i => i.OnSelectItemActionButton(item, Seat));
+    }
+
+    public void OnUseItemActionButton(IRuntimeItemData Item, PlayerSeat Seat)
+    {
+      Debug.Log("OnUseItemActionButton");
+      if (item.InstanceID == Item.InstanceID && Seat == this.Seat)
+      {
+        item.UseItem();
+        GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
+      }
+    }
+
+    public void OnCleanItemActionButton(IRuntimeItemData Item, PlayerSeat Seat)
+    {
+      Debug.Log("OnCleanItemActionButton");
+      if (item.InstanceID == Item.InstanceID && Seat == this.Seat)
+      {
+        OnToggle.Invoke(false);
+        AfterUseActionEffect();
+      }
+    }
+
+    public void OnPlayerUpdateRuntime()
+    {
+      image.sprite = item.Item.Data.Artwork;
+      name.text = item.Item.Data.Name;
+      description.text = item.Item.Data.Description;
+      quantity.text = $"x{item.Quantity.ToString()}";
     }
   }
 }

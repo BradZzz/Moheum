@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Battle.Model.Item;
 using UnityEngine;
 using Patterns;
 using Battle.Model.Jewel;
@@ -269,6 +270,22 @@ namespace Battle.GameEvent
   public interface IResetMoheActionButtons : ISubject
   {
     void OnResetMoheActionButton();
+  }
+  
+  // Item
+  public interface ISelectItemButton : ISubject
+  {
+    void OnSelectItemActionButton(IRuntimeItemData item, PlayerSeat seat);
+  }
+  
+  public interface IUseItemActionButton : ISubject
+  {
+    void OnUseItemActionButton(IRuntimeItemData item, PlayerSeat seat);
+  }
+  
+  public interface IOnCleanItemAbility : ISubject
+  {
+    void OnCleanItemActionButton(IRuntimeItemData item, PlayerSeat seat);
   }
   
   // Flee

@@ -13,6 +13,7 @@ namespace Battle.Model.MoheModel
   {
     public override bool Execute(IRuntimeJewel TriggerJewel)
     {
+      Debug.Log("HealEffect");
       PlayerSeat pSeat = EffectPlayer == PlayerEffectSeat.Active ? GameData.Instance.RuntimeGame.TurnLogic.CurrentPlayer.Seat : GameData.Instance.RuntimeGame.TurnLogic.NextPlayer.Seat;
       IRuntimeMoheData mohe = GameController.Instance.GetPlayerController(pSeat).Player.Roster.CurrentMohe();
       GameEvents.Instance.Notify<IMoheHeal>(i => i.OnMoheHeal( mohe.InstanceID, (int) Random.Range(MinAmt, MaxAmt)));

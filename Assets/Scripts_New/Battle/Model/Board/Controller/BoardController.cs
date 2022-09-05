@@ -73,7 +73,7 @@ namespace Battle.Model.RuntimeBoard.Controller
 
     public bool IsWaitingForAction()
     {
-      return BoardBasedLogic.IsCurrent<PreActionBoardState>();
+      return BoardBasedLogic != null && BoardBasedLogic.IsCurrent<PreActionBoardState>();
     }
     
     public void OnInvalidateBoardState()
