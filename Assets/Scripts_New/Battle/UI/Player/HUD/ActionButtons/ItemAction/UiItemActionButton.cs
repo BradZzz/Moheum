@@ -50,8 +50,14 @@ namespace Battle.UI.Player
     public void OnClick()
     {
       Debug.Log("Item clicked");
-      OnToggle.Invoke(!actionOutline.Active);
-      GameEvents.Instance.Notify<ISelectItemButton>(i => i.OnSelectItemActionButton(item, Seat));
+      if (actionOutline.Active)
+      {
+        GameEvents.Instance.Notify<ISelectItemButton>(i => i.OnSelectItemActionButton(item, Seat));
+      }
+      else
+      {
+        OnToggle.Invoke(true);
+      }
     }
 
     public void OnUseItemActionButton(IRuntimeItemData Item, PlayerSeat Seat)
@@ -60,6 +66,7 @@ namespace Battle.UI.Player
       if (item.InstanceID == Item.InstanceID && Seat == this.Seat)
       {
         item.UseItem();
+        AfterUseActionEffect();
         GameEvents.Instance.Notify<IPlayerUpdateRuntime>(i => i.OnPlayerUpdateRuntime());
       }
     }
@@ -70,7 +77,6 @@ namespace Battle.UI.Player
       if (item.InstanceID == Item.InstanceID && Seat == this.Seat)
       {
         OnToggle.Invoke(false);
-        AfterUseActionEffect();
       }
     }
 

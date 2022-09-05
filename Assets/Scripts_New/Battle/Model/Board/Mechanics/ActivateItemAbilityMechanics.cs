@@ -32,29 +32,34 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       // check the item as a whole for validation
       if (item.UsableItem())
       {
-        Debug.Log("Item is usable");
+        bool skipNotifyBoard = true;
         foreach (ItemData.ItemAbilityEffects abilityEffect in item.Item.Data.Abilities)
         {
           if (abilityEffect.ability != null && abilityEffect.ability.AfterEffect != null)
           {
+            if (abilityEffect.ability.AfterEffect.RequiresPlayerClick)
+              skipNotifyBoard = false;
+            
             board.OnInvokeActionEffect += abilityEffect.ability.AfterEffect.Execute;
-            board.OnInvokeActionUIEffect += () =>
-            {
-              Debug.Log("board.OnInvokeActionUIEffect");
-              GameEvents.Instance.Notify<IUseItemActionButton>(i => i.OnUseItemActionButton(item,seat));
-            };
-            board.OnCleanAbility += () =>
-            {
-              Debug.Log("board.OnCleanAbility");
-              GameEvents.Instance.Notify<IOnCleanItemAbility>(i => i.OnCleanItemActionButton(item,seat));
-            };
+            board.OnInvokeActionUIEffect += () =>{ GameEvents.Instance.Notify<IUseItemActionButton>(i => i.OnUseItemActionButton(item,seat)); };
+            board.OnCleanAbility += () => { GameEvents.Instance.Notify<IOnCleanItemAbility>(i => i.OnCleanItemActionButton(item,seat)); };
           }
         }
-        NotifyBoard();
+        // Check to see if there is something that the player needs to click on
+        // If there is, go here
+        if (skipNotifyBoard)
+        {
+          ActivateItemWithoutNotifyBoard();
+        }
+        else
+        {
+          NotifyBoard();
+        }
       }
       else
       {
         Debug.Log("Item is not usable");
+        GameEvents.Instance.Notify<IOnCleanItemAbility>(i => i.OnCleanItemActionButton(item,seat));
         NotifyEvaluate();
       }
     }
@@ -63,6 +68,12 @@ namespace Battle.UI.RuntimeBoard.Mechanics
     {
       Debug.Log("IPreActionBoard");
       GameEvents.Instance.Notify<IPreActionBoard>(i => i.OnPreActionCheck());
+    }
+    
+    void ActivateItemWithoutNotifyBoard()
+    {
+      Debug.Log("IPreActionBoard");
+      GameEvents.Instance.Notify<IInvokeActionBoard>(i => i.OnInvokeBoardActionCheck(null));
     }
 
     void NotifyEvaluate()

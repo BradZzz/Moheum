@@ -13,12 +13,14 @@ namespace Battle.Model.MoheModel
     [SerializeField] private int minAmt;
     [SerializeField] private int maxAmt;
     [SerializeField] private PlayerEffectSeat effectPlayer;
-
+    [SerializeField] private bool requiresPlayerClick;
+    
     public JewelID Jewel => jewel;
-
     public int MinAmt => minAmt;
     public int MaxAmt => maxAmt;
     public PlayerEffectSeat EffectPlayer => effectPlayer;
+    public bool RequiresPlayerClick => requiresPlayerClick;
+    
 
     public abstract bool Execute(IRuntimeJewel TriggerJewel);
   }

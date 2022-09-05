@@ -9,10 +9,10 @@ namespace Battle.Model.MoheModel
   public interface IEffect
   {
     JewelID Jewel { get; }
-
     int MinAmt { get; }
     int MaxAmt { get; }
     PlayerEffectSeat EffectPlayer { get; }
+    bool RequiresPlayerClick { get; }
 
     bool Execute(IRuntimeJewel TriggerJewel);
   }
