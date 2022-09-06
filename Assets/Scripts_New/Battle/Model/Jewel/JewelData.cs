@@ -13,8 +13,7 @@ namespace Battle.Model.Jewel
         [TextArea] [SerializeField] private string description;
         [TextArea] [SerializeField] private string lore;
         [SerializeField] private Sprite artwork;
-        //[SerializeField] private RelicRarityType rType;
-        //[FormerlySerializedAs("dataEffects")] [SerializeField] private EffectsSet effects;
+        [SerializeField] private RuntimeAnimatorController animator;
 
         //--------------------------------------------------------------------------------------------------------------
         public JewelID JewelID => jewelID;
@@ -22,6 +21,7 @@ namespace Battle.Model.Jewel
         public string Description => description;
         public string Lore => lore;
         public Sprite Artwork => artwork;
+        public RuntimeAnimatorController Animator => animator;
 
     }
 }

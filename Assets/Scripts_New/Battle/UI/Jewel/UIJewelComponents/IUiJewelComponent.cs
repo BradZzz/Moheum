@@ -27,6 +27,7 @@ namespace Battle.UI.Jewel.Component
     MonoBehaviour MonoBehavior { get; }
     GameObject gameObject { get; }
     Transform transform { get; }
+    Animator Animator { get; }
 
     IUiJewelClickListener ClickListener { get; }
 

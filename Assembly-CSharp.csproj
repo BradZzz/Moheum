@@ -524,6 +524,8 @@
      <Compile Include="Assets\Scripts_New\Battle\Model\Player\Inventory\Inventory.cs" />
      <Compile Include="Assets\Scripts_New\Battle\Model\Player\Mechanics\FleeBattleMechanics.cs" />
      <Compile Include="Assets\Scripts_New\Battle\UI\Board\UIBoardBackground.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Animator\IUiJewelAnimator.cs" />
+     <Compile Include="Assets\Scripts_New\Battle\UI\Jewel\UIJewelComponents\Animator\UIJewelAnimator.cs" />
      <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\FleeAction\IUiFleeActionButton.cs" />
      <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\FleeAction\UiFleeActionButton.cs" />
      <Compile Include="Assets\Scripts_New\Battle\UI\Player\HUD\ActionButtons\ItemAction\IUiItemActionButton.cs" />

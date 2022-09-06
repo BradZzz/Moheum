@@ -41,6 +41,7 @@ namespace Battle.UI.Jewel.Component
       MyClickListener = GetComponent<IUiJewelClickListener>();
       MyBoxCollider = GetComponent<BoxCollider2D>();
       UiJewelClickListener = GetComponent<IUiJewelClickListener>();
+      MyAnimator = GetComponent<Animator>();
 
       //transform
       Motion = new UiMotion(this);
@@ -56,6 +57,7 @@ namespace Battle.UI.Jewel.Component
       UiJewelBoxCollider = new UIJewelBoxCollider(this);
       UiJewelDestroy = new UIJewelDestroy(this);
       UiJewelPosition = new UIJewelPosition(this);
+      UiJewelAnimator = new UIJewelAnimator(this);
 
       UIRuntimeData.OnSetData += UIJewelParticleEffects.ExecuteData;
       OnPreRemove += UIJewelParticleEffects.ExecuteParticleEffects;
@@ -113,6 +115,7 @@ namespace Battle.UI.Jewel.Component
     private BoxCollider2D MyBoxCollider { get; set; }
     private IMouseInput MyInput { get; set; }
     private IUiBoard Board { get; set; }
+    private Animator MyAnimator { get; set; }
     public MonoBehaviour MonoBehavior => this;
     public Camera MainCamera => Camera.main;
     //public bool IsDragging => Fsm.IsCurrent<UiCardDrag>();
@@ -132,6 +135,7 @@ namespace Battle.UI.Jewel.Component
     public IUIJewelDestroy UiJewelDestroy { get; set; }
     public IUIJewelPosition UiJewelPosition { get; set; }
     public IUiJewelClickListener UiJewelClickListener { get; set; }
+    public IUiJewelAnimator UiJewelAnimator { get; set; }
     public IRuntimeJewel Data { get; set; }
     //public IJewelData RuntimeData { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
@@ -139,6 +143,8 @@ namespace Battle.UI.Jewel.Component
     public Action<IRuntimeJewel> OnRemove { get; set; }
     public Action<IRuntimeJewel> OnPostSelect { get; set; }
     public Action<IRuntimeJewel> OnPreRemove { get; set; }
+
+    public Animator Animator => MyAnimator;
 
     private IUiJewelClickListener MyClickListener { get; set; }
     public IUiJewelClickListener ClickListener => MyClickListener;
