@@ -11,7 +11,7 @@ namespace Battle.UI.Jewel.Component
   {
     public UIJewelSprite (IUiJewelComponents Parent)
     {
-      Parent.UIRuntimeData.OnSetData += Execute;
+      Parent.UIRuntimeData.OnAfterSetData += Execute;
       SprRend = Parent.Renderer;
       parent = Parent;
     }

@@ -27,15 +27,29 @@ namespace Battle.UI.RuntimeBoard.Mechanics
       board.OnInvokeActionEffect = null;
       board.OnInvokeActionUIEffect = null;
       board.OnCleanAbility = null;
+      bool skipNotifyBoard = true;
       if (ability != null && ability.Ability.AfterEffects != null)
       {
         foreach (BaseEffect effect in ability.Ability.AfterEffects)
         {
+          if (effect.RequiresPlayerClick)
+            skipNotifyBoard = false;
+          
           board.OnInvokeActionEffect += effect.Execute;
         }
         board.OnInvokeActionUIEffect += () => { GameEvents.Instance.Notify<IUseAtkActionButton>(i => i.OnUseAtkActionButton(seat,ability.Ability.AbilityID)); };
         board.OnCleanAbility += ability.ResetAbility;
-        NotifyBoard();
+        
+        // None of the effects require a gem click, so skip that step
+        if (skipNotifyBoard)
+        {
+          GameEvents.Instance.Notify<IInvokeActionBoard>(i => i.OnInvokeBoardActionCheck(null));
+        }
+        else
+        {
+          // a gem click is needed. notify the board to lock and wait for input
+          NotifyBoard();
+        }
       }
       else
       {

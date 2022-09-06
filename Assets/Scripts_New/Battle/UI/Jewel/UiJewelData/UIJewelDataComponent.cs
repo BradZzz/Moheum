@@ -14,6 +14,7 @@ namespace Battle.UI.Jewel.UiJewelData
     IRuntimeJewel RuntimeData { get; }
     IJewelData StaticData { get; }
     Action<IRuntimeJewel> OnSetData { get; set; }
+    Action<IRuntimeJewel> OnAfterSetData { get; set; }
     void SetData(IRuntimeJewel card);
   }
 
@@ -29,6 +30,7 @@ namespace Battle.UI.Jewel.UiJewelData
     {
       RuntimeData = jewel;
       OnSetData?.Invoke(RuntimeData);
+      OnAfterSetData?.Invoke(RuntimeData);
     }
 
     /// <summary>
@@ -40,6 +42,7 @@ namespace Battle.UI.Jewel.UiJewelData
     ///     Fired when a jewel model is assigned to this uijewel.
     /// </summary>
     public Action<IRuntimeJewel> OnSetData { get; set; }
+    public Action<IRuntimeJewel> OnAfterSetData { get; set; }
 
     /// <summary>
     ///     Jewel correspondent in the game model.

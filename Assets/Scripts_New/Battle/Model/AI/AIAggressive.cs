@@ -90,8 +90,10 @@ namespace Battle.Model.AI
           {
             effectJewels.Add(abilityCost.jewel);
           }
-            
-          if (effectJewels.Contains(jwlMap[x,y].Data.JewelID) || effectJewels.Contains(JewelID.any))
+          
+          //Which gem the computer prioritizes swapping
+          // Gems that activate abilities + any wrath gems
+          if (effectJewels.Contains(jwlMap[x,y].Data.JewelID) || effectJewels.Contains(JewelID.any) || jwlMap[x,y].Data.JewelID == JewelID.wrath)
             abilityJewels.Add(jwlMap[x, y]);
         }
       }
